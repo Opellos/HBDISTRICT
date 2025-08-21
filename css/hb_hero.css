@@ -1,0 +1,351 @@
+@charset "utf-8";
+/* =========================================================
+Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025 
+   ------------------------------ */
+#hero-section {
+  /* Farben / Verlauf */
+  --bg1: #007bff;
+  --bg2: #ff00ff;
+  --t1: #ff00ff;  /* Akzent für BRAND */
+  --t2: #ff1493;  /* Akzent für Tagline/AI */
+
+  /* Typo-Basis (Desktop) */
+  --brandMin: 3.25rem;  --brandVW: 14vw;  --brandMax: 8rem;
+  --tagMin: 1.1rem;     --tagVW: 4vw;     --tagMax: 2.3rem;
+  --subMin: 0.72rem;    --subVW: 1.7vw;   --subMax: 1rem;
+
+  /* Gesamtskalierung Desktop */
+  --typeScale: 2.1;
+
+  /* Feinoffsets (em skaliert mit BRAND) */
+  --aiOffsetX: 0em;
+  --aiBaselineFix: 0.115em;     /* AI auf Grundlinie */
+  --tagOffsetX: 0.2em;  --tagOffsetY: 0.6em;
+  --subOffsetX: 0.5em;  --subOffsetY: -0.5em;
+  --subTracking: 0.01em;
+  --subMinGap: 0.5ch;
+
+  /* Mobile-Faktoren (werden unten präzisiert) */
+  --tagMobileScale: 1;
+  --subMobileScale: 1;
+
+  /* Bühne */
+  height: min(100svh, 700px);
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  font-family: 'Montserrat', sans-serif;
+
+  /* Reveal-Timing für Gruppe/AI (zentral steuerbar) */
+  --heroDelay: .25s;
+  --heroDur:   .30s;
+}
+
+/* ------------------------------
+   2) Container & Ausrichtung + Gruppen-Reveal
+   ------------------------------ */
+#hero-section .hb-hero {
+  position: relative;
+  width: min(90vw, 700px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* linksbündig */
+  justify-content: center;   /* vertikal mittig */
+  text-align: left;
+  overflow: hidden;
+
+  /* Gruppen-Reveal kaschiert initiales Layout-Setzen */
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(12px);
+  animation: heroReveal var(--heroDur) ease var(--heroDelay) forwards;
+  will-change: opacity, filter, transform;
+}
+@keyframes heroReveal { to { opacity:1; filter:none; transform:none; } }
+
+/* ------------------------------
+   3) BRAND (H1) + „A/AI“-Anker
+   ------------------------------ */
+#hero-section .hb-hero-brand {
+  color: var(--t1);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: calc(clamp(var(--brandMin), var(--brandVW), var(--brandMax)) * var(--typeScale));
+  margin: 0;
+  white-space: nowrap;
+  display: inline-block;
+}
+/* Anker im Textfluss – verhindert Lücken zwischen BR|A|ND */
+#hero-section .brand-anchor { position: relative; display: inline; }
+#hero-section .brand-A      { display: inline; color: inherit; }
+
+/* AI: baseline-genau, erscheint NACH dem Gruppen-Reveal */
+#hero-section .hb-hero-ai {
+  position: absolute;
+  left: var(--aiOffsetX);
+  top: 0;
+  transform: translateY(var(--aiBaselineFix));
+  color: var(--t2);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: heroAiFade .9s ease calc(var(--heroDelay) + var(--heroDur) + .15s) forwards;
+}
+@keyframes heroAiFade { to { opacity: 1; } }
+
+/* ------------------------------
+   4) Tagline & Subline (im Fluss, fein versetzt)
+   ------------------------------ */
+#hero-section .hb-hero .hb-hero-tagline {
+  display: inline-block !important;  /* transform-Ziel */
+  margin: 0 0 0.01em 0 !important;
+  font-weight: 800 !important;
+  color: var(--t2) !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  font-size: calc(clamp(var(--tagMin), var(--tagVW), var(--tagMax)) * var(--typeScale)) !important;
+  transform: translate(var(--tagOffsetX), var(--tagOffsetY)) !important;
+  z-index: 3;
+}
+
+#hero-section .hb-hero-subline {
+  margin: 0;
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
+  white-space: nowrap;                  /* Visual bleibt einzeilig */
+  letter-spacing: var(--subTracking);
+  display: flex;
+  column-gap: var(--subMinGap);
+  font-size: calc(clamp(var(--subMin), var(--subVW), var(--subMax)) * var(--typeScale) * var(--subMobileScale));
+  transform: translate(var(--subOffsetX), var(--subOffsetY));
+  z-index: 2;
+}
+#hero-section .hb-hero-subline > span { display: inline-block; }
+
+/* ------------------------------
+   5) Mobile (≤600px) – konsolidiert
+   ------------------------------ */
+@media (max-width: 600px) {
+  /* Bühne etwas breiter nutzen */
+  #hero-section .hb-hero { width: min(94vw, 700px); }
+
+  /* Variablen feinjustieren */
+  #hero-section {
+    --typeScale: 1.4;       /* Gesamt zurücknehmen */
+    --brandMin: 2.6rem;     --brandVW: 26vw;  --brandMax: 5.6rem;
+    --tagMobileScale: 1.05; --subMobileScale: 0.95;
+
+    --subMin: 0.95rem;  --subVW: 3.2vw;  --subMax: 1.12rem;
+    --aiBaselineFix: 0.095em;
+    --subOffsetX: 0.5em;  --subOffsetY: -0.95em;
+  }
+
+  /* BRAND: harte mobile Klammer (wirklich responsiv) */
+  #hero-section .hb-hero .hb-hero-brand {
+    font-size: clamp(4rem, 46vw, 9rem) !important;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -0.018em;
+    margin: 0  0 0.05em;
+  }
+
+  /* Subline: einzeilig & lesbar */
+  #hero-section .hb-hero .hb-hero-subline {
+    font-size: clamp(0.9rem, 3.6vw, 1.1rem) !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* ------------------------------
+   6) Ambient-Effekt (dezent, optional)
+   ------------------------------ */
+#hero-section{
+  --glowColor: rgba(255,20,147,.18);
+  --glowSize: 60vmax;
+  --glowDur: 9s;
+}
+#hero-section .hb-hero::after {
+  content:"";
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(closest-side, var(--glowColor) 0%, transparent 70%);
+  filter: blur(28px);
+  opacity: 0;
+  transform: translate(-18%, 12%) scale(.85);
+  animation: heroAmbient var(--glowDur) ease-in-out calc(var(--heroDelay) + var(--heroDur)) infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes heroAmbient{
+  0%   { opacity: 0.00; transform: translate(-18%, 12%) scale(.85); }
+  50%  { opacity: 0.35; transform: translate(  6%,  0%) scale(1.00); }
+  100% { opacity: 0.18; transform: translate( 22%,-10%) scale(1.10); }
+}
+
+/* Barrierefreiheit: weniger Bewegung respektieren */
+@media (prefers-reduced-motion: reduce){
+  #hero-section .hb-hero { animation: none; opacity: 1; filter: none; transform: none; }
+  #hero-section .hb-hero-ai { animation: none; opacity: 1; }
+  #hero-section .hb-hero::after { animation: none; opacity: 0; }
+}
+
+/* Font-Fix: erzwungen Montserrat im gesamten Hero */
+#hero-section,
+#hero-section .hb-hero,
+#hero-section .hb-hero * {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+
+
+
+/* ======   MIGRATION Dienstag, 19. August 2025 21:05 ====================================================================
+   HERO – TYPO RECHTS (Hanken) + CTA
+   --------------------------------------------------------------------------
+   • Greift nur in der rechten Spalte (.hb-hero-B) – Visual links bleibt
+     Montserrat unangetastet.
+   • Werte sind 1:1 aus dem Head übernommen.
+   • ⚠️ Hinweis: Die clamp()-Reihenfolge bei Headings/CTA-Mobile ist
+     bewusst so übernommen. Wenn min > max, „klammert“ der Wert auf min.
+     Das ist okay, falls du feste Größen wünscht.
+   ========================================================================== */
+
+/* hbTYPO Nur rechte Spalte (.hb-hero-B) auf Hanken – Visual (.hb-hero-A) bleibt Montserrat */
+#hero-section .hb-hero .hb-hero-B,
+#hero-section .hb-hero .hb-hero-B *{
+  font-family:"Hanken Grotesk","Hanken",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif !important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Headings rechts #justage */
+#hero-section .hb-hero .hb-hero-B h2,
+#hero-section .hb-hero .hb-hero-B h3{
+  font-weight: 400;
+  line-height:1.00;
+  margin:0 0 .5rem;
+  font-size: clamp(2.5rem, 2.2vw, 3.3rem); /* ⚠️ min > max → effektiv 3.3rem */
+  color:#fff;
+  text-wrap:balance;
+}
+
+/* Copy rechts justage */
+#hero-section .hb-hero .hb-hero-B p{
+  font-weight:300;
+  line-height:1.5;
+  max-width:60ch;
+  font-size:clamp(1.6rem, 1.4vw, 1.6rem); /* min=max → feste Größe 1.6rem */
+  color:rgba(255,255,255,.92);
+  text-wrap:pretty;
+}
+
+/* Mobile Feintuning */
+@media (max-width:600px){
+  #hero-section .hb-hero .hb-hero-B p{ line-height:1.55; }
+}
+
+/* ========================================================================== */
+/* CTA (rechts im Hero) – mit Stellschrauben als Variablen                     */
+/* - Größe/Rundung/Typo über Variablen an #hero-section                       */
+/* - Farben ziehen aus --top-grad-1/2/3 (global definiert)                    */
+/* ========================================================================== */
+
+/* STELLSCHRAUBEN (einfach anpassen) */
+#hero-section{
+  --cta-padding-y: 2.2rem;    /* ↑/↓ Gesamthöhe */
+  --cta-padding-x: 2.6rem;    /* → horizontale Luft */
+  --cta-radius: 14px;         /* Eckradius */
+  --cta-gap: .55rem;          /* Abstand Icon/Text */
+
+  --cta-font-weight: 600;        /* 500–700 */
+  --cta-font-size-min: 1.05rem;  /* min */
+  --cta-font-size-fluid: 1.35vw; /* fluid */
+  --cta-font-size-max: 1.8rem;   /* max */
+
+  /* Schatten-Presets */
+  --cta-shadow-1:        0 10px 24px rgba(0,0,0,.28);
+  --cta-shadow-2:        0  2px  0 rgba(255,255,255,.12) inset;
+  --cta-shadow-1-hover:  0 14px 30px rgba(0,0,0,.32);
+  --cta-shadow-2-hover:  0  2px  0 rgba(255,255,255,.16) inset;
+  --cta-shadow-1-active: 0  8px 18px rgba(0,0,0,.25);
+  --cta-shadow-2-active: 0  1px  0 rgba(255,255,255,.12) inset;
+}
+
+/* BUTTON-LOOK */
+#hero-section .hb-hero .hb-hero-B .hb-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--cta-gap);
+
+  /* Größe & Form */
+  padding:var(--cta-padding-y) var(--cta-padding-x);
+  border-radius:var(--cta-radius);
+
+  /* Typografie */
+  font-weight:var(--cta-font-weight);
+  font-size:clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  line-height:1;
+  letter-spacing:.01em;
+  text-decoration:none;
+
+  /* Farben (Gradient nutzt Top-Farben; Fallbacks inkl.) */
+  color:#fff;
+  background:linear-gradient(
+    135deg,
+    var(--top-grad-1, #2d5eff),
+    var(--top-grad-2, #7d32df) 50%,
+    var(--top-grad-3, #ff4bc0) 85%
+  );
+
+  /* Tiefe */
+  box-shadow:var(--cta-shadow-1), var(--cta-shadow-2);
+  margin-top:.85rem;
+  transform:translateZ(0);
+}
+
+/* INTERAKTION */
+#hero-section .hb-hero .hb-hero-B .hb-cta:hover{
+  transform:translateY(-2px);
+  filter:saturate(1.075);
+  box-shadow:var(--cta-shadow-1-hover), var(--cta-shadow-2-hover);
+}
+#hero-section .hb-hero .hb-hero-B .hb-cta:active{
+  transform:translateY(0);
+  box-shadow:var(--cta-shadow-1-active), var(--cta-shadow-2-active);
+}
+#hero-section .hb-hero .hb-hero-B .hb-cta:focus-visible{
+  outline:none;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.85),
+    0 0 0 6px rgba(125,50,223,.45);
+}
+
+/* RESPONSIVE – am Handy kompakter */
+@media (max-width:600px){
+  #hero-section{
+    --cta-padding-y: 1.2rem;
+    --cta-padding-x: 1.2rem;
+    --cta-font-size-min: 1.2rem;
+    --cta-font-size-fluid: 3.6vw;
+    --cta-font-size-max: 1.10rem; /* ⚠️ max < min → effektiv 1.2rem */
+  }
+}
+
+/* Barrierefrei – weniger Bewegung */
+@media (prefers-reduced-motion: reduce){
+  #hero-section .hb-hero .hb-hero-B .hb-cta,
+  #hero-section .hb-hero .hb-hero-B .hb-cta:hover{
+    transform:none;
+    filter:none;
+  }
+}
+
+
+
+
