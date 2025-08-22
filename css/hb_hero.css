@@ -9,13 +9,11 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
   --t1: #ff00ff;  /* Akzent für BRAND */
   --t2: #ff1493;  /* Akzent für Tagline/AI */
 
-  /* Typo-Basis (Desktop) */
-  --brandMin: 3.25rem;  --brandVW: 14vw;  --brandMax: 8rem;
+  /* Typo-Basis */
+  --brandSize: clamp(4rem, 6vw, 10rem); /* NEU Default */
   --tagMin: 1.1rem;     --tagVW: 4vw;     --tagMax: 2.3rem;
   --subMin: 0.72rem;    --subVW: 1.7vw;   --subMax: 1rem;
-
-  /* Gesamtskalierung Desktop */
-  --typeScale: 2.1;
+  --brandScale: 1;
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX: 0em;
@@ -26,7 +24,6 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
   --subMinGap: 0.5ch;
 
   /* Mobile-Faktoren (werden unten präzisiert) */
-  --tagMobileScale: 1;
   --subMobileScale: 1;
 
   /* Bühne */
@@ -72,108 +69,69 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.02em;
-  font-size: calc(clamp(var(--brandMin), var(--brandVW), var(--brandMax)) * var(--typeScale));
+  font-size: var(--brandSize); /* ERSETZT clamp(...) – EINZIGE Quelle */
   margin: 0;
   white-space: nowrap;
   display: inline-block;
 }
 /* Anker im Textfluss – verhindert Lücken zwischen BR|A|ND */
-#hero-section .brand-anchor { position: relative; display: inline; }
-#hero-section .brand-A      { display: inline; color: inherit; }
+#hero-section .brand-anchor{ position:relative; display:inline; }
+#hero-section .brand-A{ display:inline; color:inherit; } /* WICHTIG A bleibt blau */
 
 /* AI: baseline-genau, erscheint NACH dem Gruppen-Reveal */
-#hero-section .hb-hero-ai {
-  position: absolute;
-  left: var(--aiOffsetX);
-  top: 0;
-  transform: translateY(var(--aiBaselineFix));
-  color: var(--t2);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0;
-  animation: heroAiFade .9s ease calc(var(--heroDelay) + var(--heroDur) + .15s) forwards;
+#hero-section .hb-hero-ai{
+  position:absolute; left:var(--aiOffsetX,0); top:0;
+  transform:translateY(var(--aiBaselineFix,0.10em));
+  color:var(--t2); font-weight:800; letter-spacing:-0.02em; pointer-events:none; z-index:1;
+  opacity:0; animation:heroAiFade .6s ease .9s forwards;
 }
-@keyframes heroAiFade { to { opacity: 1; } }
+@keyframes heroAiFade{ to{ opacity:1; } }
 
 /* ------------------------------
    4) Tagline & Subline (im Fluss, fein versetzt)
    ------------------------------ */
-#hero-section .hb-hero .hb-hero-tagline {
-  display: inline-block !important;  /* transform-Ziel */
-  margin: 0 0 0.01em 0 !important;
-  font-weight: 800 !important;
-  color: var(--t2) !important;
-  white-space: nowrap !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.02em !important;
-  font-size: calc(clamp(var(--tagMin), var(--tagVW), var(--tagMax)) * var(--typeScale)) !important;
-  transform: translate(var(--tagOffsetX), var(--tagOffsetY)) !important;
-  z-index: 3;
+#hero-section .hb-hero .hb-hero-tagline{
+  /* WICHTIG Tagline-Override */
+  display:inline-block!important;
+  color:var(--t2)!important; font-weight:800!important; text-transform:uppercase!important;
+  letter-spacing:0.02em!important;
+  font-size:calc(clamp(var(--tagMin),var(--tagVW),var(--tagMax))*var(--brandScale,1))!important;
+  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0))!important;
 }
 
-#hero-section .hb-hero-subline {
-  margin: 0;
-  font-weight: 600;
-  font-style: italic;
-  color: #fff;
-  white-space: nowrap;                  /* Visual bleibt einzeilig */
-  letter-spacing: var(--subTracking);
-  display: flex;
-  column-gap: var(--subMinGap);
-  font-size: calc(clamp(var(--subMin), var(--subVW), var(--subMax)) * var(--typeScale) * var(--subMobileScale));
-  transform: translate(var(--subOffsetX), var(--subOffsetY));
-  z-index: 2;
+#hero-section .hb-hero-subline{
+  margin:0;
+  font-weight:600;
+  font-style:italic;
+  color:#fff;
+  letter-spacing:var(--subTracking);
+  display:flex;
+  column-gap:var(--subMinGap);
+  font-size:calc(clamp(var(--subMin),var(--subVW),var(--subMax))*var(--subMobileScale));
+  transform:translate(var(--subOffsetX),var(--subOffsetY));
+  white-space:nowrap!important; /* WICHTIG einzeilig */
+  z-index:2;
 }
 #hero-section .hb-hero-subline > span { display: inline-block; }
+
+/* NEU Desktop-Brand-Scaling */
+@media (min-width:601px){
+  #hero-section{ --brandSize: clamp(5rem, 8vw, 12rem); } /* WICHTIG MIN/IDEAL/MAX */
+  #hero-section .hb-hero{ width: min(96vw, 980px); }     /* NEU Bühne breiter, verhindert Plateaus */
+}
 
 /* ------------------------------
    5) Mobile (≤600px) – konsolidiert
    ------------------------------ */
-@media (max-width: 600px) {
-  /* Bühne etwas breiter nutzen */
-  #hero-section .hb-hero { width: min(94vw, 700px); }
-
-  /* Variablen feinjustieren */
-  #hero-section {
-    --typeScale: 1.4;       /* Gesamt zurücknehmen */
-    --brandMin: 2.6rem;     --brandVW: 26vw;  --brandMax: 5.6rem;
-    --tagMobileScale: 1.05; --subMobileScale: 0.95;
-
-    --subMin: 0.95rem;  --subVW: 3.2vw;  --subMax: 1.12rem;
-    --aiBaselineFix: 0.095em;
-    --subOffsetX: 0.5em;  --subOffsetY: -0.95em;
-
-    /* hero-content weiter nach unten verschieben */
-    padding-top: 10vh;          /* #codex_justage: 10vh Luft nach oben in mobiler Ansicht */
-    align-items: flex-start;    /* #codex_justage: Element oben ausrichten */
+@media (max-width:600px){
+  #hero-section{
+    --brandSize: clamp(4rem, 46vw, 9rem); /* ERSETZT direkte font-size */
+    --subMin:0.95rem; --subVW:3.2vw; --subMax:1.12rem; --subMobileScale:0.95; /* NEU */
+    --cta-padding-y: 1.2rem; --cta-padding-x: 1.2rem; /* NEU */
+    --cta-font-size-min:1.2rem; --cta-font-size-fluid:3.6vw; --cta-font-size-max:1.10rem; /* NEU */
   }
-
-  /* Inhalt nicht mehr vertikal zentrieren */
-  #hero-section .hb-hero {
-    justify-content: flex-start; /* #codex_justage: oben ausrichten in mobiler Ansicht */
-  }
-
-  /* A-Spalte im Split (Visual) zusätzlich nach unten schieben */
-  #hero-section .hb-hero-A {
-    margin-top: 10vh; /* #codex_justage: 10vh Luft über der Visual-Spalte auf Mobilgeräten */
-  }
-
-  /* BRAND: harte mobile Klammer (wirklich responsiv) */
-  #hero-section .hb-hero .hb-hero-brand {
-    font-size: clamp(4rem, 46vw, 9rem) !important;
-    line-height: 1;
-    white-space: nowrap;
-    letter-spacing: -0.018em;
-    margin: 0  0 0.05em;
-  }
-
-  /* Subline: einzeilig & lesbar */
-  #hero-section .hb-hero .hb-hero-subline {
-    font-size: clamp(0.9rem, 3.6vw, 1.1rem) !important;
-    white-space: nowrap !important;
-  }
+  #hero-section .hb-hero .hb-hero-subline{ font-size:clamp(0.9rem,3.6vw,1.1rem)!important; }
+  #hero-section .hb-hero .hb-hero-B p{ line-height:1.55; }
 }
 
 /* ------------------------------
@@ -259,10 +217,6 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
   text-wrap:pretty;
 }
 
-/* Mobile Feintuning */
-@media (max-width:600px){
-  #hero-section .hb-hero .hb-hero-B p{ line-height:1.55; }
-}
 
 /* ========================================================================== */
 /* CTA (rechts im Hero) – mit Stellschrauben als Variablen                     */
@@ -338,17 +292,6 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
   box-shadow:
     0 0 0 3px rgba(255,255,255,.85),
     0 0 0 6px rgba(125,50,223,.45);
-}
-
-/* RESPONSIVE – am Handy kompakter */
-@media (max-width:600px){
-  #hero-section{
-    --cta-padding-y: 1.2rem;
-    --cta-padding-x: 1.2rem;
-    --cta-font-size-min: 1.2rem;
-    --cta-font-size-fluid: 3.6vw;
-    --cta-font-size-max: 1.10rem; /* ⚠️ max < min → effektiv 1.2rem */
-  }
 }
 
 /* Barrierefrei – weniger Bewegung */
