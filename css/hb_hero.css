@@ -146,7 +146,7 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
     --subOffsetX: 0.5em;  --subOffsetY: -0.95em;
 
     /* hero-content weiter nach unten verschieben */
-    padding-top: 25vh;          /* #codex_justage: mehr Luft nach oben in mobiler Ansicht */
+    padding-top: 10vh;          /* #codex_justage: 10vh Luft nach oben in mobiler Ansicht */
     align-items: flex-start;    /* #codex_justage: Element oben ausrichten */
   }
 
@@ -157,7 +157,7 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
 
   /* A-Spalte im Split (Visual) zusätzlich nach unten schieben */
   #hero-section .hb-hero-A {
-    margin-top: 25vh; /* #codex_justage: mehr Luft über der Visual-Spalte auf Mobilgeräten */
+    margin-top: 10vh; /* #codex_justage: 10vh Luft über der Visual-Spalte auf Mobilgeräten */
   }
 
   /* BRAND: harte mobile Klammer (wirklich responsiv) */
