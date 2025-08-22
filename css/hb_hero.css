@@ -155,6 +155,11 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
     justify-content: flex-start; /* #codex_justage: oben ausrichten in mobiler Ansicht */
   }
 
+  /* A-Spalte im Split (Visual) zusätzlich nach unten schieben */
+  #hero-section .hb-hero-A {
+    margin-top: 25vh; /* #codex_justage: mehr Luft über der Visual-Spalte auf Mobilgeräten */
+  }
+
   /* BRAND: harte mobile Klammer (wirklich responsiv) */
   #hero-section .hb-hero .hb-hero-brand {
     font-size: clamp(4rem, 46vw, 9rem) !important;
