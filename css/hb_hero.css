@@ -146,8 +146,13 @@ Dienstag, 19. August 2025 12:22 RECOVER VON WD 1.2.22 Dienstag, 18. August 2025
     --subOffsetX: 0.5em;  --subOffsetY: -0.95em;
 
     /* hero-content weiter nach unten verschieben */
-    padding-top: 25vh;       /* #codex_justage: mehr Luft nach oben in mobiler Ansicht */
-    align-items: start;      /* #codex_justage: Element oben ausrichten */
+    padding-top: 25vh;          /* #codex_justage: mehr Luft nach oben in mobiler Ansicht */
+    align-items: flex-start;    /* #codex_justage: Element oben ausrichten */
+  }
+
+  /* Inhalt nicht mehr vertikal zentrieren */
+  #hero-section .hb-hero {
+    justify-content: flex-start; /* #codex_justage: oben ausrichten in mobiler Ansicht */
   }
 
   /* BRAND: harte mobile Klammer (wirklich responsiv) */
