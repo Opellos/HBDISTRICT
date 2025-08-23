@@ -1,0 +1,11 @@
+{
+  "name": "hbdistrict",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node ci/screenshot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.41.0"
+  }
+}

@@ -58,10 +58,7 @@
   animation: glassIn .6s ease
              calc(var(--heroDelay, .45s) + var(--heroDur, .60s) + .10s)
              both;                                /* sanftes Aufpoppen */
-  /* Wichtig: Website-Standardtypografie in B */
-  font-family: inherit;
 }
-#hero-section .hb-hero--split .hb-hero-B *{ font-family: inherit; }
 
 /* Fallback, falls kein backdrop-filter verfügbar */
 @supports not ((backdrop-filter: blur(0)) or (-webkit-backdrop-filter: blur(0))){

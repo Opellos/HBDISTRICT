@@ -33,6 +33,8 @@
   height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  --hero-gap:var(--space-2xl);
+  margin-bottom:var(--hero-gap);
   /* Default: Hanken via global body; Montserrat scoped to .hb-hero-A */
 
   /* Reveal-Timing */
@@ -118,6 +120,7 @@
 
 #hero-section .hb-hero .hb-hero-B,
 #hero-section .hb-hero .hb-hero-B *{
+  font-family:var(--font-hanken);
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 
@@ -189,6 +192,7 @@
     --brandSize: clamp(6.2rem, 8.8vw, 14rem);
     --tagOffsetY:.90em;
     --subMin:1rem; --subVW:1.35vw; --subMax:1.35rem;
+    --hero-gap:var(--space-xl);
   }
   #hero-section .hb-hero{ width:min(96vw,1100px); } /* Bühne breiter */
 }
