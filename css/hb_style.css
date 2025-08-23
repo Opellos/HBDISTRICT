@@ -1187,9 +1187,6 @@ body::after{
           mask-image:linear-gradient(to bottom, #000 0, #000 32vh, transparent 100%);
 }
 
-/* Hero & Sections transparent, damit Gradient sichtbar ist */
-#hero-section{ background:transparent !important; }
-
 /* Ausnahmen behalten ihren eigenen Hintergrund */
 section:not(#works):not(#action):not(#slider):not(#vision1),
 .section:not(#works):not(#action):not(#slider):not(#vision1){
