@@ -1,3 +1,41 @@
+/* Design Tokens */
+:root{
+  /* Type */
+  --font-montserrat:'Montserrat',sans-serif;
+  --font-hanken:'Hanken Grotesk','Hanken',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+
+  /* Space */
+  --space-xs:0.25rem;
+  --space-s:0.5rem;
+  --space-m:1rem;
+  --space-l:1.5rem;
+  --space-xl:2.2rem;
+  --space-2xl:2.6rem;
+
+  /* Radius */
+  --radius-s:4px;
+  --radius-m:8px;
+  --radius-l:14px;
+
+  /* Shadow */
+  --shadow-md:0 10px 24px rgba(0,0,0,.28);
+  --shadow-md-hover:0 14px 30px rgba(0,0,0,.32);
+  --shadow-md-active:0 8px 18px rgba(0,0,0,.25);
+  --shadow-inset:0 2px 0 rgba(255,255,255,.12) inset;
+  --shadow-inset-hover:0 2px 0 rgba(255,255,255,.16) inset;
+  --shadow-inset-active:0 1px 0 rgba(255,255,255,.12) inset;
+
+  /* Duration */
+  --dur-fast:.2s;
+  --dur-medium:.25s;
+  --dur-base:.3s;
+  --dur-slow:.6s;
+
+  /* Easing */
+  --ease-standard:cubic-bezier(0.4,0,0.2,1);
+  --ease-in-out:ease-in-out;
+}
+
 /* BASIS TYPO */
 p {
   text-align: left;
@@ -8,9 +46,12 @@ p {
 p::first-line {
   hyphens: none;
 }
+a{
+  transition: color var(--dur-fast) var(--ease-standard);
+}
 
 body, p {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 300;
   font-size: 1.9rem;
   line-height: 1.4;
@@ -20,7 +61,7 @@ body, p {
 }
 
 h1, h2 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 700;
   font-size: 2.8rem;
   margin-top: 2.0rem;
@@ -29,7 +70,7 @@ h1, h2 {
 }
 
 h3, h4 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 600;
   font-size: 1.75rem;
   margin-top: 2rem;
@@ -41,7 +82,7 @@ h3, h4 {
 
 
 h5, h6 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 600;
   font-size: 1.75rem;
   margin-top: 2rem;
@@ -73,7 +114,7 @@ h5, h6 {
 
 
 .h2-special {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 900;
   font-size: clamp(4rem, 5vw, 6rem);
   color: #3d4654;
@@ -86,7 +127,7 @@ h5, h6 {
 
 
 .h2-special_2 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
   font-size: clamp(6rem, 6vw, 10rem); /* Skaliert von 4rem bis 6rem für Desktop */
   color: #3d4654; /* brandfont */
@@ -102,7 +143,7 @@ h5, h6 {
 
 
 .h2-special_3 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
   font-size: clamp(7rem, 7vw, 11rem); /* Skaliert von 4rem bis 6rem für Desktop */
   color: #fff; /* brandfont */
@@ -116,7 +157,7 @@ h5, h6 {
 
 
 .h3-headline {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 700;
   font-size: clamp(4rem, 5vw, 6rem);
   color: #3d4654;
@@ -129,7 +170,7 @@ h5, h6 {
 
 
 .h4-special {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-weight: 700;
   font-size: clamp(3rem, 4vw, 5rem);
   color: #fff;
@@ -143,7 +184,7 @@ h5, h6 {
 
 
 .italic-inline {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: var(--font-hanken);
   font-style: italic;
   font-weight: 900;
   letter-spacing: -0.05em;
@@ -816,7 +857,7 @@ max-height: 30px;
 
 
 .chapter-number {
-  font-family: 'Hanken Grotesk', sans-serif;
+    font-family: var(--font-hanken);
   font-weight: 900;
   font-size: clamp(25rem, 40vw, 30rem);
   color: rgba(32, 124, 250, 0.2);
@@ -841,7 +882,7 @@ max-height: 30px;
   top: 80%;
   left: 80%;
   transform: translate(-20%, -20%);
-  font-family: 'Montserrat', sans-serif;
+   font-family: var(--font-montserrat);
   font-weight: bolder;
   line-height: 1.2em;
   font-size: 3em;
@@ -942,8 +983,8 @@ section, .section {
 }
 .last-cta {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
-  margin-top: 1rem;
-  transition: background-color 0.2s ease;
+  margin-top: var(--space-m);
+  transition: background-color var(--dur-fast) var(--ease-standard);
 }
 .last-cta:hover {
   background-color: #3c64b0;
