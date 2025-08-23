@@ -33,7 +33,7 @@
   height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  font-family:var(--font-montserrat);
+  /* Default: Hanken via global body; Montserrat scoped to .hb-hero-A */
 
   /* Reveal-Timing */
   --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
@@ -118,7 +118,6 @@
 
 #hero-section .hb-hero .hb-hero-B,
 #hero-section .hb-hero .hb-hero-B *{
-  font-family:var(--font-hanken);
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 
