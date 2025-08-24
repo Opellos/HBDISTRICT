@@ -33,7 +33,7 @@
   height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  --hero-gap:var(--space-2xl);
+  --hero-gap:var(--space-4xl);
   margin-bottom:var(--hero-gap);
   /* Default: Hanken via global body; Montserrat scoped to .hb-hero-A */
 
@@ -118,23 +118,7 @@
   font-family:var(--font-montserrat);
 }
 
-#hero-section .hb-hero .hb-hero-B,
-#hero-section .hb-hero .hb-hero-B *{
-  font-family:var(--font-hanken);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
-
-/* ---------- 6) Rechte Spalte: Hanken + CTA ---------- */
-#hero-section .hb-hero .hb-hero-B h2,
-#hero-section .hb-hero .hb-hero-B h3{
-  font-weight:400; line-height:1; margin:0 0 .5rem;
-  font-size:clamp(2.5rem,2.2vw,3.3rem); color:#fff; text-wrap:balance;
-}
-#hero-section .hb-hero .hb-hero-B p{
-  font-weight:300; line-height:1.5; max-width:60ch;
-  font-size:clamp(1.6rem,1.4vw,1.6rem); color:rgba(255,255,255,.92);
-  text-wrap:pretty;
-}
+/* ---------- 6) Rechte Spalte: CTA ---------- */
 
 /* CTA – Stellschrauben */
 #hero-section{
@@ -188,11 +172,11 @@
 
 /* Desktop ab 1024px – normaler Zustand */
 @media (min-width:1024px){
-  #hero-section{
+  #hero-section{ 
     --brandSize: clamp(6.2rem, 8.8vw, 14rem);
     --tagOffsetY:.90em;
     --subMin:1rem; --subVW:1.35vw; --subMax:1.35rem;
-    --hero-gap:var(--space-xl);
+    --hero-gap:var(--space-3xl);
   }
   #hero-section .hb-hero{ width:min(96vw,1100px); } /* Bühne breiter */
 }
@@ -211,7 +195,6 @@
     --brandSize: clamp(4rem, 46vw, 9rem);
     --subMin:.95rem; --subVW:3.2vw; --subMax:1.12rem; --subMobileScale:.95;
   }
-  #hero-section .hb-hero{ width:min(94vw,700px); }
-  #hero-section .hb-hero .hb-hero-subline{ font-size:clamp(.9rem,3.6vw,1.1rem); }
-  #hero-section .hb-hero .hb-hero-B p{ line-height:1.55; }
-}
+    #hero-section .hb-hero{ width:min(94vw,700px); }
+    #hero-section .hb-hero .hb-hero-subline{ font-size:clamp(.9rem,3.6vw,1.1rem); }
+  }
