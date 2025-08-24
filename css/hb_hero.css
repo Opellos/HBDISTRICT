@@ -33,10 +33,10 @@
   height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  font-family:'Montserrat',sans-serif;
+  /* Default: Hanken via global body; Montserrat scoped to .hb-hero-A */
 
   /* Reveal-Timing */
-  --heroDelay:.25s; --heroDur:.30s;
+  --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
 }
 
 /* ---------- 2) Container + Gruppen-Reveal ---------- */
@@ -50,7 +50,7 @@
   text-align:left; overflow:hidden;
 
   opacity:0; filter:blur(8px); transform:translateY(12px);
-  animation:heroReveal var(--heroDur) ease var(--heroDelay) forwards;
+  animation:heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
   will-change:opacity,filter,transform;
 }
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
@@ -68,17 +68,17 @@
   position:absolute; left:var(--aiOffsetX,0); top:0;
   transform:translateY(var(--aiBaselineFix,.10em));
   color:var(--t2); font-weight:800; letter-spacing:-.02em; pointer-events:none; z-index:1;
-  opacity:0; animation:heroAiFade .6s ease .9s forwards;
+  opacity:0; animation:heroAiFade var(--dur-slow) var(--ease-standard) .9s forwards;
 }
 @keyframes heroAiFade{ to{ opacity:1; } }
 
 /* ---------- 4) Tagline + Subline ---------- */
 #hero-section .hb-hero .hb-hero-tagline{
-  display:block !important; /* nie neben BRAND */
-  color:var(--t2) !important; font-weight:800 !important; text-transform:uppercase !important;
-  letter-spacing:.02em !important;
-  font-size:calc(clamp(var(--tagMin),var(--tagVW),var(--tagMax))*var(--brandScale,1)) !important;
-  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0)) !important;
+  display:block; /* nie neben BRAND */
+  color:var(--t2); font-weight:800; text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:calc(clamp(var(--tagMin),var(--tagVW),var(--tagMax))*var(--brandScale,1));
+  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0));
 }
 #hero-section .hb-hero-subline{
   margin:0; font-weight:600; font-style:italic; color:#fff;
@@ -95,7 +95,7 @@
   content:""; position:absolute; inset:-25%;
   background:radial-gradient(closest-side,var(--glowColor) 0%,transparent 70%);
   filter:blur(28px); opacity:0; transform:translate(-18%,12%) scale(.85);
-  animation:heroAmbient var(--glowDur) ease-in-out calc(var(--heroDelay)+var(--heroDur)) infinite alternate;
+  animation:heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay)+var(--heroDur)) infinite alternate;
   pointer-events:none; z-index:0;
 }
 @keyframes heroAmbient{
@@ -111,17 +111,17 @@
   #hero-section .hb-hero::after{ animation:none; opacity:0; }
 }
 
-/* Einheitlich Montserrat im Hero (links) */
-#hero-section, #hero-section .hb-hero, #hero-section .hb-hero *{
-  font-family:'Montserrat',sans-serif !important;
+#hero-section .hb-hero .hb-hero-A,
+#hero-section .hb-hero .hb-hero-A *{
+  font-family:var(--font-montserrat);
+}
+
+#hero-section .hb-hero .hb-hero-B,
+#hero-section .hb-hero .hb-hero-B *{
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 
 /* ---------- 6) Rechte Spalte: Hanken + CTA ---------- */
-#hero-section .hb-hero .hb-hero-B,
-#hero-section .hb-hero .hb-hero-B *{
-  font-family:"Hanken Grotesk","Hanken",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif !important;
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
 #hero-section .hb-hero .hb-hero-B h2,
 #hero-section .hb-hero .hb-hero-B h3{
   font-weight:400; line-height:1; margin:0 0 .5rem;
@@ -135,12 +135,13 @@
 
 /* CTA – Stellschrauben */
 #hero-section{
-  --cta-padding-y:2.2rem; --cta-padding-x:2.6rem; --cta-radius:14px; --cta-gap:.55rem;
+  --cta-padding-y:var(--space-xl); --cta-padding-x:var(--space-2xl); --cta-radius:var(--radius-l); --cta-gap:.55rem;
   --cta-font-weight:600;
   --cta-font-size-min:1.05rem; --cta-font-size-fluid:1.35vw; --cta-font-size-max:1.8rem;
-  --cta-shadow-1:0 10px 24px rgba(0,0,0,.28); --cta-shadow-2:0 2px 0 rgba(255,255,255,.12) inset;
-  --cta-shadow-1-hover:0 14px 30px rgba(0,0,0,.32); --cta-shadow-2-hover:0 2px 0 rgba(255,255,255,.16) inset;
-  --cta-shadow-1-active:0 8px 18px rgba(0,0,0,.25); --cta-shadow-2-active:0 1px 0 rgba(255,255,255,.12) inset;
+  --cta-shadow-1:var(--shadow-md); --cta-shadow-2:var(--shadow-inset);
+  --cta-shadow-1-hover:var(--shadow-md-hover); --cta-shadow-2-hover:var(--shadow-inset-hover);
+  --cta-shadow-1-active:var(--shadow-md-active); --cta-shadow-2-active:var(--shadow-inset-active);
+  --cta-transition:var(--dur-fast) var(--ease-in-out);
 }
 #hero-section .hb-hero .hb-hero-B .hb-cta{
   display:inline-flex; align-items:center; gap:var(--cta-gap);
@@ -150,6 +151,7 @@
   line-height:1; letter-spacing:.01em; text-decoration:none; color:#fff;
   background:linear-gradient(135deg,var(--top-grad-1,#2d5eff),var(--top-grad-2,#7d32df) 50%,var(--top-grad-3,#ff4bc0) 85%);
   box-shadow:var(--cta-shadow-1),var(--cta-shadow-2); margin-top:.85rem; transform:translateZ(0);
+  transition:transform var(--cta-transition), filter var(--cta-transition), box-shadow var(--cta-transition);
 }
 #hero-section .hb-hero .hb-hero-B .hb-cta:hover{
   transform:translateY(-2px); filter:saturate(1.075);
@@ -206,6 +208,6 @@
     --subMin:.95rem; --subVW:3.2vw; --subMax:1.12rem; --subMobileScale:.95;
   }
   #hero-section .hb-hero{ width:min(94vw,700px); }
-  #hero-section .hb-hero .hb-hero-subline{ font-size:clamp(.9rem,3.6vw,1.1rem) !important; }
+  #hero-section .hb-hero .hb-hero-subline{ font-size:clamp(.9rem,3.6vw,1.1rem); }
   #hero-section .hb-hero .hb-hero-B p{ line-height:1.55; }
 }
