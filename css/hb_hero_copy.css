@@ -13,11 +13,11 @@
   --t2:#ff1493;   /* Tagline/AI */
 
   /* Typo-Basis (fluid, ohne 600/900-MQs) */
-  --brandSize: clamp(6rem, 12vw, 20rem);       /* EINZIGE Quelle für .hb-hero-brand */
-  --tagMin:1.4rem; --tagVW:5vw; --tagMax:3.5rem;
+  --brandSize: clamp(5.5rem, 9.8vw, 13rem);       /* EINZIGE Quelle für .hb-hero-brand */
+  --tagMin:1.1rem; --tagVW:4vw; --tagMax:2.3rem;
 
   /* Subline flüssig <1024 gut lesbar */
-  --subMin:1rem; --subVW:3.5vw; --subMax:2rem;
+  --subMin:0.90rem; --subVW:3.0vw; --subMax:1.20rem;
 
   --brandScale:1;
 
@@ -59,17 +59,7 @@ $1
   margin: 0 auto;
 }
 /* Sicherheit: keine unerwünschte max-width vom Basis-Hero */
-#hero-section .hb-hero--split .hb-hero-grid{
-  max-width: none;
-  height:100%;
-}
-/* Inhalt links ausrichten und Bühne füllen */
-#hero-section .hb-hero--split .hb-hero-A{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  height:100%;
-}
+#hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
 /* END task_15b_split-width-override */
 #hero-section .hb-hero{
   position:relative;
@@ -103,19 +93,23 @@ $1
 }
 @keyframes heroAiFade{ to{ opacity:1; } }
 
-/* ---------- 4) Tagline + Subline ---------- */
-#hero-section .hb-hero .hb-hero-tagline{
-  display:block; /* nie neben BRAND */
-  color:var(--t2); font-weight:800; text-transform:uppercase;
-  letter-spacing:.02em;
-  font-size:calc(clamp(var(--tagMin),var(--tagVW),var(--tagMax))*var(--brandScale,1));
-  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0));
+$1
+
+/* START task_16_mobile-heading-adjust — 2025-08-27, 23:50 Uhr */
+@media (max-width:600px){
+  /* #justage — zusätzlicher vertikaler Abstand oberhalb der Hero-Überschrift */
+  #hero-section .hb-hero .hb-hero-tagline{
+    margin-top: 1.25rem; /* ≈20px, justierbar */
+  }
+  /* #justage — zusätzlicher Abstand der Subline zum Fließtext */
+  #hero-section .hb-hero-subline{
+    margin-bottom: 1.25rem; /* ≈20px, justierbar */
+  }
 }
+/* END task_16_mobile-heading-adjust */
 #hero-section .hb-hero-subline{
   margin:0; font-weight:600; font-style:italic; color:#fff;
   letter-spacing:var(--subTracking);
-
-
   display:flex; column-gap:var(--subMinGap);
   font-size:calc(clamp(var(--subMin),var(--subVW),var(--subMax))*var(--subMobileScale));
   transform:translate(var(--subOffsetX),var(--subOffsetY));
@@ -222,23 +216,43 @@ $1
     grid-template-columns: 1.15fr 0.85fr;
     gap: clamp(16px,3vw,32px);
   }
-} 
+}
 
 
-
-/* micro edit (cassette 18)
-file: css/hb_brand.css task_id: task_18_glass-mobile-gaps
-intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
-*/
-/* START task_18_glass-mobile-gaps — 2025-08-28, 00:12 Uhr #justage */
+/* START task_16_mobile-stage-offset — 2025-08-27, 23:40 Uhr  #justage */
+/* Ziel: In der mobilen Ansicht die gesamte Hero-Bühne etwas nach unten schieben (~40px).
+   Einheit: rem (zugänglich, skaliert sauber). Passe bei Bedarf nur den Wert an. */
 @media (max-width:600px){
-/* Überschrift unten mehr Luft */
-#hero-section .hb-hero--split h2.hb-glass-title{
-margin-bottom: 1.6em; /* vorher ~1.2em #justage */
+  #hero-section{ --hero-offset-top: calc(4.875rem + 2.5rem); } /* +2.5rem ≈ +40px  #justage */
 }
-/* Optional: erster Absatz oben neutral (falls global margin-top reinfunkt) */
-#hero-section .hb-hero--split p.hb-glass-text:first-of-type{
-margin-top: 0; /* #justage */
+/* END task_16_mobile-stage-offset */
+
+
+/* START task_17_heading-gap-adjust — 2025-08-28, 00:05 Uhr  #justage */
+/* Ziel: Überschrift (h2 in rechter Hero-Spalte) erhält zusätzlichen Abstand zum Fließtext.
+   Einheit: rem (skaliert sauber). Passe margin-bottom nach Bedarf. */
+@media (max-width:600px){
+  #hero-section .hb-hero .hb-hero-B h2{
+    margin-bottom: 2.5rem; /* Standard 1.5rem → hier +1rem ≈ +16px  #justage */
+  }
 }
+/* END task_17_heading-gap-adjust */
+
+
+/*
+  micro edit (cassette 18)
+  file: css/hb_brand.css   task_id: task_18_glass-mobile-gaps
+  intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
+*/
+/* START task_18_glass-mobile-gaps — 2025-08-28, 00:12 Uhr  #justage */
+@media (max-width:600px){
+  /* Überschrift unten mehr Luft */
+  #hero-section .hb-hero--split h2.hb-glass-title{
+    margin-bottom: 1.6em; /* vorher ~1.2em  #justage */
+  }
+  /* Optional: erster Absatz oben neutral (falls global margin-top reinfunkt) */
+  #hero-section .hb-hero--split p.hb-glass-text:first-of-type{
+    margin-top: 0; /* #justage */
+  }
 }
 /* END task_18_glass-mobile-gaps */

@@ -13,11 +13,11 @@
   --t2:#ff1493;   /* Tagline/AI */
 
   /* Typo-Basis (fluid, ohne 600/900-MQs) */
-  --brandSize: clamp(6rem, 12vw, 20rem);       /* EINZIGE Quelle für .hb-hero-brand */
-  --tagMin:1.4rem; --tagVW:5vw; --tagMax:3.5rem;
+  --brandSize: clamp(5.5rem, 9.8vw, 13rem);       /* EINZIGE Quelle für .hb-hero-brand */
+  --tagMin:1.1rem; --tagVW:4vw; --tagMax:2.3rem;
 
   /* Subline flüssig <1024 gut lesbar */
-  --subMin:1rem; --subVW:3.5vw; --subMax:2rem;
+  --subMin:0.90rem; --subVW:3.0vw; --subMax:1.20rem;
 
   --brandScale:1;
 
@@ -59,17 +59,7 @@ $1
   margin: 0 auto;
 }
 /* Sicherheit: keine unerwünschte max-width vom Basis-Hero */
-#hero-section .hb-hero--split .hb-hero-grid{
-  max-width: none;
-  height:100%;
-}
-/* Inhalt links ausrichten und Bühne füllen */
-#hero-section .hb-hero--split .hb-hero-A{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  height:100%;
-}
+#hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
 /* END task_15b_split-width-override */
 #hero-section .hb-hero{
   position:relative;
