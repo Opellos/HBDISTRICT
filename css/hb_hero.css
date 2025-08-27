@@ -33,6 +33,11 @@
   height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
+	
+	
+	--hero-offset-top: 4.375rem;
+  padding-top: var(--hero-offset-top);
+	
   /* Default: Hanken via global body; Montserrat scoped to .hb-hero-A */
 
   /* Reveal-Timing */
