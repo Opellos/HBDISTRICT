@@ -1,0 +1,212 @@
+@charset "utf-8";
+/* =========================================================
+   HERO Split & Glas – final (ersetzt bisherigen Block)
+   Ziel: A/B-Grid, rechte Glasbox mit sanfter Animation,
+   typografisch Website-Default (kein Montserrat-Zwang).
+   ========================================================= */
+
+/* ------------------------------
+   Variablen (leichtes Tuning ohne Codeänderung)
+   ------------------------------ */
+#hero-section{
+  --splitMaxW: 1700px;
+  --splitGapMin: 16px;
+  --splitGapVW: 3vw;
+  --splitGapMax: 32px;
+
+/* Variablen */
+	--glassBg: rgba(255,255,255,0.06);
+	--glassBorder: rgba(255,255,255,0.22);
+  --glassBlur: 10px;
+  --glassSat: 120%;
+  --glassShadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* ------------------------------
+   Split-Layout (A links / B rechts)
+   ------------------------------ */
+#hero-section .hb-hero.hb-hero--split{
+  width: min(92vw, var(--splitMaxW));           /* Bühne breiter für 2 Spalten */
+}
+
+#hero-section .hb-hero--split .hb-hero-grid{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;         /* Visual größer als Info */
+  gap: clamp(var(--splitGapMin), var(--splitGapVW), var(--splitGapMax));
+  align-items: center;
+  width: 100%;
+}
+
+#hero-section .hb-hero--split .hb-hero-A{ min-width: 0; } /* sauberes Shrinken */
+
+/* ------------------------------
+   Glasbox rechts (B)
+   ------------------------------ */
+#hero-section .hb-hero--split .hb-hero-B{
+  position: relative;
+  isolation: isolate;                           /* saubere ::after-Ebene */
+  min-height: clamp(220px, 28vh, 360px);
+  padding: clamp(16px, 2.4vw, 28px);
+  border-radius: 16px;
+  background: var(--glassBg);
+  border: 1px solid var(--glassBorder);
+  box-shadow: var(--glassShadow);
+  -webkit-backdrop-filter: blur(var(--glassBlur)) saturate(var(--glassSat));
+  backdrop-filter: blur(var(--glassBlur)) saturate(var(--glassSat));
+  /* Glasbox */
+	color: rgba(255,255,255,0.92);
+  animation: glassIn .6s ease
+             calc(var(--heroDelay, .45s) + var(--heroDur, .60s) + .10s)
+             both;                                /* sanftes Aufpoppen */
+  /* Wichtig: Website-Standardtypografie in B */
+  font-family: inherit;
+}
+#hero-section .hb-hero--split .hb-hero-B *{ font-family: inherit; }
+
+/* Fallback, falls kein backdrop-filter verfügbar */
+@supports not ((backdrop-filter: blur(0)) or (-webkit-backdrop-filter: blur(0))){
+  #hero-section .hb-hero--split .hb-hero-B{
+   background: rgba(255,255,255,0.14);          /* etwas dichter für Lesbarkeit */
+  }
+}
+
+/* Lichtsaum (innen), sehr subtil */
+#hero-section .hb-hero--split .hb-hero-B::after{
+  content:"";
+  position:absolute; inset:1px; border-radius: inherit;
+  pointer-events:none; z-index:-1;
+ /* ::after Lichtsaum */
+background:
+  radial-gradient(120% 80% at 20% 0%, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0) 55%),
+  radial-gradient(120% 80% at 80% 100%, rgba(255,20,147,0.12) 0%, rgba(255,20,147,0) 60%);
+	
+	
+	
+	
+}
+
+/* =========================================================
+   NEU  BLOCK – einfügen an derselben Stelle
+   Typo in der Glasbox  |  Clean Build 1.3  |  21 Aug 2025
+   • Headline & Body skalieren sauber per clamp()
+   ========================================================= */
+
+/*
+  drop-packet (cassette 6)
+  file: css/hb_brand.css  task_id: task_6_glass-title-spacing-font
+  scope: #hb-glass-title
+  intent: mehr abstand unten, größere schrift
+*/
+/* START task_6_glass-title-spacing-font */
+/* ANCHOR ↑ (bestand, unverändert)
+#hero-section .hb-hero--split h2.hb-glass-title{
+*/
+
+#hero-section .hb-hero--split h2.hb-glass-title{
+    margin: 12px 0 1.2em 0; /* oben 35px, unten mehr luft zum text */
+  line-height: 1.2;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: clamp(2.6rem, 4.5vw, 3.4rem); /* leicht größer als vorher */
+}
+
+/* ANCHOR ↓ (bestand, unverändert)
+  font-size: clamp(2.2rem, 4vw, 3rem);
+}
+*/
+/* END task_6_glass-title-spacing-font */
+
+
+
+#hero-section .hb-hero--split p.hb-glass-text{
+   margin: 0 0 1.25em 0; /* vorher 0 0 .8em 0 → jetzt +20px luft */
+ line-height: 1.7 ;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  /* Mobil ≈ 1.2 rem → Desktop 1.5 rem */
+  font-size: clamp(1.6rem, 4vw, 1.5rem);
+}
+
+/* ===== Ende Typo-Override Glasbox – Build 1.3 (21 Aug 2025) ===== */
+
+/* ------------------------------
+   Animationen
+   ------------------------------ */
+@keyframes glassIn{
+  from{ opacity: 0; transform: translateY(10px) scale(.985); }
+  to  { opacity: 1; transform: none; }
+}
+
+/* ------------------------------
+   Responsive (unter 900px: stapeln)
+   ------------------------------ */
+@media (max-width: 900px){
+  #hero-section .hb-hero.hb-hero--split{ width: min(94vw, 800px); }
+  #hero-section .hb-hero--split .hb-hero-grid{
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  #hero-section .hb-hero--split .hb-hero-B{ min-height: auto; }
+}
+
+
+
+/* === HERO SPLIT (migrated from head) Dienstag, 19. August 2025 20:23 */
+/* === HERO SPLIT (migrated from head) ===================================== */
+/* Desktop-Layout für .hb-hero--split – innen bleibt .hb-hero-A unberührt  */
+@media (min-width:900px){
+
+  /* Wrapper breiter & zentriert; Typo-Scale nur im Split-Kontext */
+  #hero-section .hb-hero.hb-hero--split{
+    width:min(92vw,1200px);
+    max-width:1200px;
+    margin:0 auto;
+    --typeScale: 2.0; /* verkleinert BRAND/Tagline/Subline im Split */
+  }
+
+  /* Spalten-Layout + Gaps (hier: 55/45 – anpassbar) */
+  #hero-section .hb-hero.hb-hero--split > .hb-hero-grid{
+    display:grid;
+    grid-template-columns:minmax(0,55fr) minmax(0,45fr); /* aktuell 55 | 45 */
+    gap:clamp(16px,2vw,40px);
+    width:100%;
+    align-items:start; /* Oberkanten bündig */
+  }
+
+  /* Grid-Kinder dürfen schrumpfen; lange Wörter umbrechen */
+  #hero-section .hb-hero.hb-hero--split > .hb-hero-grid > *{
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+
+  /* A links, B rechts (robust, ohne Innenleben zu ändern) */
+  #hero-section .hb-hero.hb-hero--split > .hb-hero-grid > :nth-child(1){ grid-column:1; }
+  #hero-section .hb-hero.hb-hero--split > .hb-hero-grid > :nth-child(2){ grid-column:2; }
+
+  /* Visual sicher einkapseln */
+  #hero-section .hb-hero.hb-hero--split .hb-hero-A{ overflow:hidden; }
+
+  /* Glass vorerst AUS (Box, Rahmen, Saum) */
+  #hero-section .hb-hero.hb-hero--split .hb-hero-B{
+    backdrop-filter:none;
+    background:transparent;
+    border:none;
+    box-shadow:none;
+  }
+  #hero-section .hb-hero.hb-hero--split .hb-hero-B::after{ content:none; }
+}
+/* === /HERO SPLIT ========================================================= */
+
+
+
+/* === HERO: Mobile-Fix gegen abgeschnittenes "D" ====Dienstag, 19. August 2025 20:31==== */
+@media (max-width: 899px){
+  /* Hero-Wrapper darf auf kleinen Screens NICHT beschneiden */
+  #hero-section .hb-hero{ overflow: visible; }
+
+  /* Optional: etwas Innenluft rechts, damit Buchstaben die Kante nicht berühren */
+  /* #hero-section .hb-hero-A{ padding-right: clamp(8px, 2vw, 16px); } */
+}
+/* === /Mobile-Fix ENDE ======================================================== */
+

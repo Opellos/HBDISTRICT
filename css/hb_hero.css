@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* =========================================================
-   HERO (clean) – 2025-08-19
+   HERO (clean, unified) — Version A1 — 2025-08-27, 22:45 Uhr
+   Quelle der Wahrheit für alle Hero-Styles (Brand/Tagline/Subline/CTA)
    ========================================================= */
 
 /* ---------- 1) Basis / Variablen ---------- */
@@ -33,18 +34,33 @@
   height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
-	
-	
-	--hero-offset-top: 4.375rem;
+
+  /* HERO Offset (Cassette 1) */
+  --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
   padding-top: var(--hero-offset-top);
-	
-  /* Default: Hanken via global body; Montserrat scoped to .hb-hero-A */
 
   /* Reveal-Timing */
   --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
 }
 
-/* ---------- 2) Container + Gruppen-Reveal ---------- */
+$1
+/* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
+#hero-section .hb-hero{ width:min(90vw,700px); }
+#hero-section .hb-hero--split{ width:auto; } /* Sicherheit: Split darf breiter */
+/* END task_15_hero-width-exception */
+
+/* START task_15b_split-width-override — 2025-08-27, 23:33 Uhr */
+/* Falls ein Element beide Klassen trägt (.hb-hero.hb-hero--split), breitere Bühne erlauben */
+#hero-section .hb-hero.hb-hero--split{ width:auto; }
+/* Grid-Container im Split bekommt eigene Breite, zentriert */
+#hero-section .hb-hero--split,
+#hero-section .hb-hero--split .hb-hero-grid{
+  width: min(92vw, 1200px);
+  margin: 0 auto;
+}
+/* Sicherheit: keine unerwünschte max-width vom Basis-Hero */
+#hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
+/* END task_15b_split-width-override */
 #hero-section .hb-hero{
   position:relative;
   width:min(90vw,700px);
@@ -68,7 +84,7 @@
   margin:0; white-space:nowrap; display:block; /* eigene Zeile */
 }
 #hero-section .brand-anchor{ position:relative; display:inline; }
-#hero-section .brand-A{ display:inline; color:inherit; } /* A in Brand-Farbe */
+#hero-section .brand-A{ display:inline; color:inherit; }
 #hero-section .hb-hero-ai{
   position:absolute; left:var(--aiOffsetX,0); top:0;
   transform:translateY(var(--aiBaselineFix,.10em));
@@ -77,14 +93,20 @@
 }
 @keyframes heroAiFade{ to{ opacity:1; } }
 
-/* ---------- 4) Tagline + Subline ---------- */
-#hero-section .hb-hero .hb-hero-tagline{
-  display:block; /* nie neben BRAND */
-  color:var(--t2); font-weight:800; text-transform:uppercase;
-  letter-spacing:.02em;
-  font-size:calc(clamp(var(--tagMin),var(--tagVW),var(--tagMax))*var(--brandScale,1));
-  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0));
+$1
+
+/* START task_16_mobile-heading-adjust — 2025-08-27, 23:50 Uhr */
+@media (max-width:600px){
+  /* #justage — zusätzlicher vertikaler Abstand oberhalb der Hero-Überschrift */
+  #hero-section .hb-hero .hb-hero-tagline{
+    margin-top: 1.25rem; /* ≈20px, justierbar */
+  }
+  /* #justage — zusätzlicher Abstand der Subline zum Fließtext */
+  #hero-section .hb-hero-subline{
+    margin-bottom: 1.25rem; /* ≈20px, justierbar */
+  }
 }
+/* END task_16_mobile-heading-adjust */
 #hero-section .hb-hero-subline{
   margin:0; font-weight:600; font-style:italic; color:#fff;
   letter-spacing:var(--subTracking);
@@ -116,17 +138,13 @@
   #hero-section .hb-hero::after{ animation:none; opacity:0; }
 }
 
+/* ---------- 6) Font-Scoping ---------- */
 #hero-section .hb-hero .hb-hero-A,
-#hero-section .hb-hero .hb-hero-A *{
-  font-family:var(--font-montserrat);
-}
-
+#hero-section .hb-hero .hb-hero-A *{ font-family:var(--font-montserrat); }
 #hero-section .hb-hero .hb-hero-B,
-#hero-section .hb-hero .hb-hero-B *{
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
+#hero-section .hb-hero .hb-hero-B *{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 
-/* ---------- 6) Rechte Spalte: Hanken + CTA ---------- */
+/* ---------- 7) Rechte Spalte: Hanken + CTA ---------- */
 #hero-section .hb-hero .hb-hero-B h2,
 #hero-section .hb-hero .hb-hero-B h3{
   font-weight:400; line-height:1; margin:0 0 .5rem;
@@ -135,84 +153,106 @@
 #hero-section .hb-hero .hb-hero-B p{
   font-weight:300; line-height:1.5; max-width:60ch;
   font-size:clamp(1.6rem,1.4vw,1.6rem); color:rgba(255,255,255,.92);
-  text-wrap:pretty;
 }
 
-/* CTA – Stellschrauben */
+/* CTA – Variablen (globale Bühne) */
 #hero-section{
-  --cta-padding-y:var(--space-xl); --cta-padding-x:var(--space-2xl); --cta-radius:var(--radius-l); --cta-gap:.55rem;
+  --cta-padding-y:var(--space-xl); --cta-padding-x:var(--space-2xl);
+  --cta-radius:var(--radius-l); --cta-gap:.55rem;
   --cta-font-weight:600;
   --cta-font-size-min:1.05rem; --cta-font-size-fluid:1.35vw; --cta-font-size-max:1.8rem;
   --cta-shadow-1:var(--shadow-md); --cta-shadow-2:var(--shadow-inset);
-  --cta-shadow-1-hover:var(--shadow-md-hover); --cta-shadow-2-hover:var(--shadow-inset-hover);
-  --cta-shadow-1-active:var(--shadow-md-active); --cta-shadow-2-active:var(--shadow-inset-active);
-  --cta-transition:var(--dur-fast) var(--ease-in-out);
 }
-#hero-section .hb-hero .hb-hero-B .hb-cta{
-  display:inline-flex; align-items:center; gap:var(--cta-gap);
-  padding:var(--cta-padding-y) var(--cta-padding-x); border-radius:var(--cta-radius);
+#hero-section .hb-cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
+  padding: var(--cta-padding-y) var(--cta-padding-x);
   font-weight:var(--cta-font-weight);
-  font-size:clamp(var(--cta-font-size-min),var(--cta-font-size-fluid),var(--cta-font-size-max));
-  line-height:1; letter-spacing:.01em; text-decoration:none; color:#fff;
-  background:linear-gradient(135deg,var(--top-grad-1,#2d5eff),var(--top-grad-2,#7d32df) 50%,var(--top-grad-3,#ff4bc0) 85%);
-  box-shadow:var(--cta-shadow-1),var(--cta-shadow-2); margin-top:.85rem; transform:translateZ(0);
-  transition:transform var(--cta-transition), filter var(--cta-transition), box-shadow var(--cta-transition);
+  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  border-radius: var(--cta-radius);
+  color:#fff; 
+  /* micro edit (cassette 12) – CTA mit Verlauf statt Schwarz */
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  text-decoration:none;
+  box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
+  transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
 }
-#hero-section .hb-hero .hb-hero-B .hb-cta:hover{
-  transform:translateY(-2px); filter:saturate(1.075);
-  box-shadow:var(--cta-shadow-1-hover),var(--cta-shadow-2-hover);
-}
-#hero-section .hb-hero .hb-hero-B .hb-cta:active{
-  transform:translateY(0); box-shadow:var(--cta-shadow-1-active),var(--cta-shadow-2-active);
-}
-#hero-section .hb-hero .hb-hero-B .hb-cta:focus-visible{
-  outline:none; box-shadow:0 0 0 3px rgba(255,255,255,.85),0 0 0 6px rgba(125,50,223,.45);
-}
-@media (prefers-reduced-motion:reduce){
-  #hero-section .hb-hero .hb-hero-B .hb-cta,
-  #hero-section .hb-hero .hb-hero-B .hb-cta:hover{ transform:none; filter:none; }
-}
+#hero-section .hb-cta:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
+#hero-section .hb-cta:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
 
-/* ---------- 7) Split-Layout 40/60 ---------- */
-#hero-section .hb-hero--split .hb-hero-grid{ display:grid; gap:2.2rem; width:100%; }
-@media (min-width:992px){
-  #hero-section .hb-hero--split .hb-hero-grid{ grid-template-columns:.42fr .58fr; align-items:center; }
-}
-@media (max-width:991px){
-  #hero-section .hb-hero--split .hb-hero-grid{ grid-template-columns:1fr; }
-}
-/* verhindert „Aufspreizen“ durch lange Inhalte */
-#hero-section .hb-hero--split .hb-hero-A,
-#hero-section .hb-hero--split .hb-hero-B{ min-width:0; }
-#hero-section .hb-hero-A, #hero-section .hb-hero-B{ z-index:1; position:relative; }
-
-/* ---------- 8) Responsive ---------- */
-
-/* Desktop ab 1024px – normaler Zustand */
-@media (min-width:1024px){
-  #hero-section{
-    --brandSize: clamp(6.2rem, 8.8vw, 14rem);
-    --tagOffsetY:.90em;
-    --subMin:1rem; --subVW:1.35vw; --subMax:1.35rem;
-  }
-  #hero-section .hb-hero{ width:min(96vw,1100px); } /* Bühne breiter */
-}
-
-/* Large Desktop ab 1280px – optional mehr Präsenz */
-@media (min-width:1280px){
-  #hero-section{
-    --brandSize: clamp(6.8rem, 8.2vw, 16rem);
-    --tagOffsetY:1em;
-  }
-}
-
-/* Mobile ≤600px – konsolidiert */
+/* ---------- 8) Mobile ≤600px (CTA + Brand/Subline Scaling) ---------- */
 @media (max-width:600px){
+  /* CTA-Tuning (Cassette 7c) */
   #hero-section{
-    --brandSize: clamp(4rem, 46vw, 9rem);
-    --subMin:.95rem; --subVW:3.2vw; --subMax:1.12rem; --subMobileScale:.95;
+    --cta-font-size-min: 1.55rem;   /* primärer Hebel für Lesbarkeit */
+    --cta-font-size-fluid: 4.0vw;   /* moderat fluid */
+    --cta-font-size-max: 2.3rem;    /* leichte Obergrenze ↑ */
+    --cta-padding-y: 1.05rem;       /* weniger „Pudding“, bleibt griffig */
+    --cta-padding-x: var(--space-l);
+    --cta-radius: 8px;              /* weniger rund in Vollbreite */
   }
-  #hero-section .hb-hero{ width:min(94vw,700px); }
-  #hero-section .hb-hero .hb-hero-subline{ font-size:clamp(.9rem,3.6vw,1.1rem); }
-  #hero-section .hb-hero .hb-hero-B p{ line-height:1.55; }
+  #hero-section .hb-cta{
+    display:block; width:100%; text-align:center;
+    min-height: 3.8rem;            /* Höhe der Komponente (nicht Container) absichern */
+    line-height: 1.25;             /* keine Quetschung des CTA-Textes */
+    white-space: nowrap;           /* schützt kurze CTAs vor Umbruch */
+  }
+
+  /* BRAND/Subline Hierarchie (Cassette 9) */
+  #hero-section{ --subMobileScale: .96; }        /* Subline minimal dezenter */
+  #hero-section .hb-hero-brand{ font-size: calc(var(--brandSize) * 1.08); }
+
+  /* Hero-Offset zur Nav (Cassette 10) */
+  #hero-section{ --hero-offset-top: 4.875rem; }
 }
+
+/* =========================================================
+   Ende — hb_hero.css (unified)
+   ========================================================= */
+
+/* ---------- Desktop-Split erzwingen (cassette 13) ---------- */
+@media (min-width:1024px){
+  #hero-section .hb-hero--split .hb-hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(16px,3vw,32px);
+  }
+}
+
+
+/* START task_16_mobile-stage-offset — 2025-08-27, 23:40 Uhr  #justage */
+/* Ziel: In der mobilen Ansicht die gesamte Hero-Bühne etwas nach unten schieben (~40px).
+   Einheit: rem (zugänglich, skaliert sauber). Passe bei Bedarf nur den Wert an. */
+@media (max-width:600px){
+  #hero-section{ --hero-offset-top: calc(4.875rem + 2.5rem); } /* +2.5rem ≈ +40px  #justage */
+}
+/* END task_16_mobile-stage-offset */
+
+
+/* START task_17_heading-gap-adjust — 2025-08-28, 00:05 Uhr  #justage */
+/* Ziel: Überschrift (h2 in rechter Hero-Spalte) erhält zusätzlichen Abstand zum Fließtext.
+   Einheit: rem (skaliert sauber). Passe margin-bottom nach Bedarf. */
+@media (max-width:600px){
+  #hero-section .hb-hero .hb-hero-B h2{
+    margin-bottom: 2.5rem; /* Standard 1.5rem → hier +1rem ≈ +16px  #justage */
+  }
+}
+/* END task_17_heading-gap-adjust */
+
+
+/*
+  micro edit (cassette 18)
+  file: css/hb_brand.css   task_id: task_18_glass-mobile-gaps
+  intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
+*/
+/* START task_18_glass-mobile-gaps — 2025-08-28, 00:12 Uhr  #justage */
+@media (max-width:600px){
+  /* Überschrift unten mehr Luft */
+  #hero-section .hb-hero--split h2.hb-glass-title{
+    margin-bottom: 1.6em; /* vorher ~1.2em  #justage */
+  }
+  /* Optional: erster Absatz oben neutral (falls global margin-top reinfunkt) */
+  #hero-section .hb-hero--split p.hb-glass-text:first-of-type{
+    margin-top: 0; /* #justage */
+  }
+}
+/* END task_18_glass-mobile-gaps */
