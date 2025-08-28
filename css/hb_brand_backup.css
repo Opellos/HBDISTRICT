@@ -13,11 +13,11 @@
   --t2:#ff1493;   /* Tagline/AI */
 
   /* Typo-Basis (fluid, ohne 600/900-MQs) */
-  --brandSize: clamp(5rem, 15vmin, 18rem);       /* EINZIGE Quelle für .hb-hero-brand */
-  --tagMin:1.4rem; --tagVW:5vmin; --tagMax:3.5rem;
+  --brandSize: clamp(6rem, 12vw, 20rem);       /* EINZIGE Quelle für .hb-hero-brand */
+  --tagMin:1.4rem; --tagVW:5vw; --tagMax:3.5rem;
 
   /* Subline flüssig <1024 gut lesbar */
-  --subMin:1rem; --subVW:3vmin; --subMax:2rem;
+  --subMin:1rem; --subVW:3.5vw; --subMax:2rem;
 
   --brandScale:1;
 
@@ -31,7 +31,7 @@
   --subMobileScale:1;
 
   /* Bühne */
-  min-height:100svh;
+  height:min(100svh,700px);
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
 
@@ -69,17 +69,16 @@ $1
   flex-direction:column;
   justify-content:center;
   height:100%;
-  min-width:0;
 }
-#hero-section .hb-hero--split .hb-hero-B{ min-width:0; }
 /* END task_15b_split-width-override */
 #hero-section .hb-hero{
   position:relative;
   width:min(90vw,700px);
+  height:100%;
   display:flex; flex-direction:column;
   align-items:flex-start;  /* linksbündig */
   justify-content:center;  /* vertikal mittig */
-  text-align:left; overflow:visible;
+  text-align:left; overflow:hidden;
 
   opacity:0; filter:blur(8px); transform:translateY(12px);
   animation:heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
