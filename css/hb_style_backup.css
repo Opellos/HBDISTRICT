@@ -954,12 +954,8 @@ section, .section {
   max-height: 160px;
 }
 
-.navbar-custom.nav-bright .nav li a {
-  color: #f5f5f5;
-}
-
-.navbar-custom.nav-bright .nav li a:hover {
-  color: #ff4081;
+.navbar-custom.nav-bright a {
+  color: #3d4654;
 }
 
 #bgCanvas {
