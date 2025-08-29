@@ -1,11 +1,3 @@
-/* =========================================================
-   FILE: hb_style.css
-   INTENT: Bereinigung Phase 1 (nur Marker/Kommentare; keine Werte ändern)
-NOTE: Fehlende Animationen markiert (fly-in, pulse).
-   NOTE: Originalinhalt unverändert; ToDos/Anker nur kommentiert.
-   ========================================================= */
-
-/* === ANKER: DESIGN TOKENS (Intent: konsolidieren, doppelte Variablen prüfen) === */
 /* Design Tokens */
 :root{
   /* Type Donnerstag, 28. August 2025 15:03 DISTRICT */
@@ -44,7 +36,6 @@ NOTE: Fehlende Animationen markiert (fly-in, pulse).
   --ease-in-out:ease-in-out;
 }
 
-/* === ANKER: BASIS-TYPO (Intent: Lesbarkeit, Einheitlichkeit) === */
 /* BASIS TYPO */
 p {
   text-align: left;
@@ -100,7 +91,6 @@ h5, h6 {
   color: #3d4654;
 }
 
-/* === ANKER: SPECIAL TYPO (Intent: Scopes prüfen) === */
 /* Special Typos */
 
 .ps {	color: #ffffff !important;	}
@@ -112,7 +102,6 @@ h5, h6 {
 }
 
 
-/* === ANKER: ABSTÄNDE (Intent: Doppelnamen & Negativabstände prüfen) === */
 /* Abstände */
 
 .gapi_bot_10  {
@@ -201,7 +190,6 @@ h5, h6 {
   letter-spacing: -0.05em;
 }
 
-/* === ANKER: HIGHLIGHTS (Intent: Varianten konsolidieren) === */
 /* Mark-Highlights (konsolidiert) */
 .mark-highlight-sm, .mark-highlight-sk, .mark-highlight-sk_2 {
   background: linear-gradient(to top, #207cfa 90%, transparent 0%);
@@ -304,7 +292,6 @@ h5, h6 {
   color: #207cfa;
 }
 
-/* === ANKER: GRADIENT-TEXT (Intent: Doppelte Klassen konsolidieren) === */
 /* Gradient-Text (konsolidiert) */
 .gradient-text_1 {
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
@@ -357,7 +344,6 @@ h5, h6 {
 }
 
 
-/* === ANKER: UTILS (Intent: Naming & Scopes prüfen) === */
 /* Anapssung*/
 
 
@@ -404,7 +390,6 @@ h5, h6 {
 	color: #ff3cd0;
 }
 
-/* === ANKER: CARDS (Intent: Komponenten bündeln) === */
 /* START  SESSION CARDS   */
 
 /* Karten-Styling */
@@ -463,7 +448,6 @@ h5, h6 {
 
 
 
-/* === ANKER: BACKGROUNDS/GLASS (Intent: Effekte gruppieren) === */
 /* Hintergründe  */
 
 .glass-card {
@@ -495,7 +479,6 @@ input, textarea {
 
 
 
-/* === ANKER: GRADIENTS (Intent: Animation getrennt steuerbar) === */
 /* Statischer Verlauf ohne Animation */
 .grandient_pow { /* Grundklasse mit statischem Farbverlauf */
   margin: 0;
@@ -518,7 +501,6 @@ input, textarea {
 
 
 
-/* === ANKER: LAYOUT SPLITS / LINES (Intent: Utilities separieren) === */
 /* Headline-Split & Vertical Line */
 .headline-split {
   display: flex;
@@ -586,6 +568,7 @@ max-height: 30px;
 
 
 
+
 @media (max-width: 768px) {
   .content-row {
     flex-direction: column;
@@ -599,7 +582,6 @@ max-height: 30px;
   }
 }
 
-/* === ANKER: CAROUSEL (Intent: Duplikate in main.css prüfen) === */
 /* Carousel */
 .carousel-item video {
   max-width: 40%;
@@ -631,7 +613,6 @@ max-height: 30px;
   color: #207cfa;
 }
 
-/* === ANKER: NAVIGATION (Intent: mobile/desktop Scopes trennen) === */
 /* Navigation */
 .navbar-collapse {
   padding-left: 3em;
@@ -671,7 +652,12 @@ max-height: 30px;
 
 
 
-/* === ANKER: MEDIA QUERIES (Intent: überschneidungen zusammenführen) === */
+
+
+
+
+
+
 /* Media Queries (konsolidiert) */
 @media (max-width: 1199px) {
   .v-center > [class*=col] {
@@ -858,6 +844,7 @@ max-height: 30px;
 
 
 
+
  /* HB-CSS Migration */
 
 .neutral-section {
@@ -879,8 +866,7 @@ max-height: 30px;
   left: clamp(-5rem, -10vw, -4rem);
   line-height: 1;
   letter-spacing: -0.2em;
-  /* TODO (Phase 2): @keyframes fly-in, pulse fehlen – hier nur referenziert. */
-animation: fly-in 1s ease-out forwards, pulse 4s infinite ease-in-out 1s;
+  animation: fly-in 1s ease-out forwards, pulse 4s infinite ease-in-out 1s;
   z-index: 0;
 	margin-top: 15rem;
 	margin-left: 10rem;
@@ -1003,6 +989,7 @@ section, .section {
 .last-cta:hover {
   background-color: #3c64b0;
 }
+
 
 
 
@@ -1133,6 +1120,7 @@ section, .section {
 }
 	
 
+
 @media (max-width: 768px) {
   #vision4 .right-column.one-third {
     margin-top: -20px;
@@ -1253,3 +1241,11 @@ section.fade-overlay.fade-weak   { --fade-from: .03; --fade-to: .08; }
 section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 
 /* ========================================================================== */
+
+	
+	
+	
+
+
+
+	
