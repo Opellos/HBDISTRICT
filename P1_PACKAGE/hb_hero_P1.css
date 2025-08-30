@@ -48,7 +48,9 @@ LAST Donnerstag, 28. August 2025 15:03
 
   /* HERO Offset (Cassette 1) */
   --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
-  padding-top: var(--hero-offset-top);
+  /* P2: hero spacing */
+  padding-top: calc(var(--hb-hero-pt, 120px) + 40px);
+  padding-bottom: max(40px, var(--hb-hero-pb, 80px) - 40px);
 
   /* Reveal-Timing */
   --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
@@ -74,6 +76,7 @@ $1
 /* END task_15b_split-width-override */
 #hero-section .hb-hero{
   position:relative;
+  --hero-scale: clamp(0.85, 1.2vw + 0.4, 1.15); /* P2: hero scale */
   width:min(90vw,700px);
   height:100%;
   display:flex; flex-direction:column;
@@ -105,6 +108,10 @@ $1
 @keyframes heroAiFade{ to{ opacity:1; } }
 
 $1
+
+#hero-section .hb-hero .hb-hero-A{
+  font-size: calc(1rem * var(--hero-scale));
+}
 
 /* START task_16_mobile-heading-adjust — 2025-08-27, 23:50 Uhr */
 @media (max-width:600px){
