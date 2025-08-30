@@ -182,24 +182,3 @@ LAST Donnerstag, 28. August 2025 15:03
 /* =========================================================
    END OF FILE — HB_HERO.CSS
    ========================================================= */
-
-
-/* Split: zweispaltig nebeneinander */
-#hero-section .hb-hero.hb-hero--split { display: block; } /* Basis-Flex deaktivieren nur hier */
-#hero-section .hb-hero--split .hb-hero-grid{
-  display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
-  align-items: center;
-  gap: clamp(16px,2vw,32px);
-  width: min(92vw, 1200px);
-  margin: 0 auto;
-}
-/* Spalten dürfen schrumpfen */
-#hero-section .hb-hero--split .hb-hero-A,
-#hero-section .hb-hero--split .hb-hero-B { min-width: 0; }
-
-/* Stacking erst auf kleineren Screens */
-@media (max-width: 900px){
-  #hero-section .hb-hero--split .hb-hero-grid { grid-template-columns: 1fr; }
-}
-
