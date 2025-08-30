@@ -1252,6 +1252,11 @@ section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 
 /* ========================================================================== */
 
+/* P2: hero text rhythm */
+#hero-section .hb-hero-B h2 { margin-bottom: clamp(12px, 1.2vw, 20px); }
+#hero-section .hb-hero-B p  { line-height: clamp(1.5, 1.1 + 1vw, 1.65); }
+#hero-section .hb-cta       { margin-top: 40px; }
+
 	
 	
 	
