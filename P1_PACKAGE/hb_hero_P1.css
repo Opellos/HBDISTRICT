@@ -48,9 +48,8 @@ LAST Donnerstag, 28. August 2025 15:03
 
   /* HERO Offset (Cassette 1) */
   --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
-  /* P2: hero spacing */
-  padding-top: calc(var(--hb-hero-pt, 120px) + 40px);
-  padding-bottom: max(40px, var(--hb-hero-pb, 80px) - 40px);
+  padding-top: calc(var(--hero-pt, 120px) + 40px);      /* P2: sofie */
+  padding-bottom: max(40px, calc(var(--hero-pb, 80px) - 24px)); /* P2: sofie */
 
   /* Reveal-Timing */
   --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);

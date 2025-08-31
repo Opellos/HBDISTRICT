@@ -23,18 +23,17 @@
   --t2:#ff1493;   /* Tagline/AI */
 
   /* Typo-Basis (fluid, ohne 600/900-MQs) */
-  --brandSize: clamp(5.5rem, 9.8vw, 13rem);       /* EINZIGE Quelle für .hb-hero-brand */
-  --tagMin:1.1rem; --tagVW:4vw; --tagMax:2.3rem;
+  --tagMin:1.1em; --tagVW:1.6em; --tagMax:2.3em;
 
   /* Subline flüssig <1024 gut lesbar */
-  --subMin:0.90rem; --subVW:3.0vw; --subMax:1.20rem;
+  --subMin:0.90em; --subVW:1em; --subMax:1.20em;
 
   --brandScale:1;
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX:0em; --aiBaselineFix:.115em;
-  --tagOffsetX:.2em; --tagOffsetY:clamp(.80em,1.2vw,1.00em);
-  --subOffsetX:.5em; --subOffsetY:clamp(-.40em,-.60vw,-.25em);
+  --tagOffsetX:.2em; --tagOffsetY:clamp(.80em,1em,1.00em);
+  --subOffsetX:.5em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
   --subTracking:.01em; --subMinGap:.5ch;
 
   /* Mobile-Faktor */
@@ -87,10 +86,15 @@ $1
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
+#hero-section .hb-hero-A{
+  --bv: clamp(5.5rem, 9.8vw, 13rem);
+  font-size: var(--bv);
+  --brandSize: var(--bv); /* P2: laura scaler */
+}
 #hero-section .hb-hero-brand{
   color:var(--t1);
   line-height:1; font-weight:800; letter-spacing:-.02em;
-  font-size:var(--brandSize); /* einzige Quelle */
+  font-size:1em; /* P2: laura scaler */
   margin:0; white-space:nowrap; display:block; /* eigene Zeile */
 }
 #hero-section .brand-anchor{ position:relative; display:inline; }
@@ -205,7 +209,7 @@ $1
 
   /* BRAND/Subline Hierarchie (Cassette 9) */
   #hero-section{ --subMobileScale: .96; }        /* Subline minimal dezenter */
-  #hero-section .hb-hero-brand{ font-size: calc(var(--brandSize) * 1.08); }
+  #hero-section .hb-hero-brand{ font-size:1em; /* P2: laura scaler */ }
 
   /* Hero-Offset zur Nav (Cassette 10) */
   #hero-section{ --hero-offset-top: 4.875rem; }
