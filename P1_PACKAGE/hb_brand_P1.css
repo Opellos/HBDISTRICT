@@ -23,13 +23,13 @@
   --t2:#ff1493;   /* Tagline/AI */
 
   /* Typo-Basis (fluid, ohne 600/900-MQs) */
-  --brandSize: clamp(5.5rem, 9.8vw, 13rem);       /* EINZIGE Quelle für .hb-hero-brand */
+  --brandSize: clamp(5.5rem, 9.8vw, 13rem);       /* EINZIGE Quelle für .hb-hero-brand #justage */
   --tagMin:1.1rem; --tagVW:4vw; --tagMax:2.3rem;
 
   /* Subline flüssig <1024 gut lesbar */
   --subMin:0.90rem; --subVW:3.0vw; --subMax:1.20rem;
 
-  --brandScale:1;
+  --brandScale:1.3;   /* 1 */
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX:0em; --aiBaselineFix:.115em;
