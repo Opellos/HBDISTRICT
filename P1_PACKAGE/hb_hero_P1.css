@@ -197,7 +197,7 @@ $1
 #hero-section .hb-cta:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
 
 /* ---------- 8) Mobile ≤600px (CTA + Brand/Subline Scaling) ---------- */
-@media (max-width:600px){
+@media (max-width:768px){
   /* CTA-Tuning (Cassette 7c) */
   #hero-section{
     --cta-font-size-min: 1.55rem;   /* primärer Hebel für Lesbarkeit */
@@ -239,7 +239,7 @@ $1
 /* START task_16_mobile-stage-offset — 2025-08-27, 23:40 Uhr  #justage */
 /* Ziel: In der mobilen Ansicht die gesamte Hero-Bühne etwas nach unten schieben (~40px).
    Einheit: rem (zugänglich, skaliert sauber). Passe bei Bedarf nur den Wert an. */
-@media (max-width:600px){
+@media (max-width:768px){
   #hero-section{ --hero-offset-top: calc(4.875rem + 2.5rem); } /* +2.5rem ≈ +40px  #justage */
 }
 /* END task_16_mobile-stage-offset */
@@ -248,7 +248,7 @@ $1
 /* START task_17_heading-gap-adjust — 2025-08-28, 00:05 Uhr  #justage */
 /* Ziel: Überschrift (h2 in rechter Hero-Spalte) erhält zusätzlichen Abstand zum Fließtext.
    Einheit: rem (skaliert sauber). Passe margin-bottom nach Bedarf. */
-@media (max-width:600px){
+@media (max-width:768px){
   #hero-section .hb-hero .hb-hero-B h2{
     margin-bottom: 2.5rem; /* Standard 1.5rem → hier +1rem ≈ +16px  #justage */
   }
@@ -262,7 +262,7 @@ $1
   intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
 */
 /* START task_18_glass-mobile-gaps — 2025-08-28, 00:12 Uhr  #justage */
-@media (max-width:600px){
+@media (max-width:768){
   /* Überschrift unten mehr Luft */
   #hero-section .hb-hero--split h2.hb-glass-title{
     margin-bottom: 1.6em; /* vorher ~1.2em  #justage */
