@@ -1,3 +1,12 @@
+/* Last Edit: 2025-09-01 20:31 (Europe/Berlin) */
+/* Edit 2025-09-01 20:31 – Subline ~15% kleiner: font-size 0.14em → 0.12em (generell) */
+/* Last Edit: 2025-09-01 20:27 (Europe/Berlin) */
+/* Edit 2025-09-01 20:27 – Subline generelle Verkleinerung + Wrap-Schutz (kein Überschuss über BRAND) */
+/* Edit 2025-09-01 20:20 – LAURA scaler bump: --bv clamp erhöht (min/fluid/max) für größeres BRAND */
+/* Last Edit: 2025-09-01 20:12 (Europe/Berlin) */
+/* Edit 2025-09-01 20:12 – Fix: .hb-hero-brand → font-size: var(--brandSize); mobile override auf Scaler ausgerichtet */
+/* Last Edit: 2025-09-01 19:46 (Europe/Berlin) */
+/* Checked: FIXED merge placeholder; syntax OK */
 /* =========================================================
    FILE: hb_brand.css
    INTENT: Phase 1 – Marker/Kommentare; keine Werte ändern
@@ -22,15 +31,13 @@
   --t1:#ff00ff;   /* BRAND */
   --t2:#ff1493;   /* Tagline/AI */
 
-  /* Typo-Basis (fluid, ohne 600/900-MQs) Montag, >> 01. September 2025 15:25 hb_Conflict-fix */
-  --tagMin:1.1rem; --tagVW:4vw; --tagMax:2.3rem;
+  /* Typo-Basis (fluid, ohne 600/900-MQs) */
   --tagMin:1.1em; --tagVW:1.6em; --tagMax:2.3em;
-
 
   /* Subline flüssig <1024 gut lesbar */
   --subMin:0.90em; --subVW:1em; --subMax:1.20em;
 
-  --brandScale:1.3;   /* 1 */
+  --brandScale:1;
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX:0em; --aiBaselineFix:.115em;
@@ -54,7 +61,6 @@
   --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
 }
 
-$1
 /* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
 #hero-section .hb-hero{ width:min(90vw,700px); }
 #hero-section .hb-hero--split{ width:auto; } /* Sicherheit: Split darf breiter */
@@ -90,14 +96,14 @@ $1
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
 #hero-section .hb-hero-A{
   /* P2: laura scaler — zentraler Regler */
-  --bv: clamp(3.6rem, 6.0vw + 0.6rem, 6.4rem);/* HB_Justage */ /* HB_Justage: push */ /* P2: scale bump */
+  --bv: clamp( 5.0rem, 8.5vw + 1.0rem, 11.5rem ); /* 2025-09-01 20:20 HB_Justage: scaler bump */
   font-size: var(--bv);
   --brandSize: var(--bv);
 }
 #hero-section .hb-hero-brand{
   color:var(--t1);
   line-height:1; font-weight:800; letter-spacing:-.02em;
-  font-size: 2.40em; /* HB_Justage: brand boost x2.40 */ /* HB_Justage: brand boost x1.65 */ /* HB_Justage: brand boost */ /* P2: laura scaler */
+  font-size: var(--brandSize); /* 2025-09-01 20:12 – fix: nutzt zentralen Scaler */
   margin:0; white-space:nowrap; display:block; /* eigene Zeile */
 }
 #hero-section .brand-anchor{ position:relative; display:inline; }
@@ -122,16 +128,17 @@ $1
 }
 #hero-section .hb-hero-subline{
   margin:0; font-weight:600; font-style:italic; color:#fff;
-  letter-spacing: 0.005em; /* HB_Justage */
-
+  letter-spacing: 0.003em; /* 2025-09-01 20:27 – etwas enger */
 
   display:flex; column-gap:var(--subMinGap);
-  font-size: 0.18em; /* HB_Justage */ /* P2: laura tune */
+  font-size: 0.12em; /* 2025-09-01 20:31 – subline ~15% kleiner (vorher 0.14em) */
   transform:translate(var(--subOffsetX),var(--subOffsetY));
   z-index:2;
 
-  letter-spacing: 0.01em; /* P2: laura tune */
-  word-spacing: 0.12em; /* HB_Justage */  /* P2: laura tune */
+  word-spacing: 0.08em; /* 2025-09-01 20:27 – dezenter */
+  white-space: normal;  /* 2025-09-01 20:27 – erlaubt Umbruch */
+  flex-wrap: wrap;      /* 2025-09-01 20:27 – kein Überstand über BRAND */
+  max-inline-size: 100%;
 }
 
 /* ---------- 5) Ambient (dezent) ---------- */
@@ -204,7 +211,7 @@ $1
     --cta-font-size-min: 1.55rem;   /* primärer Hebel für Lesbarkeit */
     --cta-font-size-fluid: 4.0vw;   /* moderat fluid */
     --cta-font-size-max: 2.3rem;    /* leichte Obergrenze ↑ */
-    --cta-padding-y: 1.05rem;       /* weniger „Pudding“, bleibt griffig */
+    --cta-padding-y: 1.05rem;       /* weniger „Pudding", bleibt griffig */
     --cta-padding-x: var(--space-l);
     --cta-radius: 8px;              /* weniger rund in Vollbreite */
   }
@@ -217,7 +224,7 @@ $1
 
   /* BRAND/Subline Hierarchie (Cassette 9) */
   #hero-section{ --subMobileScale: .96; }        /* Subline minimal dezenter */
-  #hero-section .hb-hero-brand{ font-size: 3.20em; } /* HB_Justage: mobile boost */ }
+  #hero-section .hb-hero-brand{ font-size: var(--brandSize); /* 2025-09-01 20:12 – mobile an Scaler ausgerichtet */ }
 
   /* Hero-Offset zur Nav (Cassette 10) */
   #hero-section{ --hero-offset-top: 4.875rem; }
@@ -231,10 +238,10 @@ $1
 @media (min-width:1024px){
   #hero-section .hb-hero--split .hb-hero-grid{
     display:grid;
-    /* grid-template-columns: 1.35fr 0.65fr;  HB_Rollback: no column override */
+    grid-template-columns: 0.9fr 1.1fr;
     gap: clamp(16px,3vw,32px);
   }
-} 
+}
 
 
 
@@ -243,7 +250,7 @@ file: css/hb_brand.css task_id: task_18_glass-mobile-gaps
 intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
 */
 /* START task_18_glass-mobile-gaps — 2025-08-28, 00:12 Uhr #justage */
-@media (max-width:768px){
+@media (max-width:600px){
 /* Überschrift unten mehr Luft */
 #hero-section .hb-hero--split h2.hb-glass-title{
 margin-bottom: 1.6em; /* vorher ~1.2em #justage */
@@ -254,4 +261,3 @@ margin-top: 0; /* #justage */
 }
 }
 /* END task_18_glass-mobile-gaps */
-

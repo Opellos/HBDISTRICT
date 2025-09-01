@@ -1,3 +1,4 @@
+/* Last Edit: 2025-09-01 18:22 HB - Coder Team -(Europe/Berlin) */
 /*
   Codex Kickoff – Webdevelopment & Webdesign
   Timestamp: 2025-08-30 17:34
@@ -579,6 +580,7 @@ max-height: 30px;
 
 
 
+
 @media (max-width: 768px) {
   .content-row {
     flex-direction: column;
@@ -645,9 +647,6 @@ max-height: 30px;
 .navbar-custom .nav li.active a {
   color: #ff3cd0 !important;
 }
-
-
-
 
 
 
@@ -764,7 +763,7 @@ max-height: 30px;
   }
   .navbar-collapse {
     border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
   }
   .navbar-collapse.collapse {
     display: none !important;
@@ -839,11 +838,6 @@ max-height: 30px;
     margin-top: -40px;
   }
 }
-
-
-
-
-
 
 
 
@@ -1005,7 +999,6 @@ section, .section {
 
 
 
-
 /*test Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößen */
 
 
@@ -1121,7 +1114,6 @@ section, .section {
     margin-bottom: 40px;
 }
 }
-
 
 
 
@@ -1255,11 +1247,3 @@ section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 #hero-section .hb-hero-B h2 { margin-bottom: clamp(12px, 1.2vw, 20px); } /* P2: marie */
 #hero-section .hb-hero-B p  { line-height: clamp(1.5, 1.1 + 1vw, 1.65); } /* P2: marie */
 #hero-section .hb-cta       { margin-top: 40px; }                         /* P2: marie */
-
-	
-	
-	
-
-
-
-	
