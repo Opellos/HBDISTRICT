@@ -1,4 +1,4 @@
-/* Last Edit: 2025-09-01 20:31 (Europe/Berlin) */
+/* Last Edit: 2025-09-02 01:53 (Europe/Berlin) – hb+ Mobile-Abstand Titel/BRAND */
 /* Edit 2025-09-01 20:31 – Subline ~15% kleiner: font-size 0.14em → 0.12em (generell) */
 /* Last Edit: 2025-09-01 20:27 (Europe/Berlin) */
 /* Edit 2025-09-01 20:27 – Subline generelle Verkleinerung + Wrap-Schutz (kein Überschuss über BRAND) */
@@ -96,7 +96,7 @@
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
 #hero-section .hb-hero-A{
   /* P2: laura scaler — zentraler Regler */
-  --bv: clamp( 5.0rem, 8.5vw + 1.0rem, 11.5rem ); /* 2025-09-01 20:20 HB_Justage: scaler bump */
+  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem); /* 2025-09-01 20:20 HB_Justage: scaler bump */
   font-size: var(--bv);
   --brandSize: var(--bv);
 }
@@ -238,7 +238,7 @@
 @media (min-width:1024px){
   #hero-section .hb-hero--split .hb-hero-grid{
     display:grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 1fr 1fr; /* HB_Justage: Split 50/50 */
     gap: clamp(16px,3vw,32px);
   }
 }
@@ -261,3 +261,16 @@ margin-top: 0; /* #justage */
 }
 }
 /* END task_18_glass-mobile-gaps */
+
+
+/* Edit 2025-09-02 01:45 – Desktop-Only: zusätzliche Luft in Glass */
+@media (min-width:1024px){
+  #hero-section .hb-hero .hb-hero-B h2.hb-glass-title{ margin-top: clamp(12px,1.5vw,24px); }
+  #hero-section .hb-hero .hb-hero-B p.hb-glass-text:first-of-type{ margin-top: clamp(8px,1vw,16px); }
+}
+
+
+/* Edit 2025-09-02 01:53 – Mobile: mehr Luft zwischen BRAND (A) und Glass (B) */
+@media (max-width:1023px){
+  #hero-section .hb-hero .hb-hero-B{ margin-top: clamp(16px, 6vw, 40px); }
+}
