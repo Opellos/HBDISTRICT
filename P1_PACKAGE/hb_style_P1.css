@@ -1,3 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+
 /* Last Edit: 2025-09-01 18:22 HB - Coder Team -(Europe/Berlin) */
 /*
   Codex Kickoff – Webdevelopment & Webdesign
@@ -140,14 +143,14 @@ h5, h6 {
 .h2-special_2 {
   font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
-  font-size: clamp(6rem, 6vw, 10rem); /* Skaliert von 4rem bis 6rem für Desktop */
+  font-size: clamp(6rem, 6vw, 10rem); /* Skaliert von 4rem bis 10rem für Desktop */
   color: #3d4654; /* brandfont */
   line-height: 0.95; /* Kompakte Zeilenhöhe */
   letter-spacing: -0.05em; /* Leichte negative Laufweite */
   margin-top: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand oben */
   margin-bottom: clamp(0.5rem, 2vw, 1rem); /* Reduziert auf 0.5rem bis 1rem */
   text-transform: normal; /* Kein Uppercase */
-margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand oben */
+margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand links */
 }
 
 
