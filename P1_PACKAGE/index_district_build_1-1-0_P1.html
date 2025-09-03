@@ -40,6 +40,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
 		<link href="hb_style_P1.css" rel="stylesheet">	  
 		<link href="hb_hero_P1.css" rel="stylesheet">
 		<link href="hb_brand_P1.css" rel="stylesheet">
+		<link href="hb_bio_P1.css" rel="stylesheet">
 
       <!-- Google Fonts -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
@@ -141,41 +142,63 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
 	  
 
  <!-- Video-Bio-Frame -->
-<section class="section-small fade-overlay" >
-    <div class="container text-center box-shadow offset showcase">
-      <div class="row v-center hb-glass-title">
-		  <!-- Showreel Video -->
-        <div class="col-lg-6 no-pad">
-          <div class="video-thumbnail-wrapper" style="position: relative; cursor: pointer;">
-            <img class="img-responsive" src="../img/main/25.jpg" alt="Video Thumbnail">
-            <svg viewBox="0 0 100 100"
-                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));">
-              <circle cx="50" cy="50" r="48" fill="#207cfa"/>
-              <polygon points="40,30 70,50 40,70" fill="white"/>
-            </svg>
-          </div>
-        </div>
-		  <!-- Short Bio -->
-        <div class="col-lg-6 lifter">
-          <!--<h2 >Hallo, ich bin <nobr>Hendrik Bogner</nobr></h2>-->
-          <div class="text-justify">
-            <p>
-              Bio: Mit langjähriger Strategie- und Designexpertise sowie dem gezielten Einsatz von KI entwickle ich Markenerlebnisse, die Publikum wie auch Stakeholdern adressieren. Creative Director, Motion Designer, Web Designer, Meine Arbeit basiert auf Fachkompetenz, Wissen und Neugier – eine Kombination, die im Zeitalter der KI besonders relevant ist.<br><br>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+
+	  
+	  
+	  
+<!-- Video-Bio-Frame -->
+
+
+<!-- Local styles for Video-Bio (scoped) -->
+<section id="video-bio" class="section-small fade-overlay">
+<div class="container text-center offset showcase">
+<div class="row v-center hb-glass-title">
+<!-- Showreel Video (links, moderner Rahmen) -->
+<div class="col-lg-6 no-pad">
+<div class="video-frame">
+<div class="video-thumbnail-wrapper" style="position: relative; cursor: pointer;">
+<img class="img-responsive" src="../img/main/25.jpg" alt="Video Thumbnail">
+<svg viewBox="0 0 100 100" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));">
+<circle cx="50" cy="50" r="48" fill="#207cfa"/>
+<polygon points="40,30 70,50 40,70" fill="white"/>
+</svg>
+</div>
+</div>
+</div>
+<!-- Short Bio (rechts, Glass) -->
+<div class="col-lg-6">
+<div class="glass-card">
+<div class="text-justify">
+<p>
+Bio: Mit langjähriger Strategie- und Designexpertise sowie dem gezielten Einsatz von KI entwickle ich Markenerlebnisse, die Publikum wie auch Stakeholdern adressieren. Creative Director, Motion Designer, Web Designer, Meine Arbeit basiert auf Fachkompetenz, Wissen und Neugier – eine Kombination, die im Zeitalter der KI besonders relevant ist.
+</p>
+</div>
+<p>
+<a href="#learn" class="cta-bio">Watch Demo</a>
+</p>
+</div>
+</div>
+</div>
+</div>
 </section>
+<!-- Section Overview Leistungen -->	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
     <!-- Section Overview Leistungen -->
     <!-- Section Overview Leistungen -->
 <section class="section-small fade-overlay fade-strong" id="focus">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="h2-special text-left">
+        <h2 class="h2-special_2 text-left">
           Marke. Design. KI. <br>
-          <span class="italic-inline" style="white-space: nowrap;">Verzahnt und ohne Schnittstellen </span>
+          <span class="italic-inline" style="white-space">Verzahnt und ohne Schnittstellen </span>
         </h2>
       </div>
     </div>
@@ -254,7 +277,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
       <!-- Rechter Bereich: Subtext und Fließtext -->
       <div class="col-lg-6">
         <div class="mb-4">
-          <h2 class="mb-3">Strategie sichtbar machen. Wirkung beweisen.</h2>
+          <h2 class="mb-3 h2-special">Strategie sichtbar machen. Wirkung beweisen.</h2>
         </div>
         <p class="mx-auto w-100 text-justify text-left">
           Der Auszug zeigt, wie ich Markenführung, Design und KI in konkreten Projekten zusammenbringe. Über „Portfolio Insight“ stelle ich vertiefende Informationen zu Hintergründen, Abläufen und Entscheidungen bereit – auf Wunsch auch im direkten Austausch.
@@ -276,7 +299,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
               <img class="img-responsive center-block" src="../img/main/hendrik_bogner_2.webp" alt="3D Rendering von smartSleep Produkt" loading="lazy">
             </div>
             <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-              <h2>3D Design &amp; Renderings</h2>
+              <h2 class="h2-special">3D Design &amp; Renderings</h2>
               <p>Durch die Verwendung von 3D-Renderings anstelle aufwendiger Shootings lassen sich Zeit und Kosten bei der Erstellung von Produktabbildungen einsparen.</p>
               <a class="btn btn-lg btn-dark mobile" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
             </div>
@@ -300,7 +323,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
               <div class="row">
                 <div class="col-lg-6 carousel-item"><img class="img-responsive center-block" src="../img/main/hendrik_bogner_out_of_home.webp" alt="" loading="lazy"></div>
                 <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-                  <h2>Big Citylight ...</h2>
+                  <h2 class="h2-special">Big Citylight ...</h2>
                   <p>Aufwachen? Mit Vergnügen!</p>
                   <a class="btn btn-lg btn-dark" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
                 </div>
@@ -314,7 +337,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
                   <video class="text-right hb_dropper_a hb_rand" src="../video/infotain_kreatin.mp4" controls muted preload="none"></video>
                 </div>
                 <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-                  <h2>Quick &amp; Easy</h2>
+                  <h2 class="h2-special">Quick &amp; Easy</h2>
                   <p>Antworten auf Fragen zur Produkteinführung: Im Rahmen einer FAQ-Kampagne wurden Kundenfragen in visueller Form adressiert. Für jedes der drei Produkte wurden zwölf Fragen mithilfe von Animationen beantwortet, sodass insgesamt 36 ansprechende Animationen entstanden sind, die Kunden über die spannenden Produktmerkmale informieren.</p>
                   <a class="btn btn-lg btn-dark" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
                 </div>
@@ -328,7 +351,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
                   <video class="text-right hb_dropper_a hb_rand" src="../video/infotain_vita.mp4" controls muted preload="none"></video>
                 </div>
                 <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-                  <h2>Quick & Easy</h2>
+                  <h2 class="h2-special">Quick & Easy</h2>
                   <p>Die Animationsvideos bieten eine schnelle, unterhaltsame und informative Möglichkeit, die gelaunchten Produkte vorzustellen und dabei zu helfen, sie durch die Produktvorteile voneinander zu unterscheiden.</p>
                   <a class="btn btn-lg btn-dark" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
                 </div>
@@ -342,7 +365,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
                   <video class="text-right hb_dropper_a hb_rand" src="../video/infotain_kollagen.mp4" controls muted preload="none"></video>
                 </div>
                 <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-                  <h2>Quick &amp; Easy</h2>
+                  <h2 class="h2-special">Quick &amp; Easy</h2>
                   <p>FAQs in spannender Erzählform stärkt das Markenimage und die Fan-Base in den Social-Media Kanälen.</p>
                   <a class="btn btn-lg btn-dark" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
                 </div>
@@ -354,7 +377,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
               <div class="row">
                 <div class="col-lg-6 carousel-item"><img class="img-responsive center-block" src="../img/main/40.webp" alt="" loading="lazy"></div>
                 <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-                  <h2>Landing Page</h2>
+                  <h2 class="h2-special">Eaaster Eggs Gewinnspiel</h2>
                   <p>Weit mehr als nur ein himmlischer Brotaufstrich.<br>Auf dieser Landingpage gibt es zu Ostern einiges zu entdecken.</p>
                   <a class="btn btn-lg btn-dark" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
                 </div>
@@ -366,7 +389,7 @@ Checked: HTML-Signatur ok, CSS-Referenzen auf *_P1 im selben Ordner umgestellt
               <div class="row">
                 <div class="col-lg-6 carousel-item"><img class="img-responsive center-block" src="../img/main/hendrik_bogner_hella_master_of_work.webp" alt="" loading="lazy"></div>
                 <div class="col-lg-3 col-lg-offset-1 carousel-item-text">
-                  <h2>Promo Video</h2>
+                  <h2 class="h2-special">Promo Video</h2>
                   <p>Wer sind die coolsten im ganzen Land?<br>Der internationale Automobilzulieferer Hella will es wissen.</p>
                   <a class="btn btn-lg btn-dark" href="https://hendrikbogner.myportfolio.com">Zu den Insights</a>
                 </div>

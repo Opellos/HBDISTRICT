@@ -142,11 +142,12 @@ h5, h6 {
   font-weight: 900; /* Fett, wie gewünscht */
   font-size: clamp(6rem, 6vw, 10rem); /* Skaliert von 4rem bis 6rem für Desktop */
   color: #3d4654; /* brandfont */
-  line-height: 0.8; /* Kompakte Zeilenhöhe */
-  letter-spacing: -0.09em; /* Leichte negative Laufweite */
+  line-height: 0.95; /* Kompakte Zeilenhöhe */
+  letter-spacing: -0.05em; /* Leichte negative Laufweite */
   margin-top: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand oben */
   margin-bottom: clamp(0.5rem, 2vw, 1rem); /* Reduziert auf 0.5rem bis 1rem */
   text-transform: normal; /* Kein Uppercase */
+margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand oben */
 }
 
 

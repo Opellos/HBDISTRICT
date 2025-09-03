@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+/* Last Edit: 2025-09-03 03:15 (Europe/Berlin) — Video-Bio (scoped styles)
+   Scope: #video-bio …  |  Zweck: links moderner Rahmen, rechts Glass + CTA
+   Hinweis: In index_district_build_1-1-0_P1.html per <link href="video_bio_P1.css" rel="stylesheet"> nach hb_brand_P1.css einbinden. */
+
+/* — Rahmen & Bild — */
+#video-bio .video-frame{position:relative;border:1px solid rgba(255,255,255,.2);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+#video-bio .video-frame img{display:block;width:100%;height:auto}
+
+/* — Glass-Card rechts — */
+#video-bio .glass-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:24px;text-align:left}
+#video-bio .glass-card p{margin-bottom:1rem}
+
+/* — CTA — */
+#video-bio .cta-bio{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.5rem;border-radius:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg,#207cfa,#ff3cd0)}
+#video-bio .cta-bio:hover{opacity:.95}
+
+/* — Abstände mobil — */
+@media (max-width:991px){#video-bio .glass-card{margin-top:24px}}
+
