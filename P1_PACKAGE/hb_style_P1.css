@@ -583,9 +583,6 @@ max-height: 30px;
 
 
 
-
-
-
 @media (max-width: 768px) {
   .content-row {
     flex-direction: column;
@@ -729,6 +726,8 @@ max-height: 30px;
   }
 }
 
+
+
 @media (max-width: 991px) {
   section {
     background-attachment: scroll !important;
@@ -781,8 +780,8 @@ max-height: 30px;
     float: none;
   }
   .navbar-nav > li > a {
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
   .collapse.in {
     display: block !important;
@@ -1298,3 +1297,7 @@ section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
   50% { opacity: 1;   transform: scale(1.03); }
   100% { opacity: .85; transform: scale(0.98); }
 }
+
+
+
+

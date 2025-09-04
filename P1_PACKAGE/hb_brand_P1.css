@@ -239,7 +239,7 @@
   #hero-section .hb-hero--split .hb-hero-grid{
     display:grid;
     grid-template-columns: 1fr 1fr; /* HB_Justage: Split 50/50 */
-    gap: clamp(16px,3vw,32px);
+    gap: clamp(16px,3vw,34px);
   }
 }
 
