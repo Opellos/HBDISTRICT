@@ -1,0 +1,239 @@
+/* =========================================================
+   FILE: hb_brand.css
+   INTENT: Phase 1 – Marker/Kommentare; keine Werte ändern
+   HINWEIS: Originalinhalt vollständig übernommen. Nur Kopfmarker ergänzt.
+   ========================================================= */
+@charset "utf-8";
+/* =================   Donnerstag, 28. August 2025 15:04 DISTRICT  ============================
+   HERO (clean, unified) — Version A1 — 2025-08-27, 22:45 Uhr
+   Quelle der Wahrheit für alle Hero-Styles (Brand/Tagline/Subline/CTA)
+   ========================================================= */
+
+/* ---------- 1) Basis / Variablen ---------- */
+#hero-section{
+  /* Farben / Verlauf */
+  --bg1:#007bff;
+  --bg2:#ff00ff;
+  --t1:#ff00ff;   /* BRAND */
+  --t2:#ff1493;   /* Tagline/AI */
+
+  /* Typo-Basis (fluid, ohne 600/900-MQs) */
+  --brandSize: clamp(5.5rem, 9.8vw, 13rem);       /* EINZIGE Quelle für .hb-hero-brand */
+  --tagMin:1.1rem; --tagVW:4vw; --tagMax:2.3rem;
+
+  /* Subline flüssig <1024 gut lesbar */
+  --subMin:0.90rem; --subVW:3.0vw; --subMax:1.20rem;
+
+  --brandScale:1;
+
+  /* Feinoffsets (em skaliert mit BRAND) */
+  --aiOffsetX:0em; --aiBaselineFix:.115em;
+  --tagOffsetX:.2em; --tagOffsetY:clamp(.80em,1.2vw,1.00em);
+  --subOffsetX:.5em; --subOffsetY:clamp(-.40em,-.60vw,-.25em);
+  --subTracking:.01em; --subMinGap:.5ch;
+
+  /* Mobile-Faktor */
+  --subMobileScale:1;
+
+  /* Bühne */
+  height:min(100svh,700px);
+  display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+
+  /* HERO Offset (Cassette 1) */
+  --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
+  padding-top: var(--hero-offset-top);
+
+  /* Reveal-Timing */
+  --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
+}
+
+$1
+/* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
+#hero-section .hb-hero{ width:min(90vw,700px); }
+#hero-section .hb-hero--split{ width:auto; } /* Sicherheit: Split darf breiter */
+/* END task_15_hero-width-exception */
+
+/* START task_15b_split-width-override — 2025-08-27, 23:33 Uhr */
+/* Falls ein Element beide Klassen trägt (.hb-hero.hb-hero--split), breitere Bühne erlauben */
+#hero-section .hb-hero.hb-hero--split{ width:auto; }
+/* Grid-Container im Split bekommt eigene Breite, zentriert */
+#hero-section .hb-hero--split,
+#hero-section .hb-hero--split .hb-hero-grid{
+  width: min(92vw, 1200px);
+  margin: 0 auto;
+}
+/* Sicherheit: keine unerwünschte max-width vom Basis-Hero */
+#hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
+/* END task_15b_split-width-override */
+#hero-section .hb-hero{
+  position:relative;
+  width:min(90vw,700px);
+  height:100%;
+  display:flex; flex-direction:column;
+  align-items:flex-start;  /* linksbündig */
+  justify-content:center;  /* vertikal mittig */
+  text-align:left; overflow:hidden;
+
+  opacity:0; filter:blur(8px); transform:translateY(12px);
+  animation:heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
+  will-change:opacity,filter,transform;
+}
+@keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
+
+/* ---------- 3) BRAND + A/AI-Anker ---------- */
+#hero-section .hb-hero-brand{
+  color:var(--t1);
+  line-height:1; font-weight:800; letter-spacing:-.02em;
+  font-size:var(--brandSize); /* einzige Quelle */
+  margin:0; white-space:nowrap; display:block; /* eigene Zeile */
+}
+#hero-section .brand-anchor{ position:relative; display:inline; }
+#hero-section .brand-A{ display:inline; color:inherit; }
+#hero-section .hb-hero-ai{
+  position:absolute; left:var(--aiOffsetX,0); top:0;
+  transform:translateY(var(--aiBaselineFix,.10em));
+  color:var(--t2); font-weight:800; letter-spacing:-.02em; pointer-events:none; z-index:1;
+  opacity:0; animation:heroAiFade var(--dur-slow) var(--ease-standard) .9s forwards;
+}
+@keyframes heroAiFade{ to{ opacity:1; } }
+
+/* ---------- 4) Tagline + Subline ---------- */
+#hero-section .hb-hero .hb-hero-tagline{
+  display:block; /* nie neben BRAND */
+  color:var(--t2); font-weight:800; text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:calc(clamp(var(--tagMin),var(--tagVW),var(--tagMax))*var(--brandScale,1));
+  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0));
+}
+#hero-section .hb-hero-subline{
+  margin:0; font-weight:600; font-style:italic; color:#fff;
+  letter-spacing:var(--subTracking);
+
+
+  display:flex; column-gap:var(--subMinGap);
+  font-size:calc(clamp(var(--subMin),var(--subVW),var(--subMax))*var(--subMobileScale));
+  transform:translate(var(--subOffsetX),var(--subOffsetY));
+  z-index:2;
+}
+
+/* ---------- 5) Ambient (dezent) ---------- */
+#hero-section{ --glowColor:rgba(255,20,147,.18); --glowDur:9s; }
+#hero-section .hb-hero::after{
+  content:""; position:absolute; inset:-25%;
+  background:radial-gradient(closest-side,var(--glowColor) 0%,transparent 70%);
+  filter:blur(28px); opacity:0; transform:translate(-18%,12%) scale(.85);
+  animation:heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay)+var(--heroDur)) infinite alternate;
+  pointer-events:none; z-index:0;
+}
+@keyframes heroAmbient{
+  0%{opacity:0; transform:translate(-18%,12%) scale(.85)}
+  50%{opacity:.35; transform:translate(6%,0) scale(1)}
+  100%{opacity:.18; transform:translate(22%,-10%) scale(1.1)}
+}
+
+/* Bewegungsreduktion */
+@media (prefers-reduced-motion:reduce){
+  #hero-section .hb-hero{ animation:none; opacity:1; filter:none; transform:none; }
+  #hero-section .hb-hero-ai{ animation:none; opacity:1; }
+  #hero-section .hb-hero::after{ animation:none; opacity:0; }
+}
+
+/* ---------- 6) Font-Scoping ---------- */
+#hero-section .hb-hero .hb-hero-A,
+#hero-section .hb-hero .hb-hero-A *{ font-family:var(--font-montserrat); }
+#hero-section .hb-hero .hb-hero-B,
+#hero-section .hb-hero .hb-hero-B *{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+/* ---------- 7) Rechte Spalte: Hanken + CTA ---------- */
+#hero-section .hb-hero .hb-hero-B h2,
+#hero-section .hb-hero .hb-hero-B h3{
+  font-weight:400; line-height:1; margin:0 0 .5rem;
+  font-size:clamp(2.5rem,2.2vw,3.3rem); color:#fff; text-wrap:balance;
+}
+#hero-section .hb-hero .hb-hero-B p{
+  font-weight:300; line-height:1.5; max-width:60ch;
+  font-size:clamp(1.6rem,1.4vw,1.6rem); color:rgba(255,255,255,.92);
+}
+
+/* CTA – Variablen (globale Bühne) */
+#hero-section{
+  --cta-padding-y:var(--space-xl); --cta-padding-x:var(--space-2xl);
+  --cta-radius:var(--radius-l); --cta-gap:.55rem;
+  --cta-font-weight:600;
+  --cta-font-size-min:1.05rem; --cta-font-size-fluid:1.35vw; --cta-font-size-max:1.8rem;
+  --cta-shadow-1:var(--shadow-md); --cta-shadow-2:var(--shadow-inset);
+}
+#hero-section .hb-cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
+  padding: var(--cta-padding-y) var(--cta-padding-x);
+  font-weight:var(--cta-font-weight);
+  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  border-radius: var(--cta-radius);
+  color:#fff; 
+  /* micro edit (cassette 12) – CTA mit Verlauf statt Schwarz */
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  text-decoration:none;
+  box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
+  transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+}
+#hero-section .hb-cta:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
+#hero-section .hb-cta:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
+
+/* ---------- 8) Mobile ≤600px (CTA + Brand/Subline Scaling) ---------- */
+@media (max-width:600px){
+  /* CTA-Tuning (Cassette 7c) */
+  #hero-section{
+    --cta-font-size-min: 1.55rem;   /* primärer Hebel für Lesbarkeit */
+    --cta-font-size-fluid: 4.0vw;   /* moderat fluid */
+    --cta-font-size-max: 2.3rem;    /* leichte Obergrenze ↑ */
+    --cta-padding-y: 1.05rem;       /* weniger „Pudding“, bleibt griffig */
+    --cta-padding-x: var(--space-l);
+    --cta-radius: 8px;              /* weniger rund in Vollbreite */
+  }
+  #hero-section .hb-cta{
+    display:block; width:100%; text-align:center;
+    min-height: 3.8rem;            /* Höhe der Komponente (nicht Container) absichern */
+    line-height: 1.25;             /* keine Quetschung des CTA-Textes */
+    white-space: nowrap;           /* schützt kurze CTAs vor Umbruch */
+  }
+
+  /* BRAND/Subline Hierarchie (Cassette 9) */
+  #hero-section{ --subMobileScale: .96; }        /* Subline minimal dezenter */
+  #hero-section .hb-hero-brand{ font-size: calc(var(--brandSize) * 1.08); }
+
+  /* Hero-Offset zur Nav (Cassette 10) */
+  #hero-section{ --hero-offset-top: 4.875rem; }
+}
+
+/* =========================================================
+   Ende — hb_hero.css (unified)
+   ========================================================= */
+
+/* ---------- Desktop-Split erzwingen (cassette 13) ---------- */
+@media (min-width:1024px){
+  #hero-section .hb-hero--split .hb-hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(16px,3vw,32px);
+  }
+} 
+
+
+
+/* micro edit (cassette 18)
+file: css/hb_brand.css task_id: task_18_glass-mobile-gaps
+intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
+*/
+/* START task_18_glass-mobile-gaps — 2025-08-28, 00:12 Uhr #justage */
+@media (max-width:600px){
+/* Überschrift unten mehr Luft */
+#hero-section .hb-hero--split h2.hb-glass-title{
+margin-bottom: 1.6em; /* vorher ~1.2em #justage */
+}
+/* Optional: erster Absatz oben neutral (falls global margin-top reinfunkt) */
+#hero-section .hb-hero--split p.hb-glass-text:first-of-type{
+margin-top: 0; /* #justage */
+}
+}
+/* END task_18_glass-mobile-gaps */
