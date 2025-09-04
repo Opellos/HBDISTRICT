@@ -1,7 +1,6 @@
-@charset "utf-8";
-/* CSS Document */
-
-/* Last Edit: 2025-09-01 18:22 HB - Coder Team -(Europe/Berlin) */
+/* Last Edit: 2025-09-04 10:15 (Europe/Berlin) — Kontakt: Bulb-Glow verstärkt + animiert; .bulb-icon-Styles entfernt */
+/* Last Edit: 2025-09-03 16:28 (Europe/Berlin) — .h2-special_2 aktualisiert */
+/* Last Edit: 2025-09-01 18:22 (Europe/Berlin) */
 /*
   Codex Kickoff – Webdevelopment & Webdesign
   Timestamp: 2025-08-30 17:34
@@ -140,6 +139,7 @@ h5, h6 {
 }
 
 
+/* Edit: 2025-09-03 16:28 (Europe/Berlin) — .h2-special_2 ersetzt (Skalierung + Spacing) */
 .h2-special_2 {
   font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
@@ -150,7 +150,7 @@ h5, h6 {
   margin-top: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand oben */
   margin-bottom: clamp(0.5rem, 2vw, 1rem); /* Reduziert auf 0.5rem bis 1rem */
   text-transform: normal; /* Kein Uppercase */
-margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand links */
+  margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand links */
 }
 
 
@@ -160,6 +160,7 @@ margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand links */
 .h2-special_3 {
   font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
+
   font-size: clamp(7rem, 7vw, 11rem); /* Skaliert von 4rem bis 6rem für Desktop */
   color: #fff; /* brandfont */
   line-height: 0.8; /* Kompakte Zeilenhöhe */
@@ -978,14 +979,7 @@ section, .section {
 
 
 
-.bulb-icon {
-  display: block;
-  width: 80px; /* Größer für Sichtbarkeit */
-  margin: 1rem auto;
-  animation: glow 2s infinite ease-in-out;
-}
-@keyframes glow {
-  0% { opacity: 0.8; filter: brightness(1); }
+
   50% { opacity: 1; filter: brightness(1.2); }
   100% { opacity: 0.8; filter: brightness(1); }
 }
@@ -1251,3 +1245,120 @@ section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 #hero-section .hb-hero-B h2 { margin-bottom: clamp(12px, 1.2vw, 20px); } /* P2: marie */
 #hero-section .hb-hero-B p  { line-height: clamp(1.5, 1.1 + 1vw, 1.65); } /* P2: marie */
 #hero-section .hb-cta       { margin-top: 40px; }                         /* P2: marie */
+
+
+/* =========================================================
+   Kontakt – Bulb Visual
+   Last Edit: 2025-09-03 17:45 (Europe/Berlin) — HB
+   (aus HTML inline styles migriert)
+   ========================================================= */
+
+#Kontakt .bulb-hero{
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+#Kontakt .bulb-hero img{
+  width: 60%;
+  max-width: 420px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+#Kontakt .bulb-hero .bulb-glow{
+  position: absolute;
+  inset: 0% 8%; /* größere Fläche für sichtbaren Glow auf hellem Verlauf */
+  border-radius: 32px;
+  filter: blur(80px); /* stärkerer Blur */
+  z-index: 1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255,255,255,.55),
+    rgba(255,0,150,.45),
+    rgba(0,150,255,.35)
+  );
+  animation: bulbPulse 6s ease-in-out infinite; /* sanfte Dynamik */
+}
+/* kleines Icon links neben dem Text */
+#Kontakt .bulb-icon{
+  max-width: 48px;
+  height: auto;
+}
+
+@media (max-width: 991px){
+  #Kontakt .bulb-hero{ min-height: 280px; }
+  #Kontakt .bulb-hero img{ width: 70%; } /* mobil etwas größer */
+}
+
+@keyframes bulbPulse {
+  0% { opacity: .85; transform: scale(0.98); }
+  50% { opacity: 1;   transform: scale(1.03); }
+  100% { opacity: .85; transform: scale(0.98); }
+}
+
+
+
+
+
+
+/* 2025-09-04 | NAV Glass persistent */
+.navbar-custom.navbar-glass{
+  position: sticky; top:0; z-index: 1000;
+  background: rgba(255,255,255,.14);            /* Fallback */
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+          backdrop-filter: blur(16px) saturate(130%);
+  border-bottom: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+/* dezente „Gradient-Hairline“ unten */
+.navbar-custom.navbar-glass::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:3px;
+  background: linear-gradient(90deg,#2d5eff,#7d32df 50%,#ff4bc0);
+  opacity:.35;
+}
+
+/* Link-Farben/States auf Glas */
+.navbar-custom.navbar-glass .nav>li>a,
+.navbar-custom.navbar-glass .navbar-brand{
+  color:#2e3440 !important;
+}
+.navbar-custom.navbar-glass .nav>li>a:hover,
+.navbar-custom.navbar-glass .nav>li.active>a{
+  color:#111 !important;
+}
+
+/* Mobile: Offcanvas/Hintergrund nicht vollweiß machen */
+@media (max-width: 991px){
+  .navbar-custom.navbar-glass,
+  .navbar-collapse{
+    background: rgba(255,255,255,.22) !important;
+    -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+  }
+  .navbar-toggle .icon-bar{ background:#2e3440; }
+}
+
+
+
+
+
+
+
+/* === NAV: Glass + Sticky (HB 2025-09-04 21:05) ======================== */
+#main-nav{
+  position: sticky; top: 0; z-index: 10000;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  height: 64px;
+}
+#main-nav .navbar-nav > li > a{
+  line-height: 64px; padding: 0 14px; font-weight: 700;
+}
+
+
