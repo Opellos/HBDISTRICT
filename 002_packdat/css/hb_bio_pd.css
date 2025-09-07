@@ -17,37 +17,4 @@
 /* — Abstände mobil — */
 @media (max-width:991px){#video-bio .glass-card{margin-top:24px}}
 
-/* === [TEST] NAV_GLASS_2025-09-04 HB — START =============================
-   Ziel: Glass-Navbar, boxed, immer sichtbar; z-index-Fix gg. Sections.
-   Entfernen nach Freigabe.
-   ====================================================================== */
-:root{ --nav-h: 56px; }
-
-/* Leiste: Glas + immer sichtbar */
-.navbar.navbar-custom{
-  position: sticky; top:0; z-index:10000; width:100%;
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
-          backdrop-filter: blur(14px) saturate(120%);
-  background: rgba(255,255,255,.16);
-  border-bottom: 1px solid rgba(255,255,255,.22);
-  box-shadow: 0 6px 20px rgba(0,0,0,.06);
-}
-/* Inhalt boxed */
-.navbar.navbar-custom .container,
-.navbar.navbar-custom .container-fluid{ max-width:1200px; margin:0 auto; padding:0 24px; }
-/* Schlanker */
-.navbar.navbar-custom .navbar-nav>li>a{ line-height:var(--nav-h); padding:0 18px; }
-/* Scrollzustände neutralisieren */
-.navbar.navbar-custom.top-nav-collapse{
-  opacity:1 !important; transform:none !important; display:block !important;
-  background: rgba(255,255,255,.16);
-}
-/* Logo-Swap deaktivieren */
-.navbar.navbar-custom .logo,
-.navbar.navbar-custom .logodark{ opacity:1 !important; display:inline-block !important; }
-/* Mobile Dropdown-Hintergrund leicht aufhellen */
-@media (max-width: 990px){ .navbar-collapse{ background: rgba(255,255,255,.98) !important; } }
-/* Sicherstellen, dass Eltern die Sticky-Leiste nicht abschneiden */
-header, #hero-section, .navbar-wrapper{ overflow:visible !important; }
-/* === [TEST] NAV_GLASS_2025-09-04 HB — END =============================== */
 

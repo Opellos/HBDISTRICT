@@ -12,7 +12,8 @@
          * Preloader
          ***********************************************/
 
-        jQuery(window).load(function () {
+        // Use on('load') for jQuery 3+ compatibility
+        jQuery(window).on('load', function () {
             jQuery("#status").fadeOut();
             jQuery("#preloader").delay(10).fadeOut("slow");
         });
@@ -71,22 +72,6 @@
         $('.bg-img-custom-small').parallax("50%", .15);
 
         /***********************************************
-         * jQuery to collapse the navbar on scroll
-         ***********************************************/
-
-        $(window).scroll(function () {
-
-            var nav = $('.navbar-Concept');
-            if (nav.length) {
-
-                if ($(".navbar-Concept").offset().top > 50) {
-                    $(".navbar-fixed-top").addClass("top-nav-collapse");
-                } else {
-                    $(".navbar-fixed-top").removeClass("top-nav-collapse");
-                }}
-        });
-
-        /***********************************************
          * Tabs
          ***********************************************/
 
@@ -102,9 +87,9 @@
         $(function () {
             $('a.page-scroll').on('click', function (event) {
                 var $anchor = $(this);
-                $('html, body').stop().animate({
-                    scrollTop: ($($anchor.attr('href')).offset().top - 55)
-                }, 1500, 'easeInOutExpo');
+                  $('html, body').stop().animate({
+                      scrollTop: ($($anchor.attr('href')).offset().top - 60)
+                  }, 1500, 'easeInOutExpo');
                 event.preventDefault();
             });
         });
@@ -196,10 +181,12 @@
         });
 
         /***********************************************
-         * Load WOW.js
+         * Load WOW.js after full page load
          ***********************************************/
 
-        new WOW().init();
+        $(window).on('load', function(){
+            new WOW().init();
+        });
 
         /***********************************************
          * Circle Chart
