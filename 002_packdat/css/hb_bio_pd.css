@@ -3,51 +3,120 @@
    Hinweis: In index_district_build_1-1-0_P1.html per <link href="hb_bio_P1.css" rel="stylesheet"> nach hb_brand_P1.css einbinden. */
 
 /* — Rahmen & Bild — */
-#video-bio .video-frame{position:relative;border:1px solid rgba(255,255,255,.2);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15)}
-#video-bio .video-frame img{display:block;width:100%;height:auto}
+#video-bio .video-frame {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+#video-bio .video-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 /* — Glass-Card rechts — */
-#video-bio .glass-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:24px;text-align:left}
-#video-bio .glass-card p{margin-bottom:1rem}
+#video-bio .glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+}
+
+#video-bio .glass-card p {
+  margin-bottom: 1rem;
+}
 
 /* — CTA — */
-#video-bio .cta-bio{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.5rem;border-radius:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg,#207cfa,#ff3cd0)}
-#video-bio .cta-bio:hover{opacity:.95}
+#video-bio .cta-bio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+}
+
+#video-bio .cta-bio:hover {
+  opacity: 0.95;
+}
 
 /* — Abstände mobil — */
-@media (max-width:991px){#video-bio .glass-card{margin-top:24px}}
+@media (max-width: 991px) {
+  #video-bio .glass-card {
+    margin-top: 24px;
+  }
+}
 
 /* === [TEST] NAV_GLASS_2025-09-04 HB — START =============================
    Ziel: Glass-Navbar, boxed, immer sichtbar; z-index-Fix gg. Sections.
    Entfernen nach Freigabe.
    ====================================================================== */
-:root{ --nav-h: 56px; }
+:root {
+  --nav-h: 56px;
+}
 
 /* Leiste: Glas + immer sichtbar */
-.navbar.navbar-custom{
-  position: sticky; top:0; z-index:10000; width:100%;
+.navbar.navbar-custom {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
   -webkit-backdrop-filter: blur(14px) saturate(120%);
-          backdrop-filter: blur(14px) saturate(120%);
-  background: rgba(255,255,255,.16);
-  border-bottom: 1px solid rgba(255,255,255,.22);
-  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
+
 /* Inhalt boxed */
 .navbar.navbar-custom .container,
-.navbar.navbar-custom .container-fluid{ max-width:1200px; margin:0 auto; padding:0 24px; }
-/* Schlanker */
-.navbar.navbar-custom .navbar-nav>li>a{ line-height:var(--nav-h); padding:0 18px; }
-/* Scrollzustände neutralisieren */
-.navbar.navbar-custom.top-nav-collapse{
-  opacity:1 !important; transform:none !important; display:block !important;
-  background: rgba(255,255,255,.16);
+.navbar.navbar-custom .container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
+
+/* Schlanker */
+.navbar.navbar-custom .navbar-nav > li > a {
+  line-height: var(--nav-h);
+  padding: 0 18px;
+}
+
+/* Scrollzustände neutralisieren */
+.navbar.navbar-custom.top-nav-collapse {
+  opacity: 1 !important;
+  transform: none !important;
+  display: block !important;
+  background: rgba(255, 255, 255, 0.16);
+}
+
 /* Logo-Swap deaktivieren */
 .navbar.navbar-custom .logo,
-.navbar.navbar-custom .logodark{ opacity:1 !important; display:inline-block !important; }
-/* Mobile Dropdown-Hintergrund leicht aufhellen */
-@media (max-width: 990px){ .navbar-collapse{ background: rgba(255,255,255,.98) !important; } }
-/* Sicherstellen, dass Eltern die Sticky-Leiste nicht abschneiden */
-header, #hero-section, .navbar-wrapper{ overflow:visible !important; }
-/* === [TEST] NAV_GLASS_2025-09-04 HB — END =============================== */
+.navbar.navbar-custom .logodark {
+  opacity: 1 !important;
+  display: inline-block !important;
+}
 
+/* Mobile Dropdown-Hintergrund leicht aufhellen */
+@media (max-width: 990px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98) !important;
+  }
+}
+
+/* Sicherstellen, dass Eltern die Sticky-Leiste nicht abschneiden */
+header,
+#hero-section,
+.navbar-wrapper {
+  overflow: visible !important;
+}
+/* === [TEST] NAV_GLASS_2025-09-04 HB — END =============================== */

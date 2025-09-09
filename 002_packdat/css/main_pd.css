@@ -16,12 +16,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Fonts and Plugins */
-@import url(../fonts/fontawesome/css/fontawesome.min.css);
-@import url(../fonts/fontawesome/css/brands.min.css);
+@import url(fontawesome.min.css);
+@import url(brands.min.css);
 /*@import url(../fonts/fontawesome/css/solid.min.css);*/
-@import url(../fonts/ionicons/css/ionicons.min.css);
+@import url(ionicons.min.css);
 /*@import url(../js/vegas/vegas.min.css);*/
-@import url(../packdat/animate.min.css);
+@import url(animate.min.css);
 /*@import url(swipebox.css);*/
 /* Base structure */
 
@@ -549,7 +549,7 @@ a .la:hover {
   }
 }
 .navbar-custom .navbar-brand .logo {
-  max-height: 100px;
+  max-height: 100px; /
   display: inline-block;
 }
 
@@ -3196,71 +3196,4 @@ nav.nav-demo {
     padding: 40px;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
-
-
-
-/*.carousel-control .icon-next, .carousel-control .icon-prev {
-  font-size: 90px;
-  color: #fff;
-}
-
-
-.carousel-control .icon-next, .carousel-control .icon-prev {
-  font-size: 50px;
-  color: #d5d5d5;
-}
-
-.bg-weiss {
-  background-color: #FFFFFF;
-}
-
-.carousel-item  video {
-  max-width: 40%;
-  max-height: 40%;
-  height: auto;
-  object-fit: contain;
-}
-	*/  
-
-
-
-/*  .hb_bild_hg_beauty {
-    background-image: url("../img/main/hb_hg_beauty.jpg");
-    background-size: cover;
-    background-position: center center;
-  }
-
- .hb_bild_hg_immun {
-    background-image: url("../img/main/hb_hg_immun.jpg");
-    background-size: cover;
-    background-position: center center;
-  }
-
- .hb_bild_hg_original {
-    background-image: url("../img/main/hb_hg_original.jpg");
-    background-size: cover;
-    background-position: center center;
-  }
-*/
-
-/* Erhöhe die Größe der Pfeile */
-/*.carousel-control .icon-prev,
-.carousel-control .icon-next {
-  font-size: 100px;
-}
-*/
-/* Ändere die Farbe der Pfeile */
-/*.carousel-control .icon-prev,
-.carousel-control .icon-next {
-  color: #ff0000; 
-}*/
-
-
-/* Füge einen Schatten hinzu 
-.carousel-control .icon-prev,
-.carousel-control .icon-next {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-} */
 
