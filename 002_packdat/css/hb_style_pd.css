@@ -143,7 +143,7 @@ h5, h6 {
 .h2-special_2 {
   font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
-  font-size: clamp(6rem, 6vw, 10rem); /* Skaliert von 4rem bis 10rem für Desktop */
+  font-size: clamp(5rem, 6vw, 9rem); /* Skaliert von 4rem bis 10rem für Desktop */
   color: #3d4654; /* brandfont */
   line-height: 0.95; /* Kompakte Zeilenhöhe */
   letter-spacing: -0.05em; /* Leichte negative Laufweite */

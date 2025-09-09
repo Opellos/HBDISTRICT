@@ -55,6 +55,26 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
 </head>
 
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<script>
+(function () {
+  var wow;
+  function initWOW(){
+    if (typeof WOW === "function") {
+      wow = new WOW({ mobile: true, live: true, offset: 80 });
+      wow.init();
+    }
+  }
+  function syncWOW(){ if (wow && wow.sync) wow.sync(); }
+
+  if (document.readyState !== "loading") initWOW();
+  else document.addEventListener("DOMContentLoaded", initWOW);
+
+  window.addEventListener("load", syncWOW, { once: true });
+  window.addEventListener("pageshow", syncWOW);
+  window.addEventListener("orientationchange", syncWOW);
+  window.addEventListener("resize", syncWOW);
+})();
+</script>
 
   <!-- Navigation +++ -->
   <nav class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top nav-bright">
@@ -677,6 +697,31 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
     });
   </script>
 
+	<script>
+(function () {
+  var wow;
+  function initWOW(){
+    if (typeof WOW === "function") {
+      wow = new WOW({ mobile: true, live: true, offset: 80 });
+      wow.init();
+    }
+  }
+  function syncWOW(){ if (wow && wow.sync) wow.sync(); }
+
+  if (document.readyState !== "loading") initWOW();
+  else document.addEventListener("DOMContentLoaded", initWOW);
+
+  window.addEventListener("load", syncWOW, { once: true });
+  window.addEventListener("pageshow", syncWOW);
+  window.addEventListener("orientationchange", syncWOW);
+  window.addEventListener("resize", syncWOW);
+})();
+</script>
+
+	
+	
+	
+	
   <!-- Video -->
   <script>
     $(document).ready(function () {
@@ -711,6 +756,12 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
       $(window).on('resize', adjustLogoSize);
     });
   </script>
+	
+	
+	
+	
+	
+	
 
 </body>
 </html>
