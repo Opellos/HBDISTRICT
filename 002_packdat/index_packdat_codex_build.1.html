@@ -1,16 +1,11 @@
-<!-- Update: Mittwoch, 03. September 2025, 15:55 (Europe/Berlin) — Leere Absätze entfernt; kleinere Tippfehler; Klassenname "FadeIn" → "fadeIn"; fehlendes CSS "white-space:nowrap" ergänzt; Footer-© bereinigt; doppelte Icon-Klasse korrigiert. -->
 <!DOCTYPE html>
 <!-- ============================================= ============
-FILE: index_district_build_1-1-0_P1.html
-INTENT: Phase 1 – Marker/Kommentare; keine Werte ändern
-HINWEIS: Originalinhalt weitgehend übernommen. Kopfmarker ergänzt.
-Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
+FILE: index_packdat_codex_build.1.html
+INTENT: 
+HINWEIS: 
+Last Edit (prev): 
 ========================================================= -->
-<!--
-  Codex Kickoff – Webdevelopment & Webdesign
-  Timestamp: 2025-09-02 01:22
-  Zeit in Europe/Berlin, Quelle: Systemzeit.
--->
+
 <html lang="de">
 <head>
   <meta charset="utf-8">
@@ -48,33 +43,15 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-<!-- 2025-09-03 03:26 (Europe/Berlin) | index_district_build_1-1-0_P1.html | externalized Video-Bio styles → hb_bio_P1.css -->
-  <!-- 2025-09-02 01:35 (Europe/Berlin) | index_district_build_1-1-0_P1.html | asset paths → ../img, ../video -->
-  <!-- 2025-09-02 01:22 (Europe/Berlin) | index_district_build_1-1-0_P1.html | CSS refs → *_P1 im selben Ordner -->
-  <!-- 2025-09-02 01:07 (Europe/Berlin) | index_district_build_1-1-0_P1.html | SIGNATURE – inserted/updated -->
 </head>
 
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<script>
-(function () {
-  var wow;
-  function initWOW(){
-    if (typeof WOW === "function") {
-      wow = new WOW({ mobile: true, live: true, offset: 80 });
-      wow.init();
-    }
-  }
-  function syncWOW(){ if (wow && wow.sync) wow.sync(); }
+<!-- 2025-09-10 13:50 (Europe/Berlin) | nemo
+     WOW-Init-Block an dieser Stelle entfernt. Grund: doppelter Init.
+     Aktiver WOW-Init bleibt am Dokumentende (vor </body>).
+     animate.min.css via main_pd.css importiert; js/wow.min.js wird vor
+     dem verbleibenden Init geladen. Keine weiteren Änderungen. -->
 
-  if (document.readyState !== "loading") initWOW();
-  else document.addEventListener("DOMContentLoaded", initWOW);
-
-  window.addEventListener("load", syncWOW, { once: true });
-  window.addEventListener("pageshow", syncWOW);
-  window.addEventListener("orientationchange", syncWOW);
-  window.addEventListener("resize", syncWOW);
-})();
-</script>
 
   <!-- Navigation +++ -->
   <nav class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top nav-bright">
@@ -719,9 +696,6 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
 </script>
 
 	
-	
-	
-	
   <!-- Video -->
   <script>
     $(document).ready(function () {
@@ -756,12 +730,13 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
       $(window).on('resize', adjustLogoSize);
     });
   </script>
-	
-	
-	
-	
-	
-	
 
+
+  
+  <!-- 2025-09-10 13:50 (Europe/Berlin) | nemo
+     WOW.js geprüft und bereinigt: nur ein Init aktiv (vor </body>).
+     Empfehlung umgesetzt: oberer Init entfernt (siehe Kommentar
+     direkt nach <body>). CSS-Import über main_pd.css bleibt bestehen;
+     js/wow.min.js wird vor dem Init geladen. -->
 </body>
 </html>
