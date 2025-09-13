@@ -253,7 +253,7 @@ intent: mobiler Abstand Überschrift → Fließtext erhöhen (ohne !important)
 @media (max-width:600px){
 /* Überschrift unten mehr Luft */
 #hero-section .hb-hero--split h2.hb-glass-title{
-margin-bottom: 1.6em; /* vorher ~1.2em #justage */
+margin-bottom: 1em; /* vorher ~1.2em #justage */
 }
 /* Optional: erster Absatz oben neutral (falls global margin-top reinfunkt) */
 #hero-section .hb-hero--split p.hb-glass-text:first-of-type{
@@ -274,3 +274,39 @@ margin-top: 0; /* #justage */
 @media (max-width:1023px){
   #hero-section .hb-hero .hb-hero-B{ margin-top: clamp(16px, 6vw, 40px); }
 }
+
+
+
+/* === PATCH 2025-09-13 — Hero: CTA wird unten verdeckt (Höhe/Overflow) ===
+   Hinweis: Dieser Block gehört ans DATEIENDE von css/hb_brand_pd.css.
+   Wirkung: Hebt die harte Bühnenhöhe auf und verhindert Clipping im Inneren. */
+
+/* 1) Bühne: fixe Höhe → min-height + auto */
+#hero-section{
+  min-height: min(100svh, 700px);
+  height: auto;
+}
+
+/* 2) Innerer Hero: Clipping aufheben */
+#hero-section .hb-hero{
+  height: auto;
+  overflow: visible;
+}
+
+/* 3) SAFETY — Animations explizit beibehalten (falls extern überschrieben) */
+#hero-section .hb-hero{
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(12px);
+  animation: heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
+  will-change: opacity, filter, transform;
+  animation-play-state: running;
+}
+#hero-section .hb-hero-ai{
+  opacity: 0;
+  animation: heroAiFade var(--dur-slow) var(--ease-standard) .9s forwards;
+}
+#hero-section .hb-hero::after{
+  animation: heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay) + var(--heroDur)) infinite alternate;
+}
+

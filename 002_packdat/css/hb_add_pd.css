@@ -6,6 +6,10 @@
 */
 
 /* ================= 1) Mobile (≤ 990px): Typo, Abstände, Glas-Container ================= */
+
+/* ========= hb_indies =========== */
+
+
 @media (max-width: 990px){
   /* UL bündig links, ohne Einzug */
   .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible{ 
@@ -25,7 +29,7 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     border-radius: 14px;                   /* weiche Kanten */
   
-    margin-top: 60px;                     /* Navi-Container bewusst tiefer gesetzt */
+    margin-top: 24px;                     /* Navi-Container bewusst tiefer gesetzt */
   }
 
   /* Links: bündig, mehr vertikaler Raum, solide Touchflächen */
@@ -81,6 +85,7 @@
   }
 }
 
+
 /* ================= 3) Notfall-Override (nur aktivieren, wenn nötig) ================= */
 /*
 @media (max-width: 990px){
@@ -92,5 +97,158 @@
 */
 
 
+/* 2025-09-10 16:12 (Europe/Berlin) | nemo
+   CSS-Änderung: Hero-Claim Zeilenhöhe erhöhen (kein HTML geändert).
+   Wirkung: überschreibt line-height:1 aus hb_brand_pd.css/hb_style_pd.css. */
+#hero-section .hb-hero .hb-hero-B h2#hb-glass-title{ line-height: 1.25 !important; }
 
+/* 2025-09-10 16:12 (Europe/Berlin) | nemo
+   CSS-Änderung (mobil ≤990px): noch etwas luftiger auf kleinen Screens. */
+@media (max-width: 990px){
+  #hero-section .hb-hero .hb-hero-B h2#hb-glass-title{ line-height: 1.25 !important; }
+}
+
+/* 2025-09-10 20:16 (Europe/Berlin) | nemo
+   KLARSTELLUNG: Dies ist CSS (Datei: css/hb_add_pd.css). Keine HTML/Index-Änderung.
+   Änderung: Zwei neue Overrides für den Hero-Claim (#hb-glass-title) wurden am
+   Dateiende hinzugefügt (global 1.25, mobil ≤990px 1.30). Sie ersetzen keinen
+   bestehenden Code, sondern überstimmen frühere line-height:1-Regeln per
+   Spezifität + !important. Andere Styles bleiben unverändert.
+   Rücknahme: Entferne bei Bedarf lediglich diese beiden Blöcke. */
+
+
+
+
+
+
+/* 2025-09-12 | nemo — CTA-Schatten via Wrapper, kein Clipping durch overflow */
+.btn-wrap{ display:inline-block; filter: drop-shadow(0 12px 22px rgba(0,0,0,.22)); }
+.btn-wrap .hb-cta{ box-shadow:none; }
+
+/* Mobil leicht reduzierter Schatten, damit nicht „schwimmt“ */
+@media (max-width:990px){
+  .btn-wrap{ filter: drop-shadow(0 10px 18px rgba(0,0,0,.20)); }
+}
+
+
+/* Snip-Ticket #005 — Nur den CTA zentrieren, sonst nichts | 2025-09-12 | nemo
+   Anwendung: ANS ENDE von css/hb_add_pd.css anhängen.
+   Hinweis: Snip #001 (btn-wrap) BEIBEHALTEN. Keine Container-/Padding-Änderungen. */
+
+@media (max-width:990px){
+  .hb-glass .hb-glass-text .btn-wrap,
+  .glass-card .btn-wrap{
+    display: block;            /* eigener Block */
+    width: max-content;        /* so breit wie der Button */
+    margin: 0 auto 24px;       /* zentriert + Luft nach unten für Schatten */
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,.20)); /* Schatten am Wrapper */
+  }
+  .hb-glass .hb-glass-text .btn-wrap .hb-cta,
+  .glass-card .btn-wrap .hb-cta{
+    box-shadow: none;          /* Schatten nur über den Wrapper */
+  }
+}
+
+
+
+/* ────────────────────────────────────────────────────────────────
+   HERO: CTA verdeckt – Overlay & Overlap-Fix
+   ──────────────────────────────────────────────────────────────── */
+
+/* 1) Hero als eigener Stacking-Context + Inhalt über Deko-Layern */
+.hb-hero {
+  position: relative;
+  isolation: isolate;         /* erlaubt z-index:-1 für Deko hinter Inhalt */
+  z-index: 999;               /* sicher vor dem Folgeabschnitt */
+}
+.hb-hero > * {
+  position: relative;
+  z-index: 1;                 /* Text, CTA etc. über den Pseudo-Elementen */
+}
+
+/* 2) Dekorative Pseudo-Elemente dürfen keine Klicks abfangen
+      und liegen sicher hinter dem Content */
+.hb-hero::before,
+.hb-hero::after,
+.hb-hero--split::before,
+.hb-hero--split::after,
+.hb-glass::before,
+.hb-glass::after {
+  pointer-events: none !important;
+  z-index: -1 !important;     /* hinter den Inhalt */
+}
+
+/* 3) CTA-Schatten über Wrapper (keine Clipping-Probleme im Glas) */
+.hb-hero .btn-wrap{
+  display: inline-block;
+  filter: drop-shadow(0 16px 30px rgba(239, 23, 123, .35));
+}
+.hb-hero .hb-cta{
+  box-shadow: none;           /* Schatten liegt auf dem Wrapper */
+  position: relative;
+  z-index: 2;                 /* CTA sicher ganz oben im Hero */
+}
+
+/* 4) Unterkante Hero: Luft geben, falls das nächste Modul hochzieht */
+.hb-hero .hb-glass{
+  padding-bottom: clamp(28px, 4.5vh, 60px);
+}
+
+/* 5) Sicherheitsnetz: Nächster Abschnitt darf den Hero nicht überdecken */
+.hb-hero + *{
+  position: relative;
+  z-index: 0 !important;
+  margin-top: 0;              /* neutralisiert evtl. negative top-margins */
+}
+
+
+
+
+/* Snip-Ticket #007 — Hero oben mehr Luft (mobil) | 2025-09-12 | nemo
+   ERSETZT Snip #006. Nur in css/hb_add_pd.css am DATEIENDE einsetzen. */
+
+@media (max-width: 990px){
+  /* Mehr Abstand unter der Navbar */
+  #hero-section .hb-hero{
+    padding-top: calc(var(--nav-h, 56px) + 32px) !important;
+  }
+  /* Sicherheits-Puffer im Grid */
+  #hero-section .hb-hero-grid{ padding-top: 12px !important; }
+}
+
+/* Optional: sauberes Anscrollen zum Hero */
+#hero-section{ scroll-margin-top: calc(var(--nav-h, 56px) + 16px); } 
+
+
+/* Snip-Ticket #001 – CTA überlagert / Schatten sichtbar */
+
+/* A) Hero über nachfolgende Sektionen legen */
+.hb-hero {
+  position: relative;     /* erzeugt Stacking-Context */
+  z-index: 10;            /* sicher über dem nächsten Abschnitt */
+}
+
+/* B) CTA: Schatten über Wrapper, nicht über dem Link selbst */
+.hb-hero .btn-wrap{
+  display: inline-block;
+  /* weicher Drop-Shadow, der nicht am Link selbst clippt */
+  filter: drop-shadow(0 14px 26px rgba(239, 23, 123, .35));
+}
+
+.hb-hero .hb-cta{
+  box-shadow: none;       /* Schatten liegt auf dem Wrapper */
+  position: relative;     /* für z-index-Fokus, falls nötig */
+  z-index: 1;
+}
+
+/* C) Etwas Innenabstand unten, damit Schatten im Glas nicht abgeschnitten wird */
+.hb-hero .hb-glass{
+  padding-bottom: clamp(24px, 4vh, 56px);
+}
+
+/* D) Sicherheitsnetz: falls der nächste Block eigene z-index/Transforms setzt */
+section + section{
+  position: relative;
+  z-index: 0;
+}
 

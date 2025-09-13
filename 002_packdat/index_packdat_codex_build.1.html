@@ -37,12 +37,21 @@ Last Edit (prev):
   <link href="css/hb_style_pd.css" rel="stylesheet">
   <link href="css/hb_brand_pd.css" rel="stylesheet">
   <link href="css/hb_bio_pd.css" rel="stylesheet">
-	<link href="css/hb_add_pd.css" rel="stylesheet">
+<link href="css/hb_add_pd.css" rel="stylesheet">
 	
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+	
+	<style>
+
+
+.ponk {color: greenyellow !important;
+}
+
+		
+</style>
 </head>
 
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -54,7 +63,7 @@ Last Edit (prev):
 
 
   <!-- Navigation +++ -->
-  <nav class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top nav-bright">
+  <nav class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top nav-bright ponk">
     <div class="container">
       <div class="row">
         <div class="navbar-header">
@@ -117,10 +126,25 @@ Last Edit (prev):
         <!-- 60%: GLAS (Info-Box) -->
         <aside class="hb-hero-B hb-glass" aria-labelledby="hb-glass-title">
           <h2 id="hb-glass-title" class="hb-glass-title">Für Ihre Produkte zahlen Kunden mit Geld. Für eine starke Marke geben Kunden ihr letztes Hemd.</h2>
-          <p class="hb-glass-text">Als Brand Manager arbeite ich daran, den Wert einer Marke in die Herzen der Menschen zu übertragen. Sie haben von mir gehört, etwas gelesen—oder ich bin auf Sie zugekommen. Hier finden Sie kompakt: wer ich bin, wie ich arbeite und wie Markenstrategie, Branddesign und KI-Workflows zusammenwirken.</p>
-          <p class="hb-glass-text">
-            <a href="#Kontakt" class="hb-cta page-scroll" aria-label="Unverbindlich sprechen">Unverbindlich sprechen</a>
-          </p>
+          <p class="hb-glass-text ">Den Wert  x der Marke in die Herzen der Menschen zu übertragen ist unabdingbar um eine langfistige Bindung mit Ihren Kunden aufzubauen und erhalten. Zuerst die Marke. Dann das Marketing. Mit klarer Trennschärfe gewinnen Sie Focus auf die wahren Wachstumstreiber Ihrer Unternehmensstrategie. Ich baue ich Ihre Marke auf. in fester Anstellung in Ihrem Unternehmen oder auf Projektbasis.</p>
+     <!-- Snip-Ticket #001 — CTA-Schatten ohne Clipping | 2025-09-12  | nemo
+     Ziel: Button-Schatten bleibt sichtbar, obwohl Eltern/Glass-Container overflow:hidden nutzen.
+     Umsetzung: CTA in Wrapper legen, Schatten per filter: drop-shadow am Wrapper; Button-box-shadow deaktivieren. -->
+
+<!-- index.html — Abschnitt: HERO › hb-glass (CTA) -->
+<!-- ERSETZEN (alt) -->
+<!--
+<p class="hb-glass-text">
+  <a href="#Kontakt" class="hb-cta page-scroll" aria-label="Unverbindlich sprechen">Unverbindlich sprechen</a>
+</p>
+-->
+
+<!-- DURCH (neu) -->
+<p class="hb-glass-text">
+  <span class="btn-wrap">
+    <a href="#Kontakt" class="hb-cta page-scroll " aria-label="Unverbindlich sprechen">Unverbindlich sprechen</a>
+  </span>
+</p>
         </aside>
 
       </div>
@@ -128,7 +152,7 @@ Last Edit (prev):
   </section>
 
   <!-- Video-Bio-Frame -->
-  <section id="video-bio" class="section-small fade-overlay">
+  <section id="video-bio" class="section-small fade-overlay" >
     <div class="container text-center offset showcase">
       <div class="row v-center hb-glass-title">
         <!-- Showreel Video (links, moderner Rahmen) -->
@@ -148,10 +172,10 @@ Last Edit (prev):
           <div class="glass-card">
             <div class="text-justify">
               <p>
-               Mit langjähriger Strategie- und Designexpertise sowie dem gezielten Einsatz von KI entwickle ich Markenerlebnisse, die Publikum wie auch Stakeholdern adressieren. Creative Director, Motion Designer, Web Designer, Meine Arbeit basiert auf Fachkompetenz, Wissen und Neugier – eine Kombination, die im Zeitalter der KI besonders relevant ist.
+               Mit langjähriger Strategie- und Designexpertise sowie dem gezielten Einsatz von KI entwickle ich Markenerlebnisse, die Publikum wie auch Stakeholdern adressieren. Creative Director, Motion Designer, Web Designer, Meine Arbeit basiert auf Fachkompetenz, Wissen und Neugier – eine Kombination, die im Zeitalter der KI besonders relevant ist. Sie sind gehen gerne direkt auf Menschen zu? Ich auch. In einem Video-Chat schnell auf den Punkt kommen. 
               </p>
             </div>
-            <p><a href="#learn" class="cta-bio">Watch Demo</a></p>
+            <p><a href="#learn" class="cta-bio">Direkt und unkompliziert kennenlernen</a></p>
           </div>
         </div>
       </div>
@@ -417,7 +441,8 @@ Last Edit (prev):
                 <h2 class="h2-special_3 text-left bold-italic fontblu">BRAND<wbr>STRATEGY</h2>
               </div>
               <div class="right-column one-third">
-                <h4 class="text-left mark-highlight-sk_3 move-right">Brand Manager als Kurator datengetriebener Markenführung</h4>
+               <h4 class="text-left mark-highlight-sk_4 move-right">Brand Manager als Kurator datengetriebener Markenführung</h4>
+
               </div>
             </div>
             <div class="full-width-paragraph">
@@ -455,7 +480,7 @@ Last Edit (prev):
                 <h2 class="h2-special_3 text-left bold-italic fontnu">BRAND<wbr> DESIGN</h2>
               </div>
               <div class="right-column one-third">
-                <h4 class="text-left mark-highlight-sk_3">Visuelle Systeme neu denken – Design als skalierbare Infrastruktur</h4>
+                <h4 class="text-left mark-highlight-sk_4">Visuelle Systeme neu denken – Design als skalierbare Infrastruktur</h4>
               </div>
             </div>
             <div class="full-width-paragraph">
