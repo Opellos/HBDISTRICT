@@ -456,7 +456,7 @@ h5, h6 {
   width: 56px;
   height: 56px;
   margin-bottom: 1.5rem;
-  border-radius: 12px; /* abgerundetes Quadrat */
+  border-radius: var(--radius-s); /* [fox_2025-09-18__05_icons-flat-solid] */ /* abgerundetes Quadrat */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -467,9 +467,24 @@ h5, h6 {
   gap: 2.5rem;
 }
 
-.bg-blue   { background: linear-gradient(to bottom right, #2563eb, #1e40af); }
-.bg-purple { background: linear-gradient(to bottom right, #207cfa, #6b21a8); }
-.bg-pink   { background: linear-gradient(to bottom right, #ec48ff, #db2777); }
+/* [fox_2025-09-18__07_icons-stronger-bg] bg-blue */
+.bg-blue{
+  background-color: rgba(32,124,250,.50);
+  border: 1px solid rgba(32,124,250,.70);
+  color:#fff; /* stärkere Icon-Kontrastfarbe */
+}
+/* [fox_2025-09-18__07_icons-stronger-bg] bg-purple */
+.bg-purple{
+  background-color: rgba(125,50,223,.50);
+  border: 1px solid rgba(125,50,223,.70);
+  color:#fff;
+}
+/* [fox_2025-09-18__07_icons-stronger-bg] bg-pink */
+.bg-pink{
+  background-color: rgba(255,60,208,.50);
+  border: 1px solid rgba(255,60,208,.70);
+  color:#fff;
+}
 
 /* [fox_2025-09-18__03_cards-visible-border] */
 .card-custom{
@@ -491,6 +506,31 @@ h5, h6 {
 .card-custom:has(.bg-pink):hover{
   border-color:#ff3cd0; 
   box-shadow: 0 0 0 2px rgba(255,60,208,.16) inset, 0 16px 36px rgba(0,0,0,.08);
+}
+
+/* [fox_2025-09-18__07_icons-stronger-bg] icon-hover */
+.card-custom:hover .icon-square.bg-blue{  background-color: rgba(32,124,250,.60); border-color: rgba(32,124,250,.90); }
+.card-custom:hover .icon-square.bg-purple{background-color: rgba(125,50,223,.60); border-color: rgba(125,50,223,.90); }
+.card-custom:hover .icon-square.bg-pink{  background-color: rgba(255,60,208,.60); border-color: rgba(255,60,208,.90); }
+
+/* [fox_2025-09-18__08_icon-interactions] */
+.icon-square{
+  transition: transform var(--dur-fast) var(--ease-standard),
+              box-shadow var(--dur-fast) var(--ease-standard),
+              filter var(--dur-fast) var(--ease-standard);
+  will-change: transform, box-shadow, filter;
+}
+.card-custom:hover .icon-square{
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+  filter: saturate(1.05);
+}
+.card-custom:active .icon-square{ transform: translateY(-1px) scale(1.02); }
+.icon-square:focus-visible{ outline: 2px solid #207cfa; outline-offset: 2px; }
+.card-custom:hover .icon-square svg{ transform: scale(1.05); transition: transform var(--dur-fast) var(--ease-standard); }
+@media (prefers-reduced-motion: reduce){
+  .icon-square, .card-custom:hover .icon-square, .card-custom:active .icon-square,
+  .card-custom:hover .icon-square svg{ transition: none; transform: none; filter:none; }
 }
 
 /* ENDE SECTION CARDS */
@@ -1038,8 +1078,8 @@ section, .section {
 
 @media (max-width: 768px) {
   .h2-special {
-    padding-left: clamp(1.5rem, 6vw, 2.5rem); /* Abstand links, ohne Verschiebung des gesamten Contents */
-    font-size: clamp(2.8rem, 6vw, 3.5rem); /* Optional: Schrift etwas kleiner für bessere Passung */
+    padding-left: clamp(0rem, 2vw, 1rem); /* [fox_2025-09-18__09_h2-mobile-left-trim] weniger links */
+    font-size: clamp(2.8rem, 6vw, 3.5rem);
   }
 }
 
@@ -1075,12 +1115,13 @@ section, .section {
 
 
 
-/*slider*/
-@media (max-width: 768px) {
-  .carousel-item-text {
-    padding-left: clamp(1rem, 5vw, 2rem); /* Abstand links zum Rand */
-    padding-right: clamp(1rem, 5vw, 2rem); /* Abstand rechts zum Rand */
-  }
+$1
+
+/* [fox_2025-09-18__09_h2-mobile-left-trim] — nur im Works-Block links bündig */
+@media (max-width: 768px){
+  #works .h2-special{ padding-left: 0; margin-left: 0; }
+}
+
 }
 
 
