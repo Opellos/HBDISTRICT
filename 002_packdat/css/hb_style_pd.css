@@ -1128,6 +1128,15 @@ $1
 
 
 
+/* [fox_2025-09-18__11_slider-text-padding_#1] */
+@media (max-width: 768px) {
+  #action-slider .carousel-item-text{ 
+    padding-left: clamp(14px, 5vw, 22px);
+    padding-right: clamp(14px, 5vw, 22px);
+  }
+  #action-slider .carousel-item-text h2{ padding-left: 0; margin-left: 0; }
+}
+
 /*Button im Slider */
 
 @media (max-width: 768px) {
