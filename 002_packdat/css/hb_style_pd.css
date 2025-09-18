@@ -1078,7 +1078,7 @@ section, .section {
 
 @media (max-width: 768px) {
   .h2-special {
-    padding-left: 0; /* [fox_2025-09-18__10_h2-left-trim_#2(pl=0)] */
+    padding-left: clamp(0rem, 2vw, 1rem); /* [fox_2025-09-18__09_h2-mobile-left-trim] weniger links */
     font-size: clamp(2.8rem, 6vw, 3.5rem);
   }
 }
@@ -1117,11 +1117,9 @@ section, .section {
 
 $1
 
-/* [fox_2025-09-18__10_h2-left-trim_#2(workspad=10px, h2-ml=-4px)] — nur im Works-Block links bündig */
+/* [fox_2025-09-18__09_h2-mobile-left-trim] — nur im Works-Block links bündig */
 @media (max-width: 768px){
-  #works .container, #works .container-fluid{ padding-left: 10px !important; }
-  #works .h2-special{ padding-left: 0; margin-left: -4px; }
-}
+  #works .h2-special{ padding-left: 0; margin-left: 0; }
 }
 
 }
