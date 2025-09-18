@@ -188,9 +188,7 @@
   --cta-font-size-min:1.05rem; --cta-font-size-fluid:1.35vw; --cta-font-size-max:1.8rem;
   --cta-shadow-1:var(--shadow-md); --cta-shadow-2:var(--shadow-inset);
 }
-/* [fox_2025-09-18__02_merge-cta2-into-cta] */
-#hero-section .hb-cta, #hero-section .hb-cta_2{
-
+#hero-section .hb-cta{
   display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
   padding: var(--cta-padding-y) var(--cta-padding-x);
   font-weight:var(--cta-font-weight);
@@ -204,11 +202,30 @@
   transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
 }
 /* [fox_2025-09-18__01_dedupe-cta-interactions] */
-#hero-section .hb-cta:hover, #hero-section .hb-cta_2:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
-#hero-section .hb-cta:active, #hero-section .hb-cta_2:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
+#hero-section .hb-cta:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
+#hero-section .hb-cta:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
 
 
 /* button Ableeger*/
+
+.hb-cta_2{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
+  padding: var(--cta-padding-y) var(--cta-padding-x);
+  font-weight:var(--cta-font-weight);
+  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  border-radius: var(--cta-radius);
+  color:#fff; 
+  /* micro edit (cassette 12) – CTA mit Verlauf statt Schwarz */
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  text-decoration:none;
+  box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
+  transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+
+
+
+
 /* ---------- 8) Mobile ≤600px (CTA + Brand/Subline Scaling) ---------- */
 @media (max-width:600px){
   /* CTA-Tuning (Cassette 7c) */

@@ -7,7 +7,7 @@
   Zeit in Europe/Berlin, Quelle: Systemzeit.
 */
 /* =========================================================
-   FILE: hb_style.css
+   FILE: hb_style_pd.css
    INTENT: Phase 1 – Marker/Kommentare; keine Werte ändern
    HINWEIS: Originalinhalt vollständig übernommen. Nur Kopfmarker ergänzt.
    ========================================================= */
@@ -451,6 +451,17 @@ h5, h6 {
   justify-content: center;
 }
 
+/* [fox_2025-09-18__04_icons-square] */
+.icon-square{
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1.5rem;
+  border-radius: 12px; /* abgerundetes Quadrat */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-row {
   margin-top: 4rem;
   gap: 2.5rem;
@@ -459,6 +470,28 @@ h5, h6 {
 .bg-blue   { background: linear-gradient(to bottom right, #2563eb, #1e40af); }
 .bg-purple { background: linear-gradient(to bottom right, #207cfa, #6b21a8); }
 .bg-pink   { background: linear-gradient(to bottom right, #ec48ff, #db2777); }
+
+/* [fox_2025-09-18__03_cards-visible-border] */
+.card-custom{
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: var(--radius-l);
+  transition: transform var(--dur-base) var(--ease-standard),
+              box-shadow var(--dur-base) var(--ease-standard),
+              border-color var(--dur-fast) var(--ease-standard);
+}
+/* Default-Hover (Fallback) */
+.card-custom:hover{ border-color:#207cfa; }
+
+/* Hover-Varianten nach Icon-Farbe */
+.card-custom:has(.bg-blue):hover,
+.card-custom:has(.bg-purple):hover{
+  border-color:#207cfa; 
+  box-shadow: 0 0 0 2px rgba(32,124,250,.16) inset, 0 16px 36px rgba(0,0,0,.08);
+}
+.card-custom:has(.bg-pink):hover{
+  border-color:#ff3cd0; 
+  box-shadow: 0 0 0 2px rgba(255,60,208,.16) inset, 0 16px 36px rgba(0,0,0,.08);
+}
 
 /* ENDE SECTION CARDS */
 
@@ -1297,6 +1330,7 @@ section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
   50% { opacity: 1;   transform: scale(1.03); }
   100% { opacity: .85; transform: scale(0.98); }
 }
+
 
 
 
