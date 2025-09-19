@@ -1,17 +1,10 @@
-/* Last Edit: 2025-09-04 10:15 (Europe/Berlin) — Kontakt: Bulb-Glow verstärkt + animiert; .bulb-icon-Styles entfernt */
-/* Last Edit: 2025-09-03 16:28 (Europe/Berlin) — .h2-special_2 aktualisiert */
-/* Last Edit: 2025-09-01 18:22 (Europe/Berlin) */
-/*
-  Codex Kickoff – Webdevelopment & Webdesign
-  Timestamp: 2025-08-30 17:34
-  Zeit in Europe/Berlin, Quelle: Systemzeit.
-*/
-/* =========================================================
+/* ========================================================= 
    FILE: hb_style_pd.css
    INTENT: Phase 1 – Marker/Kommentare; keine Werte ändern
-   HINWEIS: Originalinhalt vollständig übernommen. Nur Kopfmarker ergänzt.
+   HINWEIS: Originalinhalt vollständig übernommen. Nur Kopfmarker/Kommentare ergänzt.
    ========================================================= */
-/* Design Tokens */
+
+/* === Design Tokens ======================================================= */
 :root{
   /* Type Donnerstag, 28. August 2025 15:03 DISTRICT */
   --font-montserrat:'Montserrat',sans-serif;
@@ -49,7 +42,7 @@
   --ease-in-out:ease-in-out;
 }
 
-/* BASIS TYPO */
+/* === Basis-Typografie ==================================================== */
 p {
   text-align: left;
   hyphens: auto;
@@ -92,8 +85,6 @@ h3, h4 {
   color: #3d4654;
 }
 
-
-
 h5, h6 {
   font-family: var(--font-hanken);
   font-weight: 600;
@@ -104,8 +95,9 @@ h5, h6 {
   color: #3d4654;
 }
 
-/* Special Typos */
+/* === Specials & Utilities =============================================== */
 
+/* Special Typos */
 .ps {	color: #ffffff !important;	}
 .pi {	font-style: italic !important;	}
 
@@ -114,17 +106,9 @@ h5, h6 {
   padding: clamp(3rem, 6vw, 5rem); /* Responsiver Padding für Einleitung */
 }
 
-
 /* Abstände */
-
-.gapi_bot_10  {
-	margin-bottom: -2rem; 		
-}
-.gapi_top_10  {
-	margin-top: -2rem; 		
-}
-
-
+.gapi_bot_10  { margin-bottom: -2rem; }
+.gapi_top_10  { margin-top: -2rem; }
 
 .h2-special {
   font-family: var(--font-hanken);
@@ -137,7 +121,6 @@ h5, h6 {
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
   text-transform: normal;
 }
-
 
 /* Edit: 2025-09-03 16:28 (Europe/Berlin) — .h2-special_2 ersetzt (Skalierung + Spacing) */
 .h2-special_2 {
@@ -153,14 +136,9 @@ h5, h6 {
   margin-left: clamp(2rem, 5vw, 3rem); /* Skaliert Abstand links */
 }
 
-
-
-
-
 .h2-special_3 {
   font-family: var(--font-hanken);
   font-weight: 900; /* Fett, wie gewünscht */
-
   font-size: clamp(7rem, 7vw, 11rem); /* Skaliert von 4rem bis 6rem für Desktop */
   color: #fff; /* brandfont */
   line-height: 0.8; /* Kompakte Zeilenhöhe */
@@ -169,8 +147,6 @@ h5, h6 {
   margin-bottom: clamp(0.5rem, 2vw, 1rem); /* Reduziert auf 0.5rem bis 1rem */
   text-transform: normal; /* Kein Uppercase */
 }
-
-
 
 .h3-headline {
   font-family: var(--font-hanken);
@@ -184,7 +160,6 @@ h5, h6 {
   text-transform: normal;
 }
 
-
 .h4-special {
   font-family: var(--font-hanken);
   font-weight: 700;
@@ -196,8 +171,6 @@ h5, h6 {
   margin-bottom: clamp(5rem, 3vw, 3rem);
   text-transform: normal;
 }
-
-
 
 .italic-inline {
   font-family: var(--font-hanken);
@@ -227,11 +200,6 @@ h5, h6 {
   transition: background-size 0.3s ease, color 0.3s ease;
 }
 
-
-
-
-
-
 .mark-highlight  {
   background: linear-gradient(to top, #207cfa 100%, transparent 0%);
   color: #ff3cd0 !important;
@@ -252,12 +220,7 @@ h5, h6 {
   transition: background-size 0.3s ease, color 0.3s ease;
 }
 
-
-.mark-highlight-works {
-	margin-top: 2.0rem;
-	
-}
-
+.mark-highlight-works { margin-top: 2.0rem; }
 
 .mark-highlight_2  {
   background: linear-gradient(to top, #207cfa 100%, transparent 0%);
@@ -279,8 +242,6 @@ h5, h6 {
   transition: background-size 0.3s ease, color 0.3s ease;
 }
 
-
-
 .mark-highlight-sk_3 {
   background: linear-gradient(to top, #207cfa 110%, transparent 0%);
   color: #fff !important;
@@ -301,8 +262,6 @@ h5, h6 {
   transition: background-size 0.3s ease, color 0.3s ease;
 }
 
-
-
 .mark-highlight:hover, .mark-highlight-sm:hover, .mark-highlight-sk:hover, .mark-highlight-sk_2:hover {
   background-size: 100% 120%;
   color: #207cfa;
@@ -321,7 +280,6 @@ h5, h6 {
 	line-height: 1.2;
 	overflow: visible;
 	padding: 0.2em 0.1em;
-
 }
 
 .gradient-text {
@@ -336,14 +294,9 @@ h5, h6 {
 	line-height: 1.2;
 	overflow: visible;
 	padding: 0.2em 0;
-
 }
 
-
-.gradient-text:hover {
-  background-position: 100% 0;
-}
-
+.gradient-text:hover { background-position: 100% 0; }
 
 .bold-italic {
   font-weight: 900;
@@ -351,60 +304,33 @@ h5, h6 {
   letter-spacing: -0.08em;
 }
 
-
-
+/* OVERRIDE: mark-highlight-sm wird hier bewusst neutralisiert (transparent) – vorherige farbige Variante bleibt überschrieben. */
 .mark-highlight-sm {
   background: transparent;
   font-weight: 700;
   color: #0a0a0a; /* Oder dein Branding-Ton */
 }
 
-
-/* Anapssung*/
-
-
+/* Anpassung */
 
 /* Laufweite */
-.ch_ {
-  max-width: 80ch !important;
-}
+.ch_ { max-width: 80ch !important; }
 
 /* Farben */
-.nowhite {
-  background: #fafafa;
-}
-
-.brandblue {
-  background: #207cfa;
-}
-
-
-
-.bg-weiss {
-  background-color: #FFFFFF;
-}
+.nowhite { background: #fafafa; }
+.brandblue { background: #207cfa; }
+.bg-weiss { background-color: #FFFFFF; }
 
 /* Abstände */
-.hb_abs {
-  padding: 15px;
-}
-
-.hb_rand {
-  margin: 10px;
-}
+.hb_abs { padding: 15px; }
+.hb_rand { margin: 10px; }
 
 /* Decoration */
-.hb_dropper_a {
-  box-shadow: 0px 1px 10px 4px rgba(100,100,100,0.28);
-}
+.hb_dropper_a { box-shadow: 0px 1px 10px 4px rgba(100,100,100,0.28); }
+.fontblu {	color: #207cfa; }
+.fontnu {	color: #ff3cd0; }
 
-.fontblu {
-	color: #207cfa;
-}
-
-.fontnu {
-	color: #ff3cd0;
-}
+/* === Komponenten: Cards =================================================== */
 
 /* START  SESSION CARDS   */
 
@@ -484,6 +410,8 @@ h5, h6 {
 }
 
 /* [fox_2025-09-18__03_cards-visible-border] */
+/* NOTE[override-intent]: Zweite Definition von .card-custom (sichtbarer Border).
+   Lässt frühere Eigenschaften bestehen, überschreibt aber den Rand. */
 .card-custom{
   border: 1px solid rgba(0,0,0,.12);
   border-radius: var(--radius-l);
@@ -545,9 +473,7 @@ h5, h6 {
 
 /* ENDE SECTION CARDS */
 
-
-
-/* Hintergründe  */
+/* === Hintergründe & Forms =============================================== */
 
 .glass-card {
   background: rgba(255, 255, 255, 0.05); /* leicht transparent */
@@ -559,9 +485,7 @@ h5, h6 {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-input, textarea {
-    border-radius: 2px !important;
-}
+input, textarea { border-radius: 2px !important; }
 
 .form-control {
   background: rgba(255, 255, 255, 0.1);
@@ -570,13 +494,9 @@ input, textarea {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
+.form-control::placeholder { color: rgba(255, 255, 255, 0.6); }
 
-.form-control::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-
-
+/* === Site-Gradient & Animation ========================================== */
 
 /* Statischer Verlauf ohne Animation */
 .grandient_pow { /* Grundklasse mit statischem Farbverlauf */
@@ -598,25 +518,18 @@ input, textarea {
   100% { background-position: 0% 50%; }
 }
 
-
-
 /* Headline-Split & Vertical Line */
 .headline-split {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
 .vertical-line {
   height: 100px;
   width: 2px;
   background: linear-gradient(to bottom, #207cfa, #ff3cd0);
 }
-
-.mark-highlight-sk {
-  margin-top: 0.5rem;
-}
-
+.mark-highlight-sk { margin-top: 0.5rem; }
 .vertical-separator {
   height: 100px;
   width: 7px;
@@ -630,49 +543,23 @@ input, textarea {
   justify-content: space-between;
   gap: 1rem;
 }
-
-.two-thirds {
-  flex: 2;
-}
-
-.one-third {
-  flex: 1;
-}
-
+.two-thirds { flex: 2; }
+.one-third { flex: 1; }
 .full-width-paragraph {
   width: 100%;
   padding-top: 2rem;
   padding-bottom: 3rem;
 }
 
-
 .navbar-custom.top-nav-collapse .navbar-brand .logodark {
-max-height: 30px;
+  max-height: 30px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* === Responsive Breakpoints ============================================= */
 
 @media (max-width: 768px) {
-  .content-row {
-    flex-direction: column;
-  }
-  .two-thirds, .one-third {
-    flex: 1;
-  }
+  .content-row { flex-direction: column; }
+  .two-thirds, .one-third { flex: 1; }
   .full-width-paragraph {
     padding-top: 1rem;
     padding-bottom: 1.5rem;
@@ -692,13 +579,11 @@ max-height: 30px;
   background-size: cover;
   background-position: center center;
 }
-
 .hb_bild_hg_immun {
   background-image: url("../img/main/hb_hg_immun.jpg");
   background-size: cover;
   background-position: center center;
 }
-
 .hb_bild_hg_original {
   background-image: url("../img/main/hb_hg_original.jpg");
   background-size: cover;
@@ -711,46 +596,15 @@ max-height: 30px;
 }
 
 /* Navigation */
-.navbar-collapse {
-  padding-left: 3em;
-}
-
-.navbar-toggle {
-  padding: 0 30px;
-}
-
+.navbar-collapse { padding-left: 3em; }
+.navbar-toggle { padding: 0 30px; }
 .navbar-toggle .icon-bar {
   width: 30px;
   border-radius: 0;
   background: #ff3cd0;
 }
-
-.navbar-header {
-  margin-top: 0.8em;
-}
-
-.navbar-custom .nav li.active a {
-  color: #ff3cd0 !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.navbar-header { margin-top: 0.8em; }
+.navbar-custom .nav li.active a { color: #ff3cd0 !important; }
 
 /* Media Queries (konsolidiert) */
 @media (max-width: 1199px) {
@@ -760,184 +614,73 @@ max-height: 30px;
 }
 
 @media (max-width: 992px) {
-  img.center-block.img-responsive {
-    margin-top: 50px;
-  }
-  #about {
-    overflow: visible !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  #bgCanvas {
-    width: 100vw !important;
-    height: 100vh !important;
-    left: 0 !important;
-  }
-  .container {
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .col-lg-10, .col-lg-offset-1 {
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
- .row.v-center {
-    flex-direction: column;
-    align-items: center;
-  }
-  .col-lg-6 {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  .showcase {
-    margin-top: 0;
-    padding: 30px 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  #about {
-    padding-bottom: 30px;
-    min-height: 400px;
-  }
-  #bgCanvas {
-    height: 100%;
-    min-height: 400px;
-  }
-  section {
-    padding: 20px 0;
-    overflow: hidden;
-  }
+  img.center-block.img-responsive { margin-top: 50px; }
+  #about { overflow: visible !important; padding: 0 !important; margin: 0 !important; }
+  #bgCanvas { width: 100vw !important; height: 100vh !important; left: 0 !important; }
+  .container { width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .col-lg-10, .col-lg-offset-1 { width: 100% !important; margin-left: 0 !important; }
+  .row.v-center { flex-direction: column; align-items: center; }
+  .col-lg-6 { width: 100%; margin-bottom: 30px; }
+  .showcase { margin-top: 0; padding: 30px 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+  #about { padding-bottom: 30px; min-height: 400px; }
+  #bgCanvas { height: 100%; min-height: 400px; }
+  section { padding: 20px 0; overflow: hidden; }
 }
 
-
-
 @media (max-width: 991px) {
-  section {
-    background-attachment: scroll !important;
-    background-position: 50% 50% !important;
-    text-align: left;
-  }
-  .navbar-collapse {
-    background-color: #ffffff !important;
-  }
+  section { background-attachment: scroll !important; background-position: 50% 50% !important; text-align: left; }
+  .navbar-collapse { background-color: #ffffff !important; }
 }
 
 @media (max-width: 990px) {
-  p.empty {
-    display: none;
-  }
-  .search-button {
-    margin-top: 0;
-  }
-  .nav .badge {
-    margin: 2px 4px;
-  }
+  p.empty { display: none; }
+  .search-button { margin-top: 0; }
+  .nav .badge { margin: 2px 4px; }
   .nav a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     color: #000 !important;
   }
-  .nav a:focus {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-  }
-  .navbar-header {
-    float: none;
-  }
-  .navbar-left, .navbar-right {
-    float: none !important;
-  }
-  .navbar-toggle {
-    display: block;
-  }
-  .navbar-collapse {
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-collapse.collapse {
-    display: none !important;
-  }
-  .navbar-nav {
-    float: none !important;
-    margin-top: 7px;
-  }
-  .navbar-nav > li {
-    float: none;
-  }
-  .navbar-nav > li > a {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  .collapse.in {
-    display: block !important;
-  }
-  .navbar-collapse.in {
-    overflow-y: auto !important;
-  }
+  .nav a:focus { border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
+  .navbar-header { float: none; }
+  .navbar-left, .navbar-right { float: none !important; }
+  .navbar-toggle { display: block; }
+  .navbar-collapse { border-top: 1px solid transparent; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); }
+  .navbar-collapse.collapse { display: none !important; }
+  .navbar-nav { float: none !important; margin-top: 7px; }
+  .navbar-nav > li { float: none; }
+  .navbar-nav > li > a { padding-top: 4px; padding-bottom: 4px; }
+  .collapse.in { display: block !important; }
+  .navbar-collapse.in { overflow-y: auto !important; }
   .navbar-nav .open .dropdown-menu {
-    position: static;
-    float: none;
-    width: auto;
-    margin-top: 0;
-    background-color: transparent;
-    border: 0;
-    box-shadow: none;
+    position: static; float: none; width: auto; margin-top: 0; background-color: transparent; border: 0; box-shadow: none;
   }
   .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
     padding: 10px 15px 10px 25px;
   }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: #999;
-  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a { color: #999; }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #fff;
-    background-color: transparent;
-    background-image: none;
+    color: #fff; background-color: transparent; background-image: none;
   }
 }
 
 @media (max-width: 768px) {
-  .container, .container-fluid {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  .row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .col-lg-6, .col-md-6 {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  h2 {
-    font-size: 3.5rem;
-  }
+  .container, .container-fluid { padding-left: 20px !important; padding-right: 20px !important; }
+  .row { flex-direction: column; align-items: center; }
+  .col-lg-6, .col-md-6 { width: 100%; margin-bottom: 20px; }
+  h2 { font-size: 3.5rem; }
   .h2-special {
     font-size: clamp(3.2rem, 8vw, 4rem);
     margin-top: clamp(1.5rem, 4vw, 2rem);
     margin-bottom: clamp(0.75rem, 2vw, 1rem);
   }
-  section, .section {
-    padding: 20px 0 !important;
-  }
- /* .row.v-center {
-    margin-top: -80px;
-  }*/
-  .lifter {
-    margin-top: -40px;
-  }
+  section, .section { padding: 20px 0 !important; }
+  /* .row.v-center { margin-top: -80px; } */
+  .lifter { margin-top: -40px; }
 }
 
+/* === Migration/Sections & Hero ========================================== */
 
-
-
-
-
-
-
-
-
-
- /* HB-CSS Migration */
-
+/* HB-CSS Migration */
 .neutral-section {
   background: #f5ece1; /* Warmes Beige statt Grau – freundlicher */
   position: relative;
@@ -946,9 +689,9 @@ max-height: 30px;
   padding: clamp(3rem, 6vw, 5rem);
 }
 
-
 .chapter-number {
-    font-family: var(--font-hanken);
+  /* TODO[keyframes-missing]: @keyframes fly-in und pulse sind in dieser Datei nicht definiert. */
+  font-family: var(--font-hanken);
   font-weight: 900;
   font-size: clamp(25rem, 40vw, 30rem);
   color: rgba(32, 124, 250, 0.2);
@@ -959,21 +702,17 @@ max-height: 30px;
   letter-spacing: -0.2em;
   animation: fly-in 1s ease-out forwards, pulse 4s infinite ease-in-out 1s;
   z-index: 0;
-	margin-top: 15rem;
-	margin-left: 10rem;
-	
+  margin-top: 15rem;
+  margin-left: 10rem;
 }
 
-
- /* Inline-CSS Migration */  /* Inline-CSS Migration */ /* Inline-CSS Migration */ /* Inline-CSS Migration */ /* Inline-CSS Migration */ /* Inline-CSS Migration */ /* Inline-CSS Migration */ /* Inline-CSS Migration */ /* Inline-CSS Migration */
-
- /* Inline-CSS Migration */
+/* Inline-CSS Migration */
 .floating-quote {
   position: fixed;
   top: 80%;
   left: 80%;
   transform: translate(-20%, -20%);
-   font-family: var(--font-montserrat);
+  font-family: var(--font-montserrat);
   font-weight: bolder;
   line-height: 1.2em;
   font-size: 3em;
@@ -996,7 +735,6 @@ max-height: 30px;
   font-weight: bold;
   transition: background-color 0.2s ease;
 }
-
 .btn-dark:hover, .btn-dark:focus {
   background-color: #3c64b0;
   color: white;
@@ -1037,7 +775,6 @@ section, .section {
   align-items: center;
   justify-items: center;
 }
-
 .partner-grid img {
   max-width: 100%;
   height: auto;
@@ -1045,10 +782,9 @@ section, .section {
   max-height: 160px;
 }
 
-.navbar-custom.nav-bright a {
-  color: #3d4654;
-}
+.navbar-custom.nav-bright a { color: #3d4654; }
 
+/* NOTE[duplicate]: #bgCanvas ist weiter oben bereits definiert. Vereinheitlichung in Phase 2 prüfen. */
 #bgCanvas {
   position: absolute;
   top: 0;
@@ -1059,33 +795,27 @@ section, .section {
   z-index: 0;
 }
 
-
-
-
+/* =========================================================
+   FIXME[syntax]: Unvollständiges @keyframes-Fragment entfernt/auskommentiert.
+   Falls beabsichtigt: Bitte als vollständigen Block ergänzen, z. B.:
+   @keyframes NAME { 0%{...} 50%{...} 100%{...} }
+   ========================================================= */
+/*
   50% { opacity: 1; filter: brightness(1.2); }
   100% { opacity: 0.8; filter: brightness(1); }
 }
+*/
+
 .last-cta {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   margin-top: var(--space-m);
   transition: background-color var(--dur-fast) var(--ease-standard);
 }
-.last-cta:hover {
-  background-color: #3c64b0;
-}
+.last-cta:hover { background-color: #3c64b0; }
 
+/* test Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößen */
 
-
-
-
-
-/*test Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößentest Abstände und Schriftgrößen */
-
-
-
-
-/*/*triple section*/
-
+/* triple section */
 @media (max-width: 768px) {
   .h2-special {
     padding-left: clamp(1.5rem, 6vw, 2.5rem); /* Abstand links, ohne Verschiebung des gesamten Contents */
@@ -1093,9 +823,7 @@ section, .section {
   }
 }
 
-
-/*triple section*/
-
+/* triple section */
 @media (max-width: 768px) {
   .mark-highlight {
     font-size: clamp(2.8rem, 5.5vw, 4rem); /* Etwas größer skalieren */
@@ -1103,7 +831,6 @@ section, .section {
     margin-bottom: clamp(2rem, 4vw, 3rem); /* Abstand nach unten geringer */
   }
 }
-
 @media (max-width: 768px) {
   .mark-highlight.moveright {
     font-size: clamp(2.8rem, 5.5vw, 4rem); /* Etwas größer skalieren */
@@ -1112,9 +839,7 @@ section, .section {
   }
 }
 
-
-/*portfolio und projekte*/
-
+/* portfolio und projekte */
 .brand-image {
   max-width: 100%; /* oder z.B. 50% */
   height: auto;
@@ -1122,10 +847,7 @@ section, .section {
   margin: 2rem auto 0 auto; /* Abstand oben, zentriert */
 }
 
-
-
-
-/*slider*/
+/* slider */
 @media (max-width: 768px) {
   .carousel-item-text {
     padding-left: clamp(1rem, 5vw, 2rem); /* Abstand links zum Rand */
@@ -1133,39 +855,26 @@ section, .section {
   }
 }
 
-
-
-/*Button im Slider */
-
+/* Button im Slider */
 @media (max-width: 768px) {
   .btn-dark {
     margin-bottom: clamp(1.5rem, 4vw, 2rem); /* Mehr Abstand nach unten */
   }
 }
-
-/*Button im Slider*/
-
+/* Button im Slider */
 @media (max-width: 768px) {
   .carousel-control .icon-prev,
   .carousel-control .icon-next {
     font-size: clamp(60px, 15vw, 80px); /* Kleiner und responsiv, um Position zu stabilisieren */
   }
-
-  .right.carousel-control {
-    padding-right: clamp(1rem, 5vw, 2rem); /* Abstand rechts zum Rand */
-  }
-
+  .right.carousel-control { padding-right: clamp(1rem, 5vw, 2rem); /* Abstand rechts zum Rand */ }
   .carousel-control {
     display: flex;
     align-items: center; /* Vertikale Zentrierung sicherstellen */
     justify-content: center;
   }
-
-  .icon-next {
-    transform: translateY(-2px); /* Optional: Leichte Korrektur, falls next tiefer hängt – Wert anpassen nach Test */
-  }
+  .icon-next { transform: translateY(-2px); /* Optional: leichte Korrektur */ }
 }
-
 
 @media (max-width: 768px) {
   .h2-special_3 {
@@ -1173,36 +882,21 @@ section, .section {
   }
 }
 
-
-
 /* Sektion Vision und Konzept */
-
-
 @media (max-width: 768px) {
   .col-8.mx-auto.text-left.ps.gapi_top_10.ch_ {
     margin-top: unset; /* oder unset oder 0, je nach gewünschtem Effekt */
   }
-
 }
-
-
 @media (max-width: 768px) {
-
-	h4.text-left.mark-highlight.move-right {
+  h4.text-left.mark-highlight.move-right {
     margin-left: 1em;
     padding-left: 10px;
     margin-bottom: 40px;
+  }
 }
-}
 
-
-
-#vision4 .right-column.one-third {
-    margin-top: 40px 
-}
-	
-
-
+#vision4 .right-column.one-third { margin-top: 40px }
 @media (max-width: 768px) {
   #vision4 .right-column.one-third {
     margin-top: -20px;
@@ -1210,8 +904,8 @@ section, .section {
   }
 }
 
-
-	/* ==========================================================================
+/* === Globaler Site-Gradient + Section-Overlays =========================== */
+/* ==========================================================================
    GLOBALER SITE-GRADIENT + SECTION-OVERLAYS
    --------------------------------------------------------------------------
    • Oben dominiert der Top-Gradient (body::after), blendet nach unten aus.
@@ -1233,7 +927,7 @@ section, .section {
 
   /* Reichweite / Fade-Längen */
   --site-gradient-height:600vh; /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */   /* wie weit der Gesamtverlauf mitläuft */
-  --top-gradient-height:70vh;     /* Sichtbarkeit des oberen Verlaufs */
+  --top-gradient-height:600vh;     /* Sichtbarkeit des oberen Verlaufs */
 }
 
 html, body{ min-height:100%; }
@@ -1278,10 +972,8 @@ section:not(#works):not(#action):not(#slider):not(#vision1),
   background-color:transparent !important;
 }
 
-
-/* ========================================================================== */
-/* OPTION 2 — PER-SECTION DÄMPFUNG (FADE OVERLAY)                              */
-/* ----------------------------------------------------------------------------
+/* OPTION 2 — PER-SECTION DÄMPFUNG (FADE OVERLAY)
+   --------------------------------------------------------------------------
    Zweck: Verlauf hinter einzelnen Sektionen abschwächen – OHNE Text zu bleichen
    Anwendung:
      <section class="fade-overlay">…</section>
@@ -1291,14 +983,13 @@ section:not(#works):not(#action):not(#slider):not(#vision1),
    Hinweis:
      – Overlay liegt UNTER dem Inhalt der Section (z-index geregelt).
      – Defaults können pro Section via CSS-Variablen überschrieben werden.
-/* ========================================================================== */
+   ========================================================================== */
 
 section.fade-overlay { 
   position: relative;                  /* eigener Kontext für das Overlay   */
   --fade-from: .06;                    /* Default-Deckkraft oben            */
   --fade-to:   .12;                    /* Default-Deckkraft unten           */
 }
-
 section.fade-overlay::before {
   content: "";
   position: absolute;
@@ -1311,24 +1002,20 @@ section.fade-overlay::before {
     rgba(255,255,255, var(--fade-to))
   );
 }
-
 /* Inhalt explizit über das Overlay heben */
-section.fade-overlay > * {
-  position: relative;
-  z-index: 1;
-}
-
+section.fade-overlay > * { position: relative; z-index: 1; }
 /* Presets für schnelle Abstufungen */
 section.fade-overlay.fade-weak   { --fade-from: .03; --fade-to: .08; }
 section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 
-$1/* [partners_fade_overlay_#1 fox_19-09-2025_23:20] — selektiv: nur #partners */
+/* [partners_fade_overlay_#1 fox_19-09-2025_23:20] — selektiv: nur #partners */
 #partners{ position:relative; --fade-from:.12; --fade-to:.24; }
 #partners::before{
   content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
   background:linear-gradient(180deg, rgba(255,255,255,var(--fade-from)), rgba(255,255,255,var(--fade-to)));
 }
 #partners > *{ position:relative; z-index:1; }
+
 #vision1{ position:relative; --fade-from:.08; --fade-to:.16; }
 #vision1::before{
   content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
@@ -1337,13 +1024,11 @@ $1/* [partners_fade_overlay_#1 fox_19-09-2025_23:20] — selektiv: nur #partners
 #vision1 > *{ position:relative; z-index:1; }
 #vision1 .chapter-number{ z-index:2; }
 
-/* ========================================================================== */
-
 #hero-section .hb-hero-B h2 { margin-bottom: clamp(12px, 1.2vw, 20px); } /* P2: marie */
 #hero-section .hb-hero-B p  { line-height: clamp(1.5, 1.1 + 1vw, 1.65); } /* P2: marie */
 #hero-section .hb-cta       { margin-top: 40px; }                         /* P2: marie */
 
-
+/* === Kontakt – Bulb Visual ============================================== */
 /* =========================================================
    Kontakt – Bulb Visual
    Last Edit: 2025-09-03 17:45 (Europe/Berlin) — HB
@@ -1380,10 +1065,7 @@ $1/* [partners_fade_overlay_#1 fox_19-09-2025_23:20] — selektiv: nur #partners
   animation: bulbPulse 6s ease-in-out infinite; /* sanfte Dynamik */
 }
 /* kleines Icon links neben dem Text */
-#Kontakt .bulb-icon{
-  max-width: 48px;
-  height: auto;
-}
+#Kontakt .bulb-icon{ max-width: 48px; height: auto; }
 
 @media (max-width: 991px){
   #Kontakt .bulb-hero{ min-height: 280px; }
@@ -1395,8 +1077,3 @@ $1/* [partners_fade_overlay_#1 fox_19-09-2025_23:20] — selektiv: nur #partners
   50% { opacity: 1;   transform: scale(1.03); }
   100% { opacity: .85; transform: scale(0.98); }
 }
-
-
-
-
-
