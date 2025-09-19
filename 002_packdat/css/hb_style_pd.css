@@ -1232,7 +1232,7 @@ section, .section {
   --bottom-violet:#AA59E1;
 
   /* Reichweite / Fade-Längen */
-  --site-gradient-height:260vh;   /* wie weit der Gesamtverlauf mitläuft */
+  --site-gradient-height:600vh; /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */   /* wie weit der Gesamtverlauf mitläuft */
   --top-gradient-height:70vh;     /* Sichtbarkeit des oberen Verlaufs */
 }
 
@@ -1252,8 +1252,8 @@ body::before{
   background-repeat:no-repeat;
 
   /* Sanftes Abklingen nach unten */
-  -webkit-mask-image:linear-gradient(to bottom, #000 0, #000 20vh, transparent 240vh);
-          mask-image:linear-gradient(to bottom, #000 0, #000 20vh, transparent 240vh);
+  -webkit-mask-image:linear-gradient(to bottom, #000 0, #000 20vh, transparent 580vh); /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */
+          mask-image:linear-gradient(to bottom, #000 0, #000 20vh, transparent 580vh); /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */
 }
 
 /* Oberer Layer: Top-Verlauf – dominiert oben, fadet aus */
@@ -1322,7 +1322,20 @@ section.fade-overlay > * {
 section.fade-overlay.fade-weak   { --fade-from: .03; --fade-to: .08; }
 section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 
-/* [revert_sections_fade_enable_#1 fox_19-09-2025_23:57] */
+$1/* [partners_fade_overlay_#1 fox_19-09-2025_23:20] — selektiv: nur #partners */
+#partners{ position:relative; --fade-from:.12; --fade-to:.24; }
+#partners::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,var(--fade-from)), rgba(255,255,255,var(--fade-to)));
+}
+#partners > *{ position:relative; z-index:1; }
+#vision1{ position:relative; --fade-from:.08; --fade-to:.16; }
+#vision1::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,var(--fade-from)), rgba(255,255,255,var(--fade-to)));
+}
+#vision1 > *{ position:relative; z-index:1; }
+#vision1 .chapter-number{ z-index:2; }
 
 /* ========================================================================== */
 
