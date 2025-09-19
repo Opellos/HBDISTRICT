@@ -1322,6 +1322,8 @@ section.fade-overlay > * {
 section.fade-overlay.fade-weak   { --fade-from: .03; --fade-to: .08; }
 section.fade-overlay.fade-strong { --fade-from: .12; --fade-to: .24; }
 
+/* [revert_sections_fade_enable_#1 fox_19-09-2025_23:57] */
+
 /* ========================================================================== */
 
 #hero-section .hb-hero-B h2 { margin-bottom: clamp(12px, 1.2vw, 20px); } /* P2: marie */
