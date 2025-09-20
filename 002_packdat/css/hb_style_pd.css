@@ -313,19 +313,7 @@ input, textarea{ border-radius:2px !important; }
 .grandient_pow_animated{ background-size:200% 200%; animation:colorShift 10s ease infinite; }
 @keyframes colorShift{ 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
 
-/* Headline-Split & Vertical Line */
-.headline-split{ display:flex; align-items:center; gap:1rem; }
-.vertical-line{ height:100px; width:2px; background:linear-gradient(to bottom,#207cfa,#ff3cd0); }
-.mark-highlight-sk{ margin-top:.5rem; }
-.vertical-separator{ height:100px; width:7px; background:linear-gradient(to bottom,#207cfa,#ff3cd0); margin:1rem auto; }
-
-/* Content-Row */
-.content-row{ display:flex; justify-content:space-between; gap:1rem; }
-.two-thirds{ flex:2; }
-.one-third{ flex:1; }
-.full-width-paragraph{ width:100%; padding-top:2rem; padding-bottom:3rem; }
-
-.navbar-custom.top-nav-collapse .navbar-brand .logodark{ max-height:30px; }
+/* [dup_headline_block_removed fox_20-09-2025_01:30] */
 
 /* === Responsive Breakpoints ============================================= */
 @media (max-width: 1199px){ .v-center > [class*=col]{ padding:40px 0; } }
@@ -493,9 +481,9 @@ section.fade-overlay.fade-strong{ --fade-from:.12; --fade-to:.24; }
 #vision1 > *{ position:relative; z-index:1; }
 #vision1 .chapter-number{ z-index:2; } /* [vision1_fade_overlay_#1 fox_19-09-2025_23:59] */
 
-#vision3{ position:relative; --fade-from:.06; --fade-to:.14; --fade-top-rgb:32,124,250; --fade-bottom-rgb:255,60,208; }
+#vision3{ --fade-from:.06; --fade-to:.14; --fade-top-rgb:32,124,250; --fade-bottom-rgb:255,60,208; } /* [vision3_pos_remove_#1 fox_20-09-2025_01:22] */
 #vision3::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg, rgba(var(--fade-top-rgb), var(--fade-from)), rgba(var(--fade-bottom-rgb), var(--fade-to))); }
-#vision3 > *{ position:relative; z-index:1; }
+/* [vision3_children_stack_removed fox_20-09-2025_01:30] */
 #vision3 .chapter-number{ z-index:2; } /* [vision3_color_overlay_#1 fox_20-09-2025_00:35] */
 
 /* === Kontakt – Bulb Visual ============================================== */
@@ -783,16 +771,7 @@ section, .section {
 
 .navbar-custom.nav-bright a { color: #3d4654; }
 
-/* NOTE[duplicate]: #bgCanvas ist weiter oben bereits definiert. Vereinheitlichung in Phase 2 prüfen. */
-#bgCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: block;
-  z-index: 0;
-}
+/* [dup_bgCanvas_removed fox_20-09-2025_01:30] */
 
 /* =========================================================
    FIXME[syntax]: Unvollständiges @keyframes-Fragment entfernt/auskommentiert.
