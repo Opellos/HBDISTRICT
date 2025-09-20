@@ -51,6 +51,12 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+	
+	<style>.navbar-collapse.collapse {
+      transition: height 0.35s ease; /* Adjust duration and timing function as needed */
+    }</style>
+	
+	
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
   <!-- Navigation -->
@@ -704,9 +710,40 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
       }
     });
   </script>
+	
+	
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.querySelector('.navbar-main-collapse');
+  const collapsibleElement = document.getElementById('nav'); // Or use querySelector('.navbar-main-collapse')
 
+  if (toggleButton && collapsibleElement) {
+    toggleButton.addEventListener('click', function(event) {
+      event.stopPropagation(); // Stop the event from propagating
+
+      const isExpanded = collapsibleElement.classList.contains('in');
+
+      if (isExpanded) {
+        collapsibleElement.classList.remove('in');
+        collapsibleElement.classList.add('collapse');
+        collapsibleElement.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-expanded', 'false');
+      } else {
+        collapsibleElement.classList.remove('collapse');
+        collapsibleElement.classList.add('in');
+        collapsibleElement.setAttribute('aria-expanded', 'true');
+        toggleButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+});
+</script>
+
+	
+	
+	
   <!-- Navbar: Logo-Resize -->
-  <script>
+<!--  <script>
     $(document).ready(function () {
       var brand = $(".navbar-brand .logodark"); // bleibt leer, falls logodark nicht vorhanden
       var defaultHeight = navigator.userAgent.indexOf('Chrome') > -1 && navigator.userAgent.indexOf('Mobile') > -1 ? 32 : 30;
@@ -720,6 +757,6 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
       adjustLogoSize();
       $(window).on('resize', adjustLogoSize);
     });
-  </script>
+  </script>-->
 </body>
 </html>
