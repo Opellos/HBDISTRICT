@@ -711,32 +711,58 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
     });
   </script>
 	
-	
+ <!-- Navigation Hauptsächlich die mobile Adressierungen -->	
 <script>
+	
 document.addEventListener('DOMContentLoaded', function() {
-  const toggleButton = document.querySelector('.navbar-main-collapse');
-  const collapsibleElement = document.getElementById('nav'); // Or use querySelector('.navbar-main-collapse')
+          const toggleButton = document.querySelector('.navbar-toggle');
+          const collapsibleElement = document.getElementById('nav'); // Or use querySelector('.navbar-main-collapse')
+          const menuItems = collapsibleElement.querySelectorAll('.nav a'); // Select all anchor tags within the collapsible element
 
-  if (toggleButton && collapsibleElement) {
-    toggleButton.addEventListener('click', function(event) {
-      event.stopPropagation(); // Stop the event from propagating
+          if (toggleButton && collapsibleElement) {
+            // Toggle button listener (keep the stopPropagation)
+            toggleButton.addEventListener('click', function(event) {
+              event.stopPropagation();
 
-      const isExpanded = collapsibleElement.classList.contains('in');
+              const isExpanded = collapsibleElement.classList.contains('in');
 
-      if (isExpanded) {
-        collapsibleElement.classList.remove('in');
-        collapsibleElement.classList.add('collapse');
-        collapsibleElement.setAttribute('aria-expanded', 'false');
-        toggleButton.setAttribute('aria-expanded', 'false');
-      } else {
-        collapsibleElement.classList.remove('collapse');
-        collapsibleElement.classList.add('in');
-        collapsibleElement.setAttribute('aria-expanded', 'true');
-        toggleButton.setAttribute('aria-expanded', 'true');
-      }
-    });
-  }
-});
+              if (isExpanded) {
+                collapsibleElement.classList.remove('in');
+                collapsibleElement.classList.add('collapse');
+                collapsibleElement.setAttribute('aria-expanded', 'false');
+                toggleButton.setAttribute('aria-expanded', 'false');
+              } else {
+                collapsibleElement.classList.remove('collapse');
+                collapsibleElement.classList.add('in');
+                collapsibleElement.setAttribute('aria-expanded', 'true');
+                toggleButton.setAttribute('aria-expanded', 'true');
+              }
+            });
+
+            // Menu item listener
+            menuItems.forEach(function(menuItem) {
+              menuItem.addEventListener('click', function(event) {
+                // Check if the navigation is currently expanded
+                if (collapsibleElement.classList.contains('in')) {
+                  // Prevent the default link behavior for now to test the closing
+                  event.preventDefault(); // You might need to adjust this later
+
+                  // Manually collapse the navigation
+                  collapsibleElement.classList.remove('in');
+                  collapsibleElement.classList.add('collapse');
+                  collapsibleElement.setAttribute('aria-expanded', 'false');
+                  toggleButton.setAttribute('aria-expanded', 'false');
+
+                  // After a short delay to allow the transition to complete,
+                  // navigate to the link's href
+                  setTimeout(function() {
+                    window.location.href = menuItem.href;
+                  }, 350); // Adjust the delay to match your CSS transition duration
+                }
+              });
+            });
+          }
+        });
 </script>
 
 	
