@@ -52,9 +52,24 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 	
-	<style>.navbar-collapse.collapse {
-      transition: height 0.35s ease; /* Adjust duration and timing function as needed */
-    }</style>
+<style>
+.navbar-collapse.collapsing {
+    height: 1000px;
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+	
+	
+	    .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a {
+		/* font-size: 16px;  ist alles in add css*/
+        min-height: 146px;
+        padding: 14px 12px 14px 8px !important;
+	}
+	
+.navbar-custom {
+    max-height: 10.1rem;	
+	
+</style>
 	
 	
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -398,10 +413,10 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
             </div>
           </div>
           <div class="full-width-paragraph">
-            <h4 class="text-left mark-highlight move-right">Markenstrategie, Design + KI in einer Person gedacht</h4>
+            <h4 class="text-left mark-highlight_white move-right">Markenstrategie, Design + KI in einer Person gedacht</h4>
             <p class="col-8 mx-auto text-left ps gapi_top_10 ch_ bold-">
-              Als zertifizierter International Brand Manager, ausgebildeter
-              Mediendesigner und KI-Spezialist verbinde ich drei Disziplinen.
+              <h5 class="text-left h5-special"> Als zertifizierter International Brand Manager, ausgebildeter
+              Mediendesigner und KI-Spezialist verbinde ich drei Disziplinen.</h5>
             </p>
           </div>
         </div>
@@ -650,7 +665,7 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
     </div>
   </section>
 
-  <a class="topbtn page-scroll" href="#page-top" aria-label="Nach oben"></a>
+  <a class="topbtn page-scroll" href="#page-top" aria-label="Nach oben">UP</a>
 
   <!-- Scripts (Order: jQuery → Bootstrap → Plugins → Main) -->
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -713,7 +728,6 @@ Last Edit (prev): 2025-09-02 01:22 (Europe/Berlin)
 	
  <!-- Navigation Hauptsächlich die mobile Adressierungen -->	
 <script>
-	
 document.addEventListener('DOMContentLoaded', function() {
           const toggleButton = document.querySelector('.navbar-toggle');
           const collapsibleElement = document.getElementById('nav'); // Or use querySelector('.navbar-main-collapse')

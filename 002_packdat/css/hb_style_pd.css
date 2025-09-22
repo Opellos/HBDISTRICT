@@ -158,13 +158,39 @@ h5, h6 {
 
 .h4-special{
   font-family: var(--font-hanken);
-  font-weight:700;
+  font-weight:600;
   font-size:clamp(3rem,4vw,5rem);
   color:#fff; line-height:1.1; letter-spacing:-.05em;
   margin-top:clamp(2rem,5vw,3rem);
   margin-bottom:clamp(5rem,3vw,3rem);
   text-transform:normal;
 }
+
+
+
+.h5-special/* hb_neu_css */{
+  font-family: var(--font-hanken);
+  font-weight:700;
+  font-size:clamp(2rem,4vw,4rem);
+  color:#fff; line-height:1.1; letter-spacing:-.05em;
+  margin-top:clamp(2rem,5vw,3rem);
+  margin-bottom:clamp(5rem,3vw,3rem);
+  text-transform:normal;
+}
+
+
+.h6-special/* hb_neu_css */{
+  font-family: var(--font-hanken);
+  font-weight:700;
+  font-size:clamp(1.5rem,4vw,2.5rem);
+  color:#fff; line-height:1.1; letter-spacing:-.05em;
+  margin-top:clamp(2rem,5vw,3rem);
+  margin-bottom:clamp(5rem,3vw,3rem);
+  text-transform:normal;
+}
+
+
+
 
 .italic-inline{ font-family:var(--font-hanken); font-style:italic; font-weight:900; letter-spacing:-.05em; }
 
@@ -182,6 +208,16 @@ h5, h6 {
 .mark-highlight{
   background: linear-gradient(to top, #207cfa 100%, transparent 0%);
   color:#ff3cd0 !important; font-weight:800; font-size:clamp(2rem,4vw,3rem);
+  display:block; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  padding:.1em .1em .1em .2em; line-height:1.2; margin-bottom:5rem;
+  -webkit-text-size-adjust:100%; -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-font-smoothing:antialiased; box-sizing:border-box; margin-top:0; letter-spacing:.02em;
+  transition: background-size .3s ease, color .3s ease;
+}
+
+.mark-highlight_white{
+  background: linear-gradient(to top, #207cfa 100%, transparent 0%);
+  color:#ffffff !important; font-weight:800; font-size:clamp(2rem,4vw,3rem);
   display:block; box-decoration-break:clone; -webkit-box-decoration-break:clone;
   padding:.1em .1em .1em .2em; line-height:1.2; margin-bottom:5rem;
   -webkit-text-size-adjust:100%; -webkit-tap-highlight-color:rgba(0,0,0,0);
