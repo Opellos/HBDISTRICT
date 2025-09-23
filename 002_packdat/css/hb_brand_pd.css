@@ -206,21 +206,51 @@
 #hero-section .hb-cta:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
 
 
-/* button Ableeger*/
-
+/* Reusable CTA außerhalb des Hero */
 .hb-cta_2{
+  /* eigene Defaults, unabhängig vom #hero-section */
+  --cta-padding-y: var(--space-xl);
+  --cta-padding-x: var(--space-2xl);
+  --cta-radius: var(--radius-l);
+  --cta-gap: .55rem;
+  --cta-font-weight: 600;
+  --cta-font-size-min: 1.05rem;
+  --cta-font-size-fluid: 1.35vw;
+  --cta-font-size-max: 1.8rem;
+  --cta-shadow-1: var(--shadow-md);
+  --cta-shadow-2: var(--shadow-inset);
+
   display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
   padding: var(--cta-padding-y) var(--cta-padding-x);
-  font-weight:var(--cta-font-weight);
+  font-weight: var(--cta-font-weight);
   font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
   border-radius: var(--cta-radius);
-  color:#fff; 
-  /* micro edit (cassette 12) – CTA mit Verlauf statt Schwarz */
+  color:#fff;
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
   text-decoration:none;
   box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
-  transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+  transition: transform var(--dur-fast) var(--ease-standard),
+              box-shadow var(--dur-fast) var(--ease-standard);
 }
+.hb-cta_2:hover{  transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
+.hb-cta_2:active{ transform: translateY(0);    box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
+
+/* Mobile-Tuning analog Hero */
+@media (max-width:600px){
+  .hb-cta_2{
+    --cta-font-size-min: 1.55rem;   /* bessere Lesbarkeit */
+    --cta-font-size-fluid: 4.0vw;
+    --cta-font-size-max: 2.3rem;
+    --cta-padding-y: 1.05rem;
+    --cta-padding-x: var(--space-l);
+    --cta-radius: 8px;
+
+    display:block; width:100%; text-align:center;
+    min-height:3.8rem; line-height:1.25; white-space:nowrap;
+  }
+}
+
+
 
 
 
