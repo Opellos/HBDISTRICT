@@ -180,6 +180,12 @@
   font-size:clamp(1.6rem,1.4vw,1.6rem); color:rgba(255,255,255,.92);
 }
 
+
+
+
+
+
+
 /* CTA – Variablen (globale Bühne) */
 #hero-section{
   --cta-padding-y:var(--space-xl); --cta-padding-x:var(--space-2xl);
@@ -232,8 +238,18 @@
   transition: transform var(--dur-fast) var(--ease-standard),
               box-shadow var(--dur-fast) var(--ease-standard);
 }
+
 .hb-cta_2:hover{  transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
 .hb-cta_2:active{ transform: translateY(0);    box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
+
+/* hb_brand_pd.css — direkt NACH dem .hb-cta_2-Block */
+.hb-cta_2{
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+
 
 /* Mobile-Tuning analog Hero */
 @media (max-width:600px){
@@ -246,9 +262,73 @@
     --cta-radius: 8px;
 
     display:block; width:100%; text-align:center;
-    min-height:3.8rem; line-height:1.25; white-space:nowrap;
+    min-height:3.8rem; line-height:1.25;
   }
 }
+
+
+/* Social Buttons – gleiche DNA wie .hb-cta */
+.social-btn{
+  --cta-padding-y: 0.75rem;
+  --cta-padding-x: 1.1rem;
+  --cta-radius: 14px;
+  --cta-gap: .6rem;
+  --cta-font-weight: 600;
+
+  display:inline-flex; align-items:center; gap:var(--cta-gap);
+  padding: var(--cta-padding-y) var(--cta-padding-x);
+  border-radius: var(--cta-radius);
+  font-weight: var(--cta-font-weight);
+  line-height: 1;
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-standard),
+              box-shadow var(--dur-fast) var(--ease-standard),
+              background var(--dur-fast) var(--ease-standard),
+              color var(--dur-fast) var(--ease-standard);
+}
+
+.social-btn i{ font-size: 1em; line-height: 1; }       /* Icon mitlaufen lassen */
+
+/* Solid / Primary (wie dein guter Button) */
+.social-btn.is-primary{
+  color:#fff;
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+.social-btn.is-primary:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
+.social-btn.is-primary:active{ transform: translateY(0);    box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
+
+/* Outline-Variante */
+.social-btn.is-outline{
+  color:#fff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.85);
+  box-shadow: 0 0 0 0 transparent;
+}
+.social-btn.is-outline:hover{
+  background: rgba(255,255,255,.07);
+}
+.social-btn.is-outline:active{
+  background: rgba(255,255,255,.12);
+}
+
+/* kleiner Abstand zwischen den zwei Buttons (überschreibt Bootstrap-Gruppe) */
+.btn-group[aria-label="Kontaktlinks"]{
+  display:flex; gap: 0.8rem;
+}
+
+/* Mobile feinjustieren */
+@media (max-width:600px){
+  .social-btn{
+    --cta-padding-y: .9rem;
+    --cta-padding-x: 1rem;
+    display:flex; width:100%;
+    justify-content:center;
+  }
+}
+
+
+
 
 
 
@@ -281,6 +361,30 @@
   /* Hero-Offset zur Nav (Cassette 10) */
   #hero-section{ --hero-offset-top: 4.875rem; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =========================================================
    Ende — hb_hero.css (unified)
