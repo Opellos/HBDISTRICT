@@ -1,27 +1,12 @@
-/* Last Edit: 2025-09-03 00:05 (Europe/Berlin) – BRAND +10% (Desktop & Mobile, zentraler Scaler) */
-/* Edit 2025-09-01 20:31 – Subline ~15% kleiner: font-size 0.14em → 0.12em (generell) */
-/* Last Edit: 2025-09-01 20:27 (Europe/Berlin) */
-/* Edit 2025-09-01 20:27 – Subline generelle Verkleinerung + Wrap-Schutz (kein Überschuss über BRAND) */
-/* Edit 2025-09-01 20:20 – LAURA scaler bump: --bv clamp erhöht (min/fluid/max) für größeres BRAND) */
-/* Last Edit: 2025-09-01 20:12 (Europe/Berlin) */
-/* Edit 2025-09-01 20:12 – Fix: .hb-hero-brand → font-size: var(--brandSize); mobile override auf Scaler ausgerichtet */
-/* Last Edit: 2025-09-01 19:46 (Europe/Berlin) */
-/* Checked: FIXED merge placeholder; syntax OK */
+
 /* =========================================================
-   FILE: hb_brand.css
-   INTENT: Phase 1 – Marker/Kommentare; keine Werte ändern
-   HINWEIS: Originalinhalt vollständig übernommen. Nur Kopfmarker ergänzt.
+   FILE: hb_brand_pd.css
+
+
+	Worksession_0022
+
    ========================================================= */
 @charset "utf-8";
-/*
-  Codex Kickoff – Webdevelopment & Webdesign
-  Timestamp: 2025-08-30 17:34
-  Zeit in Europe/Berlin, Quelle: Systemzeit.
-*/
-/* =================   Donnerstag, 28. August 2025 15:04 DISTRICT  ============================
-   HERO (clean, unified) — Version A1 — 2025-08-27, 22:45 Uhr
-   Quelle der Wahrheit für alle Hero-Styles (Brand/Tagline/Subline/CTA)
-   ========================================================= */
 
 /* ---------- 1) Basis / Variablen ---------- */
 #hero-section{

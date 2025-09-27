@@ -1,8 +1,6 @@
 /*\
-  hb_add_pd.css – Mobile-Overrides für die Navigation (NACH hb_bio_pd.css laden)
-  Ziele: Hanken Grotesk (300) mobil erzwingen, bündiger linker Text,
-         großzügigere Touchflächen, Glassmorphism wie Desktop,
-         kein Abschneiden (Scroll), Animationen an der Navbar auf Mobil neutralisieren.
+  hb_add_pd.css
+ worksession_0025
 */
 
 /* ================= 1) Mobile (≤ 990px): Typo, Abstände, Glas-Container ================= */
