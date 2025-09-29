@@ -57,7 +57,7 @@
 /* Grid-Container im Split bekommt eigene Breite, zentriert */
 #hero-section .hb-hero--split,
 #hero-section .hb-hero--split .hb-hero-grid{
-  width: min(92vw, 1200px);
+  width: min(92vw, 1200px);k
   margin: 0 auto;
 }
 /* Sicherheit: keine unerwünschte max-width vom Basis-Hero */

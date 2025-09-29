@@ -2,7 +2,7 @@
  Concept - Smart multi-purpose html5 template
  To use this template you must have a license purchased at Themeforest (themeforest.com)
  Copyright 2020 ForBetterWeb.com
- ***************************************************************************************/
+ **************************  worksession_22  *************************************************************/
 
 (function($){
     "use strict";
@@ -483,7 +483,7 @@
             $('#toggle').trigger('click');
         });
 
-        // Back To Top Button
+        // Back To Top Button worksession_22
         var btn = $('.topbtn');
         $(window).scroll(function() {
             if ($(window).scrollTop() > 700) {
