@@ -42,16 +42,16 @@
 
   /* Gradients */
   --top-grad-1:#2d5eff;
-  --top-grad-2:#7d32df;
+  --top-grad-2:#207cfa;
   --top-grad-3:#ff4bc0;
 
   --bottom-cyan:#4E86E1;
   --bottom-magenta:#EE43D1;
-  --bottom-violet:#AA59E1;
+  --bottom-violet:#207cfa;
 
   /* Reichweite / Fade-Längen */
-  --site-gradient-height:600vh; /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */
-  --top-gradient-height:600vh;
+  --site-gradient-height:320vh; /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */
+  --top-gradient-height:140vh;
 }
 
 html, body{ min-height:100%; }
@@ -468,12 +468,16 @@ section, .section{ position:relative; z-index:992; padding-top:10px; padding-bot
 @media (max-width:768px){ #vision4 .right-column.one-third{ margin-top:-20px; } }
 
 /* === Globaler Site-Gradient + Section-Overlays =========================== */
-/* Unterer Layer: Site-Verlauf */
+/* Unterer Layer: Site-Verlauf  */
 body::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:var(--site-gradient-height);
-  z-index:-2; pointer-events:none;
+  content:""; 
+	position:absolute; 
+	top:0; left:0; right:0; height:var(--site-gradient-height);
+  z-index:-2; 
+pointer-events:none;
   background:
     radial-gradient(1000px 500px at 20% 0%, var(--bottom-cyan), transparent 70%),
+	  radial-gradient(900px 520px at 28% 18%, var(--bottom-magenta), transparent 72%), /* <— neu: Pink links */
     radial-gradient( 900px 500px at 80% 0%, var(--bottom-magenta), transparent 70%),
     linear-gradient(135deg, var(--bottom-violet), var(--bottom-magenta) 45%, var(--bottom-cyan));
   background-repeat:no-repeat;
@@ -482,11 +486,25 @@ body::before{
 }
 /* Oberer Layer: Top-Verlauf */
 body::after{
-  content:""; position:absolute; top:0; left:0; right:0; height:var(--top-gradient-height);
-  z-index:-1; pointer-events:none; background:linear-gradient(135deg, var(--top-grad-1) 0%, var(--top-grad-2) 50%, var(--top-grad-3) 85%);
-  -webkit-mask-image:linear-gradient(to bottom, #000 0, #000 32vh, transparent 100%);
-          mask-image:linear-gradient(to bottom, #000 0, #000 32vh, transparent 100%);
+  /* worksession_0026_dori_2025-09-30_dori — mehr Pink links, weniger Blau oben */
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:var(--top-gradient-height);
+  z-index:-1;
+  pointer-events:none;
+
+  /* +NEU: pinker Overlay-Spot links oben, ohne :root zu ändern */
+  background:
+    radial-gradient(900px 520px at 22% 10%, var(--top-grad-3) 0%, transparent 65%), /* ← Pink-Tint links */
+    linear-gradient(135deg, var(--top-grad-1) 0%, var(--top-grad-2) 30%, var(--top-grad-3) 60%); /* früher zu Pink */
+
+  /* -ÄNDERUNG: Top-Layer früher ausblenden, lässt Pink vom Unterlayer durch */
+  -webkit-mask-image:linear-gradient(to bottom, #000 0, #000 24vh, transparent 100%);
+          mask-image:linear-gradient(to bottom, #000 0, #000 24vh, transparent 100%);
 }
+
+
 
 /* Hero & Sections transparent, damit Gradient sichtbar ist */
 #hero-section{ background:transparent !important; }
