@@ -1,0 +1,56 @@
+<!-- HEAD -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --base-w: 800;   /* px: Breite des unskalierten Schriftzugs */
+    --base-h: 200;   /* px: Höhe des unskalierten Schriftzugs */
+    --s: clamp(0.60, 1.2vw + 0.70, 1.20); /* responsiver Skalierungsfaktor */
+  }
+
+  /* Bühne: begrenzt und zentriert */
+  .brand-stage{
+    --stage-w: min(92vw, calc(var(--base-w) * 1px * var(--s)));
+    width: var(--stage-w);
+    margin-inline: auto;
+    position: relative;
+  }
+  /* reserviert Platz der skalierten Höhe => kein Layout-Sprung */
+  .brand-proxy{ height: calc(var(--base-h) * 1px * var(--s)); }
+
+  /* Originalgröße absolut einlegen und EINHEITLICH skalieren */
+  .brand-scale{
+    position: absolute; inset: 0;
+    width: calc(var(--base-w) * 1px);
+    height: calc(var(--base-h) * 1px);
+    transform-origin: top left;
+    transform: scale(var(--s)); /* Typo skaliert, Abstände bleiben */
+  }
+
+  /* Letter-Block: Montserrat + kein Umbruch */
+  .letters{
+    position: relative; width: 100%; height: 100%;
+    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 800;
+    white-space: nowrap;    /* bricht NICHT um */
+    line-height: 1;
+  }
+
+  /* Einzelbuchstaben bleiben absolut positioniert (deine Offsets) */
+  .letters span{
+    position: absolute;
+    font-size: 160px; /* Basisgröße im UNskalierten Zustand */
+    letter-spacing: 0;
+    user-select: none;
+  }
+
+  /* Beispiel: A/I als Fixpunkte – deine realen Offsets einsetzen */
+  .A{ left: 235px; top: 10px; }
+  .I{ left: 655px; top: 10px; }
+
+  /* Optional: Desktop-Feintuning nur über den Faktor */
+  @media (min-width: 1200px){
+    :root{ --s: clamp(0.75, 0.6vw + 0.95, 1.35); }
+  }
+</style>

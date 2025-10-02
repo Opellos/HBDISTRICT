@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Section – Vision 1 Mock</title>
+
+  <!-- Montserrat wie im Original -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===============================================
+       JUSTAGE-GUIDE (nur hier drehen)
+       1) GESAMTGRÖSSE:  --brand-s  → skaliert den ganzen Block proportional.
+       2) HORIZONTale POSITION je Buchstabe: die "left:"-Werte unter .B/.R/.A/.N/.D/.A2/.I.
+          - Kleinere left‑Werte → weiter nach links (Richtung B)
+          - Größere left‑Werte → weiter nach rechts
+       3) HÖHE der Grundfläche: --brand-base-h + .brand-proxy → i.d.R. nicht ändern.
+       4) Vertikale Flucht: alle "top:" gleich lassen, damit die Horizontal‑Ebene erhalten bleibt.
+       =============================================== */
+    :root{
+      --container-w: 1100px;
+    }
+
+    /* Seite: neutral, kein Hintergrund‑Effekt */
+    html,body{ height:100%; }
+    body{
+      margin:0; font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:#0e0e10; background:#fff;
+    }
+
+    /* generische Container‑Section wie vision1 */
+    .section{
+      padding: clamp(48px, 6vw, 96px)  clamp(16px, 4vw, 40px);
+    }
+    .wrap{ max-width: var(--container-w); margin-inline:auto; }
+
+    /* Typografie: responsiv über clamp */
+    .eyebrow{ 
+      font-weight:700; letter-spacing:.12em; text-transform:uppercase; opacity:.6;
+      font-size: clamp(12px, 0.6vw + 10px, 14px);
+      margin:0 0 .75rem 0;
+    }
+    .headline{
+      font-weight:800; line-height:1.08; margin:0 0 .75rem 0;
+      font-size: clamp(32px, 3.6vw, 64px);
+    }
+    .project{
+      font-weight:700; line-height:1.2; margin:0 0 .25rem 0;
+      font-size: clamp(22px, 1.8vw, 32px);
+    }
+    .subtitle{
+      font-weight:600; line-height:1.35; opacity:.82; margin:0 0 1.25rem 0;
+      font-size: clamp(16px, 1.2vw, 22px);
+    }
+    .body{ 
+      line-height:1.65; font-weight:600; opacity:.95;
+      font-size: clamp(15px, 1vw, 18px);
+      max-width: 70ch;
+    }
+
+    /* Rhythmus */
+    .stack > * + *{ margin-top: clamp(8px, 1.2vw, 18px); }
+      /* ===== Brand-Typo (ersetzt "Unser Projekt") ===== */
+    :root{
+      --brand-base-w: 800px; /* Originalbreite */
+      --brand-base-h: 200px; /* Originalhöhe  */
+      /* Viewport-basierter Skalierungsfaktor – robust und kompatibel */
+		
+		
+      --brand-s: clamp(0.55, calc(92vw / var(--brand-base-w)), 1.70); 
+		/* JUSTAGE: GESAMTGRÖSSE – größer/kleiner stellen */
+    }
+    .brand-stage{
+      width: min(92vw, 900px);
+      margin: clamp(12px, 2vw, 20px) 0;
+      position: relative;
+    }
+    .brand-proxy{ height: calc(var(--brand-base-h) * var(--brand-s)); }
+	  
+    .brand-scale{
+      position: absolute; inset: 0;
+      width: var(--brand-base-w); height: var(--brand-base-h);
+      transform-origin: top left; transform: scale(var(--brand-s));
+    }
+	  
+    .letters{ position: relative; width:100%; height:100%;
+      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 800; white-space: nowrap; line-height:1; }
+	  
+    .letters span{ position:absolute; font-size:160px; letter-spacing:0; user-select:none; }
+    /* Platzhalter-Offsets – bitte bei Bedarf mit deinen Originalwerten ersetzen */
+    /* HINWEIS: Für reine Verschiebung Richtung Mitte/B NUR left anpassen */
+    .B { left:  10px; top: 10px; }     /* JUSTAGE: B horizontal via left */
+    .R { left: 115px; top: 10px; }     /* JUSTAGE: R horizontal via left */
+    .A { left: 235px; top: 10px; }     /* JUSTAGE: A (erstes A) – Fixpunkt; nur left ändern */
+    .N { left: 355px; top: 10px; }     /* JUSTAGE: N horizontal via left */
+    .D { left: 465px; top: 10px; }     /* JUSTAGE: D horizontal via left */
+    .A2 { left: 235px; top: 10px; font-size: 140px; } /* JUSTAGE: zweites A (ersetzt +). Richtung B → left kleiner */
+    .I  { left: 350px; top: 10px; }    /* JUSTAGE: I Richtung B → left kleiner */
+    /* Farben angelehnt an Vorlage */
+    .B,.R,.N,.D { background: linear-gradient(135deg,#7b5cff,#4fd1d9); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .A,.A2,.I { color: #ff3ea5; }
+
+  </style>
+</head>
+<body>
+  <section class="section">
+    <div class="wrap stack">
+      <p class="eyebrow">Vision 1</p>
+      <h1 class="headline">Headline der Vision 1</h1>
+      <!-- Brand-Typo ersetzt "Unser Projekt" -->
+<div class="brand-stage" aria-label="Unser Projekt: BRAND + AI">
+  <div class="brand-proxy"></div>
+  <div class="brand-scale">
+    <div class="letters">
+      <span class="B">B</span>
+      <span class="R">R</span>
+      <span class="A">A</span>
+      <span class="N">N</span>
+      <span class="D">D</span>
+      <span class="A2">A</span>
+      <span class="I">I</span>
+    </div>
+  </div>
+</div>
+      <p class="subtitle">Untertitel: Kurzer Kontextsatz, der den Abschnitt erklärt und das Versprechen schärft.</p>
+      <p class="body">
+        Fließtext: Hier steht eine beispielhafte Beschreibung des Projekts. Die Zeilenlänge ist auf etwa 70 Zeichen begrenzt, die
+        Typografie ist responsiv mit <code>clamp()</code>, und der Abschnitt nutzt neutrale Gestaltung ohne Hintergrundeffekte. Ziel ist eine
+        klare, ruhige Bühne – analog zu <em>vision1</em> – auf der Inhalte sauber lesbar sind. Dieser Absatz dient als Platzhalter
+        für echte Inhalte und zeigt die Abstände im finalen Layout.
+      </p>
+    </div>
+  </section>
+</body>
+</html>
