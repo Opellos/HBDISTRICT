@@ -51,10 +51,65 @@ FILE: index_packdat_v2.html
       transition: height 0.35s ease; /* Adjust duration and timing function as needed */
     }</style>
 	
-<!--<style>
+	<!--<style>
 		.navbar-custom { max-height: 10.1rem;}
 	</style>
 	-->
+<style>
+  /* === BRAiND – Komponente (lokal, keine Body-Abhängigkeiten) === */
+  .braind{
+    /* Farben (instanzweise überschreibbar) */
+    --braind-brand: #ff00ff;   /* B,R,A,N,D */
+    --braind-accent:#ff1493;   /* A2, I */
+
+    /* Basismaße des UNskalierten Schriftzugs (px) */
+    --brand-base-w: 800px;
+    --brand-base-h: 200px;
+
+    /* Skalierung: nutzt bestehendes --brand-s, sonst Fallback über Viewport */
+    --braind-s: var(--brand-s, clamp(0.55, calc(92vw / var(--brand-base-w)), 1.70));
+  }
+
+  /* Typo-Container */
+  .braind .letters{
+    position: relative; width: 100%; height: 100%;
+    font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 800; line-height: 1; white-space: nowrap;
+  }
+
+  /* Skalierung & Platzhalter-Höhe */
+  .braind .brand-stage{ position: relative; }
+  .braind .brand-proxy{ height: calc(var(--brand-base-h) * var(--braind-s)); }
+  .braind .brand-scale{
+    position: absolute; inset: 0;
+    width: var(--brand-base-w); height: var(--brand-base-h);
+    transform-origin: top left; transform: scale(var(--braind-s));
+  }
+
+  /* Farben binden */
+  .braind .letters .B,
+  .braind .letters .R,
+  .braind .letters .A,
+  .braind .letters .N,
+  .braind .letters .D{ color: var(--braind-brand); }
+  .braind .letters .A2,
+  .braind .letters .I{ color: var(--braind-accent); }
+
+  /* Unskalierte Basisgröße der Lettern */
+  .braind .letters span{ position: absolute; font-size: 160px; letter-spacing: 0; user-select: none; }
+  .braind .letters .A2{ font-size: 160px; } /* A2 Größe = Rest; Feinschub nur über left/top */
+
+  /* ABSOLUTE OFFSETS – aus der funktionierenden Demo übernommen
+     (bei Bedarf später 1:1 mit deinen Feineinstellungen ersetzen) */
+  .braind .letters .B { left:  10px; top: 10px; }  
+  .braind .letters .R { left: 118px; top: 10px; }
+  .braind .letters .A { left: 230px; top: 10px; }
+  .braind .letters .N { left: 350px; top: 10px; }
+  .braind .letters .D { left: 460px; top: 10px; }
+  .braind .letters .A2{ left: 232px; top: 10px; }
+  .braind .letters .I { left: 345px; top: 10px; }
+</style>	
+	
 	
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -394,7 +449,23 @@ FILE: index_packdat_v2.html
           <div class="content-row">
             <div class="left-column two-thirds">
               <h2 class="h2-special_3 text-left">Vision &amp; Konzept von</h2>
-              <h2 class="h2-special_3 text-left">BRAND + AI <!--DORI#2 Hier soll BRAinD-Line implementiert werden.--></h2>
+              <!-- BRAiND ersetzt das H2 (DORI#2) -->
+              <div class="braind">
+                <div class="brand-stage">
+                  <div class="brand-proxy"></div>
+                  <div class="brand-scale" role="img" aria-label="BRAiND-Line: BRAND + AI">
+                    <div class="letters">
+                      <span class="B">B</span>
+                      <span class="R">R</span>
+                      <span class="A">A</span>
+                      <span class="N">N</span>
+                      <span class="D">D</span>
+                      <span class="A2">A</span>
+                      <span class="I">I</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="full-width-paragraph">
