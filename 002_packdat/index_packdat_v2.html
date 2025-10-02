@@ -55,7 +55,7 @@ FILE: index_packdat_v2.html
 		.navbar-custom { max-height: 10.1rem;}
 	</style>
 	-->
-<style>
+	<style>
   /* === BRAiND – Komponente (lokal, keine Body-Abhängigkeiten) === */
   .braind{
     /* Farben (instanzweise überschreibbar) */
@@ -67,8 +67,13 @@ FILE: index_packdat_v2.html
     --brand-base-h: 200px;
 
     /* Skalierung: nutzt bestehendes --brand-s, sonst Fallback über Viewport */
-    --braind-s: var(--brand-s, clamp(0.55, calc(92vw / var(--brand-base-w)), 1.70));
+    --braind-s: calc(var(--brand-s, clamp(0.55, calc(92vw / var(--brand-base-w)), 1.70)) * 0.725);
+
   }
+
+  /* Wrapper-Ausrichtung (nur lokal) */
+  .braind{ display:block; margin-left:0; margin-right:0; text-align:left; }
+  .braind .brand-stage{ position: relative; left:0; right:auto; margin-left: -10px; }
 
   /* Typo-Container */
   .braind .letters{
@@ -101,14 +106,14 @@ FILE: index_packdat_v2.html
 
   /* ABSOLUTE OFFSETS – aus der funktionierenden Demo übernommen
      (bei Bedarf später 1:1 mit deinen Feineinstellungen ersetzen) */
-  .braind .letters .B { left:  10px; top: 10px; }  
+  .braind .letters .B { left:  10px; top: 10px; }
   .braind .letters .R { left: 118px; top: 10px; }
   .braind .letters .A { left: 230px; top: 10px; }
   .braind .letters .N { left: 350px; top: 10px; }
   .braind .letters .D { left: 460px; top: 10px; }
   .braind .letters .A2{ left: 232px; top: 10px; }
   .braind .letters .I { left: 345px; top: 10px; }
-</style>	
+</style>
 	
 	
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -121,7 +126,7 @@ FILE: index_packdat_v2.html
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse" aria-controls="nav" aria-expanded="false" aria-label="Menü umschalten">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>		  
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand page-scroll" href="#page-top" aria-label="Startseite">
@@ -160,7 +165,7 @@ FILE: index_packdat_v2.html
 
           <!-- Subline: einzeilig, mit geschütztem Bindestrich -->
           <p class="hb-hero-subline" id="hb-subline" aria-label="BRAND STRATEGY · BRAND DESIGN · AI-WORKFLOW">
-            <span>BRAND STRATE;GY · </span>
+            <span>BRAND STRATEGY · </span>
             <span>BRAND DESIGN · </span>
             <span> AI - WORKFLOW</span>
           </p>
@@ -448,8 +453,8 @@ FILE: index_packdat_v2.html
         <div class="col-md-12 col-sm-12 wow fadeIn text-center col-lg-12" data-wow-delay=".2s">
           <div class="content-row">
             <div class="left-column two-thirds">
-              <h2 class="h2-special_3 text-left">Vision &amp; Konzept von</h2>
-              <!-- BRAiND ersetzt das H2 (DORI#2) -->
+              <h2 class="h2-special_3 text-left">Vision &amp; Konzept</h2>
+              <!-- BRAiND  -->
               <div class="braind">
                 <div class="brand-stage">
                   <div class="brand-proxy"></div>
@@ -469,10 +474,10 @@ FILE: index_packdat_v2.html
             </div>
           </div>
           <div class="full-width-paragraph">
-            <h4 class="text-left mark-highlight_white move-right">Markenstrategie, Design + KI in einer Person gedacht</h4>
+            <h4 class="text-left mark-highlight_white move-right">Markenstrategie, Design, KI Expertise in einer Person gedacht</h4>
             <p class="col-8 mx-auto text-left ps gapi_top_10 ch_ bold-">
               <h5 class="text-left h5-special"> Als zertifizierter International Brand Manager, ausgebildeter
-              Mediendesigner und KI-Spezialist verbinde ich drei Disziplinen.</h5>
+              Mediendesigner und KI-Spezialist verbinde ich drei Disziplinen die Markenwerte effiziengter und erfolgreicher machen. </h5>
             </p>
           </div>
         </div>
