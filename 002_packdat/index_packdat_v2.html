@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- ============================================= ============
 FILE: index_packdat_v2.html 
-  worksession_0022 
+  Sonntag, 05. Oktober 2025 10:54
 ========================================================= -->
 
 <html lang="de">
@@ -70,6 +70,20 @@ FILE: index_packdat_v2.html
     --braind-s: calc(var(--brand-s, clamp(0.55, calc(92vw / var(--brand-base-w)), 1.70)) * 0.725);
 
   }
+		
+/* braind_go1 → HEAD — CSS (vollständig für BRAiND)
+   → Direkt NACH der schließenden Klammer } des .braind{…}-Blocks einfügen */
+@media (max-width: 768px){
+  .braind{
+    /* Mobil: BRAiND größer (~+24% ggü. Ist: 0.725 → 0.9) */
+    --braind-s: calc(
+      var(--brand-s, clamp(0.55, calc(92vw / var(--brand-base-w)), 1.70)) * 1
+    );
+  }
+}
+/* Danach folgen wie gehabt Wrapper-Ausrichtung/brand-stage etc. */
+}
+
 
   /* Wrapper-Ausrichtung (nur lokal) */
   .braind{ display:block; margin-left:0; margin-right:0; text-align:left; }
@@ -115,6 +129,40 @@ FILE: index_packdat_v2.html
   .braind .letters .I { left: 345px; top: 10px; }
 </style>
 	
+	
+	<style>/* Subfooter: links Logo+Name, rechts Social – responsive */
+.subfooter{ padding: 22px 0; }
+.subfooter .subfooter-bar{
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.subfooter .sf-left{ display:flex; align-items:center; gap:14px; }
+.subfooter .sf-logo{ height:28px; width:auto; display:block; }
+.subfooter .sf-name{ font-size:14px; font-weight:600; opacity:.9; }
+
+.subfooter .sf-right{ display:flex; align-items:center; gap:18px; }
+.subfooter .sf-link{ display:inline-flex; align-items:center; justify-content:center; text-decoration:none; }
+.subfooter .sf-link .fab{ font-size:18px; opacity:.9; }
+.subfooter .sf-link:hover .fab{ opacity:1; }
+
+/* Mobile: Stack + zentriert, gleichmäßige Größen */
+@media (max-width: 768px){
+  .subfooter{ padding: 18px 0; }
+  .subfooter .subfooter-bar{ flex-direction:column; gap:12px; text-align:center; }
+  .subfooter .sf-name{ font-size:13px; }
+  .subfooter .sf-logo{ height:24px; }
+}
+	
+	/* Subfooter: Weiß für Text & Icons */
+.subfooter{ color:#fff; }
+.subfooter .sf-name{ color:#fff; }
+.subfooter .sf-link .fab{ color:#fff; opacity:1; }
+.subfooter .sf-link:hover .fab{ opacity:.85; }
+
+/* Logo (als Bild) auf Weiß drehen */
+.subfooter .sf-logo{ filter: brightness(0) invert(1); }
+
+	
+	</style>
 	
 <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -206,7 +254,7 @@ FILE: index_packdat_v2.html
           <div class="glass-card">
             <div class="text-justify">
               <p>
-              Mit langjähriger Strategie- und Designexpertise sowie dem gezielten Einsatz von KI entwickle ich Markenerlebnisse, die Publikum wie auch Stakeholdern adressieren. Creative Director, Motion Designer, Web Designer, Meine Arbeit basiert auf Fachkompetenz, Wissen und Neugier – eine Kombination, die im Zeitalter der KI besonders relevant ist. Sie sind gehen gerne direkt auf Menschen zu? Ich auch. In einem Video-Chat schnell auf den Punkt kommen.
+              Ich bin Hendrik Bogner – Markenexperte, International Brand Manager und Mediendesigner. Mit jahrelanger Erfahrung verbinde ich Strategie und Design, um Marken präzise zu positionieren und lebendig zu machen. Ich arbeite analytisch, methodisch und zielorientiert – vom Messaging bis zu internationalen Markenrichtlinien. Meine Stärke liegt darin, die wahre Identität einer Marke zu enthüllen und sie mit ihrem Unternehmen untrennbar zu verbinden. Seit 2024 widme ich mich intensiv dem Potenzial Künstlicher Intelligenz für zukunftsorientierte Markenführung..
               </p>
             </div>
             <div class="hb-hero-grid_2">
@@ -453,8 +501,7 @@ FILE: index_packdat_v2.html
         <div class="col-md-12 col-sm-12 wow fadeIn text-center col-lg-12" data-wow-delay=".2s">
           <div class="content-row">
             <div class="left-column two-thirds">
-              <h2 class="h2-special_3 text-left">Vision &amp; Konzept</h2>
-              <!-- BRAiND  -->
+			<h2 class="h2-special_3 text-left">Vision &amp; Konzept von</h2>              <!-- BRAiND  -->
               <div class="braind">
                 <div class="brand-stage">
                   <div class="brand-proxy"></div>
@@ -475,9 +522,9 @@ FILE: index_packdat_v2.html
           </div>
           <div class="full-width-paragraph">
             <h4 class="text-left mark-highlight_white move-right">Markenstrategie, Design, KI Expertise in einer Person gedacht</h4>
-            <p class="col-8 mx-auto text-left ps gapi_top_10 ch_ bold-">
+            <p class="col-8 mx-auto text-left ps gapi_top_10 ch_ bold">
               <h5 class="text-left h5-special"> Als zertifizierter International Brand Manager, ausgebildeter
-              Mediendesigner und KI-Spezialist verbinde ich drei Disziplinen die Markenwerte effiziengter und erfolgreicher machen. </h5>
+              Mediendesigner und KI-Spezialist verbinde ich die drei Disziplinen, die die Arbeit bei der Entwicklung und Weiterentwicklung der Markenwerte effiziengter und erfolgreicher machen. </h5>
             </p>
           </div>
         </div>
@@ -715,26 +762,24 @@ FILE: index_packdat_v2.html
 
 
   <!-- Footer -->
-  <section class="section-small bg-gray footer grandient_pow grandient_pow_animated" role="contentinfo" aria-label="Footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3">
-          <ul class="list-inline no-pad" aria-label="Social Links">
-            <li><a href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube fa-fw fa-lg" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-fw fa-lg" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-lg-offset-1">
-          <h5 class="no-pad">© 2025 Hendrik Bogner</h5>
-        </div>
-        <!--
-        <div class="col-lg-3 col-lg-offset-1">
-          <h5 class="no-pad">Contact <a href="mailto:creative@hendrik-bogner.de"><i class="fa fa-envelope fa-fw"></i> creative[at]hendrik-bogner.de</a></h5>
-        </div>
-        -->
+<section class="subfooter grandient_pow grandient_pow_animated" role="contentinfo" aria-label="Subfooter">
+  <div class="container">
+    <div class="subfooter-bar">
+      <div class="sf-left">
+        <img class="sf-logo" src="img/main/braind_logo_und_claim.svg" alt="BRAiND">
+        <span class="sf-name">© 2025 Hendrik Bogner</span>
       </div>
+      <nav class="sf-right" aria-label="Footer Links">
+        <a class="sf-link" href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a class="sf-link" href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <i class="fab fa-youtube" aria-hidden="true"></i>
+        </a>
+      </nav>
     </div>
-  </section>
+  </div>
+</section>
 
   <a class="topbtn page-scroll" href="#page-top" aria-label="Nach oben"><i class="fa-solid fa-chevron-up" aria-hidden=""></i></a>
 

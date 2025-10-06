@@ -170,11 +170,12 @@ h5, h6 {
 .h5-special/* hb_neu_css */{
   font-family: var(--font-hanken);
   font-weight:700;
-  font-size:clamp(2rem,4vw,4rem);
-  color:#fff; line-height:1.1; letter-spacing:-.05em;
+  font-size:clamp(2.4rem,4vw,4rem);
+  color:#fff; line-height:1.4;letter-spacing:-.05em;
   margin-top:clamp(2rem,5vw,3rem);
   margin-bottom:clamp(5rem,3vw,3rem);
   text-transform:normal;
+
 }
 
 
