@@ -391,3 +391,83 @@ margin-top: 0; /* #justage */
 @media (max-width:1023px){
   #hero-section .hb-hero .hb-hero-B{ margin-top: clamp(16px, 6vw, 40px); }
 }
+
+
+
+
+/* Client Logo Carousel (infinite + glass + noisy pink/cyan) */
+
+.client-carousel{
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.client-carousel .cc-bg{
+  position:absolute; inset:0;
+  background: var(--cc-noise-gradient);
+  z-index:0;
+}
+.client-carousel.glass-surface{
+  background: var(--cc-glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--cc-glass-brd);
+  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+}
+.client-carousel .cc-viewport{
+  position: relative;
+  z-index:1;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+
+
+.client-carousel .cc-track{
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 5vw, 56px);
+  width: max-content;
+  padding: clamp(14px, 2.2vw, 22px) clamp(10px, 2vw, 20px);
+  animation: cc-scroll 28s linear infinite;
+  will-change: transform;
+}
+.client-carousel .cc-track li{ list-style: none; }
+
+
+/* Logos: weiß + ca. doppelte Höhe */
+.client-carousel .cc-track img{
+  height: clamp(36px, 6.4vw, 72px);
+  width: auto;
+  display: block;
+  /* Weißfärbung */
+  filter: grayscale(1) brightness(0) invert(1) contrast(1.05);
+  opacity: .95;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.client-carousel .cc-track img:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+
+
+
+@keyframes cc-scroll{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .client-carousel .cc-track{ animation: none; }
+}
+
+@media (max-width: 480px){
+  .client-carousel .cc-track{
+    gap: 20px;
+    padding: 12px 10px;
+  }
+  .client-carousel .cc-track img{ height: 16px; }
+}
+

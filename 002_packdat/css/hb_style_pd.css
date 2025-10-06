@@ -52,7 +52,18 @@
   /* Reichweite / Fade-Längen */
   --site-gradient-height:320vh; /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */
   --top-gradient-height:140vh;
+
+  /* Client-Carousel Tokens */
+  --cc-pink: var(--top-grad-3, #ff4bc0);
+  --cc-cyan: var(--top-grad-2, #207cfa);
+  --cc-glass-bg: rgba(255,255,255,.08);
+  --cc-glass-brd: rgba(255,255,255,.28);
+  --cc-noise-gradient:
+    radial-gradient(1200px 600px at 15% 30%, color-mix(in oklab, var(--cc-cyan) 35%, transparent) 0%, transparent 70%),
+    radial-gradient(1200px 600px at 85% 70%, color-mix(in oklab, var(--cc-pink) 35%, transparent) 0%, transparent 70%),
+    linear-gradient(120deg, color-mix(in oklab, var(--cc-cyan) 40%, transparent), color-mix(in oklab, var(--cc-pink) 40%, transparent) 60%);
 }
+
 
 html, body{ min-height:100%; }
 body{ position:relative; background:transparent; }
