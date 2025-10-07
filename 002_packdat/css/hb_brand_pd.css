@@ -5,7 +5,7 @@
 
 @charset "utf-8";
 
-/* ---------- 0) :root – Tokens (inkl. Client‑Carousel) ---------- */
+/* ---------- 0) :root – Tokens (inkl. Client-Carousel) ---------- */
 :root{
   /* Type Donnerstag, 28. August 2025 15:03 DISTRICT */
   --font-montserrat:'Montserrat',sans-serif;
@@ -55,7 +55,7 @@
   --site-gradient-height:320vh; /* [site_gradient_extend_#1 fox_19-09-2025_00:25] */
   --top-gradient-height:140vh;
 
-  /* === Client‑Carousel Tokens === */
+  /* === Client-Carousel Tokens === */
   --cc-pink: var(--top-grad-3, #ff4bc0);
   --cc-cyan: var(--top-grad-2, #207cfa);
   --cc-glass-bg: rgba(255,255,255,.18);     /* opaker für weiße Bereiche */
@@ -109,15 +109,12 @@
 /* END task_15_hero-width-exception */
 
 /* START task_15b_split-width-override — 2025-08-27, 23:33 Uhr */
-/* Falls ein Element beide Klassen trägt (.hb-hero.hb-hero--split), breitere Bühne erlauben */
 #hero-section .hb-hero.hb-hero--split{ width:auto; }
-/* Grid-Container im Split bekommt eigene Breite, zentriert */
 #hero-section .hb-hero--split,
 #hero-section .hb-hero--split .hb-hero-grid{
   width: min(92vw, 1200px);
   margin: 0 auto;
 }
-/* Sicherheit: keine unerwünschte max-width vom Basis-Hero */
 #hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
 /* END task_15b_split-width-override */
 
@@ -126,8 +123,8 @@
   width:min(90vw,700px);
   height:100%;
   display:flex; flex-direction:column;
-  align-items:flex-start;  /* linksbündig */
-  justify-content:center;  /* vertikal mittig */
+  align-items:flex-start;
+  justify-content:center;
   text-align:left; overflow:hidden;
   opacity:0; filter:blur(8px); transform:translateY(12px);
   animation:heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
@@ -137,16 +134,15 @@
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
 #hero-section .hb-hero-A{
-  /* P2: laura scaler — zentraler Regler */
-  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem); /* 2025-09-01 20:20 HB_Justage: scaler bump */
+  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem);
   font-size: var(--bv);
   --brandSize: var(--bv);
 }
 #hero-section .hb-hero-brand{
   color:var(--t1);
   line-height:1; font-weight:800; letter-spacing:-.02em;
-  font-size: var(--brandSize); /* 2025-09-01 20:12 – fix: nutzt zentralen Scaler */
-  margin:0; white-space:nowrap; display:block; /* eigene Zeile */
+  font-size: var(--brandSize);
+  margin:0; white-space:nowrap; display:block;
 }
 #hero-section .brand-anchor{ position:relative; display:inline; }
 #hero-section .brand-A{ display:inline; color:inherit; }
@@ -159,29 +155,29 @@
 @keyframes heroAiFade{ to{ opacity:1; } }
 
 /* ---------- 4) Tagline + Subline ---------- */
-#hero-section .hb-hero .hb-hero-tagline{ /* HB_Justage: parse fix */
-  display:block; /* nie neben BRAND */
+#hero-section .hb-hero .hb-hero-tagline{
+  display:block;
   color:var(--t2); font-weight:800; text-transform:uppercase;
   letter-spacing:.02em;
-  font-size: 0.24em; /* HB_Justage */ /* P2: laura tune */
+  font-size: 0.24em;
   transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0));
-  margin-bottom: 0.5em; /* HB_Justage */ /* P2: laura tune */
+  margin-bottom: 0.5em;
 }
 #hero-section .hb-hero-subline{
   margin:0; font-weight:600; font-style:italic; color:#fff;
-  letter-spacing: 0.003em; /* 2025-09-01 20:27 – etwas enger */
+  letter-spacing: 0.003em;
   display:flex; column-gap:var(--subMinGap);
-  font-size: 0.12em; /* 2025-09-01 20:31 – subline ~15% kleiner (vorher 0.14em) */
+  font-size: 0.12em;
   transform:translate(var(--subOffsetX),var(--subOffsetY));
   z-index:2;
-  word-spacing: 0.08em; /* 2025-09-01 20:27 – dezenter */
-  white-space: normal;  /* 2025-09-01 20:27 – erlaubt Umbruch */
-  flex-wrap: wrap;      /* 2025-09-01 20:27 – kein Überstand über BRAND */
+  word-spacing: 0.08em;
+  white-space: normal;
+  flex-wrap: wrap;
   max-inline-size: 100%;
 }
 
 /* ---------- 5) Ambient (dezent) ---------- */
-#hero-section{ --glowColor:rgba(255,20,147,.25); /* HB_Justage */ --glowDur:9s; }
+#hero-section{ --glowColor:rgba(255,20,147,.25); --glowDur:9s; }
 #hero-section .hb-hero::after{
   content:""; position:absolute; inset:-25%;
   background:radial-gradient(closest-side,var(--glowColor) 0%,transparent 70%);
@@ -233,8 +229,7 @@
   font-weight:var(--cta-font-weight);
   font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
   border-radius: var(--cta-radius);
-  color:#fff; 
-  /* micro edit (cassette 12) – CTA mit Verlauf statt Schwarz */
+  color:#fff;
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
   text-decoration:none;
   box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
@@ -245,7 +240,6 @@
 
 /* Reusable CTA außerhalb des Hero */
 .hb-cta_2{
-  /* eigene Defaults, unabhängig vom #hero-section */
   --cta-padding-y: var(--space-xl);
   --cta-padding-x: var(--space-2xl);
   --cta-radius: var(--radius-l);
@@ -272,10 +266,9 @@
 .hb-cta_2:active{ transform: translateY(0);    box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
 .hb-cta_2{ white-space: normal; overflow-wrap: anywhere; hyphens: auto; }
 
-/* Mobile-Tuning analog Hero */
 @media (max-width:600px){
   .hb-cta_2{
-    --cta-font-size-min: 1.55rem;   /* bessere Lesbarkeit */
+    --cta-font-size-min: 1.55rem;
     --cta-font-size-fluid: 4.0vw;
     --cta-font-size-max: 2.3rem;
     --cta-padding-y: 1.05rem;
@@ -286,7 +279,7 @@
   }
 }
 
-/* Social Buttons – gleiche DNA wie .hb-cta */
+/* Social Buttons */
 .social-btn{
   --cta-padding-y: 0.75rem;
   --cta-padding-x: 1.1rem;
@@ -312,6 +305,9 @@
 .social-btn.is-outline:hover{ background: rgba(255,255,255,.07); }
 .social-btn.is-outline:active{ background: rgba(255,255,255,.12); }
 .btn-group[aria-label="Kontaktlinks"]{ display:flex; gap: 0.8rem; }
+
+
+ 
 @media (max-width:600px){
   .social-btn{ --cta-padding-y: .9rem; --cta-padding-x: 1rem; display:flex; width:100%; justify-content:center; }
 }
@@ -320,16 +316,14 @@
 @media (min-width:1024px){
   #hero-section .hb-hero--split .hb-hero-grid{
     display:grid;
-    grid-template-columns: 1fr 1fr; /* HB_Justage: Split 50/50 */
+    grid-template-columns: 1fr 1fr;
     gap: clamp(16px,3vw,34px);
   }
 }
 
 /* micro edit (cassette 18)  task_18_glass-mobile-gaps */
 @media (max-width:600px){
-  /* Überschrift unten mehr Luft */
   #hero-section .hb-hero--split h2.hb-glass-title{ margin-bottom: 1.6em; }
-  /* erster Absatz oben neutral */
   #hero-section .hb-hero--split p.hb-glass-text:first-of-type{ margin-top: 0; }
 }
 
@@ -338,26 +332,28 @@
   #hero-section .hb-hero .hb-hero-B h2.hb-glass-title{ margin-top: clamp(12px,1.5vw,24px); }
   #hero-section .hb-hero .hb-hero-B p.hb-glass-text:first-of-type{ margin-top: clamp(8px,1vw,16px); }
 }
-/* Mobile: mehr Luft zwischen BRAND (A) und Glass (B) */
 @media (max-width:1023px){
   #hero-section .hb-hero .hb-hero-B{ margin-top: clamp(16px, 6vw, 40px); }
 }
 
-/* ---------- 2) CLIENT LOGO CAROUSEL (infinite + glass + noisy pink/cyan) ---------- */
-/* Zweck: Endlos scrollende Logo-Bar mit Glas-Effekt, weiß gefärbten Logos und gutem Kontrast auf Weiß */
+/* ---------- 2) CLIENT LOGO CAROUSEL — STABIL ---------- */
+/* Endlos-Logo-Leiste mit GLAS/GRADIENT (Kontrast), weiße Logos, horizontal, keine Bullets. */
+
 .client-carousel{
-  position: relative;          /* Container für BG/Viewport/Track */
-  border-radius: 14px;         /* weiche Ecken */
-  overflow: hidden;            /* alles sauber maskieren */
-  isolation: isolate;          /* eigene Stacking-Context für BG/Blur */
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  isolation: isolate;
 }
-/* Hintergrund-Layer mit „noisy“ Gradient (siehe --cc-noise-gradient Tokens) */
+
+/* Hintergrund-Layer aktiv (Noisy Pink/Cyan) */
 .client-carousel .cc-bg{
-  position:absolute; inset:0;  /* vollflächig */
+  position: absolute; inset: 0;
   background: var(--cc-noise-gradient);
-  z-index:0;                   /* unter dem Inhalt */
+  z-index: 0;
 }
-/* Glas-Surface: Transluzenz + Blur + klare Kontur für weiße Bereiche */
+
+/* Glas-Surface: Blur + feine Kontur + Shadow */
 .client-carousel.glass-surface{
   background: var(--cc-glass-bg);
   backdrop-filter: blur(10px);
@@ -365,45 +361,86 @@
   border: 1px solid var(--cc-glass-brd);
   box-shadow: 0 10px 28px rgba(0,0,0,.14);
 }
-/* Sichtfenster: blendet Track-Ränder weich aus */
+
+/* Sichtfenster: weiche Ränder (Desktop), mobil ohne Maske */
 .client-carousel .cc-viewport{
   position: relative;
-  z-index:1;                                    /* über dem BG */
-  overflow: hidden;                             /* Track clippen */
+  z-index: 1;
+  overflow: hidden;
   mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
 }
-/* Track: enthält alle Logos zweimal (A+B) für nahtloses Looping */
+
+/* Track: horizontale Leiste */
 .client-carousel .cc-track{
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: clamp(28px, 5vw, 56px);                  /* Abstand zwischen Logos */
-  width: max-content;                           /* Track so breit wie Inhalt */
-  padding: clamp(14px, 2.2vw, 22px) clamp(10px, 2vw, 20px); /* Innenabstand */
-  animation: cc-scroll 28s linear infinite;     /* Endloslauf – Dauer anpassen */
-  will-change: transform;                       /* Performance-Hinweis */
+  gap: clamp(28px, 5vw, 56px);
+  width: max-content;
+  margin: 0;
+  padding: clamp(14px, 2.2vw, 22px) clamp(10px, 2vw, 20px);
+  list-style: none;
+  animation: cc-scroll 28s linear infinite;
+  will-change: transform;
 }
-.client-carousel .cc-track li{ list-style: none; }
-/* Logos: WEISS + größer (Desktop/Tablet Basis) */
-.client-carousel .cc-track img{
-  height: clamp(44px, 4.5vw, 80px);             /* gute Lesbarkeit auf hellem BG */
-  width: auto;                                  /* Seitenverhältnis beibehalten */
-  display: block;
-  filter: grayscale(1) brightness(0) invert(1) contrast(1.05);
-  opacity: .95;                                 /* ruhiger Default */
-  transition: opacity .2s ease, transform .2s ease;
-}
-.client-carousel .cc-track img:hover{ opacity: 1; transform: translateY(-1px); }
-/* Infinite Scroll Keyframes */
-@keyframes cc-scroll{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
-/* Barrierefreiheit: Bewegung deaktivieren */
-@media (prefers-reduced-motion: reduce){ .client-carousel .cc-track{ animation: none; } }
-/* Mobile: größere Logos + sichere Sichtbarkeit */
-@media (max-width: 768px){
-  #partners .client-carousel{ min-height: 130px; }
-  #partners .client-carousel .cc-viewport{ mask-image: none; -webkit-mask-image: none; }
-  #partners .client-carousel .cc-track{ gap: 32px; padding: 20px 18px; }
-  #partners .client-carousel .cc-track img{ height: clamp(52px, 14vw, 68px); }
+.client-carousel .cc-track > li{
+  list-style: none;
+  margin: 0; padding: 0;
+  flex: 0 0 auto;
 }
 
-/* =========================  END  ========================= */
+/* Logos: WEISS + größer + feine Kontur */
+.client-carousel .cc-track img{
+  display: block;
+  height: clamp(60px, 6vw, 96px);
+  width: auto;
+  filter:
+    grayscale(1) brightness(0) invert(1) contrast(1.08)
+    drop-shadow(0 0 1px rgba(0,0,0,.28));
+  opacity: 1;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.client-carousel .cc-track img:hover{ transform: translateY(-1px); }
+
+/* Endlos-Scroll */
+@keyframes cc-scroll{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); }
+}
+
+/* Bewegungsreduktion */
+@media (prefers-reduced-motion: reduce){
+  .client-carousel .cc-track{ animation: none; }
+}
+
+/* Mobile: mehr Fläche, größere Logos, Maske aus */
+@media (max-width: 768px){
+  #partners .client-carousel{ min-height: 140px; }
+  #partners .client-carousel .cc-viewport{
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  #partners .client-carousel .cc-track{
+    gap: 34px;
+    padding: 22px 18px;
+  }
+  #partners .client-carousel .cc-track img{
+    height: clamp(60px, 18vw, 80px);
+  }
+}
+/* -------------------------- END CAROUSEL -------------------------- */
+
+
+
+ @media (max-width: 600px) {
+    #hero-section .hb-cta {
+        display: block;
+        width: 100%;
+        text-align: center;
+        min-height: 3.8rem;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+}
+

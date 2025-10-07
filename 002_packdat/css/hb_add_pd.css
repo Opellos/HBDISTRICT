@@ -90,5 +90,38 @@
 */
 
 
+/* +ws_packdat_partners_bg_v2 — 2025-10-07
+   Zweck: Zarter Cyan→Magenta-Verlauf für #partners.
+   Rollback: Block entfernen.
+*/
+
+#partners{
+  --fade-from: 0 !important;   /* Overlay neutralisieren */
+  --fade-to:   0 !important;   /* Overlay neutralisieren */
+  background: linear-gradient(90deg,
+              color-mix(in oklab, var(--bottom-cyan) 52%, transparent),
+              color-mix(in oklab, var(--bottom-magenta) 22%, transparent)) !important;
+}
+
+#partners::before{
+  background: transparent !important; /* kein Aufhell-Overlay */
+}
+
+/* ws: packdat/partners-carousel speed — 2025-10-07
+   Änderung: Logo-Laufgeschwindigkeit verlangsamt (größere Dauer = langsamer).
+   Wirkung: ca. 2–3x langsamer als vorher; feinjustieren über Sekundenwert.
+*/
+
+#partners .client-carousel .cc-track{
+  animation-duration: 80s !important; /* z.B. 80s statt 30–40s */
+}
+
+/* Optional: auf Mobil noch etwas ruhiger */
+@media (max-width: 768px){
+  #partners .client-carousel .cc-track{
+    animation-duration: 110s !important;
+  }
+}
+
 
 
