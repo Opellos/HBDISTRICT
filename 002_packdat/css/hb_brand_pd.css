@@ -416,7 +416,7 @@
 
 /* Mobile: mehr Fläche, größere Logos, Maske aus */
 @media (max-width: 768px){
-  #partners .client-carousel{ min-height: 140px; }
+ /* #partners .client-carousel{ min-height: 140px; }*/
   #partners .client-carousel .cc-viewport{
     mask-image: none;
     -webkit-mask-image: none;
