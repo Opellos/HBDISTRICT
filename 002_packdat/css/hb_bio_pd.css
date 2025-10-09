@@ -1,4 +1,9 @@
-/* worksession_0024 */
+/* file name:  hb_bio_pd.css A */
+
+:root {
+  --nav-h: 50px;
+}
+
 
 /* — Rahmen & Bild — */
 #video-bio .video-frame {
@@ -54,13 +59,6 @@
   }
 }
 
-/* === [TEST] NAV_GLASS_2025-09-04 HB — START =============================
-   Ziel: Glass-Navbar, boxed, immer sichtbar; z-index-Fix gg. Sections.
-   Entfernen nach Freigabe.
-   ====================================================================== */
-:root {
-  --nav-h: 56px;
-}
 
 /* Leiste: Glas + immer sichtbar */
 .navbar.navbar-custom {
@@ -111,10 +109,10 @@
   }
 }
 
-/* Sicherstellen, dass Eltern die Sticky-Leiste nicht abschneiden */
+/* Sicherstellen, dass Eltern die Sticky-Leiste nicht abschneiden
 header,
 #hero-section,
 .navbar-wrapper {
   overflow: visible !important;
 }
-/* === [TEST] NAV_GLASS_2025-09-04 HB — END =============================== */
+===  HB — END   on/off =============================== */

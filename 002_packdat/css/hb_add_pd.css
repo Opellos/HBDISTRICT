@@ -1,7 +1,4 @@
-/*\
-  hb_add_pd.css
- worksession_0025
-*/
+/* file name hb_add_pd.css A */
 
 /* ================= 1) Mobile (≤ 990px): Typo, Abstände, Glas-Container ================= */
 @media (max-width: 990px){
@@ -122,6 +119,7 @@
     animation-duration: 110s !important;
   }
 }
+
 
 
 

@@ -1,7 +1,4 @@
-/* =========================================================
-   FILE: unified_brand.css  (Tokens + Hero + Client Carousel)
-   Worksession_— consolidated single document
-   ========================================================= */
+/* hb_brand_pd.css A*/
 
 @charset "utf-8";
 
@@ -131,6 +128,10 @@
   will-change:opacity,filter,transform;
 }
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
+
+
+
+
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
 #hero-section .hb-hero-A{
@@ -330,6 +331,7 @@
 /* Desktop-Only: zusätzliche Luft in Glass */
 @media (min-width:1024px){
   #hero-section .hb-hero .hb-hero-B h2.hb-glass-title{ margin-top: clamp(12px,1.5vw,24px); }
+	
   #hero-section .hb-hero .hb-hero-B p.hb-glass-text:first-of-type{ margin-top: clamp(8px,1vw,16px); }
 }
 @media (max-width:1023px){
@@ -443,4 +445,45 @@
         white-space: nowrap;
     }
 }
+
+
+/* ==========================================================================
+   HB – Glass-Aside Typo-Override
+   Datei/Ort: hb_add_pd.css  → GANZ UNTEN anhängen
+   Scope:    <aside class="hb-hero-B hb-glass"> im #hero-section
+   Zweck:    Schriftgröße & Zeilenhöhe für Titel/Fließtext vergrößern
+   --------------------------------------------------------------------------
+   @signature: Website-weiterentwickeln · Typo Override · v1
+   @date: 2025-10-08
+   ========================================================================== */
+
+/* Hext STyling Hero Überschrift größer + dichtere Zeile */
+#hero-section aside.hb-hero-B.hb-glass > h2.hb-glass-title{
+  /* skaliert zwischen Mobil und Desktop ohne !important */
+  font-size: clamp(4.1rem, 3.2vw, 4.2rem);
+  line-height: 1;
+}
+
+/* Fließtext größer + luftiger */
+#hero-section aside.hb-hero-B.hb-glass > p.hb-glass-text{
+  font-size: clamp(1.8rem, 1.9vw, 2rem);
+  line-height: 1.6;
+}
+
+/* -------- Mobile Feintuning --------------------------------------------- */
+@media (max-width: 768px){
+  /* Titel: etwas kleiner, Zeile minimal dichter für Kompaktheit */
+  #hero-section aside.hb-hero-B.hb-glass > h2.hb-glass-title{
+    font-size: clamp(2.8rem, 7.5vw, 3.6rem);
+    line-height: 1.14;
+  }
+  /* Text: gut lesbare Größe, mehr Zeilenluft */
+  #hero-section aside.hb-hero-B.hb-glass > p.hb-glass-text{
+    font-size: clamp(1.95rem, 4.8vw, 2.25rem);
+    line-height: 1.75;
+  }
+}
+
+
+
 
