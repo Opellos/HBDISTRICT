@@ -1,5 +1,3 @@
-/* hb_brand_pd.css A*/
-
 @charset "utf-8";
 
 /* ---------- 0) :root – Tokens (inkl. Client-Carousel) ---------- */
@@ -87,51 +85,54 @@
   /* Mobile-Faktor */
   --subMobileScale:1;
 
-  /* Bühne */
-  height:min(100svh,700px);
+  /* Bühne – flexibel: erhöhte min-height, mehr top/bottom breathing room */
+  /* Ziel: etwas höher auf Desktop, mobile + desktop Content nicht abgeschnitten */
+  min-height: min(92svh, 880px);
+  padding-top: clamp(3.5rem, 8vh, 9rem);   /* mehr Abstand oben, drückt Inhalt nach unten */
+  padding-bottom: clamp(3rem, 6vh, 8rem);  /* mehr Abstand unten */
+
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */
 
   /* HERO Offset (Cassette 1) */
   --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
-  padding-top: var(--hero-offset-top);
 
   /* Reveal-Timing */
   --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
 }
 
 /* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
-#hero-section .hb-hero{ width:min(90vw,700px); }
-#hero-section .hb-hero--split{ width:auto; } /* Sicherheit: Split darf breiter */
+/* default HERO inner width only when NOT split */
+#hero-section .hb-hero:not(.hb-hero--split){
+  width: min(90vw, 700px);
+}
 /* END task_15_hero-width-exception */
 
 /* START task_15b_split-width-override — 2025-08-27, 23:33 Uhr */
-#hero-section .hb-hero.hb-hero--split{ width:auto; }
-#hero-section .hb-hero--split,
-#hero-section .hb-hero--split .hb-hero-grid{
-  width: min(92vw, 1200px);
+/* split variant: etwas breiter, aber begrenzt */
+#hero-section .hb-hero.hb-hero--split,
+#hero-section .hb-hero.hb-hero--split .hb-hero-grid{
+  width: min(96vw, 1240px);
   margin: 0 auto;
+  max-width: none;
 }
+/* ensure internal grid doesn't constrain */
 #hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
 /* END task_15b_split-width-override */
 
 #hero-section .hb-hero{
   position:relative;
-  width:min(90vw,700px);
-  height:100%;
+  height:auto; /* Inhalt bestimmt Höhe */
   display:flex; flex-direction:column;
   align-items:flex-start;
   justify-content:center;
-  text-align:left; overflow:hidden;
+  text-align:left; overflow:visible;
   opacity:0; filter:blur(8px); transform:translateY(12px);
   animation:heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
   will-change:opacity,filter,transform;
 }
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
-
-
-
-
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
 #hero-section .hb-hero-A{
@@ -307,8 +308,6 @@
 .social-btn.is-outline:active{ background: rgba(255,255,255,.12); }
 .btn-group[aria-label="Kontaktlinks"]{ display:flex; gap: 0.8rem; }
 
-
- 
 @media (max-width:600px){
   .social-btn{ --cta-padding-y: .9rem; --cta-padding-x: 1rem; display:flex; width:100%; justify-content:center; }
 }
@@ -406,6 +405,7 @@
 .client-carousel .cc-track img:hover{ transform: translateY(-1px); }
 
 /* Endlos-Scroll */
+/* Hinweis: für nahtlosen Loop muss Track-Inhalt im Markup einmal dupliziert werden (HTML), z.B. <ul class="cc-track">...items... ...items...</ul> */
 @keyframes cc-scroll{
   from{ transform: translateX(0); }
   to  { transform: translateX(-50%); }
@@ -418,7 +418,6 @@
 
 /* Mobile: mehr Fläche, größere Logos, Maske aus */
 @media (max-width: 768px){
- /* #partners .client-carousel{ min-height: 140px; }*/
   #partners .client-carousel .cc-viewport{
     mask-image: none;
     -webkit-mask-image: none;
@@ -433,21 +432,32 @@
 }
 /* -------------------------- END CAROUSEL -------------------------- */
 
+@media (max-width: 600px) {
+  /* konsistente Mobile-CTA-Regel: entferne konfliktierende white-space */
+  #hero-section .hb-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    min-height: 3.8rem;
+    line-height: 1.25;
+    /* allow wrapping on very small screens */
+  }
 
+  /* mobile: noch mehr vertical breathing room, Content nicht zu weit oben */
+  #hero-section{
+    min-height: auto;
+    padding-top: clamp(3.2rem, 10vh, 9rem);
+    padding-bottom: clamp(3rem, 8vh, 9rem);
+  }
 
- @media (max-width: 600px) {
-    #hero-section .hb-cta {
-        display: block;
-        width: 100%;
-        text-align: center;
-        min-height: 3.8rem;
-        line-height: 1.25;
-        white-space: nowrap;
-    }
+  /* ensure split/grid stack behaves */
+  #hero-section .hb-hero.hb-hero--split,
+  #hero-section .hb-hero--split .hb-hero-grid{
+    width: min(94vw, 1100px);
+  }
 }
 
-
-/* ==========================================================================
+/* ========================================================================== 
    HB – Glass-Aside Typo-Override
    Datei/Ort: hb_add_pd.css  → GANZ UNTEN anhängen
    Scope:    <aside class="hb-hero-B hb-glass"> im #hero-section
@@ -483,7 +493,3 @@
     line-height: 1.75;
   }
 }
-
-
-
-
