@@ -1,8 +1,14 @@
 @charset "utf-8";
 
-/* ---------- 0) :root – Tokens (inkl. Client-Carousel) ---------- */
+/* hb_brand_pd.css A
+   modified by: Assistant — GPT-5 Thinking mini
+   changes: Hero spacing adjustments (marker: #herojustage)
+   version: v2025.10.09.2 Ü-1 transfer-Bugs! Navigantion
+*/
+
+/* === hb_brand_pd.css A + ======== */
 :root{
-  /* Type Donnerstag, 28. August 2025 15:03 DISTRICT */
+
   --font-montserrat:'Montserrat',sans-serif;
   --font-hanken:'Hanken Grotesk','Hanken',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
 
@@ -62,6 +68,7 @@
 }
 
 /* ---------- 1) HERO / BRAND (aus hb_brand_pd.css) ---------- */
+/* #herojustage */
 #hero-section{
   /* Farben / Verlauf */
   --bg1:#007bff;
@@ -87,13 +94,13 @@
 
   /* Bühne – flexibel: erhöhte min-height, mehr top/bottom breathing room */
   /* Ziel: etwas höher auf Desktop, mobile + desktop Content nicht abgeschnitten */
-  min-height: min(92svh, 880px);
-  padding-top: clamp(3.5rem, 8vh, 9rem);   /* mehr Abstand oben, drückt Inhalt nach unten */
-  padding-bottom: clamp(3rem, 6vh, 8rem);  /* mehr Abstand unten */
+  min-height: min(92svh, 880px); /* #herojustage v2025.10.09.2 */
+  padding-top: clamp(3.5rem, 8vh, 9rem);   /* mehr Abstand oben, drückt Inhalt nach unten */ /* #herojustage v2025.10.09.2 */
+  padding-bottom: clamp(3rem, 6vh, 8rem);  /* mehr Abstand unten */ /* #herojustage v2025.10.09.2 */
 
   display:grid; place-items:center;
   background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */
+  overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /* #herojustage v2025.10.09.2 */
 
   /* HERO Offset (Cassette 1) */
   --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
@@ -306,7 +313,7 @@
 .social-btn.is-outline{ color:#fff; background: transparent; border: 1px solid rgba(255,255,255,.85); box-shadow: 0 0 0 0 transparent; }
 .social-btn.is-outline:hover{ background: rgba(255,255,255,.07); }
 .social-btn.is-outline:active{ background: rgba(255,255,255,.12); }
-.btn-group[aria-label="Kontaktlinks"]{ display:flex; gap: 0.8rem; }
+.btn-group[aria-label:\"Kontaktlinks\"]{ display:flex; gap: 0.8rem; }
 
 @media (max-width:600px){
   .social-btn{ --cta-padding-y: .9rem; --cta-padding-x: 1rem; display:flex; width:100%; justify-content:center; }
@@ -405,7 +412,7 @@
 .client-carousel .cc-track img:hover{ transform: translateY(-1px); }
 
 /* Endlos-Scroll */
-/* Hinweis: für nahtlosen Loop muss Track-Inhalt im Markup einmal dupliziert werden (HTML), z.B. <ul class="cc-track">...items... ...items...</ul> */
+/* Hinweis: für nahtlosen Loop muss Track-Inhalt im Markup einmal dupliziert werden (HTML), z.B. <ul class=\"cc-track\">...items... ...items...</ul> */
 @keyframes cc-scroll{
   from{ transform: translateX(0); }
   to  { transform: translateX(-50%); }
@@ -460,7 +467,7 @@
 /* ========================================================================== 
    HB – Glass-Aside Typo-Override
    Datei/Ort: hb_add_pd.css  → GANZ UNTEN anhängen
-   Scope:    <aside class="hb-hero-B hb-glass"> im #hero-section
+   Scope:    <aside class=\"hb-hero-B hb-glass\"> im #hero-section
    Zweck:    Schriftgröße & Zeilenhöhe für Titel/Fließtext vergrößern
    --------------------------------------------------------------------------
    @signature: Website-weiterentwickeln · Typo Override · v1
@@ -493,3 +500,17 @@
     line-height: 1.75;
   }
 }
+
+/* ---------- #herojustage: mobile force-overrides v2025.10.09.2 ---------- */
+@media (max-width:600px){
+  /* gezielte, spezifische Overrides ans Ende (letzte Instanz) */
+  #hero-section{
+    padding-top: clamp(4rem, 12vh, 10rem) !important; /* #herojustage v2025.10.09.2 */
+    padding-bottom: clamp(3.5rem, 10vh, 10rem) !important; /* #herojustage v2025.10.09.2 */
+    overflow: visible !important; /* sicherstellen, dass nichts abgeschnitten wird */
+  }
+  /* Falls direkte Eltern overflow:hidden setzen, heben wir das bei den üblichen Parent-Selektoren auf. 
+  section#hero-section, . section#hero-section, #hero-section, #hero-section > *, .section, section{
+    overflow: visible !important;
+  }
+}*/

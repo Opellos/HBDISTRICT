@@ -1,4 +1,4 @@
-/* === hb_style_pd.css A ======== */
+/* === hb_style_pd.css A + ======== */
 
 /* === Design Tokens ======================================================= */
 :root{
@@ -943,6 +943,11 @@ section, .section {
     /* outline: 2px solid red; */
   }
 }
+
+
+/* nur kurz aktivieren */
+/*#hero-section, #hero-section * { outline: 1px dashed rgba(255,0,0,.25); }*/
+
 
 /* === Globaler Site-Gradient + Section-Overlays =========================== */
 /* ==========================================================================
