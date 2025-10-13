@@ -3,7 +3,7 @@
 /* hb_brand_pd.css A
    modified by: Assistant — GPT-5 Thinking mini
    changes: Hero spacing adjustments (marker: #herojustage)
-   version: v2025.10.09.2 Ü-1 transfer-Bugs! Navigantion
+   version: v2025.10.09.2
 */
 
 /* === hb_brand_pd.css A + ======== */
@@ -509,8 +509,12 @@
     padding-bottom: clamp(3.5rem, 10vh, 10rem) !important; /* #herojustage v2025.10.09.2 */
     overflow: visible !important; /* sicherstellen, dass nichts abgeschnitten wird */
   }
-  /* Falls direkte Eltern overflow:hidden setzen, heben wir das bei den üblichen Parent-Selektoren auf. 
-  section#hero-section, . section#hero-section, #hero-section, #hero-section > *, .section, section{
-    overflow: visible !important;
+  /* Falls direkte Eltern overflow:hidden setzen, heben wir das bei den üblichen Parent-Selektoren auf. */
+  /* Falls direkte Eltern overflow:hidden setzen, heben wir das NUR lokal für #hero-section auf — vermeidet Nav-Regressions */
+  /* #herojustage: restrict scope to hero only */
+  #hero-section,
+  #hero-section > .hb-hero,
+  #hero-section .hb-hero{
+    overflow: visible;
   }
-}*/
+}
