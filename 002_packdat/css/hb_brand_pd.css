@@ -123,7 +123,7 @@
 /* split variant: etwas breiter, aber begrenzt */
 #hero-section .hb-hero.hb-hero--split,
 #hero-section .hb-hero.hb-hero--split .hb-hero-grid{
-  width: min(96vw, 1340px);
+  width: min(96vw, 1240px);
   margin: 0 auto;
   max-width: none;
 }
@@ -145,18 +145,13 @@
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
-/*#hero-section .hb-hero-A{
-  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem); 15.5rem);
+#hero-section .hb-hero-A{
+  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem); 8.5rem);
   font-size: var(--bv);
   --brandSize: var(--bv);
-}*/
-
-/* HB-R09 | Brand +10% | skaliert auf Basis --bv */
-#hero-section .hb-hero-A{
-  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem);  /* Basisgröße */
-  --brandSize: calc(var(--bv) * 1.4);            /* +10% */
-  font-size: var(--brandSize);                   /* anwenden */
 }
+
+
 
 
 #hero-section .hb-hero-brand{
@@ -285,14 +280,39 @@
   transition: transform var(--dur-fast) var(--ease-standard),
               box-shadow var(--dur-fast) var(--ease-standard);
 }
-.hb-cta_2:hover{  transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
-.hb-cta_2:active{ transform: translateY(0);    box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
-.hb-cta_2{ white-space: normal; overflow-wrap: anywhere; hyphens: auto; }
+
+.hb-cta_2:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover);
+}
+
+.hb-cta_2:active{
+  transform: translateY(0);
+  box-shadow: var(--shadow-md-active), var(--shadow-inset-active);
+}
+
+.hb-cta_2{
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
 
 /* #11: restored YouTube outline styling — v2025.10.09.5 */
-.social-btn.is-outline{ color:#fff; background: transparent; border: 1px solid rgba(255,255,255,.85); box-shadow: 0 0 0 0 transparent; }
-.social-btn.is-outline:hover{ background: rgba(255,255,255,.07); }
-.social-btn.is-outline:active{ background: rgba(255,255,255,.12); }
+.social-btn.is-outline{
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.85);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.social-btn.is-outline:hover{
+  background: rgba(255,255,255,.07);
+}
+
+.social-btn.is-outline:active{
+  background: rgba(255,255,255,.12);
+}
+
 
 @media (max-width:600px){
   .hb-cta_2{
@@ -310,8 +330,8 @@
 /* Social Buttons */
 .social-btn{
   --cta-padding-y: 0.75rem;
-  --cta-padding-x: 1.1rem;
-  --cta-radius: 14px;
+  --cta-padding-x: 0.75rem;
+  --cta-radius: 8px;
   --cta-gap: .6rem;
   --cta-font-weight: 600;
   display:inline-flex; align-items:center; gap:var(--cta-gap);
@@ -328,10 +348,28 @@
   min-width: 220px; /* #social-btn-width v2025.10.09.4 */
   width: 220px;     /* #social-btn-width v2025.10.09.4 */
 }
-.social-btn i{ font-size: 1em; line-height: 1; }
-.social-btn.is-primary{ color:#fff; background: linear-gradient(90deg, #207cfa, #ff3cd0); box-shadow: var(--shadow-md), var(--shadow-inset); }
-.social-btn.is-primary:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
-.social-btn.is-primary:active{ transform: translateY(0);    box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
+.social-btn i{
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.social-btn.is-primary{
+  color:#fff;
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.social-btn.is-primary:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover);
+}
+
+.social-btn.is-primary:active{
+  transform: translateY(0);
+  box-shadow: var(--shadow-md-active), var(--shadow-inset-active);
+}
+
+
 
 @media (max-width:600px){
   /* keep buttons inline at mobile while respecting available space */
