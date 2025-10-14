@@ -82,6 +82,8 @@
 
   /* Subline flüssig <1024 gut lesbar */
   --subMin:0.90em; --subVW:1em; --subMax:1.20em;
+	
+	
   --brandScale:1;
 
   /* Feinoffsets (em skaliert mit BRAND) */
@@ -111,7 +113,7 @@
 }
 
 /* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
-/* default HERO inner width only when NOT split */
+/* default HERO nein ich inner width only when NOT split */
 #hero-section .hb-hero:not(.hb-hero--split){
   width: min(90vw, 700px);
 }
@@ -121,7 +123,7 @@
 /* split variant: etwas breiter, aber begrenzt */
 #hero-section .hb-hero.hb-hero--split,
 #hero-section .hb-hero.hb-hero--split .hb-hero-grid{
-  width: min(96vw, 1240px);
+  width: min(96vw, 1340px);
   margin: 0 auto;
   max-width: none;
 }
@@ -143,17 +145,28 @@
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
-#hero-section .hb-hero-A{
-  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem);
+/*#hero-section .hb-hero-A{
+  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem); 15.5rem);
   font-size: var(--bv);
   --brandSize: var(--bv);
+}*/
+
+/* HB-R09 | Brand +10% | skaliert auf Basis --bv */
+#hero-section .hb-hero-A{
+  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem);  /* Basisgröße */
+  --brandSize: calc(var(--bv) * 1.4);            /* +10% */
+  font-size: var(--brandSize);                   /* anwenden */
 }
+
+
 #hero-section .hb-hero-brand{
   color:var(--t1);
   line-height:1; font-weight:800; letter-spacing:-.02em;
   font-size: var(--brandSize);
   margin:0; white-space:nowrap; display:block;
 }
+
+
 #hero-section .brand-anchor{ position:relative; display:inline; }
 #hero-section .brand-A{ display:inline; color:inherit; }
 #hero-section .hb-hero-ai{
@@ -876,4 +889,28 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name{
   #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{ padding:.7rem 1rem; min-height:2.8rem; }
 }
 
-/* Signatur: GPT-5 Thinking mini — #11 consolidated minimal block inserted */
+/* Signatur: GPT-5 Thinking mini — #11 consolidated minimal block inserted *//* ===== Hero Recenter: BRAND zentrieren, Manschette lösen ===== */
+
+/* HB-R03 | Hero Reset + Center */
+/* neutralisiert Fixierung des Hero-Wrappers und richtet Inhalte mittig aus */
+#hero,
+.section-hero,
+.hero-wrap{
+  display:flex;              /* Layout-Modus */
+  flex-direction:column;     /* vertikale Ordnung */
+  justify-content:center;    /* vertikale Zentrierung */
+  align-items:center;        /* horizontale Zentrierung */
+  text-align:center;         /* Textausrichtung */
+  width:100%;                /* volle Breite */
+  min-height:100vh;          /* volle Höhe */
+  margin:0;                  /* Außenabstände nullen */
+  padding:0;                 /* Innenabstände nullen */
+}
+
+/* HB-R04 | Headline Adjust */
+/* typografische Justage für zentrierten Hero-Titel */
+#hero h1{
+  font-size:clamp(4rem,8vw,8rem);  /* responsive Skalierung */
+  line-height:1;                   /* kompakter Satz */
+  margin-bottom:0.4em;             /* optischer Abstand */
+}
