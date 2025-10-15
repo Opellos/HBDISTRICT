@@ -123,7 +123,7 @@
 /* split variant: etwas breiter, aber begrenzt */
 #hero-section .hb-hero.hb-hero--split,
 #hero-section .hb-hero.hb-hero--split .hb-hero-grid{
-  width: min(96vw, 1240px);
+  width: min(96vw, 1240px); /*hbjustage*/
   margin: 0 auto;
   max-width: none;
 }
@@ -131,17 +131,23 @@
 #hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
 /* END task_15b_split-width-override */
 
-#hero-section .hb-hero{
-  position:relative;
-  height:auto; /* Inhalt bestimmt Höhe */
-  display:flex; flex-direction:column;
-  align-items:flex-start;
-  justify-content:center;
-  text-align:left; overflow:visible;
-  opacity:0; filter:blur(8px); transform:translateY(12px);
-  animation:heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
-  will-change:opacity,filter,transform;
+#hero-section .hb-hero {
+  position: relative;
+  height: auto; /* Inhalt bestimmt Höhe */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  overflow: visible;
+
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(12px);
+  animation: heroReveal var(--heroDur) var(--ease-standard) var(--heroDelay) forwards;
+  will-change: opacity, filter, transform;
 }
+
 @keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
 
 /* ---------- 3) BRAND + A/AI-Anker ---------- */
@@ -153,7 +159,6 @@
 
 
 
-
 #hero-section .hb-hero-brand{
   color:var(--t1);
   line-height:1; font-weight:800; letter-spacing:-.02em;
@@ -162,14 +167,31 @@
 }
 
 
-#hero-section .brand-anchor{ position:relative; display:inline; }
-#hero-section .brand-A{ display:inline; color:inherit; }
-#hero-section .hb-hero-ai{
-  position:absolute; left:var(--aiOffsetX,0); top:0;
-  transform:translateY(var(--aiBaselineFix,.10em));
-  color:var(--t2); font-weight:800; letter-spacing:-.02em; pointer-events:none; z-index:1;
-  opacity:0; animation:heroAiFade var(--dur-slow) var(--ease-standard) .9s forwards;
+#hero-section .brand-anchor {
+  position: relative;
+  display: inline;
 }
+
+#hero-section .brand-A {
+  display: inline;
+  color: inherit;
+}
+
+#hero-section .hb-hero-ai {
+  position: absolute;
+  left: var(--aiOffsetX, 0);
+  top: 0;
+  transform: translateY(var(--aiBaselineFix, .10em));
+  color: var(--t2);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  z-index: 1;
+
+  opacity: 0;
+  animation: heroAiFade var(--dur-slow) var(--ease-standard) 0.9s forwards;
+}
+
 @keyframes heroAiFade{ to{ opacity:1; } }
 
 /* ---------- 4) Tagline + Subline ---------- */
@@ -930,20 +952,6 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name{
 /* Signatur: GPT-5 Thinking mini — #11 consolidated minimal block inserted *//* ===== Hero Recenter: BRAND zentrieren, Manschette lösen ===== */
 
 /* HB-R03 | Hero Reset + Center */
-/* neutralisiert Fixierung des Hero-Wrappers und richtet Inhalte mittig aus */
-#hero,
-.section-hero,
-.hero-wrap{
-  display:flex;              /* Layout-Modus */
-  flex-direction:column;     /* vertikale Ordnung */
-  justify-content:center;    /* vertikale Zentrierung */
-  align-items:center;        /* horizontale Zentrierung */
-  text-align:center;         /* Textausrichtung */
-  width:100%;                /* volle Breite */
-  min-height:100vh;          /* volle Höhe */
-  margin:0;                  /* Außenabstände nullen */
-  padding:0;                 /* Innenabstände nullen */
-}
 
 /* HB-R04 | Headline Adjust */
 /* typografische Justage für zentrierten Hero-Titel */
