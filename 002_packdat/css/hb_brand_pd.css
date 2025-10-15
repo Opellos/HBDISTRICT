@@ -93,28 +93,30 @@
   --subTracking:.01em; --subMinGap: .8ch; /* HB_Justage */
 
   /* Mobile-Faktor */
-  --subMobileScale:1;
+--subMobileScale: 1;
 
-  /* Bühne – flexibel: erhöhte min-height, mehr top/bottom breathing room */
-  /* Ziel: etwas höher auf Desktop, mobile + desktop Content nicht abgeschnitten */
-  min-height: min(92svh, 880px); /* #herojustage v2025.10.09.4 */
-  padding-top: clamp(3.5rem, 8vh, 9rem);   /* mehr Abstand oben, drückt Inhalt nach unten */ /* #herojustage v2025.10.09.4 */
-  padding-bottom: clamp(3rem, 6vh, 8rem);  /* mehr Abstand unten */ /* #herojustage v2025.10.09.4 */
+/* Bühne – flexibel: erhöhte min-height, mehr top/bottom breathing room */
+/* Ziel: etwas höher auf Desktop, mobile + desktop Content nicht abgeschnitten */
+min-height: min(92svh, 880px); /* #herojustage v2025.10.09.4 */
+padding-top: clamp(3.5rem, 8vh, 9rem); /* mehr Abstand oben, drückt Inhalt nach unten */ /* #herojustage v2025.10.09.4 */
+padding-bottom: clamp(3rem, 6vh, 8rem); /* mehr Abstand unten */ /* #herojustage v2025.10.09.4 */
 
-  display:grid; place-items:center;
-  background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /* #herojustage v2025.10.09.4 */
+display: grid;
+place-items: center;
+background: linear-gradient(135deg, var(--bg1), var(--bg2));
+overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /* #herojustage v2025.10.09.4 */
 
-  /* HERO Offset (Cassette 1) */
-  --hero-offset-top: 4.375rem;      /* ≈70px bei 16px root */
+/* HERO Offset (Cassette 1) */
+--hero-offset-top: 4.375rem; /* ≈70px bei 16px root */
 
-  /* Reveal-Timing */
-  --heroDelay:var(--dur-medium); --heroDur:var(--dur-base);
+/* Reveal-Timing */
+--heroDelay: var(--dur-medium);
+--heroDur: var(--dur-base);
 }
 
 /* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
 /* default HERO nein ich inner width only when NOT split */
-#hero-section .hb-hero:not(.hb-hero--split){
+#hero-section .hb-hero:not(.hb-hero--split) {
   width: min(90vw, 700px);
 }
 /* END task_15_hero-width-exception */
@@ -122,13 +124,15 @@
 /* START task_15b_split-width-override — 2025-08-27, 23:33 Uhr */
 /* split variant: etwas breiter, aber begrenzt */
 #hero-section .hb-hero.hb-hero--split,
-#hero-section .hb-hero.hb-hero--split .hb-hero-grid{
-  width: min(96vw, 1240px); /*hbjustage*/
+#hero-section .hb-hero.hb-hero--split .hb-hero-grid {
+  width: min(96vw, 1240px); /* hbjustage */
   margin: 0 auto;
   max-width: none;
 }
 /* ensure internal grid doesn't constrain */
-#hero-section .hb-hero--split .hb-hero-grid{ max-width: none; }
+#hero-section .hb-hero--split .hb-hero-grid {
+  max-width: none;
+}
 /* END task_15b_split-width-override */
 
 #hero-section .hb-hero {
@@ -148,24 +152,31 @@
   will-change: opacity, filter, transform;
 }
 
-@keyframes heroReveal{ to{ opacity:1; filter:none; transform:none; } }
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
 
-/* ---------- 3) BRAND + A/AI-Anker ---------- */
-#hero-section .hb-hero-A{
-  --bv: clamp(6.9rem, 11.5vw + 4.2rem, 15.5rem); 8.5rem);
+/* ---------- 3) BRAND + A/AI-Anker ---- hb_key_just ------ */
+#hero-section .hb-hero-A {
+  --bv: clamp(6.9rem, calc(11.5vw + 4.2rem), 19.5rem);
   font-size: var(--bv);
   --brandSize: var(--bv);
 }
 
-
-
-#hero-section .hb-hero-brand{
-  color:var(--t1);
-  line-height:1; font-weight:800; letter-spacing:-.02em;
+#hero-section .hb-hero-brand {
+  color: var(--t1);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.02em;
   font-size: var(--brandSize);
-  margin:0; white-space:nowrap; display:block;
+  margin: 0;
+  white-space: nowrap;
+  display: block;
 }
-
 
 #hero-section .brand-anchor {
   position: relative;
@@ -192,24 +203,35 @@
   animation: heroAiFade var(--dur-slow) var(--ease-standard) 0.9s forwards;
 }
 
-@keyframes heroAiFade{ to{ opacity:1; } }
+@keyframes heroAiFade {
+  to {
+    opacity: 1;
+  }
+}
 
 /* ---------- 4) Tagline + Subline ---------- */
-#hero-section .hb-hero .hb-hero-tagline{
-  display:block;
-  color:var(--t2); font-weight:800; text-transform:uppercase;
-  letter-spacing:.02em;
+#hero-section .hb-hero .hb-hero-tagline {
+  display: block;
+  color: var(--t2);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
   font-size: 0.24em;
-  transform:translate(var(--tagOffsetX,0),var(--tagOffsetY,0));
+  transform: translate(var(--tagOffsetX, 0), var(--tagOffsetY, 0));
   margin-bottom: 0.5em;
 }
-#hero-section .hb-hero-subline{
-  margin:0; font-weight:600; font-style:italic; color:#fff;
+
+#hero-section .hb-hero-subline {
+  margin: 0;
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
   letter-spacing: 0.003em;
-  display:flex; column-gap:var(--subMinGap);
+  display: flex;
+  column-gap: var(--subMinGap);
   font-size: 0.12em;
-  transform:translate(var(--subOffsetX),var(--subOffsetY));
-  z-index:2;
+  transform: translate(var(--subOffsetX), var(--subOffsetY));
+  z-index: 2;
   word-spacing: 0.08em;
   white-space: normal;
   flex-wrap: wrap;
@@ -217,69 +239,90 @@
 }
 
 /* ---------- 5) Ambient (dezent) ---------- */
-#hero-section{ --glowColor:rgba(255,20,147,.25); --glowDur:9s; }
-#hero-section .hb-hero::after{
-  content:""; position:absolute; inset:-25%;
-  background:radial-gradient(closest-side,var(--glowColor) 0%,transparent 70%);
-  filter:blur(28px); opacity:0; transform:translate(-18%,12%) scale(.85);
-  animation:heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay)+var(--heroDur)) infinite alternate;
-  pointer-events:none; z-index:0;
+#hero-section {
+  --glowColor: rgba(255, 20, 147, .25);
+  --glowDur: 9s;
 }
-@keyframes heroAmbient{
-  0%{opacity:0; transform:translate(-18%,12%) scale(.85)}
-  50%{opacity:.35; transform:translate(6%,0) scale(1)}
-  100%{opacity:.18; transform:translate(22%,-10%) scale(1.1)}
+
+#hero-section .hb-hero::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(closest-side, var(--glowColor) 0%, transparent 70%);
+  filter: blur(28px);
+  opacity: 0;
+  transform: translate(-18%, 12%) scale(.85);
+  animation: heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay) + var(--heroDur)) infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes heroAmbient {
+  0% {
+    opacity: 0;
+    transform: translate(-18%, 12%) scale(.85);
+  }
+  50% {
+    opacity: .35;
+    transform: translate(6%, 0) scale(1);
+  }
+  100% {
+    opacity: .18;
+    transform: translate(22%, -10%) scale(1.1);
+  }
 }
 
 /* Bewegungsreduktion */
-@media (prefers-reduced-motion:reduce){
-  #hero-section .hb-hero{ animation:none; opacity:1; filter:none; transform:none; }
-  #hero-section .hb-hero-ai{ animation:none; opacity:1; }
-  #hero-section .hb-hero::after{ animation:none; opacity:0; }
+@media (prefers-reduced-motion: reduce) {
+  #hero-section .hb-hero {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  #hero-section .hb-hero-ai {
+    animation: none;
+    opacity: 1;
+  }
+  #hero-section .hb-hero::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ---------- 6) Font-Scoping ---------- */
 #hero-section .hb-hero .hb-hero-A,
-#hero-section .hb-hero .hb-hero-A *{ font-family:var(--font-montserrat); }
+#hero-section .hb-hero .hb-hero-A * {
+  font-family: var(--font-montserrat);
+}
+
 #hero-section .hb-hero .hb-hero-B,
-#hero-section .hb-hero .hb-hero-B *{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+#hero-section .hb-hero .hb-hero-B * {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
 /* ---------- 7) Rechte Spalte: Hanken + CTA ---------- */
 #hero-section .hb-hero .hb-hero-B h2,
-#hero-section .hb-hero .hb-hero-B h3{
-  font-weight:400; line-height:1; margin:0 0 .5rem;
-  font-size:clamp(2.5rem,2.2vw,3.3rem); color:#fff; text-wrap:balance;
+#hero-section .hb-hero .hb-hero-B h3 {
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 .5rem;
+  font-size: clamp(2.5rem, 2.2vw, 3.3rem);
+  color: #fff;
+  text-wrap: balance;
 }
-#hero-section .hb-hero .hb-hero-B p{
-  font-weight:300; line-height:1.5; max-width:60ch;
-  font-size:clamp(1.6rem,1.4vw,1.6rem); color:rgba(255,255,255,.92);
+
+#hero-section .hb-hero .hb-hero-B p {
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 60ch;
+  font-size: clamp(1.6rem, 1.4vw, 1.6rem);
+  color: rgba(255, 255, 255, .92);
 }
 
 /* CTA – Variablen (globale Bühne) */
-#hero-section{
-  --cta-padding-y:var(--space-xl); --cta-padding-x:var(--space-2xl);
-  --cta-radius:var(--radius-l); --cta-gap:.55rem;
-  --cta-font-weight:600;
-  --cta-font-size-min:1.05rem; --cta-font-size-fluid:1.35vw; --cta-font-size-max:1.8rem;
-  --cta-shadow-1:var(--shadow-md); --cta-shadow-2:var(--shadow-inset);
-}
-#hero-section .hb-cta{
-  display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
-  padding: var(--cta-padding-y) var(--cta-padding-x);
-  font-weight:var(--cta-font-weight);
-  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
-  border-radius: var(--cta-radius);
-  color:#fff;
-  background: linear-gradient(90deg, #207cfa, #ff3cd0);
-  text-decoration:none;
-  box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
-  transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
-}
-#hero-section .hb-cta:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover); }
-#hero-section .hb-cta:active{ transform: translateY(0); box-shadow: var(--shadow-md-active), var(--shadow-inset-active); }
-
-/* Reusable CTA außerhalb des Hero */
-.hb-cta_2{
+#hero-section {
   --cta-padding-y: var(--space-xl);
   --cta-padding-x: var(--space-2xl);
   --cta-radius: var(--radius-l);
@@ -290,154 +333,224 @@
   --cta-font-size-max: 1.8rem;
   --cta-shadow-1: var(--shadow-md);
   --cta-shadow-2: var(--shadow-inset);
-  display:inline-flex; align-items:center; justify-content:center; gap:var(--cta-gap);
+}
+
+#hero-section .hb-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cta-gap);
   padding: var(--cta-padding-y) var(--cta-padding-x);
   font-weight: var(--cta-font-weight);
   font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
   border-radius: var(--cta-radius);
-  color:#fff;
+  color: #fff;
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
-  text-decoration:none;
+  text-decoration: none;
   box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
-  transition: transform var(--dur-fast) var(--ease-standard),
-              box-shadow var(--dur-fast) var(--ease-standard);
+  transition:
+    transform var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard);
 }
 
-.hb-cta_2:hover{
+#hero-section .hb-cta:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover);
 }
 
-.hb-cta_2:active{
+#hero-section .hb-cta:active {
   transform: translateY(0);
   box-shadow: var(--shadow-md-active), var(--shadow-inset-active);
 }
 
-.hb-cta_2{
+/* Reusable CTA außerhalb des Hero */
+.hb-cta_2 {
+  --cta-padding-y: var(--space-xl);
+  --cta-padding-x: var(--space-2xl);
+  --cta-radius: var(--radius-l);
+  --cta-gap: .55rem;
+  --cta-font-weight: 600;
+  --cta-font-size-min: 1.05rem;
+  --cta-font-size-fluid: 1.35vw;
+  --cta-font-size-max: 1.8rem;
+  --cta-shadow-1: var(--shadow-md);
+  --cta-shadow-2: var(--shadow-inset);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cta-gap);
+  padding: var(--cta-padding-y) var(--cta-padding-x);
+  font-weight: var(--cta-font-weight);
+  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  border-radius: var(--cta-radius);
+  color: #fff;
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  text-decoration: none;
+  box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
+  transition:
+    transform var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.hb-cta_2:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover);
+}
+
+.hb-cta_2:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md-active), var(--shadow-inset-active);
+}
+
+.hb-cta_2 {
   white-space: normal;
   overflow-wrap: anywhere;
   hyphens: auto;
 }
 
 /* #11: restored YouTube outline styling — v2025.10.09.5 */
-.social-btn.is-outline{
+.social-btn.is-outline {
   color: #fff;
   background: transparent;
-  border: 1px solid rgba(255,255,255,.85);
+  border: 1px solid rgba(255, 255, 255, .85);
   box-shadow: 0 0 0 0 transparent;
 }
 
-.social-btn.is-outline:hover{
-  background: rgba(255,255,255,.07);
+.social-btn.is-outline:hover {
+  background: rgba(255, 255, 255, .07);
 }
 
-.social-btn.is-outline:active{
-  background: rgba(255,255,255,.12);
+.social-btn.is-outline:active {
+  background: rgba(255, 255, 255, .12);
 }
 
-
-@media (max-width:600px){
-  .hb-cta_2{
+@media (max-width: 600px) {
+  .hb-cta_2 {
     --cta-font-size-min: 1.55rem;
     --cta-font-size-fluid: 4.0vw;
     --cta-font-size-max: 2.3rem;
     --cta-padding-y: 1.05rem;
     --cta-padding-x: var(--space-l);
     --cta-radius: 8px;
-    display:block; width:100%; text-align:center;
-    min-height:3.8rem; line-height:1.25;
+    display: block;
+    width: 100%;
+    text-align: center;
+    min-height: 3.8rem;
+    line-height: 1.25;
   }
 }
 
 /* Social Buttons */
-.social-btn{
+.social-btn {
   --cta-padding-y: 0.75rem;
   --cta-padding-x: 0.75rem;
   --cta-radius: 8px;
   --cta-gap: .6rem;
   --cta-font-weight: 600;
-  display:inline-flex; align-items:center; gap:var(--cta-gap);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cta-gap);
   padding: var(--cta-padding-y) var(--cta-padding-x);
   border-radius: var(--cta-radius);
   font-weight: var(--cta-font-weight);
   line-height: 1;
   text-decoration: none;
-  transition: transform var(--dur-fast) var(--ease-standard),
-              box-shadow var(--dur-fast) var(--ease-standard),
-              background var(--dur-fast) var(--ease-standard),
-              color var(--dur-fast) var(--ease-standard);
+  transition:
+    transform var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard),
+    background var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+
   /* set fixed width for visual consistency (requested) */
   min-width: 220px; /* #social-btn-width v2025.10.09.4 */
   width: 220px;     /* #social-btn-width v2025.10.09.4 */
 }
-.social-btn i{
+
+.social-btn i {
   font-size: 1.2em;
   line-height: 1;
 }
 
-.social-btn.is-primary{
-  color:#fff;
+.social-btn.is-primary {
+  color: #fff;
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
   box-shadow: var(--shadow-md), var(--shadow-inset);
 }
 
-.social-btn.is-primary:hover{
+.social-btn.is-primary:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md-hover), var(--shadow-inset-hover);
 }
 
-.social-btn.is-primary:active{
+.social-btn.is-primary:active {
   transform: translateY(0);
   box-shadow: var(--shadow-md-active), var(--shadow-inset-active);
 }
 
-
-
-@media (max-width:600px){
+@media (max-width: 600px) {
   /* keep buttons inline at mobile while respecting available space */
-  .social-btn{
-    --cta-padding-y: .9rem; --cta-padding-x: 1rem;
-    display:inline-flex; /* avoid full-width stacking */
-    width: 220px ; /* enforce requested width on mobile */
-    justify-content:center;
+  .social-btn {
+    --cta-padding-y: .9rem;
+    --cta-padding-x: 1rem;
+    display: inline-flex; /* avoid full-width stacking */
+    width: 220px; /* enforce requested width on mobile */
+    justify-content: center;
   }
 }
 
 /* fallback for very narrow viewports: allow two-column layout */
-@media (max-width:400px){
-  .social-btn{ width:48% ; min-width: unset; }
-  .btn-group[aria-label="Kontaktlinks"]{ gap: .6rem; justify-content:space-between; }
+@media (max-width: 400px) {
+  .social-btn {
+    width: 48%;
+    min-width: unset;
+  }
+  .btn-group[aria-label="Kontaktlinks"] {
+    gap: .6rem;
+    justify-content: space-between;
+  }
 }
 
 /* ---------- Desktop-Split erzwingen (cassette 13) ---------- */
-@media (min-width:1024px){
-  #hero-section .hb-hero--split .hb-hero-grid{
-    display:grid;
+@media (min-width: 1024px) {
+  #hero-section .hb-hero--split .hb-hero-grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(16px,3vw,34px);
+    gap: clamp(16px, 3vw, 34px);
   }
 }
 
 /* micro edit (cassette 18)  task_18_glass-mobile-gaps */
-@media (max-width:600px){
-  #hero-section .hb-hero--split h2.hb-glass-title{ margin-bottom: 1.6em; }
-  #hero-section .hb-hero--split p.hb-glass-text:first-of-type{ margin-top: 0; }
+@media (max-width: 600px) {
+  #hero-section .hb-hero--split h2.hb-glass-title {
+    margin-bottom: 1.6em;
+  }
+  #hero-section .hb-hero--split p.hb-glass-text:first-of-type {
+    margin-top: 0;
+  }
 }
 
 /* Desktop-Only: zusätzliche Luft in Glass */
-@media (min-width:1024px){
-  #hero-section .hb-hero .hb-hero-B h2.hb-glass-title{ margin-top: clamp(12px,1.5vw,24px); }
-	
-  #hero-section .hb-hero .hb-hero-B p.hb-glass-text:first-of-type{ margin-top: clamp(8px,1vw,16px); }
+@media (min-width: 1024px) {
+  #hero-section .hb-hero .hb-hero-B h2.hb-glass-title {
+    margin-top: clamp(12px, 1.5vw, 24px);
+  }
+  #hero-section .hb-hero .hb-hero-B p.hb-glass-text:first-of-type {
+    margin-top: clamp(8px, 1vw, 16px);
+  }
 }
-@media (max-width:1023px){
-  #hero-section .hb-hero .hb-hero-B{ margin-top: clamp(16px, 6vw, 40px); }
+
+@media (max-width: 1023px) {
+  #hero-section .hb-hero .hb-hero-B {
+    margin-top: clamp(16px, 6vw, 40px);
+  }
 }
 
 /* ---------- 2) CLIENT LOGO CAROUSEL — STABIL ---------- */
 /* Endlos-Logo-Leiste mit GLAS/GRADIENT (Kontrast), weiße Logos, horizontal, keine Bullets. */
 
-.client-carousel{
+.client-carousel {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
@@ -445,23 +558,24 @@
 }
 
 /* Hintergrund-Layer aktiv (Noisy Pink/Cyan) */
-.client-carousel .cc-bg{
-  position: absolute; inset: 0;
+.client-carousel .cc-bg {
+  position: absolute;
+  inset: 0;
   background: var(--cc-noise-gradient);
   z-index: 0;
 }
 
 /* Glas-Surface: Blur + feine Kontur + Shadow */
-.client-carousel.glass-surface{
+.client-carousel.glass-surface {
   background: var(--cc-glass-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--cc-glass-brd);
-  box-shadow: 0 10px 28px rgba(0,0,0,.14);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .14);
 }
 
 /* Sichtfenster: weiche Ränder (Desktop), mobil ohne Maske */
-.client-carousel .cc-viewport{
+.client-carousel .cc-viewport {
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -470,7 +584,7 @@
 }
 
 /* Track: horizontale Leiste */
-.client-carousel .cc-track{
+.client-carousel .cc-track {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -482,48 +596,60 @@
   animation: cc-scroll 28s linear infinite;
   will-change: transform;
 }
-.client-carousel .cc-track > li{
+
+.client-carousel .cc-track > li {
   list-style: none;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   flex: 0 0 auto;
 }
 
 /* Logos: WEISS + größer + feine Kontur */
-.client-carousel .cc-track img{
+client-carousel .cc-track img,
+.client-carousel .cc-track img {
   display: block;
   height: clamp(60px, 6vw, 96px);
   width: auto;
   filter:
     grayscale(1) brightness(0) invert(1) contrast(1.08)
-    drop-shadow(0 0 1px rgba(0,0,0,.28));
+    drop-shadow(0 0 1px rgba(0, 0, 0, .28));
   opacity: 1;
   transition: opacity .2s ease, transform .2s ease;
 }
-.client-carousel .cc-track img:hover{ transform: translateY(-1px); }
+
+.client-carousel .cc-track img:hover {
+  transform: translateY(-1px);
+}
 
 /* Endlos-Scroll */
-/* Hinweis: für nahtlosen Loop muss Track-Inhalt im Markup einmal dupliziert werden (HTML), z.B. <ul class=\"cc-track\">...items... ...items...</ul> */
-@keyframes cc-scroll{
-  from{ transform: translateX(0); }
-  to  { transform: translateX(-50%); }
+/* Hinweis: für nahtlosen Loop muss Track-Inhalt im Markup einmal dupliziert werden (HTML), z.B. <ul class="cc-track">...items... ...items...</ul> */
+@keyframes cc-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Bewegungsreduktion */
-@media (prefers-reduced-motion: reduce){
-  .client-carousel .cc-track{ animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .client-carousel .cc-track {
+    animation: none;
+  }
 }
 
 /* Mobile: mehr Fläche, größere Logos, Maske aus */
-@media (max-width: 768px){
-  #partners .client-carousel .cc-viewport{
+@media (max-width: 768px) {
+  #partners .client-carousel .cc-viewport {
     mask-image: none;
     -webkit-mask-image: none;
   }
-  #partners .client-carousel .cc-track{
+  #partners .client-carousel .cc-track {
     gap: 34px;
     padding: 22px 18px;
   }
-  #partners .client-carousel .cc-track img{
+  #partners .client-carousel .cc-track img {
     height: clamp(60px, 18vw, 80px);
   }
 }
@@ -541,7 +667,7 @@
   }
 
   /* mobile: noch mehr vertical breathing room, Content nicht zu weit oben */
-  #hero-section{
+  #hero-section {
     min-height: auto;
     padding-top: clamp(3.2rem, 10vh, 9rem);
     padding-bottom: clamp(3rem, 8vh, 9rem);
@@ -549,15 +675,15 @@
 
   /* ensure split/grid stack behaves */
   #hero-section .hb-hero.hb-hero--split,
-  #hero-section .hb-hero--split .hb-hero-grid{
+  #hero-section .hb-hero--split .hb-hero-grid {
     width: min(94vw, 1100px);
   }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    HB – Glass-Aside Typo-Override
    Datei/Ort: hb_add_pd.css  → GANZ UNTEN anhängen
-   Scope:    <aside class=\"hb-hero-B hb-glass\"> im #hero-section
+   Scope:    <aside class="hb-hero-B hb-glass"> im #hero-section
    Zweck:    Schriftgröße & Zeilenhöhe für Titel/Fließtext vergrößern
    --------------------------------------------------------------------------
    @signature: Website-weiterentwickeln · Typo Override · v1
@@ -565,67 +691,101 @@
    ========================================================================== */
 
 /* Hext STyling Hero Überschrift größer + dichtere Zeile */
-#hero-section aside.hb-hero-B.hb-glass > h2.hb-glass-title{
+#hero-section aside.hb-hero-B.hb-glass > h2.hb-glass-title {
   /* skaliert zwischen Mobil und Desktop ohne  */
   font-size: clamp(4.1rem, 3.2vw, 4.2rem);
   line-height: 1;
 }
 
 /* Fließtext größer + luftiger */
-#hero-section aside.hb-hero-B.hb-glass > p.hb-glass-text{
+#hero-section aside.hb-hero-B.hb-glass > p.hb-glass-text {
   font-size: clamp(1.8rem, 1.9vw, 2rem);
   line-height: 1.6;
 }
 
 /* -------- Mobile Feintuning --------------------------------------------- */
-@media (max-width: 768px){
+@media (max-width: 768px) {
   /* Titel: etwas kleiner, Zeile minimal dichter für Kompaktheit */
-  #hero-section aside.hb-hero-B.hb-glass > h2.hb-glass-title{
+  #hero-section aside.hb-hero-B.hb-glass > h2.hb-glass-title {
     font-size: clamp(2.8rem, 7.5vw, 3.6rem);
     line-height: 1.14;
   }
   /* Text: gut lesbare Größe, mehr Zeilenluft */
-  #hero-section aside.hb-hero-B.hb-glass > p.hb-glass-text{
+  #hero-section aside.hb-hero-B.hb-glass > p.hb-glass-text {
     font-size: clamp(1.95rem, 4.8vw, 2.25rem);
     line-height: 1.75;
   }
 }
 
 /* ---------- #herojustage: mobile force-overrides v2025.10.09.4 ---------- */
-@media (max-width:600px){
+@media (max-width: 600px) {
   /* gezielte, spezifische Overrides ans Ende (letzte Instanz) */
-  #hero-section{
-    padding-top: clamp(4rem, 12vh, 10rem) ; /* #herojustage v2025.10.09.4 */
-    padding-bottom: clamp(3.5rem, 10vh, 10rem) ; /* #herojustage v2025.10.09.4 */
-    overflow: visible ; /* sicherstellen, dass nichts abgeschnitten wird */
+  #hero-section {
+    padding-top: clamp(4rem, 12vh, 10rem); /* #herojustage v2025.10.09.4 */
+    padding-bottom: clamp(3.5rem, 10vh, 10rem); /* #herojustage v2025.10.09.4 */
+    overflow: visible; /* sicherstellen, dass nichts abgeschnitten wird */
   }
   /* Falls direkte Eltern overflow:hidden setzen, heben wir das NUR lokal für #hero-section auf — vermeidet Nav-Regressions */
   /* #herojustage: restrict scope to hero only */
   #hero-section,
   #hero-section > .hb-hero,
-  #hero-section .hb-hero{
+  #hero-section .hb-hero {
     overflow: visible;
   }
 }
+
 /* #11: Mobile fix — ensure social-btn mobile rules apply and override any accidental typos/other files */
-@media (max-width:600px){
+@media (max-width: 600px) {
   /* Keep buttons inline, fixed width 220px, allow two-column fallback on very narrow viewports */
-  .btn-group[aria-label="Kontaktlinks"]{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:flex-start; }
-  .social-btn{ display:inline-flex ; width:220px ; min-width:220px ; box-sizing:border-box; }
+  .btn-group[aria-label="Kontaktlinks"] {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .social-btn {
+    display: inline-flex;
+    width: 220px;
+    min-width: 220px;
+    box-sizing: border-box;
+  }
   /* Restore YouTube outline styling explicitly */
-  .social-btn.is-outline{ color:#fff ; background: transparent ; border: 1px solid rgba(255,255,255,.85) ; box-shadow: none ; }
-  .social-btn.is-outline:hover{ background: rgba(255,255,255,.07) ; }
-  .social-btn.is-outline:active{ background: rgba(255,255,255,.12) ; }
+  .social-btn.is-outline {
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .85);
+    box-shadow: none;
+  }
+  .social-btn.is-outline:hover {
+    background: rgba(255, 255, 255, .07);
+  }
+  .social-btn.is-outline:active {
+    background: rgba(255, 255, 255, .12);
+  }
 }
 
 /* END #11 mobile fix — v2025.10.09.6 */
 /* #11: Mobile — social buttons inline, share width (each 50%) — v2025.10.09.7 */
-@media (max-width:600px){
-  .btn-group[aria-label="Kontaktlinks"]{ display:flex ; gap:.6rem ; width:100%; }
-  .social-btn{ flex:1 1 0% ; width:auto ; min-width:0 ; max-width:none ; box-sizing:border-box ; }
+@media (max-width: 600px) {
+  .btn-group[aria-label="Kontaktlinks"] {
+    display: flex;
+    gap: .6rem;
+    width: 100%;
+  }
+  .social-btn {
+    flex: 1 1 0%;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    box-sizing: border-box;
+  }
   /* keep LinkedIn gradient and YouTube outline intact */
-  .social-btn.is-primary{ display:inline-flex; }
-  .social-btn.is-outline{ display:inline-flex; }
+  .social-btn.is-primary {
+    display: inline-flex;
+  }
+  .social-btn.is-outline {
+    display: inline-flex;
+  }
 }
 
 /* END #11 */
@@ -633,22 +793,39 @@
    Applied to both desktop and mobile. Version: v2025.10.09.8 */
 
 /* Desktop: ensure comfortable height and inner padding */
-.social-btn{
-  padding: 0.9rem 1.4rem ; /* #11: increased vertical and horizontal padding */
-  min-height: 3.2rem ; /* #11: ensure visual height */
-  align-items: center ;
+.social-btn {
+  padding: 0.9rem 1.4rem; /* #11: increased vertical and horizontal padding */
+  min-height: 3.2rem; /* #11: ensure visual height */
+  align-items: center;
 }
-.social-btn i{ margin-right: 0.6rem; }
+
+.social-btn i {
+  margin-right: 0.6rem;
+}
 
 /* Specific tweaks per variant */
-.social-btn.is-primary{ padding-left:1.2rem ; padding-right:1.2rem ; }
-.social-btn.is-outline{ padding-left:1.2rem ; padding-right:1.2rem ; }
+.social-btn.is-primary {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+.social-btn.is-outline {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
 
 /* Mobile: share width, keep inline layout, keep padding proportionally larger */
-@media (max-width:600px){
-  .btn-group[aria-label="Kontaktlinks"]{ gap:.6rem ; }
-  .social-btn{ padding: .9rem 1.2rem ; min-height:3.4rem ; }
-  .social-btn i{ margin-right:.5rem ; }
+@media (max-width: 600px) {
+  .btn-group[aria-label="Kontaktlinks"] {
+    gap: .6rem;
+  }
+  .social-btn {
+    padding: .9rem 1.2rem;
+    min-height: 3.4rem;
+  }
+  .social-btn i {
+    margin-right: .5rem;
+  }
 }
 
 /* END #11 social padding adjustments */
@@ -671,18 +848,18 @@
 }
 
 #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary {
-  background: linear-gradient(90deg,#207cfa,#ff3cd0);
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
   color: #fff;
   border: 0;
 }
 
 #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline {
   background: transparent;
-  border: 1px solid rgba(255,255,255,.85);
+  border: 1px solid rgba(255, 255, 255, .85);
   color: #fff;
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   /* mobile: nebeneinander, je 50% Breite */
   #hero-section .btn-group[aria-label="Kontaktlinks"] {
     width: 100%;
@@ -699,13 +876,40 @@
 
 /* Signatur: GPT-5 Thinking mini — inserted #11 block */
 /* #11: Removed all !important and applied higher-specificity selectors to avoid cascade issues. Version: v2025.10.09.9 */
-#hero-section .btn-group[aria-label="Kontaktlinks"]{ display:flex; gap:.6rem; align-items:stretch; }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{ display:inline-flex; align-items:center; justify-content:center; padding:0.9rem 1.4rem; min-height:3.2rem; box-sizing:border-box; width:220px; }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary{ background:linear-gradient(90deg,#207cfa,#ff3cd0); color:#fff; border:0; }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline{ background:transparent; border:1px solid rgba(255,255,255,.85); color:#fff; }
-@media (max-width:600px){
-  #hero-section .btn-group[aria-label="Kontaktlinks"]{ width:100%; }
-  #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{ flex:1 1 50%; width:auto; min-width:0; padding:.9rem 1.2rem; }
+#hero-section .btn-group[aria-label="Kontaktlinks"] {
+  display: flex;
+  gap: .6rem;
+  align-items: stretch;
+}
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.4rem;
+  min-height: 3.2rem;
+  box-sizing: border-box;
+  width: 220px;
+}
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary {
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  color: #fff;
+  border: 0;
+}
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .85);
+  color: #fff;
+}
+@media (max-width: 600px) {
+  #hero-section .btn-group[aria-label="Kontaktlinks"] {
+    width: 100%;
+  }
+  #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
+    flex: 1 1 50%;
+    width: auto;
+    min-width: 0;
+    padding: .9rem 1.2rem;
+  }
 }
 /* END #11 */
 
@@ -715,8 +919,8 @@
    Ziel: Auf Mobilgeräten oberer und unterer Puffer deutlich erhöhen, damit Inhalt nicht abgeschnitten wird.
    Nur scoped auf #hero-section und innerhalb der Mobile-Query.
 */
-@media (max-width:600px){
-  #hero-section{
+@media (max-width: 600px) {
+  #hero-section {
     /* sehr großzugängliche Mobilhöhe — begrenzt durch Viewport, aber großzügig gepuffert */
     min-height: min(120svh, 1200px) !important; /* #11 */
     padding-top: clamp(6rem, 20vh, 16rem) !important; /* #11: erhöht für mehr Abstand zum oberen Rand */
@@ -727,113 +931,127 @@
 
 /* END #11 mobile hero emergency increase — v2025.10.09.11 */
 
-
-
 /* #11: Apply mobile styling to desktop - make desktop buttons look like mobile (v2025.10.09.12) */
-#hero-section .btn-group[aria-label="Kontaktlinks"]{
-  display:flex;
-  gap:.6rem;
-  align-items:center;
-  justify-content:flex-start;
+#hero-section .btn-group[aria-label="Kontaktlinks"] {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  justify-content: flex-start;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:0.9rem 1.4rem; /* match mobile */
-  min-height:3.2rem;
-  box-sizing:border-box;
-  width:auto; /* desktop use natural width like mobile */
-  border-radius:14px;
-  box-shadow:var(--shadow-md), var(--shadow-inset);
-  font-weight:600;
-  font-size:clamp(1rem,1.05vw,1.05rem);
-  white-space:nowrap;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.4rem; /* match mobile */
+  min-height: 3.2rem;
+  box-sizing: border-box;
+  width: auto; /* desktop use natural width like mobile */
+  border-radius: 14px;
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.05vw, 1.05rem);
+  white-space: nowrap;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i{ margin-right:.6rem; }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary{ background:linear-gradient(90deg,#207cfa,#ff3cd0); color:#fff; border:0; }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline{ background:transparent; border:1px solid rgba(255,255,255,.85); color:#fff; box-shadow:none; }
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i {
+  margin-right: .6rem;
+}
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary {
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  color: #fff;
+  border: 0;
+}
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .85);
+
+  color: #fff;
+  box-shadow: none;
+}
 
 /* END #11 */
 
 /* Signatur: GPT-5 Thinking mini — applied desktop->mobile social-button parity (#11) */
 
 /* #11: Social-Buttons — Text vertikal und horizontal zentrieren (Deutsch) */
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
   display: inline-flex;
   align-items: center;    /* vertikal zentrieren */
   justify-content: center; /* horizontal zentrieren */
   text-align: center;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i{
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i {
   margin-right: .6rem;
 }
 
 /* Signatur: GPT-5 Thinking mini — #11 Zentrierung eingefügt */
 
-
 /* #11: Desktop-Buttons sollen genauso aussehen wie Mobile — eingefügt per GO (Deutsch) */
 /* Ersetze die bestehenden Desktop-social-btn Regeln durch folgenden Block */
-#hero-section .btn-group[aria-label="Kontaktlinks"]{
-  display:flex;
-  gap:.6rem;
-  align-items:center;
-  justify-content:flex-start;
+#hero-section .btn-group[aria-label="Kontaktlinks"] {
+  display: flex;
+  gap: .6rem;
+  align-items: center;        /* vertikal zentrieren */
+  justify-content: flex-start;/* horizontal zentrieren (Text + Icon) */
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{
-  display:inline-flex;
-  align-items:center;        /* vertikal zentrieren */
-  justify-content:center;    /* horizontal zentrieren (Text + Icon) */
-  gap:.6rem;                 /* Icon-Abstand wie mobil */
-  padding:.9rem 1.4rem;      /* gleiche Höhe wie mobil */
-  min-height:3.2rem;
-  box-sizing:border-box;
-  width:auto;                /* natürliche Breite wie mobil */
-  border-radius:14px;
-  box-shadow:var(--shadow-md), var(--shadow-inset);
-  font-weight:600;
-  font-size:clamp(1rem,1.05vw,1.05rem);
-  white-space:nowrap;
-  text-align:center;         /* Text mittig */
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
+  display: inline-flex;
+  align-items: center;        /* vertikal zentrieren */
+  justify-content: center;    /* horizontal zentrieren (Text + Icon) */
+  gap: .6rem;                 /* Icon-Abstand wie mobil */
+  padding: .9rem 1.4rem;      /* gleiche Höhe wie mobil */
+  min-height: 3.2rem;
+  box-sizing: border-box;
+  width: auto;                /* natürliche Breite wie mobil */
+  border-radius: 14px;
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.05vw, 1.05rem);
+  white-space: nowrap;
+  text-align: center;         /* Text mittig */
 }
 #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn > .btn-text,
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn > span{
-  display:inline-block;
-  text-align:center;
-  width:auto;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn > span {
+  display: inline-block;
+  text-align: center;
+  width: auto;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i{
-  position:static;
-  float:none;
-  margin-right:.6rem;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i {
+  position: static;
+  float: none;
+  margin-right: .6rem;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary{
-  background:linear-gradient(90deg,#207cfa,#ff3cd0);
-  color:#fff;
-  border:0;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary {
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  color: #fff;
+  border: 0;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.85);
-  color:#fff;
-  box-shadow:none;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .85);
+  color: #fff;
+  box-shadow: none;
 }
 
 /* ENDE #11 — Dieser Block wurde auf Deinen GO hin direkt eingepflegt. */
 
 /* #11: Variant-Padding-Anpassung — Desktop/ Mobile Konsistenz */
 /* Kleine, gezielte Ergänzung basierend auf Deinem Vorschlag */
-.social-btn.is-primary{ padding-left:4.2rem; padding-right:1.2rem; }
-.social-btn.is-outline{ padding-left:4.2rem; padding-right:1.2rem; }
+.social-btn.is-primary {
+  padding-left: 4.2rem;
+  padding-right: 1.2rem;
+}
+.social-btn.is-outline {
+  padding-left: 4.2rem;
+  padding-right: 1.2rem;
+}
 
 /* Signatur: GPT-5 Thinking mini — #11 padding-variants applied */
-
 
 /* #11: Subfooter-Fix — mobil inline erzwingen (Deutsch)
    Ziel: sf-left + sf-name + sf-right in einer Zeile, auch enge Viewports.
    Hinweis: hohe Spezifität und minimale !important-Einsatz, um Überschreibungen zu verhindern.
 */
-.subfooter.grandient_pow .subfooter-bar{
+.subfooter.grandient_pow .subfooter-bar {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -843,120 +1061,146 @@
   max-width: none !important;
   overflow: visible !important;
 }
-.subfooter.grandient_pow .subfooter-bar .sf-left{
-  display:flex !important;
-  align-items:center !important;
-  gap:.6rem !important;
+.subfooter.grandient_pow .subfooter-bar .sf-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: .6rem !important;
   flex: 0 1 auto !important;
 }
-.subfooter.grandient_pow .subfooter-bar .sf-left .sf-logo{ max-height:40px !important; width:auto !important; }
-.subfooter.grandient_pow .subfooter-bar .sf-left .sf-name{
-  white-space:nowrap !important;
-  overflow:hidden !important;
-  text-overflow:ellipsis !important;
-  margin-left:.4rem !important;
-  flex:0 1 auto !important;
+.subfooter.grandient_pow .subfooter-bar .sf-left .sf-logo {
+  max-height: 40px !important;
+  width: auto !important;
 }
-.subfooter.grandient_pow .subfooter-bar .sf-right{
-  display:flex !important;
-  align-items:center !important;
-  gap:.6rem !important;
-  flex:0 1 auto !important;
+.subfooter.grandient_pow .subfooter-bar .sf-left .sf-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin-left: .4rem !important;
+  flex: 0 1 auto !important;
 }
-.subfooter.grandient_pow .subfooter-bar .sf-right .sf-link{
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  padding:.35rem .6rem !important;
-  font-size:1.15rem !important;
+.subfooter.grandient_pow .subfooter-bar .sf-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: .6rem !important;
+  flex: 0 1 auto !important;
 }
 
-@media (max-width:420px){
-  .subfooter.grandient_pow .subfooter-bar{ gap:.4rem !important; padding:.35rem 0 !important; }
-  .subfooter.grandient_pow .subfooter-bar .sf-name{ font-size:.85rem !important; }
-  .subfooter.grandient_pow .subfooter-bar .sf-logo{ max-height:30px !important; }
-  .subfooter.grandient_pow .subfooter-bar .sf-right .sf-link{ padding:.25rem .45rem !important; font-size:1rem !important; }
+.subfooter.grandient_pow .subfooter-bar .sf-right .sf-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: .35rem .6rem !important;
+  font-size: 1.15rem !important;
+}
+
+@media (max-width: 420px) {
+  .subfooter.grandient_pow .subfooter-bar {
+    gap: .4rem !important;
+    padding: .35rem 0 !important;
+  }
+  .subfooter.grandient_pow .subfooter-bar .sf-name {
+    font-size: .85rem !important;
+  }
+  .subfooter.grandient_pow .subfooter-bar .sf-logo {
+    max-height: 30px !important;
+  }
+  .subfooter.grandient_pow .subfooter-bar .sf-right .sf-link {
+    padding: .25rem .45rem !important;
+    font-size: 1rem !important;
+  }
 }
 
 /* Signatur: GPT-5 Thinking mini — #11 Subfooter-Fix eingespielt */
-
 
 /* #11: CONSOLIDATION — Alte #11-Blöcke wurden entfernt und durch diesen einzigen, minimalen Block ersetzt (v2025.10.09.14 -> v2025.10.09.15) */
 /* Hinweis: Vorherige #11-Kommentare wurden in diesem Dokument markiert und sollten gelöscht werden. */
 
 /* Minimaler, saubere Subfooter- & Social-Button-Block (ersetzt alle vorherigen #11-Edits): */
-section.subfooter.grandient_pow > .container > .subfooter-bar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:nowrap;
-  gap:0.6rem;
-  width:100%;
-  box-sizing:border-box;
+section.subfooter.grandient_pow > .container > .subfooter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 section.subfooter.grandient_pow > .container > .subfooter-bar > .sf-left,
-section.subfooter.grandient_pow > .container > .subfooter-bar > .sf-right{
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  min-width:0;
+section.subfooter.grandient_pow > .container > .subfooter-bar > .sf-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
 }
-section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name{
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  min-width:0;
+section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 /* Social buttons: Desktop adopts mobile visual (clean, specific selectors) */
-#hero-section .btn-group[aria-label="Kontaktlinks"]{
-  display:flex;
-  gap:.6rem;
-  align-items:center;
-  justify-content:flex-start;
+#hero-section .btn-group[aria-label="Kontaktlinks"] {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  justify-content: flex-start;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.6rem;
-  padding:.9rem 1.4rem;
-  min-height:3.2rem;
-  box-sizing:border-box;
-  width:auto;
-  border-radius:14px;
-  font-weight:600;
-  white-space:nowrap;
-  text-align:center;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  padding: .9rem 1.4rem;
+  min-height: 3.2rem;
+  box-sizing: border-box;
+  width: auto;
+  border-radius: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary{
-  background:linear-gradient(90deg,#207cfa,#ff3cd0);
-  color:#fff;
-  border:0;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-primary {
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  color: #fff;
+  border: 0;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.85);
-  color:#fff;
-  box-shadow:none;
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn.is-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .85);
+  color: #fff;
+  box-shadow: none;
 }
-#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i{ margin-right:.6rem; }
+#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn i {
+  margin-right: .6rem;
+}
 
 /* Mobile fallback: tighter spacing but remain inline */
-@media (max-width:420px){
-  section.subfooter.grandient_pow > .container > .subfooter-bar{ gap:.35rem; padding:.35rem .6rem; }
-  section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name{ font-size:.85rem; }
-  #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn{ padding:.7rem 1rem; min-height:2.8rem; }
+@media (max-width: 420px) {
+  section.subfooter.grandient_pow > .container > .subfooter-bar {
+    gap: .35rem;
+    padding: .35rem .6rem;
+  }
+  section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
+    font-size: .85rem;
+  }
+  #hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn {
+    padding: .7rem 1rem;
+    min-height: 2.8rem;
+  }
 }
 
-/* Signatur: GPT-5 Thinking mini — #11 consolidated minimal block inserted *//* ===== Hero Recenter: BRAND zentrieren, Manschette lösen ===== */
+/* Signatur: GPT-5 Thinking mini — #11 consolidated minimal block inserted */
+
+/* ===== Hero Recenter: BRAND zentrieren, Manschette lösen ===== */
 
 /* HB-R03 | Hero Reset + Center */
 
 /* HB-R04 | Headline Adjust */
 /* typografische Justage für zentrierten Hero-Titel */
-#hero h1{
-  font-size:clamp(4rem,8vw,8rem);  /* responsive Skalierung */
-  line-height:1;                   /* kompakter Satz */
-  margin-bottom:0.4em;             /* optischer Abstand */
+#hero h1 {
+  font-size: clamp(4rem, 8vw, 8rem); /* responsive Skalierung */
+  line-height: 1;                    /* kompakter Satz */
+  margin-bottom: 0.4em;              /* optischer Abstand */
 }
+
