@@ -1,0 +1,8 @@
+
+
+
+- du bist im Ordner "002_packdat". außerhalb diesen Ordner ist das lesen oder schreiben nicht erlaubt.
+- diese Ordner ignorieren: "archiv_002_packdat", "various"
+- in keine Dateien reinschreiben, oder verändern. 
+
+
