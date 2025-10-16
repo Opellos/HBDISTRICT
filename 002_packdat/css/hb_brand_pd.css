@@ -88,8 +88,8 @@
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX:0em; --aiBaselineFix:.115em;
-  --tagOffsetX:.2em; --tagOffsetY:clamp(.80em,1em,1.00em);
-  --subOffsetX:.5em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
+  --tagOffsetX: 1.78em; --tagOffsetY:clamp(.80em,1em,1.00em);
+  --subOffsetX:.9em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
   --subTracking:.01em; --subMinGap: .8ch; /* HB_Justage */
 
   /* Mobile-Faktor */
