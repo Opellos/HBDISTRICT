@@ -2,12 +2,18 @@ LL UL
 Codex
 
 
+Die Datei von der deine Aufgaben ausgehen ist die "index_packdat_v3.html" und den damit verknüpften Dateien.
+
 - du bist im Ordner "002_packdat". 
 - das Projekt an dem du aktuell arbeitest, umfasst ausschließlich die Dateien innerhalb dieses Ordners
  ist das lesen oder schreiben nicht erlaubt.
 - diese Ordner ignorieren: "archiv_002_packdat", "various"
-- in keine Dateien reinschreiben, keine Dateien verändern. 
-- 
+- in keine Dateien reinschreiben, keine Dateien verändern mit einer Ausnahm:. 
+- schreibe in die Datei "bericht.txt" deinen Bericht was du gemacht hast und was das ergebnis deiner Aufgabe ist. Fällt dir was auf was ich wissen sollte im Zuge deiner Analyse trage die ebenfalls in die datei "bericht.txt" ein mit signatur:
+beispiel Signatur: 
+
+"Codex_Freitag, 17. Oktober 2025 12:12 - 
+Init: Analyse und Empfehlung Positioniereung der Element im Footer"
 
 
 
