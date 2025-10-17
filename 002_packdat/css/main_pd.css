@@ -1129,13 +1129,39 @@ a.btn-nav .btn {
   padding: 21px 12px 15px !important;
 }
 
-@media (min-width: 1170px) {
+/*@media (min-width: 1170px) {
   .navbar-center .container {
     width: 1170px;
     padding-left: 0;
-    padding-right: 0;
+    padding-right: 0; codex
+  }
+}*/
+
+@media (min-width: 1170px) {
+  .navbar-center {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.navbar-center .container {
+  padding-left: clamp(20px, 4vw, 48px);
+  padding-right: clamp(20px, 4vw, 48px);
+}
+
+.navbar-center .container > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 1170px) {
+  .navbar-center .container {
+    max-width: 1170px;
   }
 }
+ 
+}
+
+
 /* NavBar Wide */
 @media (min-width: 991px) {
   .navbar-custom.top-nav-collapse {
