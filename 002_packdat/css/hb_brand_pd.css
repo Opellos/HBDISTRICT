@@ -303,6 +303,19 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 /* ---------- 7) Rechte Spalte: Hanken + CTA ---------- */
+
+#hero-section .hb-hero .hb-hero-B {
+	/* ---------- codex Freitag, 17. Oktober 2025 12:49 ---------- */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+
+
+
 #hero-section .hb-hero .hb-hero-B h2,
 #hero-section .hb-hero .hb-hero-B h3 {
   font-weight: 400;
@@ -314,12 +327,36 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 #hero-section .hb-hero .hb-hero-B p {
+	/* ---------- codex Freitag, 17. Oktober 2025 12:49 ---------- */
   font-weight: 300;
-  line-height: 1.5;
-  max-width: 60ch;
-  font-size: clamp(1.6rem, 1.4vw, 1.6rem);
+  line-height: 1.65;
+  width: 100%;
+  max-width: min(760px, 100%);
+  font-size: clamp(1.65rem, 1.6vw, 1.95rem);
   color: rgba(255, 255, 255, .92);
 }
+
+#hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
+	/* ---------- codex ---------- */
+  align-self: stretch;
+  margin: 0;
+  padding: clamp(22px, 3vw, 34px);
+  border-radius: var(--radius-l);
+  text-align: left !important;
+}
+
+#hero-section .hb-hero .hb-hero-B p.hb-glass-text:last-of-type {
+  /*align-self: stretch;*/
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+#hero-section .hb-hero .hb-hero-B p.hb-glass-text:last-of-type .hb-cta {
+  margin-inline-start: auto;
+}
+
+
 
 /* CTA – Variablen (globale Bühne) */
 #hero-section {
