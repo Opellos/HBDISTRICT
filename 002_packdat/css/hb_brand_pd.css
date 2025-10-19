@@ -247,7 +247,10 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 #hero-section .hb-hero::after {
   content: "";
   position: absolute;
-  inset: -25%;
+	inset: -25%;
+	inset: -25% 0;
+	max-width: 100%;
+	
   background: radial-gradient(closest-side, var(--glowColor) 0%, transparent 70%);
   filter: blur(28px);
   opacity: 0;
@@ -255,6 +258,10 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   animation: heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay) + var(--heroDur)) infinite alternate;
   pointer-events: none;
   z-index: 0;
+}
+
+#hero-section .hb-hero {
+  overflow-x: clip !important;
 }
 
 @keyframes heroAmbient {
@@ -271,6 +278,10 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
     transform: translate(22%, -10%) scale(1.1);
   }
 }
+
+
+
+
 
 /* Bewegungsreduktion */
 @media (prefers-reduced-motion: reduce) {
