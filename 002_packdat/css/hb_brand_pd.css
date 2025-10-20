@@ -241,28 +241,6 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 
 
 
-/* ---------- 5) Ambient (dezent) ---------- */
-#hero-section {
-  --glowColor: rgba(255, 20, 147, .22);
-}
-
-#hero-section .hb-hero::after {
-  content: "";
-  position: absolute;
-  inset: -18% 0;
-  background: radial-gradient(1200px 760px at 24% 38%, var(--glowColor) 0%, transparent 70%);
-  filter: blur(28px);
-  opacity: .28;
-  transform: none;
-  animation: none;
-  pointer-events: none;
-  z-index: 0;
-}
-
-#hero-section .hb-hero {
-  overflow: visible;
-}
-
 
 
 
