@@ -786,6 +786,9 @@ client-carousel .cc-track img,
     padding-top: clamp(4rem, 12vh, 10rem); /* #herojustage v2025.10.09.4 */
     padding-bottom: clamp(3.5rem, 10vh, 10rem); /* #herojustage v2025.10.09.4 */
     overflow: visible; /* sicherstellen, dass nichts abgeschnitten wird */
+
+    --tagOffsetX: 0; /* #codex4 codex_packdat04: verhindert seitliches Herausrutschen der Tagline */
+    --subOffsetX: 0; /* #codex4 codex_packdat04: Subline bleibt vollständig im Viewport */
   }
   /* Falls direkte Eltern overflow:hidden setzen, heben wir das NUR lokal für #hero-section auf — vermeidet Nav-Regressions */
   /* #herojustage: restrict scope to hero only */
