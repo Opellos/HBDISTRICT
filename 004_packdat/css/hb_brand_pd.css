@@ -260,8 +260,11 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   z-index: 0;
 }
 
-#hero-section .hb-hero {
-  overflow-x: clip !important;
+
+@media (min-width: 601px) {
+  #hero-section .hb-hero {
+    overflow-x: clip; /* #codex4 codex_packdat04: Glow-Layer bleibt auf großen Screens im Bereich */
+  }
 }
 
 @keyframes heroAmbient {
@@ -542,6 +545,10 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 @media (max-width: 600px) {
+  #hero-section .hb-hero::after {
+    display: none; /* #codex4 codex_packdat04: Glow deaktivieren, damit kein Horizontal-Scroll entsteht */
+  }
+
   /* keep buttons inline at mobile while respecting available space */
   .social-btn {
     --cta-padding-y: .9rem;
