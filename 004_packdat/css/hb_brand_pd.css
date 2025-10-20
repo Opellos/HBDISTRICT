@@ -716,6 +716,9 @@ client-carousel .cc-track img,
     min-height: 3.8rem;
     line-height: 1.25;
     /* allow wrapping on very small screens */
+
+    box-sizing: border-box; /* #codex4 codex_packdat04: Verhindert, dass Padding die Breite sprengt */
+    max-width: 100%;        /* #codex4 codex_packdat04 */
   }
 
   /* mobile: noch mehr vertical breathing room, Content nicht zu weit oben */
