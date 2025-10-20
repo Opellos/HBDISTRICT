@@ -238,6 +238,9 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   max-inline-size: 100%;
 }
 
+
+
+
 /* ---------- 5) Ambient (dezent) ---------- */
 #hero-section {
   --glowColor: rgba(255, 20, 147, .25);
@@ -248,7 +251,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   content: "";
   position: absolute;
   inset: -25% 0;
-  background: radial-gradient(closest-side at 15% 30%, var(--glowColor) 0%, transparent 72%);
+  background: radial-gradient(closest-side at 24% 40%, var(--glowColor) 0%, transparent 72%);
   filter: blur(28px);
   opacity: 0;
   transform: translateY(12%) scale(.9);
