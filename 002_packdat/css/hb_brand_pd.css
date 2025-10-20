@@ -243,19 +243,18 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 
 /* ---------- 5) Ambient (dezent) ---------- */
 #hero-section {
-  --glowColor: rgba(255, 20, 147, .25);
-  --glowDur: 9s;
+  --glowColor: rgba(255, 20, 147, .22);
 }
 
 #hero-section .hb-hero::after {
   content: "";
   position: absolute;
-  inset: -25% 0;
-  background: radial-gradient(closest-side at 24% 40%, var(--glowColor) 0%, transparent 72%);
+  inset: -18% 0;
+  background: radial-gradient(1200px 760px at 24% 38%, var(--glowColor) 0%, transparent 70%);
   filter: blur(28px);
-  opacity: 0;
-  transform: translateY(12%) scale(.9);
-  animation: heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay) + var(--heroDur)) infinite alternate;
+  opacity: .28;
+  transform: none;
+  animation: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -263,22 +262,6 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 #hero-section .hb-hero {
   overflow: visible;
 }
-
-@keyframes heroAmbient {
-  0% {
-    opacity: 0;
-    transform: translateY(12%) scale(.9);
-  }
-  50% {
-    opacity: .35;
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    opacity: .18;
-    transform: translateY(-10%) scale(1.08);
-  }
-}
-
 
 
 
