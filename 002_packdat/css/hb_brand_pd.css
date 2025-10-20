@@ -338,14 +338,16 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 #hero-section .hb-hero .hb-hero-B p {
-	/* ---------- codex Freitag, 17. Oktober 2025 12:49 ---------- */
+	/* ---------- codex Montag, 20. Oktober 2025 11:31---------- */
   font-weight: 300;
   line-height: 1.65;
   width: 100%;
-  max-width: min(760px, 100%);
+  max-width: min(960px, 100%);
+  box-sizing: border-box;
   font-size: clamp(1.65rem, 1.6vw, 1.95rem);
   color: rgba(255, 255, 255, .92);
 }
+
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
 	/* ---------- codex ---------- */
