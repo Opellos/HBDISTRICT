@@ -16,10 +16,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Fonts and Plugins */
-@import url(../fonts/fontawesome/css/fontawesome.min.css);
-@import url(../fonts/fontawesome/css/brands.min.css);
+@import url(../001_packdat/fonts/fontawesome/css/fontawesome.min.css);
+@import url(../001_packdat/fonts/fontawesome/css/brands.min.css);
 /*@import url(../fonts/fontawesome/css/solid.min.css);*/
-@import url(../fonts/ionicons/css/ionicons.min.css);
+@import url(../001_packdat/fonts/ionicons/css/ionicons.min.css);
 /*@import url(../js/vegas/vegas.min.css);*/
 @import url(animate.min.css);
 /*@import url(swipebox.css);*/
@@ -1395,7 +1395,7 @@ a.btn-nav .btn {
 }
 
 .bg-img6 {
-  background: url(../img/main/40.jpg);
+  background: url(../001_packdat/img/main/40.jpg);
 }
 
 .bg-img7 {

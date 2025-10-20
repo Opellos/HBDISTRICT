@@ -605,19 +605,19 @@ max-height: 30px;
 }
 
 .hb_bild_hg_beauty {
-  background-image: url("../img/main/hb_hg_beauty.webp");
+  background-image: url("../001_packdat/img/main/hb_hg_beauty.webp");
   background-size: cover;
   background-position: center center;
 }
 
 .hb_bild_hg_immun {
-  background-image: url("../img/main/hb_hg_immun.jpg");
+  background-image: url("../001_packdat/img/main/hb_hg_immun.jpg");
   background-size: cover;
   background-position: center center;
 }
 
 .hb_bild_hg_original {
-  background-image: url("../img/main/hb_hg_original.jpg");
+  background-image: url("../001_packdat/img/main/hb_hg_original.jpg");
   background-size: cover;
   background-position: center center;
 }

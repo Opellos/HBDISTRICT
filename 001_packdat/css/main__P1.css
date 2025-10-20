@@ -1370,23 +1370,23 @@ a.btn-nav .btn {
 }
 
 .bg-img {
-  background: url(../img/main/35.jpg);
+  background: url(../../img/main/35.jpg);
 }
 
 .bg-img2 {
-  background: url(../img/main/18.jpg);
+  background: url(../../img/main/18.jpg);
 }
 
 .bg-img3 {
-  background: url(../img/main/2.jpg);
+  background: url(../../img/main/2.jpg);
 }
 
 .bg-img4 {
-  background: url(../img/main/10.jpg);
+  background: url(../../img/main/10.jpg);
 }
 
 .bg-img5 {
-  background: url(../img/main/0.jpg);
+  background: url(../../img/main/0.jpg);
 }
 
 .bg-img6 {
@@ -1394,7 +1394,7 @@ a.btn-nav .btn {
 }
 
 .bg-img7 {
-  background: url(../img/misc/background.png);
+  background: url(../../img/misc/background.png);
 }
 
 .bg-img-custom, .bg-img-custom-static, .bg-img-custom-small, .bg-img, .bg-img2, .bg-img3, .bg-img4, .bg-img5, .bg-img6, .bg-img7 {
@@ -2827,7 +2827,7 @@ nav.nav-demo {
   z-index: 9999;
   background-repeat: no-repeat;
   background-size: 90px 135px;
-  background-image: url(../img/misc/awwwards_left.png);
+  background-image: url(../../img/misc/awwwards_left.png);
 }
 
 .demo-badge, .buy-badge {
