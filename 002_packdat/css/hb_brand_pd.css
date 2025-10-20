@@ -247,35 +247,32 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 #hero-section .hb-hero::after {
   content: "";
   position: absolute;
-	inset: -25%;
-	inset: -25% 0;
-	max-width: 100%;
-	
-  background: radial-gradient(closest-side, var(--glowColor) 0%, transparent 70%);
+  inset: -25% 0;
+  background: radial-gradient(closest-side at 15% 30%, var(--glowColor) 0%, transparent 72%);
   filter: blur(28px);
   opacity: 0;
-  transform: translate(-18%, 12%) scale(.85);
+  transform: translateY(12%) scale(.9);
   animation: heroAmbient var(--glowDur) var(--ease-in-out) calc(var(--heroDelay) + var(--heroDur)) infinite alternate;
   pointer-events: none;
   z-index: 0;
 }
 
 #hero-section .hb-hero {
-  overflow-x: clip !important;
+  overflow: visible;
 }
 
 @keyframes heroAmbient {
   0% {
     opacity: 0;
-    transform: translate(-18%, 12%) scale(.85);
+    transform: translateY(12%) scale(.9);
   }
   50% {
     opacity: .35;
-    transform: translate(6%, 0) scale(1);
+    transform: translateY(0) scale(1);
   }
   100% {
     opacity: .18;
-    transform: translate(22%, -10%) scale(1.1);
+    transform: translateY(-10%) scale(1.08);
   }
 }
 
