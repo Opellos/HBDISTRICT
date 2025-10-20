@@ -353,9 +353,31 @@ input, textarea{ border-radius:2px !important; }
 .form-control::placeholder{ color:rgba(255,255,255,.6); }
 
 /* === Site-Gradient & Animation ========================================== */
-.grandient_pow{ margin:0; height:auto; background:linear-gradient(135deg, #2d5eff 0%, #7d32df 50%, #ff4bc0 85%); position:relative; overflow:hidden; }
-.grandient_pow_animated{ background-size:200% 200%; animation:colorShift 10s ease infinite; }
-@keyframes colorShift{ 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+.grandient_pow {
+  margin: 0;
+  height: auto;
+  background: linear-gradient(135deg, #2d5eff 0%, #7d32df 50%, #ff4bc0 85%);
+  position: relative;
+  overflow: hidden;
+}
+
+.grandient_pow_animated {
+  background-size: 200% 200%;
+  animation: colorShift 10s ease infinite;
+}
+
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 /* [dup_headline_block_removed fox_20-09-2025_01:30] */
 

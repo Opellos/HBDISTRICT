@@ -779,8 +779,10 @@ client-carousel .cc-track img,
   #hero-section > .hb-hero,
   #hero-section .hb-hero {
     overflow: visible;
+    overflow-x: visible !important; /* hebt das Clippen wirklich auf */
   }
 }
+
 
 /* #11: Mobile fix — ensure social-btn mobile rules apply and override any accidental typos/other files */
 @media (max-width: 600px) {
