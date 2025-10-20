@@ -348,12 +348,16 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
-	/* ---------- codex ---------- */
+        /* ---------- codex ---------- */
   align-self: stretch;
   margin: 0;
   padding: clamp(22px, 3vw, 34px);
   border-radius: var(--radius-l);
   text-align: left !important;
+
+  box-sizing: border-box; /* #codex4 codex_packdat04: Padding zählt zur Gesamtbreite */
+  width: 100%;            /* #codex4 codex_packdat04 */
+  max-width: 100%;        /* #codex4 codex_packdat04 */
 }
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text:last-of-type {
