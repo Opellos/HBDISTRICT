@@ -360,8 +360,16 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 
   box-sizing: border-box; /* #codex4 codex_packdat04: Padding zählt zur Gesamtbreite */
   width: 100%;            /* #codex4 codex_packdat04 */
-  max-width: 100%;        /* #codex4 codex_packdat04 */
+  max-width: 80%;        /* #hb_css */
 }
+
+@media (max-width: 786px) {
+	 /* #hb_css */
+  #hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
+    max-width: 98%;
+  }
+}
+
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text:last-of-type {
   /*align-self: stretch;*/
@@ -397,7 +405,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   gap: var(--cta-gap);
   padding: var(--cta-padding-y) var(--cta-padding-x);
   font-weight: var(--cta-font-weight);
-  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max)) !important;
   border-radius: var(--cta-radius);
   color: #fff;
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
