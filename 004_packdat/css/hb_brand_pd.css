@@ -730,6 +730,7 @@ client-carousel .cc-track img,
     text-align: center;
     min-height: 3.8rem;
     line-height: 1.25;
+	  margin-right: 3%;
     /* allow wrapping on very small screens */
 
     box-sizing: border-box; /* #codex4 codex_packdat04: Verhindert, dass Padding die Breite sprengt */
@@ -738,9 +739,16 @@ client-carousel .cc-track img,
 
   /* mobile: noch mehr vertical breathing room, Content nicht zu weit oben */
   #hero-section {
+	    /* #codex_ax: CTA-Größe in der Hero-Kachel an mobile Variante anpassen */
+    --cta-font-size-min: 1.55rem;
+    --cta-font-size-fluid: 4.0vw;
+    --cta-font-size-max: 2.3rem;
+    --cta-padding-y: 1.05rem;
+    --cta-padding-x: var(--space-l);
+    --cta-radius: 8px;
     min-height: auto;
-    padding-top: clamp(3.2rem, 10vh, 9rem);
-    padding-bottom: clamp(3rem, 8vh, 9rem);
+    padding-top: clamp(3.8rem, 10vh, 9rem);
+    padding-bottom: clamp(3.6rem, 8vh, 9rem);
   }
 
   /* ensure split/grid stack behaves */
