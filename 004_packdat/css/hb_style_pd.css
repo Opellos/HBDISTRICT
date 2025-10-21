@@ -527,7 +527,7 @@ body::after{
 
   /* +NEU: pinker Overlay-Spot links oben, ohne :root zu ändern */
   background:
-    radial-gradient(900px 520px at 22% 10%, var(--top-grad-3) 0%, transparent 65%), /* ← Pink-Tint links */
+    /*radial-gradient(900px 520px at 22% 10%, var(--top-grad-3) 0%, transparent 65%),*/ /* ← Pink-Tint links */
     linear-gradient(135deg, var(--top-grad-1) 0%, var(--top-grad-2) 30%, var(--top-grad-3) 60%); /* früher zu Pink */
 
   /* -ÄNDERUNG: Top-Layer früher ausblenden, lässt Pink vom Unterlayer durch */

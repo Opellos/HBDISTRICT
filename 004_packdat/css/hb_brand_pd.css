@@ -260,8 +260,11 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   z-index: 0;
 }
 
-#hero-section .hb-hero {
-  overflow-x: clip !important;
+
+@media (min-width: 601px) {
+  #hero-section .hb-hero {
+    overflow-x: clip; /* #codex4 codex_packdat04: Glow-Layer bleibt auf großen Screens im Bereich */
+  }
 }
 
 @keyframes heroAmbient {
@@ -348,13 +351,25 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
-	/* ---------- codex ---------- */
+        /* ---------- codex ---------- */
   align-self: stretch;
   margin: 0;
   padding: clamp(22px, 3vw, 34px);
   border-radius: var(--radius-l);
   text-align: left !important;
+
+  box-sizing: border-box; /* #codex4 codex_packdat04: Padding zählt zur Gesamtbreite */
+  width: 100%;            /* #codex4 codex_packdat04 */
+  max-width: 80%;        /* #hb_css */
 }
+
+@media (max-width: 786px) {
+	 /* #hb_css */
+  #hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
+    max-width: 98%;
+  }
+}
+
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text:last-of-type {
   /*align-self: stretch;*/
@@ -390,7 +405,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   gap: var(--cta-gap);
   padding: var(--cta-padding-y) var(--cta-padding-x);
   font-weight: var(--cta-font-weight);
-  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
+  font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max)) !important;
   border-radius: var(--cta-radius);
   color: #fff;
   background: linear-gradient(90deg, #207cfa, #ff3cd0);
@@ -538,6 +553,10 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 }
 
 @media (max-width: 600px) {
+  #hero-section .hb-hero::after {
+    display: none; /* #codex4 codex_packdat04: Glow deaktivieren, damit kein Horizontal-Scroll entsteht */
+  }
+
   /* keep buttons inline at mobile while respecting available space */
   .social-btn {
     --cta-padding-y: .9rem;
@@ -711,14 +730,25 @@ client-carousel .cc-track img,
     text-align: center;
     min-height: 3.8rem;
     line-height: 1.25;
+	  margin-right: 3%;
     /* allow wrapping on very small screens */
+
+    box-sizing: border-box; /* #codex4 codex_packdat04: Verhindert, dass Padding die Breite sprengt */
+    max-width: 100%;        /* #codex4 codex_packdat04 */
   }
 
   /* mobile: noch mehr vertical breathing room, Content nicht zu weit oben */
   #hero-section {
+	    /* #codex_ax: CTA-Größe in der Hero-Kachel an mobile Variante anpassen */
+    --cta-font-size-min: 1.55rem;
+    --cta-font-size-fluid: 4.0vw;
+    --cta-font-size-max: 2.3rem;
+    --cta-padding-y: 1.05rem;
+    --cta-padding-x: var(--space-l);
+    --cta-radius: 8px;
     min-height: auto;
-    padding-top: clamp(3.2rem, 10vh, 9rem);
-    padding-bottom: clamp(3rem, 8vh, 9rem);
+    padding-top: clamp(3.8rem, 10vh, 9rem);
+    padding-bottom: clamp(3.6rem, 8vh, 9rem);
   }
 
   /* ensure split/grid stack behaves */
@@ -772,6 +802,9 @@ client-carousel .cc-track img,
     padding-top: clamp(4rem, 12vh, 10rem); /* #herojustage v2025.10.09.4 */
     padding-bottom: clamp(3.5rem, 10vh, 10rem); /* #herojustage v2025.10.09.4 */
     overflow: visible; /* sicherstellen, dass nichts abgeschnitten wird */
+
+    --tagOffsetX: 0; /* #codex4 codex_packdat04: verhindert seitliches Herausrutschen der Tagline */
+    --subOffsetX: 0; /* #codex4 codex_packdat04: Subline bleibt vollständig im Viewport */
   }
   /* Falls direkte Eltern overflow:hidden setzen, heben wir das NUR lokal für #hero-section auf — vermeidet Nav-Regressions */
   /* #herojustage: restrict scope to hero only */

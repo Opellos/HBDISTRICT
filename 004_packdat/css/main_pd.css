@@ -164,7 +164,7 @@ a, img, :focus, input {
 }
 
 a:hover, a:focus {
-  color: #666;
+  color: #FFFFFF;
   text-decoration: none;
 }
 a img:hover {
