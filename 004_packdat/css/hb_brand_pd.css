@@ -88,7 +88,7 @@
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX:0em; --aiBaselineFix:.115em;
-  --tagOffsetX: 1.78em; --tagOffsetY:clamp(.80em,1em,1.00em);
+  --tagOffsetX: 1.95em; --tagOffsetY:clamp(.90em,1em,1.00em);
   --subOffsetX:.9em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
   --subTracking:.01em; --subMinGap: .8ch; /* HB_Justage */
 
@@ -612,6 +612,28 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   #hero-section .hb-hero .hb-hero-B {
     margin-top: clamp(16px, 6vw, 40px);
   }
+
+	
+	
+	
+	
+	
+		
+	/* #codex_ax. Mobile hero headline centering */
+  #hero-section .hb-hero.hb-hero--split {
+    align-items: center;
+  }
+
+  #hero-section .hb-hero--split .hb-hero-A {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  #hero-section .hb-hero--split .hb-hero-subline {
+    justify-content: center;
+  }
+	
+	
 }
 
 /* ---------- 2) CLIENT LOGO CAROUSEL — STABIL ---------- */
