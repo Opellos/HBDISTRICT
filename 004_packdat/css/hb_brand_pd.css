@@ -1144,18 +1144,18 @@ client-carousel .cc-track img,
   box-shadow: none;
 }
 
-/* ENDE #11 — Dieser Block wurde auf Deinen GO hin direkt eingepflegt. */
+	/* ENDE #11 — Dieser Block wurde auf Deinen GO hin direkt eingepflegt. */
 
 /* #11: Variant-Padding-Anpassung — Desktop/ Mobile Konsistenz */
 /* Kleine, gezielte Ergänzung basierend auf Deinem Vorschlag */
-.social-btn.is-primary {
+/*.social-btn.is-primary {
   padding-left: 4.2rem;
   padding-right: 1.2rem;
 }
 .social-btn.is-outline {
   padding-left: 4.2rem;
   padding-right: 1.2rem;
-}
+}*/
 
 /* Signatur: GPT-5 Thinking mini — #11 padding-variants applied */
 
