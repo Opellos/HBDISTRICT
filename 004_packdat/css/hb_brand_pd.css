@@ -612,6 +612,29 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   #hero-section .hb-hero .hb-hero-B {
     margin-top: clamp(16px, 6vw, 40px);
   }
+
+  /* #codex_ax. Mobile hero headline + tagline centering */
+  #hero-section {
+    --tagOffsetX: 0;
+  }
+
+  #hero-section .hb-hero.hb-hero--split {
+    align-items: center;
+  }
+
+  #hero-section .hb-hero--split .hb-hero-A {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  #hero-section .hb-hero--split .hb-hero-tagline {
+    margin-inline: auto;
+    transform: translateY(var(--tagOffsetY, 0));
+  }
+
+  #hero-section .hb-hero--split .hb-hero-subline {
+    justify-content: center;
+  }
 }
 
 /* ---------- 2) CLIENT LOGO CAROUSEL — STABIL ---------- */
