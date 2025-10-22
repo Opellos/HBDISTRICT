@@ -363,12 +363,36 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   max-width: 80%;        /* #hb_css */
 }
 
+
+
 @media (max-width: 786px) {
-	 /* #hb_css */
+	/* #hb_css */
+        /* #hb_css */
   #hero-section .hb-hero .hb-hero-B p.hb-glass-text.glass-card {
     max-width: 98%;
+
+    /* #codex_ax. Heller Farbverlauf in Markenfarben */
+  background: linear-gradient(
+  to bottom,                     /* Richtung: Verlauf von oben nach unten */
+  rgba(110,168,255,0.15) 0%,     /* oben: helles Blau, mehr Alpha = dichter */
+  rgba(255,103,211,0.45) 75%,    /* mitte: Pink betonter, steuert Wärme (weiter nach unten gezogen) */
+  rgba(110,168,255,0.20) 100%    /* unten: leichtes Blau, steuert Tiefe */
+),
+rgba(255,255,255,0.08);          /* Grundhelligkeit des Glases */
+
+    /* Glas-Parameter */
+    backdrop-filter: blur(24px) brightness(0.78) contrast(1.12) saturate(1.05);
+    -webkit-backdrop-filter: blur(24px) brightness(0.78) contrast(1.12) saturate(1.05);
+    /* blur↑ = stärkerer Glaslook | brightness↓ = dunkler | contrast↑ = klarer | saturate↑ = kräftiger */
+
+    border-color: rgba(255,255,255,.15); /* Rahmenintensität */
+    color: rgba(255,255,255,.98);        /* Texthelligkeit */
+    text-shadow: 0 1px 3px rgba(0,0,0,.2); /* Kontrastkante */
+    margin-bottom: 1.8rem; /* Abstand zum Button */
   }
 }
+
+
 
 
 #hero-section .hb-hero .hb-hero-B p.hb-glass-text:last-of-type {
