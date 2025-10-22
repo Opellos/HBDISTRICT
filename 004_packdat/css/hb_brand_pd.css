@@ -88,8 +88,8 @@
 
   /* Feinoffsets (em skaliert mit BRAND) */
   --aiOffsetX:0em; --aiBaselineFix:.115em;
-  --tagOffsetX: 1.78em; --tagOffsetY:clamp(.80em,1em,1.00em);
-  --subOffsetX:.9em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
+  --tagOffsetX: -0.01em; --tagOffsetY:clamp(.80em,1em,1.00em);
+  --subOffsetX: 0.1em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
   --subTracking:.01em; --subMinGap: .8ch; /* HB_Justage */
 
   /* Mobile-Faktor */
@@ -211,15 +211,16 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 
 /* ---------- 4) Tagline + Subline ---------- */
 #hero-section .hb-hero .hb-hero-tagline {
-  display: block;
-  color: var(--t2);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .02em;
-  font-size: 0.24em;
-  transform: translate(var(--tagOffsetX, 0), var(--tagOffsetY, 0));
-  margin-bottom: 0.5em;
-}
+	text-align: center;
+	display: block;
+	color: var(--t2);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+	font-size: 0.25em;
+	transform: translate(var(--tagOffsetX, 0), var(--tagOffsetY, 0));
+	margin-bottom: 0.5em;
+	}
 
 #hero-section .hb-hero-subline {
   margin: 0;
@@ -229,7 +230,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   letter-spacing: 0.003em;
   display: flex;
   column-gap: var(--subMinGap);
-  font-size: 0.12em;
+  font-size: 0.13em;
   transform: translate(var(--subOffsetX), var(--subOffsetY));
   z-index: 2;
   word-spacing: 0.08em;
@@ -376,7 +377,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   to bottom,                     /* Richtung: Verlauf von oben nach unten */
   rgba(110,168,255,0.15) 0%,     /* oben: helles Blau, mehr Alpha = dichter */
   rgba(255,103,211,0.45) 75%,    /* mitte: Pink betonter, steuert Wärme (weiter nach unten gezogen) */
-  rgba(110,168,255,0.20) 100%    /* unten: leichtes Blau, steuert Tiefe */
+  rgba(110,168,255,0.60) 100%    /* unten: leichtes Blau, steuert Tiefe */
 ),
 rgba(255,255,255,0.08);          /* Grundhelligkeit des Glases */
 
