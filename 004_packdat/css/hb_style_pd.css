@@ -963,6 +963,11 @@ section, .section {
 }
 
 
+/* container free test*/
+
+ @media (min-width:1200px)
+ { .container{ max-width:1530px; } }
+
 /* nur kurz aktivieren */
 /*#hero-section, #hero-section * { outline: 1px dashed rgba(255,0,0,.25); }*/
 
