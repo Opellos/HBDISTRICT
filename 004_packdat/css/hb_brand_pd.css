@@ -77,7 +77,12 @@
 				/*--bg1:#007bff;*/
 		--bg2:#007bff;
 		--t1:#007bff;   /* BRAND */
-		--t2: linear-gradient(90deg, #ff4de1 0%, #9b4dff 100%);
+--t2: linear-gradient(90deg, #00e5ff 0%, #00ffa3 100%);
+
+
+
+
+
 		--t3:#fff;   /* Tagline<<<  */
 
 /* Typo-Basis (fluid, ohne 600/900-MQs) */
@@ -204,25 +209,64 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   color: inherit;
 }
 
+/* ---------- AI-Fade + externer Glow ---------- */
 #hero-section .hb-hero-ai {
   position: absolute;
   left: var(--aiOffsetX, 0);
   top: 0;
-  transform: translateY(var(--aiBaselineFix, .10em)); /*hb_justage*/
-  color: var(--t2);
+  transform: translateY(var(--aiBaselineFix, .10em));
   font-weight: 800;
   letter-spacing: -0.03em; /*hb_justage*/
   pointer-events: none;
   z-index: 1;
   opacity: 0;
-  animation: heroAiFade var(--dur-slow) var(--ease-standard) 2.9s forwards; /*hb_justage 0.9 */
+  animation: heroAiGlow 6s cubic-bezier(0.45, 0, 0.25, 1) 2.2s forwards;
+  will-change: opacity, text-shadow;
+
+  /* Farbverlauf beibehalten */
+  background: var(--t2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
 }
 
-@keyframes heroAiFade {
-  to {
+/* sanftes Einblenden + atmender Außen-Glow */
+@keyframes heroAiGlow {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0px rgba(255, 77, 225, 0);
+  }
+  20% {
     opacity: 1;
+    text-shadow: 0 0 12px rgba(255, 77, 225, 0.35);
+  }
+  50% {
+    text-shadow: 0 0 28px rgba(255, 77, 225, 0.6); /* Peak */
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 77, 225, 0.25); /* ruhig auslaufend */
   }
 }
+
+/* ---------- Fallback ---------- */
+@supports not (background-clip: text) {
+  #hero-section .hb-hero-ai {
+    color: #ff1493;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ---------- 4) Tagline + Subline ---------- */
 #hero-section .hb-hero .hb-hero-tagline {
