@@ -77,7 +77,7 @@
 				/*--bg1:#007bff;*/
 		--bg2:#007bff;
 		--t1:#007bff;   /* BRAND */
-		--t2: linear-gradient(90deg, #ff4de1 0%, #9b4dff 100%);
+		--t2: linear-gradient(51deg, #207cfa 30%, #ff3cd0 70%);
 		--t3:#fff;   /* Tagline<<<  */
 
 /* Typo-Basis (fluid, ohne 600/900-MQs) */
