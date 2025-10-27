@@ -77,7 +77,8 @@
 				/*--bg1:#007bff;*/
 		--bg2:#007bff;
 		--t1:#007bff;   /* BRAND */
---t2: linear-gradient(90deg, #00e5ff 0%, #00ffa3 100%);
+--t2: linear-gradient(320deg, #2f8bfa 0%, #ff55d4 80%, #ff66dd 100%);
+
 
 
 
@@ -246,7 +247,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
     text-shadow: 0 0 28px rgba(255, 77, 225, 0.6); /* Peak */
   }
   100% {
-    opacity: 1;
+    opacity: 0.85;
     text-shadow: 0 0 8px rgba(255, 77, 225, 0.25); /* ruhig auslaufend */
   }
 }
