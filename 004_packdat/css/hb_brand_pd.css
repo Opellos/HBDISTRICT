@@ -46,8 +46,9 @@
 
   /* Gradients */
   --top-grad-1:#2d5eff;
-  --top-grad-2:#207cfa;
-  --top-grad-3:#ff4bc0;
+  /*--top-grad-2:#207cfa;*/
+	--top-grad-2:#b5d4ff;	
+  --top-grad-3:#207cfa;
 
   --bottom-cyan:#4E86E1;
   --bottom-magenta:#EE43D1;
@@ -71,26 +72,41 @@
 /* ---------- 1) HERO / BRAND (aus hb_brand_pd.css) ---------- */
 /* #herojustage */
 #hero-section{
-  /* Farben / Verlauf */
-  --bg1:#007bff;
-  --bg2:#ff00ff;
-  --t1:#ff00ff;   /* BRAND */
-  --t2:#ff1493;   /* Tagline/AI */
+			  /* Farben / Verlauf */
+		--bg1:#b5d4ff;
+				/*--bg1:#007bff;*/
+		--bg2:#007bff;
+		--t1:#007bff;   /* BRAND */
+		--t2: linear-gradient(90deg, #ff4de1 0%, #9b4dff 100%);
+		--t3:#fff;   /* Tagline<<<  */
 
-  /* Typo-Basis (fluid, ohne 600/900-MQs) */
-  --tagMin:1.1em; --tagVW:1.6em; --tagMax:2.3em;
+/* Typo-Basis (fluid, ohne 600/900-MQs) */
+--tagMin: 1.1em;
+--tagVW: 1.6em;
+--tagMax: 2.3em;
 
-  /* Subline flüssig <1024 gut lesbar */
-  --subMin:0.90em; --subVW:1em; --subMax:1.20em;
+/* Subline flüssig <1024 gut lesbar */
+--subMin: 0.90em;
+--subVW: 1em;
+--subMax: 1.20em;
+
 	
 	
   --brandScale:1;
 
-  /* Feinoffsets (em skaliert mit BRAND) */
-  --aiOffsetX:0em; --aiBaselineFix:.115em;
-  --tagOffsetX: -0.01em; --tagOffsetY:clamp(.80em,1em,1.00em);
-  --subOffsetX: 0.1em; --subOffsetY:clamp(-.40em,-.40em,-.25em);
-  --subTracking:.01em; --subMinGap: .8ch; /* HB_Justage */
+/* Feinoffsets (em skaliert mit BRAND) */
+--aiOffsetX: 0em;
+--aiBaselineFix: .115em;
+
+--tagOffsetX: -0.01em;
+--tagOffsetY: clamp(.80em, 1em, 1.00em);
+
+--subOffsetX: 0.1em;
+--subOffsetY: clamp(-.40em, -.40em, -.25em);
+
+--subTracking: .01em;
+--subMinGap: .8ch; /* HB_Justage */
+
 
   /* Mobile-Faktor */
 --subMobileScale: 1;
@@ -192,15 +208,14 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   position: absolute;
   left: var(--aiOffsetX, 0);
   top: 0;
-  transform: translateY(var(--aiBaselineFix, .10em));
+  transform: translateY(var(--aiBaselineFix, .10em)); /*hb_justage*/
   color: var(--t2);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em; /*hb_justage*/
   pointer-events: none;
   z-index: 1;
-
   opacity: 0;
-  animation: heroAiFade var(--dur-slow) var(--ease-standard) 0.9s forwards;
+  animation: heroAiFade var(--dur-slow) var(--ease-standard) 2.9s forwards; /*hb_justage 0.9 */
 }
 
 @keyframes heroAiFade {
@@ -213,7 +228,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 #hero-section .hb-hero .hb-hero-tagline {
 	text-align: center;
 	display: block;
-	color: var(--t2);
+	color: var(--t3);
 	font-weight: 800;
 	text-transform: uppercase;
 	letter-spacing: .02em;
@@ -433,7 +448,22 @@ rgba(255,255,255,0.08);          /* Grundhelligkeit des Glases */
   font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max)) !important;
   border-radius: var(--cta-radius);
   color: #fff;
-  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+background: linear-gradient(
+  51deg,
+  #2f8bfa 0%,    /* minimal helleres Blau */
+  #2f8bfa 60%,
+  #ff55d4 90%,   /* etwas weicheres Pink */
+  #ff55d4 100%
+);
+
+/*  prestate background: linear-gradient(
+  51deg,
+  #207cfa 0%,
+  #207cfa 30%,  /* Blau bis 60% 
+  #ff3cd0 90%,  /* Übergangsbereich 60–90% für weichen Verlauf 
+  #ff3cd0 100%
+);*/
+
   text-decoration: none;
   box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
   transition:
@@ -473,7 +503,13 @@ rgba(255,255,255,0.08);          /* Grundhelligkeit des Glases */
   font-size: clamp(var(--cta-font-size-min), var(--cta-font-size-fluid), var(--cta-font-size-max));
   border-radius: var(--cta-radius);
   color: #fff;
-  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  background: linear-gradient(
+  51deg,
+  #2f8bfa 0%,    /* minimal helleres Blau */
+  #2f8bfa 60%,
+  #ff55d4 90%,   /* etwas weicheres Pink */
+  #ff55d4 100%
+);
   text-decoration: none;
   box-shadow: var(--cta-shadow-1), var(--cta-shadow-2);
   transition:
