@@ -69,10 +69,7 @@
 --bg1:#b5d4ff;
 				/*--bg1:#007bff;*/
 --bg2:#007bff;
---t1:#007bff;  /* BRAND */
-
-	
-	
+--t1:#007bff;  /* BRAND */		
 --t2: linear-gradient(45deg,
   #207cfa 0%,
   #207cfa 20%,
@@ -104,7 +101,7 @@
 --tagOffsetY: clamp(.80em, 1em, 1.00em);
 
 --subOffsetX: 0.1em;
---subOffsetY: clamp(-.40em, -.40em, -.25em);
+--subOffsetY: clamp(1em,5em,10);
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
@@ -262,7 +259,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 
 
 
-/* ---------- 4) Tagline + Subline ---------- */
+/* ---------- 4) Tagline ---------- */
 #hero-section .hb-hero .hb-hero-tagline {
 	text-align: center;
 	display: block;
@@ -274,12 +271,10 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 	transform: translate(var(--tagOffsetX, 0), var(--tagOffsetY, 0));
 	margin-bottom: 0.5em;
 	}
-
+/* ---------- 4) Subline ---------- */
 #hero-section .hb-hero-subline {
-  margin: 0;
   font-weight: 600;
-  font-style: italic;
-	 
+  font-style: italic; 
   color: #fff;
   letter-spacing: 0.003em;
   display: flex;
