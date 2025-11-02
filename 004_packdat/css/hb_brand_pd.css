@@ -1,13 +1,6 @@
 @charset "utf-8";
 
-/* hb_brand_pd.css A
-   modified by: Assistant — GPT-5 Thinking mini
-   signature: GPT-5 Thinking mini — hb edits
-   changes: Hero spacing adjustments (marker: #herojustage) + social button width/share + mobile inline layout + adjusted social button padding/alignment + removed all ; added precise selectors (#11)
-   version: v2025.10.09.10
-*/
 
-/* === hb_brand_pd.css A + ======== */
 :root{
 
   --font-montserrat:'Montserrat',sans-serif;
@@ -73,18 +66,21 @@
 /* #herojustage */
 #hero-section{
 			  /* Farben / Verlauf */
-		--bg1:#b5d4ff;
+--bg1:#b5d4ff;
 				/*--bg1:#007bff;*/
-		--bg2:#007bff;
-		--t1:#007bff;   /* BRAND */
---t2: linear-gradient(320deg, #2f8bfa 0%, #ff55d4 80%, #ff66dd 100%);
+--bg2:#007bff;
+--t1:#007bff;  /* BRAND */
 
+	
+	
+--t2: linear-gradient(45deg,
+  #207cfa 0%,
+  #207cfa 20%,
+  #ff3cd0 53%,
+  #ff3cd0 100%
+);
 
-
-
-
-
-		--t3:#fff;   /* Tagline<<<  */
+--t3:#fff;   /* Tagline<<<  */
 
 /* Typo-Basis (fluid, ohne 600/900-MQs) */
 --tagMin: 1.1em;
@@ -200,6 +196,8 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   display: block;
 }
 
+
+
 #hero-section .brand-anchor {
   position: relative;
   display: inline;
@@ -210,61 +208,56 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   color: inherit;
 }
 
-/* ---------- AI-Fade + externer Glow ---------- */
+/* ---------- AI-Fade: ruhiger Zyklus ---------- */
+/* Ablauf:
+   - Startet nach 2 s  → hier eingestellt: "2s" hinter ease-in-out
+   - sehr langsames Einblenden (≈ 2 s)
+   - bleibt lange sichtbar (≈ 3 s)
+   - blendet sehr sanft wieder ab (≈ 3 s, aber nicht ganz transparent)
+   - wiederholt sich fließend und endlos
+*/
 #hero-section .hb-hero-ai {
   position: absolute;
   left: var(--aiOffsetX, 0);
   top: 0;
   transform: translateY(var(--aiBaselineFix, .10em));
   font-weight: 800;
-  letter-spacing: -0.03em; /*hb_justage*/
+  letter-spacing: -0.03em;
   pointer-events: none;
   z-index: 1;
-  opacity: 0;
-  animation: heroAiGlow 6s cubic-bezier(0.45, 0, 0.25, 1) 2.2s forwards;
-  will-change: opacity, text-shadow;
 
-  /* Farbverlauf beibehalten */
+  opacity: 0; /* Startzustand unsichtbar */
+
+  /* animation: heroAiGlow <Dauer> <Easing> <Startverzögerung> <Wiederholung>;
+     ─ Dauer: 10s  → komplette Ein-Aus-Schleife dauert 10 Sekunden
+     ─ Startverzögerung: 2s  → beginnt erst nach 2 Sekunden
+     ─ infinite: läuft endlos, kein definierter "Ende"-Zeitpunkt */
+  animation: heroAiGlow 6s ease-in-out 1.2s infinite;
+
   background: var(--t2);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+
   display: inline-block;
 }
 
-/* sanftes Einblenden + atmender Außen-Glow */
+/* ---------- Animation: langer Zyklus, sanftes Atmen ---------- */
+/* Keyframe-Steuerung:
+   0%   → Startpunkt der Animation
+   30%  → Ende der Einblendphase
+   60%  → Ende der Haltephase (volle Sichtbarkeit)
+   85%  → Ende der sanften Abdimmphase
+   100% → Ende des Zyklus (Beginn des nächsten Durchlaufs)
+*/
 @keyframes heroAiGlow {
-  0% {
-    opacity: 0;
-    text-shadow: 0 0 0px rgba(255, 77, 225, 0);
-  }
-  20% {
-    opacity: 1;
-    text-shadow: 0 0 12px rgba(255, 77, 225, 0.35);
-  }
-  50% {
-    text-shadow: 0 0 28px rgba(255, 77, 225, 0.6); /* Peak */
-  }
-  100% {
-    opacity: 0.85;
-    text-shadow: 0 0 8px rgba(255, 77, 225, 0.25); /* ruhig auslaufend */
-  }
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  60%  { opacity: 1; }
+  85%  { opacity: 0.4; }
+  100% { opacity: 0; }
 }
-
-/* ---------- Fallback ---------- */
-@supports not (background-clip: text) {
-  #hero-section .hb-hero-ai {
-    color: #ff1493;
-  }
-}
-
-
-
-
-
-
-
 
 
 
@@ -286,6 +279,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
   margin: 0;
   font-weight: 600;
   font-style: italic;
+	 
   color: #fff;
   letter-spacing: 0.003em;
   display: flex;
@@ -470,18 +464,21 @@ rgba(255,255,255,0.08);          /* Grundhelligkeit des Glases */
 
 
 /* CTA – Variablen (globale Bühne) */
+/* ---------- CTA – Variablen (globale Bühne) ---------- */
+/* Ziel: Button etwas größer und lesbarer auf Desktop */
 #hero-section {
-  --cta-padding-y: var(--space-xl);
-  --cta-padding-x: var(--space-2xl);
-  --cta-radius: var(--radius-l);
-  --cta-gap: .55rem;
-  --cta-font-weight: 600;
-  --cta-font-size-min: 1.05rem;
-  --cta-font-size-fluid: 1.35vw;
-  --cta-font-size-max: 1.8rem;
-  --cta-shadow-1: var(--shadow-md);
+  --cta-padding-y: var(--space-l);   /* mehr Höhe: 1.5rem statt 1.0rem */
+  --cta-padding-x: var(--space-xl);  /* breiter: 2.2rem statt 1.5rem */
+  --cta-radius: var(--radius-l);     /* gleichbleibender Radius */
+  --cta-gap: .55rem;                 /* Abstand Icon/Text unverändert */
+  --cta-font-weight: 600;            /* gleichbleibend kräftig */
+  --cta-font-size-min: 1.0rem;       /* Basisgröße leicht erhöht */
+  --cta-font-size-fluid: 1.25vw;     /* fließend größer auf breiten Screens */
+  --cta-font-size-max: 1.6rem;       /* Maximalgröße ca. 26px */
+  --cta-shadow-1: var(--shadow-md);  /* Schatten unverändert */
   --cta-shadow-2: var(--shadow-inset);
 }
+/* ---------- Ende CTA-Block ---------- */
 
 #hero-section .hb-cta {
   display: inline-flex;
@@ -535,7 +532,7 @@ background: linear-gradient(
   --cta-font-weight: 600;
   --cta-font-size-min: 1.05rem;
   --cta-font-size-fluid: 1.35vw;
-  --cta-font-size-max: 1.8rem;
+  --cta-font-size-max: 1.5rem;
   --cta-shadow-1: var(--shadow-md);
   --cta-shadow-2: var(--shadow-inset);
 
@@ -1141,11 +1138,12 @@ client-carousel .cc-track img,
   #hero-section {
     /* sehr großzugängliche Mobilhöhe — begrenzt durch Viewport, aber großzügig gepuffert */
     min-height: min(120svh, 1200px) !important; /* #11 */
-    padding-top: clamp(6rem, 20vh, 16rem) !important; /* #11: erhöht für mehr Abstand zum oberen Rand */
+    padding-top: clamp(6rem, 17vh, 16rem) !important; /* #11: erhöht für mehr Abstand zum oberen Rand */
     padding-bottom: clamp(4rem, 12vh, 12rem) !important; /* #11 */
     overflow: visible !important; /* #11 */
   }
 }
+
 
 /* END #11 mobile hero emergency increase — v2025.10.09.11 */
 
@@ -1394,7 +1392,7 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
 }
 
 /* Mobile fallback: tighter spacing but remain inline */
-@media (max-width: 420px) {
+@media (max-width: 420px) {x
   section.subfooter.grandient_pow > .container > .subfooter-bar {
     gap: .35rem;
     padding: .35rem .6rem;
@@ -1420,5 +1418,35 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
   font-size: clamp(4rem, 8vw, 8rem); /* responsive Skalierung */
   line-height: 1;                    /* kompakter Satz */
   margin-bottom: 0.4em;              /* optischer Abstand */
+}
+
+
+
+
+/* === HERO BRAND – sanfter, horizontaler Eyecandy-Verlauf === */
+#hero-section .hb-hero-brand {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#hero-section .hb-hero-brand::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, #207cfa 95%, #ffffff 5%) 0%,    /* weiches Startblau */
+    color-mix(in oklab, #207cfa 90%, #80b8ff 10%) 35%,  /* leicht heller Übergang */
+    color-mix(in oklab, #207cfa 75%, #b5d4ff 25%) 70%,  /* sanft aufhellend */
+    color-mix(in oklab, #207cfa 60%, #ffffff 40%) 100%  /* zarter Glanz rechts */
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
+  opacity: 0.95; /* leicht transparent für Eleganz */
+  filter: brightness(0.75) contrast(0.75);
 }
 

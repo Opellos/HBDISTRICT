@@ -1,4 +1,4 @@
-/* ==========    main_pd.css A======================== */
+/* ========== ====== */
 @charset "UTF-8";
 
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
@@ -1119,7 +1119,7 @@ a.btn-nav .btn {
   transform: translateX(-50%);
   left: 51%;
   position: absolute;
-  padding: 14px 0;
+  padding: 12px 0;
   margin-left: 0;
 }
 
@@ -2496,7 +2496,7 @@ section.bg-dark .fa, section.bg-dark2 .fa {
 .topbtn::after {
   display: inline-block;
   content: "";
-  font-family: "Font Awesome 5 Free";
+ /* font-family: "Font Awesome 5 Free";*/
   cursor: pointer; /* worksession_22: unverändert – Icon via FA5 */
 }
 

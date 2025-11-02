@@ -9,7 +9,7 @@
 
   /* GLASSMORPHIC CONTAINER – analog Desktop */
   .navbar-collapse.navbar-main-collapse{ 
-    padding: 6px 10px;                     /* etwas Innenabstand zum Rand */
+    padding: 12px;                     /* etwas Innenabstand zum Rand */
     max-height: calc(100vh - 56px);        /* Scroll statt Abschneiden */
     overflow-y: auto; overflow-x: visible; 
     -webkit-overflow-scrolling: touch;
@@ -71,8 +71,8 @@
 @media (max-width: 480px){
   .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a{
     font-size: 16px;                        /* kompakter, aber nicht zu klein */
-    min-height: 46px;                        /* weiterhin komfortabel */
-    padding: 14px 12px 14px 8px !important;  /* links bündig, vertikal großzügig */
+    min-height: 70px;                        /* weiterhin komfortabel */
+    padding: 14px 12px 14px 22px !important;  /* links bündig, vertikal großzügig */
   }
 }
 
@@ -140,5 +140,118 @@ body::before{
     linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0) 50%, rgba(255,255,255,0.20));
   background-repeat: no-repeat;
   background-blend-mode: screen;
+}
+
+/* === Inline-Wort-Badges (dezent, wie im Screenshot) =======================
+   Ablage: hb_add_pd.css (ganz unten)
+   Einsatz:
+   <span class="word-badge word-badge--pink">
+     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+       <path class="layer-1" d="M12 3l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/>
+       <circle class="layer-2" cx="12" cy="12" r="2"/>
+     </svg>
+     Marke
+   </span>
+   <span class="word-badge word-badge--blue">Wachstumstreiber</span>
+------------------------------------------------------------------------- */
+
+.word-badge{
+  --wb: currentColor;                              /* Basisfarbe */
+  display:inline-flex;
+  align-items:center;
+  gap:.45em;
+  padding:.18em .70em;                             /* kompakt */
+  border-radius:9999px;
+  border:1px solid color-mix(in oklab, var(--wb) 55%, transparent);
+  background:color-mix(in oklab, var(--wb) 14%, transparent);
+  color:var(--wb);
+  font-weight:inherit;                             /* NICHT fetter machen */
+  line-height:1;
+  letter-spacing:.01em;
+  vertical-align:baseline;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:
+    background-color var(--dur-fast,.2s) var(--ease-standard,cubic-bezier(.4,0,.2,1)),
+    border-color var(--dur-fast,.2s) var(--ease-standard,cubic-bezier(.4,0,.2,1));
+}
+
+/* Hausfarben-Zuweisung */
+.word-badge--pink{ --wb: var(--bottom-magenta, #ff3cd0); }
+.word-badge--blue{ --wb: var(--bottom-cyan,    #207cfa); }
+
+/* Icon: mehrteilig, fein abgestuft – ohne „fetter“ zu wirken */
+.word-badge .icon{
+  width:1em; height:1em; flex:0 0 auto;
+  stroke:currentColor; fill:none; stroke-width:1.8;
+}
+.word-badge .icon .layer-1{ opacity:.85; } /* Hauptstrich */
+.word-badge .icon .layer-2{ opacity:.55; } /* Zweitlayer */
+.word-badge .icon .layer-3{ opacity:.35; } /* Akzentlayer */
+
+/* Hover nur minimal kräftiger, weiterhin dezent */
+.word-badge:hover{
+  background:color-mix(in oklab, var(--wb) 20%, transparent);
+  border-color:color-mix(in oklab, var(--wb) 72%, transparent);
+}
+
+
+
+
+/* === HB Top-Button – vollständiger Ablauf (Hero-Flow) =====================
+   - unsichtbar am Start
+   - blendet ab erstem Drittel ein
+   - Klick → up.svg skaliert + switch → Hero
+   - Hero skaliert sanft von X-Achse nach oben
+   - nach ScrollToTop bleibt Hero 5 s sichtbar, dann Fade-out
+========================================================================== */
+
+.topbtn {
+  all: unset;
+  position: fixed;
+  bottom: clamp(2px, 1.5vw, 5px);
+  right: clamp(2px, 2vw, 15px);
+  width: clamp(30px, 10vw, 60px);
+  height: clamp(30px, 10vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.3s ease;
+}
+
+.topbtn img {
+  position: absolute;
+  width: clamp(50px, 10vw, 50px);
+  height: clamp(50px, 10vw, 50px);
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+/* Sichtbarkeit */
+.topbtn .icon-shield { opacity: 1; }
+.topbtn .icon-hero   { opacity: 0; }
+
+/* Klick: Wechsel auf Hero + Skalierung */
+.topbtn.active .icon-shield { opacity: 0; }
+.topbtn.active .icon-hero {
+  opacity: 1;
+  transform-origin: center center;
+  animation: heroLift 0.9s ease forwards;
+}
+
+/* Hover: sanfter Upscale des up.svg */
+.topbtn:hover .icon-shield {
+  transform: scale(1.1);
+}
+
+/* Hero-Lift: sanftes Aufskalieren (ohne Wippen) */
+@keyframes heroLift {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); }
+  100% { transform: scale(1.1); }
 }
 

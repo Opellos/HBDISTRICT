@@ -246,9 +246,15 @@
         <div class="hb-hero-A">
           <p class="hb-hero-tagline" id="hb-tagline">SHAPE YOUR</p>
           <!-- H1 ohne Whitespaces zwischen BR | Anchor | ND -->
-          <h1 class="hb-hero-brand" id="hb-brand" data-text="BRAND">
-            BR<span class="brand-anchor"><span class="brand-A" aria-hidden="true">A</span><span class="hb-hero-ai" aria-hidden="true">AI</span></span>ND
-          </h1>
+    
+<h1 class="hb-hero-brand" id="hb-brand" data-text="BRAND" >BR
+  <span class="brand-anchor">
+    <span class="brand-A" aria-hidden="true">A</span>
+    <span class="hb-hero-ai" aria-hidden="true">AI</span>
+  </span>
+  ND
+</h1>
+
           <!-- Subline: einzeilig, mit geschütztem Bindestrich -->
           <p class="hb-hero-subline" id="hb-subline" aria-label="BRAND STRATEGY · BRAND DESIGN · AI-WORKFLOW">
             <span>BRAND STRATEGY · </span>
@@ -266,7 +272,7 @@
             <span class="italic-inline">Marken unter die Haut.</span>
           </h2>
   <p class="hb-glass-text text-center glass-card">
-	  Den Wert der  <span class="word-badge word-badge--pink"><i class="icon">&nbsp;</i>Marke</span> in die Herzen der Menschen zu übertragen, ist unabdingbar, um eine langfristige Bindung zu Ihren Kunden aufzubauen und zu erhalten. 
+	  Den Wert der  <span class="word-badge word-badge--pink"><i class="icon">✦</i>Marke</span> in die Herzen der Menschen zu übertragen, ist unabdingbar, um eine langfristige Bindung zu Ihren Kunden aufzubauen und zu erhalten. 
     Mit klarer <span class="highlight-blue">Trennschärfe </span>zwischen Marke und Marketing gewinnen Sie Fokus auf die wahren  <span class="word-badge word-badge--blue">Wachstumstreiber </span>Ihrer Unternehmensstrategie. 
     Ich baue Ihre Marke auf – in fester Anstellung in Ihrem Unternehmen oder auf Projektbasis.
 	  
@@ -850,7 +856,20 @@ Analytisch, methodisch und zielorientiert – vom Messaging bis zu international
   </div>
 </section>
 
-  <a class="topbtn page-scroll" href="#page-top" aria-label="Nach oben"><i class="fa-solid fa-chevron-up" aria-hidden=""></i></a>
+<!-- HTML-Integration (bereits vorhandene .topbtn ersetzen) -->
+<!-- === Top-Button (Version mit externen SVG-Dateien) =====================
+     Ablage: index.html (bestehenden .topbtn-Block vollständig ersetzen)
+     Nutzung: HB-Schild = img/main/up.svg
+              Held (Faust-Pose) = img/main/braindon.svg
+     Skalierung & Position über clamp() gesteuert
+========================================================================= -->
+<div class="topbtn" id="topbtn" aria-label="Nach oben scrollen">
+  <img src="img/main/up.svg" class="icon-shield" alt="Nach oben" aria-hidden="true" />
+  <img src="img/main/braindon.svg" class="icon-hero" alt="Hero" aria-hidden="true" />
+</div>
+
+
+
 
   <!-- Scripts (Order: jQuery → Bootstrap → Plugins → Main) -->
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -863,6 +882,13 @@ Analytisch, methodisch und zielorientiert – vom Messaging bis zu international
   <script src="js/jquery.smartmenus.js"></script>
   <script src="js/main.js"></script>
 
+
+  <!-- topbtn -->
+	
+
+
+	  <!-- topbtn script -->
+	
   <!-- Carousel: Video Play/Pause -->
   <script>
     $(document).ready(function () {
