@@ -100,7 +100,7 @@
 --tagOffsetX: -0.01em;
 --tagOffsetY: clamp(.80em, 1em, 1.00em); /* Feinjustage: höherer Wert = tiefer, kleinerer Wert = höher */
 --subOffsetX: 0.1em; /* Feinjustage: mehr Positivwert = weiter nach rechts */
---subOffsetY: clamp(-3.1em, calc(-1.65em - 1.4vw), -0.35em); /* cdex_00211 – Feinjustage: stärker negativer = höher, weniger negativ = tiefer */
+--subOffsetY: clamp(-2.1em, calc(-0.65em - 1.4vw), 0.65em); /* cdex_00211 – Feinjustage: stärker negativer = höher, weniger negativ = tiefer (≈15px tiefer ab v2025.10.09.6) */
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
