@@ -101,7 +101,7 @@
 --tagOffsetY: clamp(.80em, 1em, 1.00em);
 
 --subOffsetX: 0.1em;
---subOffsetY: clamp(-1.45em, -1.2em, -0.9em); /* cdex_00211 */
+--subOffsetY: clamp(-1.3em, calc(-0.55em - 0.55vw), -0.62em); /* cdex_00211 */
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
@@ -127,12 +127,6 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
 /* Reveal-Timing */
 --heroDelay: var(--dur-medium);
 --heroDur: var(--dur-base);
-}
-
-@media (max-width: 640px) {
-  #hero-section {
-    --subOffsetY: clamp(-0.9em, -0.75em, -0.6em); /* cdex_00211 mobile */
-  }
 }
 
 /* START task_15_hero-width-exception — 2025-08-27, 23:25 Uhr */
