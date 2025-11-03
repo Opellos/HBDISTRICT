@@ -100,7 +100,7 @@
 --tagOffsetX: -0.01em;
 --tagOffsetY: clamp(.80em, 1em, 1.00em); /* Feinjustage: höherer Wert = tiefer, kleinerer Wert = höher */
 --subOffsetX: 0.1em; /* Feinjustage: mehr Positivwert = weiter nach rechts */
---subOffsetY: clamp(-2.1em, calc(-0.65em - 1.4vw + clamp(0em, calc(1.55em - 3.2vw), 0.9em)), 0.65em); /* cdex_00211 – Feinjustage: stärker negativer = höher, weniger negativ = tiefer (Mobile ≈15px tiefer ab v2025.10.09.7, Desktop unverändert) */
+--subOffsetY: calc(-1.9em + clamp(0em, 1.6em - 2.4vw, 1.3em)); /* cdex_00211 – Subline-Feinjustage: Basis = -1.9em (Desktop), Clamp-Anteil senkt mobile/narrow Viewports weiter ab */
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
