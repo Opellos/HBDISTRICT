@@ -1,2 +1,0 @@
-- Du arbeitest ausschließlich in diesem Ordner
-- Änderungen, Edits Löschungen kommentiertest du als Kommentar in den Dateien mit deiner Signatur "codex_packdat04"
