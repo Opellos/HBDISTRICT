@@ -101,7 +101,7 @@
 --tagOffsetY: clamp(.80em, 1em, 1.00em);
 
 --subOffsetX: 0.1em;
---subOffsetY: clamp(-1.35em, -1.1em, -0.85em); /* cdex_00211 */
+--subOffsetY: clamp(-1.3em, calc(-0.55em - 0.55vw), -0.62em); /* cdex_00211 */
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
