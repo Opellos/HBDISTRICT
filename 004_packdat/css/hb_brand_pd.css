@@ -91,7 +91,7 @@
 
 	
 	
-  --brandScale:1;
+ --brandScale:1;
 
 /* Feinoffsets (em skaliert mit BRAND) */
 --aiOffsetX: 0em;
@@ -101,7 +101,7 @@
 --tagOffsetY: clamp(.80em, 1em, 1.00em);
 
 --subOffsetX: 0.1em;
---subOffsetY: clamp(1em,5em,10);
+--subOffsetY: clamp(-1.35em, -1.1em, -0.85em); /* cdex_00211 */
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
@@ -1409,12 +1409,12 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
 
 /* HB-R04 | Headline Adjust */
 /* typografische Justage für zentrierten Hero-Titel */
+
 #hero h1 {
   font-size: clamp(4rem, 8vw, 8rem); /* responsive Skalierung */
   line-height: 1;                    /* kompakter Satz */
   margin-bottom: 0.4em;              /* optischer Abstand */
 }
-
 
 
 
@@ -1444,4 +1444,6 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
   opacity: 0.95; /* leicht transparent für Eleganz */
   filter: brightness(0.75) contrast(0.75);
 }
+
+
 
