@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Hendrik Bogner: Brand Manager mit KI-Expertise – Strategie, Design und KI-Workflows für starke Marken."
+    />
+    <meta name="author" content="Hendrik Bogner" />
+    <title>Hendrik Bogner | Brand Manager, Design &amp; KI - Workflow</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ["Hanken Grotesk", "Hanken", "Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+            display: ["Montserrat", "Hanken Grotesk", "Hanken", "Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+          },
+          extend: {
+            colors: {
+              "hb-bg": "var(--hb-color-body)",
+              "hb-surface": "var(--hb-color-surface)",
+              "hb-primary": "var(--hb-color-primary)",
+              "hb-accent": "var(--hb-color-accent)",
+              "hb-accent-alt": "var(--hb-color-accent-alt)",
+              "hb-text": "var(--hb-color-text)",
+            },
+            spacing: {
+              "fluid-1": "var(--hb-space-1)",
+              "fluid-2": "var(--hb-space-2)",
+              "fluid-3": "var(--hb-space-3)",
+              "fluid-4": "var(--hb-space-4)",
+              "fluid-5": "var(--hb-space-5)",
+              "fluid-6": "var(--hb-space-6)",
+              "fluid-7": "var(--hb-space-7)",
+              "fluid-8": "var(--hb-space-8)",
+              "fluid-9": "var(--hb-space-9)",
+              "fluid-10": "var(--hb-space-10)",
+            },
+            borderRadius: {
+              "hb-sm": "var(--hb-radius-sm)",
+              "hb-md": "var(--hb-radius-md)",
+              "hb-lg": "var(--hb-radius-lg)",
+              "hb-xl": "var(--hb-radius-xl)",
+              "hb-pill": "var(--hb-radius-pill)",
+            },
+            boxShadow: {
+              "hb-soft": "var(--hb-shadow-soft)",
+              "hb-glow": "var(--hb-shadow-glow)",
+            },
+          },
+        },
+        corePlugins: {
+          preflight: false,
+        },
+      };
+    </script>
+
+    <link rel="stylesheet" href="./00_custom_tokens_rebuild.css" />
+    <link rel="stylesheet" href="./00_base_rebuilt.css" />
+  </head>
+  <body class="antialiased text-hb-text bg-hb-bg" id="page-top">
+    <header class="site-header" data-site-header>
+      <div class="hb-container">
+        <div class="site-nav" data-site-nav>
+          <a class="nav-brand" href="#hero-section">
+            <img class="nav-logo" src="../img/main/braind_logo_und_claim.svg" alt="BRAiND" />
+            <span class="sr-only">Zurück zum Seitenanfang</span>
+          </a>
+
+          <nav class="nav-inline" aria-label="Hauptnavigation">
+            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#video-bio">Profil</a>
+            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#focus">Expertise</a>
+            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#works">Projekte</a>
+            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#vision1">Brand+AI</a>
+            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#Kontakt">Kontakt</a>
+            <a class="nav-cta" href="#Kontakt">Jetzt sprechen</a>
+          </nav>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+            data-nav-toggle
+          >
+            <span class="sr-only">Navigation öffnen</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="nav-backdrop" aria-hidden="true" data-nav-backdrop></div>
+      <nav class="nav-panel" aria-label="Hauptnavigation" id="primary-navigation" data-nav-panel data-open="false">
+        <div class="nav-panel-group" role="list">
+          <a href="#hero-section" class="tracking-[0.45em] uppercase">Home</a>
+          <a href="#video-bio" class="tracking-[0.45em] uppercase">Profil</a>
+          <a href="#focus" class="tracking-[0.45em] uppercase">Expertise</a>
+          <a href="#works" class="tracking-[0.45em] uppercase">Projekte</a>
+          <a href="#vision1" class="tracking-[0.45em] uppercase">Brand + AI</a>
+          <a href="#Kontakt" class="tracking-[0.45em] uppercase">Kontakt</a>
+        </div>
+        <a class="nav-cta" href="#Kontakt">Jetzt sprechen</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero-section" class="hero-section" aria-labelledby="hb-tagline">
+        <div class="hb-container">
+          <div class="hero-grid">
+            <div class="stack-xl" data-reveal>
+              <p class="hero-tagline" id="hb-tagline">SHAPE YOUR</p>
+              <h1 class="hero-brand" id="hb-brand" data-text="BRAND">
+                BR
+                <span class="brand-anchor">
+                  <span class="brand-A" aria-hidden="true">A</span>
+                  <span class="hero-ai" aria-hidden="true">AI</span>
+                </span>
+                ND
+              </h1>
+              <p class="hero-subline" id="hb-subline" aria-label="BRAND STRATEGY · BRAND DESIGN · AI-WORKFLOW">
+                <span>BRAND STRATEGY ·</span>
+                <span>BRAND DESIGN ·</span>
+                <span>AI - WORKFLOW</span>
+              </p>
+              <a class="hb-cta" href="#Kontakt">Wert Ihrer Marke skalieren</a>
+            </div>
+
+            <aside class="hb-glass" aria-labelledby="hb-glass-title" data-reveal>
+              <h2 id="hb-glass-title" class="text-left">
+                Produkte gehen über den Tresen.<br /><span class="italic">Marken unter die Haut.</span>
+              </h2>
+              <p>
+                Den Wert der <span class="word-badge word-badge--pink">Marke</span> in die Herzen der Menschen zu übertragen, ist
+                unabdingbar, um eine langfristige Bindung zu Ihren Kunden aufzubauen und zu erhalten. Mit klarer
+                <span class="word-badge word-badge--blue">Trennschärfe</span> zwischen Marke und Marketing gewinnen Sie Fokus auf die
+                wahren <span class="word-badge word-badge--blue">Wachstumstreiber</span> Ihrer Unternehmensstrategie. Ich baue Ihre Marke
+                auf – in fester Anstellung in Ihrem Unternehmen oder auf Projektbasis.
+              </p>
+              <div>
+                <a class="hb-cta is-secondary" href="#Kontakt">Jetzt unverbindlich sprechen</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="video-bio" class="section-muted" aria-labelledby="video-bio-title">
+        <div class="hb-container stack-xl">
+          <div class="hero-tagline text-xs tracking-[0.45em] uppercase text-hb-text/70">Profil</div>
+          <div class="hb-grid-auto">
+            <div class="hb-video-shell" data-reveal>
+              <div class="video-trigger" data-video-trigger data-video-id="y_ONEJooBqQ">
+                <img src="../img/main/yt_thumb.png" alt="Showreel Thumbnail" loading="lazy" />
+                <button type="button" aria-label="Showreel abspielen">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="4" fill="none" />
+                    <polygon points="42,32 70,50 42,68" fill="currentColor" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="stack-xl" data-reveal>
+              <h2 id="video-bio-title" class="text-left">
+                Ich bin Hendrik Bogner – Markenexperte, International Brand Manager und Mediendesigner.
+              </h2>
+              <p class="max-w-reading">
+                Mit jahrelanger Erfahrung verbinde ich Strategie und Design, um Marken präzise zu positionieren und lebendig zu
+                machen. Analytisch, methodisch und zielorientiert – vom Messaging bis zu internationalen Markenrichtlinien. Es
+                geht darum, die Identität einer Marke für Kunden zu enthüllen und sie mit ihrem Unternehmen untrennbar zu
+                verbinden.
+              </p>
+              <div>
+                <a class="hb-cta" href="https://calendly.com/hbmailer" target="_blank" rel="noopener noreferrer"
+                  >Direkt und unkompliziert kennenlernen</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="focus" aria-labelledby="focus-title">
+        <div class="hb-container stack-xl">
+          <div class="stack-lg" data-reveal>
+            <h2 id="focus-title" class="text-left">
+              Marke. Design. KI.<br /><span class="italic">Verzahnt und ohne Schnittstellen.</span>
+            </h2>
+          </div>
+          <div class="grid-auto-fit" data-reveal>
+            <article class="hb-card">
+              <span class="hb-card-icon">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <path
+                    d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+                  ></path>
+                  <path
+                    d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+                  ></path>
+                  <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+                </svg>
+              </span>
+              <h3>Brand Management</h3>
+              <p>
+                Markenführung bedeutet, Profil zu zeigen – klar, konsequent und mit Substanz. Ich begleite Marken mit
+                unternehmerischem Blick und helfe dabei, sie zu schärfen, zu positionieren und gezielt weiterzuentwickeln. Dazu
+                gehört auch, wie sie in Partnerschaften, Kooperationen oder gemeinsamen Auftritten souverän und unverwechselbar
+                bleiben. Ob Aufbau, Neuausrichtung oder Weiterführung: Ich unterstütze Marken dabei, aus ihrer Haltung heraus zu
+                führen – sichtbar, wirksam und eigenständig.
+              </p>
+            </article>
+            <article class="hb-card">
+              <span class="hb-card-icon">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <circle cx="13.5" cy="6.5" r=".5"></circle>
+                  <circle cx="17.5" cy="10.5" r=".5"></circle>
+                  <circle cx="8.5" cy="7.5" r=".5"></circle>
+                  <circle cx="6.5" cy="12.5" r=".5"></circle>
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+                  ></path>
+                </svg>
+              </span>
+              <h3>Brand Design</h3>
+              <p>
+                Ich entwickle präzise Designsysteme, die Markenwerte klar kommunizieren und konsistent in allen Kanälen
+                funktionieren. Durch modulare Strukturen, flexible Komponenten und klare Typologien entstehen Lösungen, die sich
+                gezielt an unterschiedliche Anforderungen anpassen lassen und langfristig die Marke stärken. Design wird damit
+                zum Werkzeug für Orientierung, Differenzierung und den Markenwert, der zum Erfolg führt.
+              </p>
+            </article>
+            <article class="hb-card">
+              <span class="hb-card-icon">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <path
+                    d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                  ></path>
+                </svg>
+              </span>
+              <h3>KI - Workflow</h3>
+              <p>
+                Die Kombination aus Markenverständnis, Designkompetenz und KI-Know-how eröffnet neue Möglichkeiten. Ich
+                unterstütze Sie dabei, in kürzester Zeit funktionsfähige Prototypen und visuelle Konzepte zu erstellen – oft
+                parallel zur Briefingphase. Statt nur Prozesse zu steuern, setze ich operative Schritte direkt um und ermögliche
+                fundierte Entscheidungen bereits vor dem klassischen Produktionsstart. So verkürzt sich der Weg zur Umsetzung
+                signifikant – mit klaren Vorteilen in Tempo, Effizienz und Wirkung Ihrer Markenkommunikation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="works" aria-labelledby="works-title" class="section-muted">
+        <div class="hb-container stack-xl" data-reveal>
+          <div class="works-intro">
+            <div class="stack-lg">
+              <h2 class="text-left">Portfolio &amp; Projekte</h2>
+              <p class="max-w-reading text-left">
+                Der Auszug zeigt, wie ich Markenführung und Design in konkreten Projekten zusammenbringe. Über „Portfolio
+                Insight“ stelle ich vertiefende Informationen zu Hintergründen, Abläufen und Entscheidungen bereit – auf Wunsch
+                auch im direkten Austausch.
+              </p>
+            </div>
+            <div class="stack-lg">
+              <h3 class="text-left">Strategie sichtbar machen. Wirkung beweisen.</h3>
+              <p class="max-w-reading text-left">
+                Markenarbeit bedeutet, Vision und Umsetzung zusammenzuführen. Jeder Case verbindet Strategie, Gestaltung und
+                KI-gestützte Workflows zu greifbaren Ergebnissen, die Marken stärken und Wachstum beschleunigen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="action-slider" aria-label="Projekt-Slider">
+        <div class="hb-container" data-reveal>
+          <div
+            class="works-carousel"
+            data-carousel
+            data-auto-interval="7000"
+            role="region"
+            aria-roledescription="carousel"
+            aria-live="polite"
+          >
+            <div class="carousel-track" data-carousel-track>
+              <article class="carousel-slide" data-carousel-slide>
+                <div class="carousel-media">
+                  <img src="../img/main/hendrik_bogner_2.webp" alt="3D Rendering von smartSleep Produkt" loading="lazy" />
+                </div>
+                <div class="carousel-body">
+                  <h3>3D Design &amp; Renderings</h3>
+                  <p>
+                    Durch die Verwendung von 3D-Renderings anstelle aufwendiger Shootings lassen sich Zeit und Kosten bei der
+                    Erstellung von Produktabbildungen einsparen.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide>
+                <div class="carousel-media">
+                  <img src="../img/main/hendrik_bogner_p_launch.webp" alt="Launchkampagne smartsleep" loading="lazy" />
+                </div>
+                <div class="carousel-body">
+                  <h3>Teamzuwachs</h3>
+                  <p>
+                    Die Einführung von Smartsleep Immune und Smartsleep Beauty war ein wichtiger Schritt in der Erweiterung der
+                    Produktpalette. Die zwei Newcomer haben sich schnell als Erfolg erwiesen und bereichern das Markenportfolio –
+                    angepasst an die Bedürfnisse der Kunden und Fan-Base.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide>
+                <div class="carousel-media">
+                  <img src="../img/main/hendrik_bogner_out_of_home.webp" alt="Out-of-home Kampagne" loading="lazy" />
+                </div>
+                <div class="carousel-body">
+                  <h3>Big Citylight ...</h3>
+                  <p>Aufwachen? Mit Vergnügen!</p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide data-has-video>
+                <div class="carousel-media">
+                  <video
+                    src="../video/infotain_kreatin.mp4"
+                    muted
+                    playsinline
+                    preload="none"
+                    data-carousel-media
+                    aria-label="Animation zu Produktfragen"
+                  ></video>
+                </div>
+                <div class="carousel-body">
+                  <h3>Quick &amp; Easy</h3>
+                  <p>
+                    Antworten auf Fragen zur Produkteinführung: Eine FAQ-Kampagne adressiert Kundenfragen mit Animationen. Für
+                    jedes der drei Produkte entstanden zwölf Antworten – insgesamt 36 Animationen, die die Produktmerkmale
+                    erlebbar machen.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide data-has-video>
+                <div class="carousel-media">
+                  <video
+                    src="../video/infotain_vita.mp4"
+                    muted
+                    playsinline
+                    preload="none"
+                    data-carousel-media
+                    aria-label="Produktanimation Vita"
+                  ></video>
+                </div>
+                <div class="carousel-body">
+                  <h3>Quick &amp; Easy</h3>
+                  <p>
+                    Die Animationsvideos bieten eine schnelle und informative Möglichkeit, die gelaunchten Produkte vorzustellen
+                    und sie anhand der Produktvorteile voneinander zu unterscheiden.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide data-has-video>
+                <div class="carousel-media">
+                  <video
+                    src="../video/infotain_kollagen.mp4"
+                    muted
+                    playsinline
+                    preload="none"
+                    data-carousel-media
+                    aria-label="Produktanimation Beauty"
+                  ></video>
+                </div>
+                <div class="carousel-body">
+                  <h3>Quick &amp; Easy</h3>
+                  <p>
+                    FAQs in spannender Erzählform stärken das Markenimage und die Fan-Base in den Social-Media-Kanälen.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide>
+                <div class="carousel-media">
+                  <img src="../img/main/40.webp" alt="Out-of-Home Plakatkampagne" loading="lazy" />
+                </div>
+                <div class="carousel-body">
+                  <h3>Out Of Home</h3>
+                  <p>
+                    Die deutschlandweite Plakat-Kampagne wurde von einem Mega Blow Up in Hamburg gekrönt.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide>
+                <div class="carousel-media">
+                  <img src="../img/main/hendrik_bogner_hella_master_of_work.webp" alt="Hella Promo Video" loading="lazy" />
+                </div>
+                <div class="carousel-body">
+                  <h3>Promo Video</h3>
+                  <p>
+                    Wer sind die Coolsten im ganzen Land? Der internationale Automobilzulieferer Hella wollte es wissen – mit
+                    einem dynamischen Promo-Spot.
+                  </p>
+                  <a
+                    class="hb-cta is-secondary"
+                    href="https://hendrikbogner.myportfolio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Zu den Insights</a
+                  >
+                </div>
+              </article>
+            </div>
+
+            <div class="carousel-controls" aria-hidden="true">
+              <button class="carousel-button" type="button" data-carousel-prev aria-label="Vorheriger Slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Nächster Slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vision1" class="section-muted" aria-labelledby="vision1-title">
+        <div class="hb-container stack-xl" data-reveal>
+          <h2 id="vision1-title" class="text-left">Vision &amp; Konzept von</h2>
+          <div class="braind-mark" aria-hidden="true">
+            <span>BR</span><span class="accent">A</span><span class="accent-alt">AI</span><span>ND</span>
+          </div>
+          <p class="max-w-reading text-left">
+            Als zertifizierter International Brand Manager, ausgebildeter Mediendesigner und KI-Spezialist verbinde ich die drei
+            Disziplinen, die die Arbeit bei der Entwicklung und Weiterentwicklung der Markenwerte effizienter und erfolgreicher
+            machen.
+          </p>
+        </div>
+      </section>
+
+      <section id="vision2" class="section-muted" aria-labelledby="vision2-title">
+        <span class="chapter-number" aria-hidden="true">1</span>
+        <div class="hb-container vision-shell" data-reveal>
+          <h2 id="vision2-title" class="vision-title">
+            <span class="accent-blue">Brand</span><span class="accent-navy">Strategy</span>
+          </h2>
+          <h3 class="text-left">Brand Manager als Kurator datengetriebener Markenführung</h3>
+          <p>
+            Moderne Markenstrategie findet im Spannungsfeld von Technologie, Geschwindigkeit und Komplexität statt. Künstliche
+            Intelligenz verändert dabei nicht nur das Werkzeugset – sie verschiebt die Logik. In Design und KI arbeite ich mit
+            einem erweiterten strategischen Verständnis. Im Rahmen meiner wissenschaftlichen Arbeit habe ich mich intensiv mit
+            datengetriebener Hyperpersonalisierung und ihrem Potenzial im internationalen Marketing beschäftigt – ein Feld, das
+            strategische Position permanent überprüft. Gleichzeitig wird Markenkonsistenz zur Herausforderung – denn
+            Personalisierung darf nicht zur Beliebigkeit führen. Es geht nicht mehr um einmal definierte Leitbilder, sondern um
+            ein klares Verständnis für den Unterschied zwischen Output und Wirkung.
+          </p>
+        </div>
+      </section>
+
+      <section id="vision3" class="section-muted" aria-labelledby="vision3-title">
+        <span class="chapter-number" aria-hidden="true">2</span>
+        <div class="hb-container vision-shell" data-reveal>
+          <h2 id="vision3-title" class="vision-title">
+            <span class="accent-navy">Brand</span><span class="accent-blue">Design</span>
+          </h2>
+          <h3 class="text-left">Visuelle Systeme neu denken – Design als skalierbare Infrastruktur</h3>
+          <p>
+            Künstliche Intelligenz verändert die Art, wie Design entsteht, verteilt und genutzt wird. Brand Design wird dadurch
+            nicht ersetzt, sondern neu organisiert. Statt einzelner Layouts entstehen flexible Systeme: visuelle Frameworks, die
+            skalierbar, adaptiv und konsistent sind – über alle Kanäle hinweg. Design wird zur Infrastruktur, die nicht nur Form,
+            sondern Funktion hat: Templates, Komponentenbibliotheken, Bildwelten und Typografie-Regeln lassen sich intelligent
+            verknüpfen, versionieren und automatisieren. KI-gestützte Tools unterstützen bei der Generierung, Variation und
+            Bewertung visueller Inhalte – von Midjourney über Runway bis zu dynamischen DAM-Systemen.
+          </p>
+        </div>
+      </section>
+
+      <section id="vision4" class="section-muted" aria-labelledby="vision4-title">
+        <span class="chapter-number" aria-hidden="true">3</span>
+        <div class="hb-container vision-shell" data-reveal>
+          <h2 id="vision4-title" class="vision-title">
+            <span class="accent-gradient">KI - Workflow</span>
+          </h2>
+          <h3 class="text-left">Von der Idee zur Umsetzung – neue Geschwindigkeit und neue Teamarbeit</h3>
+          <p>
+            KI verändert nicht nur das Werkzeug, sondern die Logik des Arbeitens. Klassisch lineare Prozesse – Briefing, Konzept,
+            Umsetzung, Korrektur – werden durch Parallelität, Automatisierung und Interaktion mit KI neu strukturiert. Das
+            beschleunigt nicht nur die Produktion, sondern transformiert ganze Arbeitsweisen. T-Shaped Professionals verbinden
+            Strategie, Design und Technologie, formulieren Use Cases, realisieren Prototypen und stellen Entscheidungsgrundlagen
+            schneller bereit. Teams brauchen Strukturen, in denen KI nicht bloß Effizienzfaktor, sondern echter
+            Produktivitätsgewinn ist.
+          </p>
+        </div>
+      </section>
+
+      <section id="vision5" class="section-muted" aria-labelledby="vision5-title">
+        <div class="hb-container vision-shell" data-reveal>
+          <h2 id="vision5-title" class="vision-title">
+            <span class="accent-blue">Connect</span><span class="accent-navy">The</span><span class="accent-gradient">Dots</span>
+          </h2>
+          <h3 class="text-left">Technologie als Werkzeug. Marke als Konstante.</h3>
+          <p>
+            So groß die Potenziale der Künstlichen Intelligenz auch sind – sie bleibt Mittel zum Zweck. Markenarbeit braucht
+            Haltung, Kontext und Erfahrung. KI ist ein Verstärker, kein Ersatz. Ihre Wirkung entsteht erst dann, wenn sie mit
+            strategischem Denken, gestalterischem Anspruch und unternehmerischem Verständnis verbunden wird. Die Herausforderung
+            liegt darin – und ist sogar ein Wettbewerbsvorteil –, das Beste aus beiden Welten zu verbinden: die Effizienz,
+            Geschwindigkeit und Tiefe der KI mit der Klarheit, Intuition und kulturellen Relevanz klassischer Markenführung.
+          </p>
+        </div>
+      </section>
+
+      <section id="partners" aria-labelledby="partners-title">
+        <div class="hb-container stack-xl" data-reveal>
+          <h2 id="partners-title" class="sr-only">Partner</h2>
+          <div class="partner-marquee">
+            <div class="partner-track" data-partner-track>
+              <img src="../img/kunden/1.png" alt="" />
+              <img src="../img/kunden/aldi3.png" alt="" />
+              <img src="../img/kunden/3.png" alt="" />
+              <img src="../img/kunden/SHOP.svg" alt="" />
+              <img src="../img/kunden/5.png" alt="" />
+              <img src="../img/kunden/6.png" alt="" />
+              <img src="../img/kunden/web_smartsleep_original_logo.svg" alt="" />
+              <img src="../img/kunden/TEDi-Logo.webp" alt="" />
+              <img src="../img/kunden/9.png" alt="" />
+              <img src="../img/kunden/Samsung.svg" alt="" />
+              <img src="../img/kunden/droege.png" alt="" />
+              <img src="../img/kunden/RWE_Logo_2020.svg" alt="" />
+              <img src="../img/kunden/Telekom_Logo.svg" alt="" />
+              <!-- Duplicate for seamless loop -->
+              <img src="../img/kunden/1.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/aldi3.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/3.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/SHOP.svg" alt="" aria-hidden="true" />
+              <img src="../img/kunden/5.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/6.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/web_smartsleep_original_logo.svg" alt="" aria-hidden="true" />
+              <img src="../img/kunden/TEDi-Logo.webp" alt="" aria-hidden="true" />
+              <img src="../img/kunden/9.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/Samsung.svg" alt="" aria-hidden="true" />
+              <img src="../img/kunden/droege.png" alt="" aria-hidden="true" />
+              <img src="../img/kunden/RWE_Logo_2020.svg" alt="" aria-hidden="true" />
+              <img src="../img/kunden/Telekom_Logo.svg" alt="" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Kontakt" aria-labelledby="kontakt-title">
+        <div class="hb-container contact-shell" data-reveal>
+          <div class="stack-lg">
+            <h2 id="kontakt-title" class="text-left">
+              Auf der Suche nach einem großen Gedanken, der Unternehmen inspiriert und Kunden fasziniert?
+            </h2>
+            <p class="max-w-reading">
+              Kontaktieren Sie mich auf LinkedIn und lassen Sie uns gemeinsam Ihre nächsten Erfolge gestalten.
+            </p>
+            <div class="social-buttons" role="group" aria-label="Kontaktlinks">
+              <a
+                class="social-btn is-primary"
+                href="https://www.linkedin.com/in/hendrik-bogner/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zm-46.44-340A53.86 53.86 0 1 1 107.7 54.24 53.86 53.86 0 0 1 53.84 108zm394.16 340h-92.4V302.4c0-34.7-.7-79.3-48.33-79.3-48.34 0-55.74 37.7-55.74 76.5V448h-92.6V148.9H242v40.8h1.3c12.9-24.4 44.3-50.1 91.2-50.1 97.5 0 115.5 64.2 115.5 147.5z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+              <a
+                class="social-btn is-outline"
+                href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M549.65 124.08a68.77 68.77 0 0 0-48.53-48.64C458.67 64 288 64 288 64S117.33 64 74.88 75.44a68.77 68.77 0 0 0-48.53 48.64C16 166.74 16 256 16 256s0 89.26 10.35 131.92a68.77 68.77 0 0 0 48.53 48.64C117.33 448 288 448 288 448s170.67 0 213.12-11.44a68.77 68.77 0 0 0 48.53-48.64C560 345.26 560 256 560 256s0-89.26-10.35-131.92ZM232 334V178l142 78Z"
+                  />
+                </svg>
+                YouTube
+              </a>
+            </div>
+          </div>
+          <div class="bulb-hero" aria-hidden="true">
+            <img src="../img/bulb_web.png" alt="Glühbirnen-Visual" loading="lazy" />
+            <div class="bulb-glow"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="hb-container footer-bar">
+        <div class="footer-brand">
+          <img src="../img/main/braind_logo_und_claim.svg" alt="BRAiND" />
+          <span>© 2025 Hendrik Bogner</span>
+        </div>
+        <nav class="footer-links" aria-label="Social Media">
+          <a href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener noreferrer">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="w-5 h-5" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M100.28 448H7.4V148.9h92.88zm-46.44-340A53.86 53.86 0 1 1 107.7 54.24 53.86 53.86 0 0 1 53.84 108zm394.16 340h-92.4V302.4c0-34.7-.7-79.3-48.33-79.3-48.34 0-55.74 37.7-55.74 76.5V448h-92.6V148.9H242v40.8h1.3c12.9-24.4 44.3-50.1 91.2-50.1 97.5 0 115.5 64.2 115.5 147.5z"
+              />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener noreferrer">
+            <span class="sr-only">YouTube</span>
+            <svg class="w-5 h-5" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M549.65 124.08a68.77 68.77 0 0 0-48.53-48.64C458.67 64 288 64 288 64S117.33 64 74.88 75.44a68.77 68.77 0 0 0-48.53 48.64C16 166.74 16 256 16 256s0 89.26 10.35 131.92a68.77 68.77 0 0 0 48.53 48.64C117.33 448 288 448 288 448s170.67 0 213.12-11.44a68.77 68.77 0 0 0 48.53-48.64C560 345.26 560 256 560 256s0-89.26-10.35-131.92ZM232 334V178l142 78Z"
+              />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </footer>
+
+    <a class="top-link" href="#page-top" aria-label="Nach oben" data-back-to-top>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M12 5l7 7M12 5L5 12" />
+        <path d="M12 5v14" />
+      </svg>
+    </a>
+
+    <script src="./00_main_rebuilt.js" type="module"></script>
+  </body>
+</html>
