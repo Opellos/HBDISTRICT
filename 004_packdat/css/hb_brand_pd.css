@@ -91,17 +91,22 @@
 
 	
 	
- --brandScale:1;
+  --brandScale:1;
 
 /* Feinoffsets (em skaliert mit BRAND) */
 --aiOffsetX: 0em;
 --aiBaselineFix: .115em;
 
 --tagOffsetX: -0.01em;
---tagOffsetY: clamp(.80em, 1em, 1.00em);
+--tagOffsetY: clamp(.80em, 1em, 1.00em);/* Feinjustage: höherer Wert = tiefer, kleinerer Wert = höher */
+--subOffsetX: 0.1em; /* Feinjustage: mehr Positivwert = weiter nach rechts */
+--subOffsetY: clamp(-.40em, -.40em, -.25em);
 
---subOffsetX: 0.1em;
---subOffsetY: clamp(-1.3em, calc(-0.55em - 0.55vw), -0.62em); /* cdex_00211 */
+
+
+
+ /* cdex_00211 – Subline-Feinjustage: Basis = -1.9em (Desktop), Clamp-Anteil gibt mobilen Viewports ~10px extra Tiefe */
+/* --subOffsetY: calc(-1.9em + clamp(0em, 2.1em - 3.2vw, 1.6em));  cdex_00211 – Alternative (~5px mobile Absenkung) */
 
 --subTracking: .01em;
 --subMinGap: .8ch; /* HB_Justage */
@@ -229,7 +234,7 @@ overflow: visible; /* erlauben, dass Kindelemente nicht "abgeklemmt" werden */ /
      ─ Dauer: 10s  → komplette Ein-Aus-Schleife dauert 10 Sekunden
      ─ Startverzögerung: 2s  → beginnt erst nach 2 Sekunden
      ─ infinite: läuft endlos, kein definierter "Ende"-Zeitpunkt */
-  animation: heroAiGlow 6s ease-in-out 1.2s infinite;
+  animation: heroAiGlow 4s ease-in-out 2s infinite;
 
   background: var(--t2);
   -webkit-background-clip: text;
@@ -1409,7 +1414,6 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
 
 /* HB-R04 | Headline Adjust */
 /* typografische Justage für zentrierten Hero-Titel */
-
 #hero h1 {
   font-size: clamp(4rem, 8vw, 8rem); /* responsive Skalierung */
   line-height: 1;                    /* kompakter Satz */
@@ -1418,32 +1422,7 @@ section.subfooter.grandient_pow > .container > .subfooter-bar .sf-name {
 
 
 
+
 /* === HERO BRAND – sanfter, horizontaler Eyecandy-Verlauf === */
-#hero-section .hb-hero-brand {
-  position: relative;
-  display: inline-block;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-#hero-section .hb-hero-brand::before {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    color-mix(in oklab, #207cfa 95%, #ffffff 5%) 0%,    /* weiches Startblau */
-    color-mix(in oklab, #207cfa 90%, #80b8ff 10%) 35%,  /* leicht heller Übergang */
-    color-mix(in oklab, #207cfa 75%, #b5d4ff 25%) 70%,  /* sanft aufhellend */
-    color-mix(in oklab, #207cfa 60%, #ffffff 40%) 100%  /* zarter Glanz rechts */
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  pointer-events: none;
-  opacity: 0.95; /* leicht transparent für Eleganz */
-  filter: brightness(0.75) contrast(0.75);
-}
-
 
 
