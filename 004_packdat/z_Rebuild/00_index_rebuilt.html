@@ -71,89 +71,41 @@
     <link rel="stylesheet" href="./00_base_rebuilt.css" />
   </head>
   <body class="antialiased text-hb-text bg-hb-bg" id="page-top">
-    <header class="site-header" data-site-header>
-      <div class="hb-container">
-        <div class="site-nav" data-site-nav>
-          <a class="nav-brand" href="#hero-section">
-            <img class="nav-logo" src="../img/main/braind_logo_und_claim.svg" alt="BRAiND" />
-            <span class="sr-only">Zurück zum Seitenanfang</span>
-          </a>
-
-          <nav class="nav-inline" aria-label="Hauptnavigation">
-            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#video-bio">Profil</a>
-            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#focus">Expertise</a>
-            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#works">Projekte</a>
-            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#vision1">Brand+AI</a>
-            <a class="tracking-[0.4em] text-xs text-hb-text/80" href="#Kontakt">Kontakt</a>
-            <a class="nav-cta" href="#Kontakt">Jetzt sprechen</a>
-          </nav>
-
-          <button
-            class="nav-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="primary-navigation"
-            data-nav-toggle
-          >
-            <span class="sr-only">Navigation öffnen</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+    <header id="nav-main" class="nav-main" data-site-header>
+      <div class="nav-main__inner">
+        <a class="nav-main__brand" href="#hero" aria-label="Zurück zum Seitenanfang">BRAND</a>
+        <nav class="nav-main__links" aria-label="Hauptnavigation">
+          <a href="#video-bio">Profil</a>
+          <a href="#focus">Expertise</a>
+          <a href="#works">Projekte</a>
+        </nav>
+        <div class="nav-main__meta">
+          <a href="#vision1" class="nav-main__link">Brand+AI</a>
+          <a href="#Kontakt" class="nav-main__link">Kontakt</a>
+          <a href="#Kontakt" class="nav-main__cta">JETZT SPRECHEN</a>
         </div>
       </div>
-      <div class="nav-backdrop" aria-hidden="true" data-nav-backdrop></div>
-      <nav class="nav-panel" aria-label="Hauptnavigation" id="primary-navigation" data-nav-panel data-open="false">
-        <div class="nav-panel-group" role="list">
-          <a href="#hero-section" class="tracking-[0.45em] uppercase">Home</a>
-          <a href="#video-bio" class="tracking-[0.45em] uppercase">Profil</a>
-          <a href="#focus" class="tracking-[0.45em] uppercase">Expertise</a>
-          <a href="#works" class="tracking-[0.45em] uppercase">Projekte</a>
-          <a href="#vision1" class="tracking-[0.45em] uppercase">Brand + AI</a>
-          <a href="#Kontakt" class="tracking-[0.45em] uppercase">Kontakt</a>
-        </div>
-        <a class="nav-cta" href="#Kontakt">Jetzt sprechen</a>
-      </nav>
     </header>
 
     <main>
-      <section id="hero-section" class="hero-section" aria-labelledby="hb-tagline">
-        <div class="hb-container">
-          <div class="hero-grid">
-            <div class="stack-xl" data-reveal>
-              <p class="hero-tagline" id="hb-tagline">SHAPE YOUR</p>
-              <h1 class="hero-brand" id="hb-brand" data-text="BRAND">
-                BR
-                <span class="brand-anchor">
-                  <span class="brand-A" aria-hidden="true">A</span>
-                  <span class="hero-ai" aria-hidden="true">AI</span>
-                </span>
-                ND
-              </h1>
-              <p class="hero-subline" id="hb-subline" aria-label="BRAND STRATEGY · BRAND DESIGN · AI-WORKFLOW">
-                <span>BRAND STRATEGY ·</span>
-                <span>BRAND DESIGN ·</span>
-                <span>AI - WORKFLOW</span>
-              </p>
-              <a class="hb-cta" href="#Kontakt">Wert Ihrer Marke skalieren</a>
-            </div>
-
-            <aside class="hb-glass" aria-labelledby="hb-glass-title" data-reveal>
-              <h2 id="hb-glass-title" class="text-left">
-                Produkte gehen über den Tresen.<br /><span class="italic">Marken unter die Haut.</span>
-              </h2>
-              <p>
-                Den Wert der <span class="word-badge word-badge--pink">Marke</span> in die Herzen der Menschen zu übertragen, ist
-                unabdingbar, um eine langfristige Bindung zu Ihren Kunden aufzubauen und zu erhalten. Mit klarer
-                <span class="word-badge word-badge--blue">Trennschärfe</span> zwischen Marke und Marketing gewinnen Sie Fokus auf die
-                wahren <span class="word-badge word-badge--blue">Wachstumstreiber</span> Ihrer Unternehmensstrategie. Ich baue Ihre Marke
-                auf – in fester Anstellung in Ihrem Unternehmen oder auf Projektbasis.
-              </p>
-              <div>
-                <a class="hb-cta is-secondary" href="#Kontakt">Jetzt unverbindlich sprechen</a>
-              </div>
-            </aside>
+      <section id="hero" aria-labelledby="hero-tagline" class="hero">
+        <div class="hero__inner">
+          <h2 id="hero-tagline" class="hero__tagline">SHAPE YOUR</h2>
+          <h1 class="hero__title">BRAND</h1>
+          <p class="hero__subline">BRAND STRATEGY · BRAND DESIGN · AI · WORKFLOW</p>
+          <p class="hero__claim">
+            Produkte gehen über den Tresen.<br />
+            Marken unter die Haut.
+          </p>
+          <div class="hero__glass" data-reveal>
+            <p>
+              Den Wert der Marke in die Herzen der Menschen zu übertragen, ist unabdingbar, um eine langfristige Bindung zu Ihren
+              Kunden aufzubauen und zu erhalten. Mit klarer Trennschärfe zwischen Marke und Marketing gewinnen Sie Fokus auf die
+              wahren Wachstumstreiber Ihrer Unternehmensstrategie. Ich baue Ihre Marke auf – in fester Anstellung in Ihrem
+              Unternehmen oder auf Projektbasis.
+            </p>
           </div>
+          <a class="hero__cta" href="#Kontakt">JETZT UNVERBINDLICH SPRECHEN</a>
         </div>
       </section>
 

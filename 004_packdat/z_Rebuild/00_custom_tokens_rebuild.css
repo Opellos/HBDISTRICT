@@ -63,12 +63,15 @@
   --hb-color-footer: #081b61;
 
   /* Gradients */
-  --hb-gradient-hero: radial-gradient(circle at 15% 25%, rgba(108, 167, 255, 0.45) 0%, transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(255, 215, 255, 0.62) 0%, transparent 60%),
-    linear-gradient(150deg, #f5f8ff 0%, #ffffff 60%, #d9e9ff 100%);
+  --hb-gradient-hero: linear-gradient(135deg, #207cfa 20%, #8fc7ff 60%, #d4e6ff 100%);
+  --hb-hero-highlight: radial-gradient(circle at center, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 60%);
   --hb-gradient-panel: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 254, 255, 0.82) 65%);
   --hb-gradient-footer: linear-gradient(100deg, #ff3ac7 0%, #2aa3ff 100%);
   --hb-gradient-partner: radial-gradient(circle at center, rgba(197, 215, 255, 0.68), rgba(240, 247, 255, 0.95));
+  --hb-gradient-nav: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  --hb-gradient-cta: linear-gradient(120deg, #ff4bc0 0%, #207cfa 100%);
+  --hb-gradient-cta-inverse: linear-gradient(120deg, #207cfa 0%, #ff4bc0 100%);
+  --hb-gradient-text-hero: linear-gradient(90deg, #207cfa 0%, #ff4bc0 100%);
 
   /* Blur */
   --hb-blur-sm: blur(12px);

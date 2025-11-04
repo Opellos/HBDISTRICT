@@ -14,78 +14,27 @@ const smoothScrollTo = (target, offset = 0) => {
 };
 
 const initNavigation = () => {
-  const header = document.querySelector('[data-site-header]');
-  const toggle = document.querySelector('[data-nav-toggle]');
-  const panel = document.querySelector('[data-nav-panel]');
-  const backdrop = document.querySelector('[data-nav-backdrop]');
-  const inlineLinks = document.querySelectorAll('.nav-inline a[href^="#"]');
-  const panelLinks = panel ? panel.querySelectorAll('a[href^="#"]') : [];
-  let isOpen = false;
+  const header = document.querySelector('#nav-main');
+  const navLinks = header ? header.querySelectorAll('a[href^="#"]') : [];
 
   const getHeaderHeight = () => (header ? header.offsetHeight : 0);
 
-  const setState = (open) => {
-    isOpen = open;
-    if (panel) {
-      panel.setAttribute('data-open', open ? 'true' : 'false');
-      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
-    if (toggle) {
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-    if (header) {
-      header.classList.toggle('is-nav-open', open);
-    }
-  };
-
-  const closeNav = () => setState(false);
-
   const handleLink = (event, hash) => {
     const target = document.querySelector(hash);
-    if (target) {
-      event.preventDefault();
-      closeNav();
-      window.requestAnimationFrame(() => smoothScrollTo(target, getHeaderHeight() + 12));
-    }
+    if (!target) return;
+    event.preventDefault();
+    window.requestAnimationFrame(() => smoothScrollTo(target, getHeaderHeight() + 12));
   };
 
-  inlineLinks.forEach((link) => {
+  navLinks.forEach((link) => {
     const hash = link.getAttribute('href');
     if (!hash || hash.length <= 1) return;
     link.addEventListener('click', (event) => handleLink(event, hash));
-  });
-
-  panelLinks.forEach((link) => {
-    const hash = link.getAttribute('href');
-    if (!hash || hash.length <= 1) return;
-    link.addEventListener('click', (event) => handleLink(event, hash));
-  });
-
-  if (toggle) {
-    toggle.addEventListener('click', () => setState(!isOpen));
-  }
-
-  if (backdrop) {
-    backdrop.addEventListener('click', closeNav);
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && isOpen) {
-      closeNav();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1024) {
-      closeNav();
-    }
   });
 
   const handleScroll = () => {
-    const scrolled = window.scrollY > 32;
-    if (header) {
-      header.classList.toggle('is-scrolled', scrolled);
-    }
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 32);
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
