@@ -1,0 +1,257 @@
+/* file name hb_add_pd.css A + */
+
+/* ================= 1) Mobile (≤ 990px): Typo, Abstände, Glas-Container ================= */
+@media (max-width: 990px){
+  /* UL bündig links, ohne Einzug */
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible{ 
+    width:100%; margin:0; padding-left:0; 
+  }
+
+  /* GLASSMORPHIC CONTAINER – analog Desktop */
+  .navbar-collapse.navbar-main-collapse{ 
+    padding: 12px;                     /* etwas Innenabstand zum Rand */
+    max-height: calc(100vh - 56px);        /* Scroll statt Abschneiden */
+    overflow-y: auto; overflow-x: visible; 
+    -webkit-overflow-scrolling: touch;
+    background: rgba(255,255,255,0.08) !important; /* transparentes Glas */
+    -webkit-backdrop-filter: blur(10px);   /* iOS Safari */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.26);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-radius: 14px;                   /* weiche Kanten */
+  
+    margin-top: 60px;                     /* Navi-Container bewusst tiefer gesetzt */
+  }
+
+  /* Links: bündig, mehr vertikaler Raum, solide Touchflächen */
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a{
+    font-family: 'Hanken Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300 !important; 
+    font-size: 17px;                       /* gut lesbar */
+    line-height: 1.35; 
+    min-height: 48px;                      /* mehr Raum → komfortabler */
+    padding: 16px 12px 16px 10px !important;/* links knapp, vertikal großzügig */
+    display: flex; align-items: center;    /* vertikal zentriert */
+    letter-spacing: 0; text-align: left; 
+    position: relative;                    /* für Accent Bar */
+    background: transparent;               /* klare Zeilen, kein Card-Look */
+    border-radius: 8px;                    /* leicht weich für Tap-Feedback */
+    border: 0; box-shadow: none; 
+  }
+
+  /* Divider zwischen den Zeilen */
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li + li > a{
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  /* Linke Akzentleiste (Brand-Verlauf), dezent */
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a::before{
+    content: ""; position:absolute; left:0; top:0; bottom:0; width:2px;
+    background: linear-gradient(180deg, #ff2bd6, #6b5bff); opacity:0.9;
+  }
+
+  /* Hover/Tap: helle Fläche statt Bewegung */
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a:hover{ 
+    background: rgba(255,255,255,0.08);
+  }
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a:active{
+    background: rgba(255,255,255,0.16);
+  }
+
+  /* Animations-/Transition-Fallen neutralisieren (nur Navbar) */
+  .navbar-collapse.navbar-main-collapse .wow,
+  .navbar-collapse.navbar-main-collapse [class*="animate__"]{
+    animation: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+}
+
+/* ================= 2) Kleinere Phones (≤ 480px) ================= */
+@media (max-width: 480px){
+  .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a{
+    font-size: 16px;                        /* kompakter, aber nicht zu klein */
+    min-height: 70px;                        /* weiterhin komfortabel */
+    padding: 14px 12px 14px 22px !important;  /* links bündig, vertikal großzügig */
+  }
+}
+
+/* ================= 3) Notfall-Override (nur aktivieren, wenn nötig) ================= */
+/*
+@media (max-width: 990px){
+  header .navbar.navbar-custom .navbar-collapse.navbar-main-collapse .nav.navbar-nav.sm.sm-collapsible > li > a{
+    font-weight: 300 !important;
+    padding: 16px 12px 16px 10px !important;
+  }
+}
+*/
+
+
+/* +ws_packdat_partners_bg_v2 — 2025-10-07
+   Zweck: Zarter Cyan→Magenta-Verlauf für #partners.
+   Rollback: Block entfernen.
+*/
+
+#partners{
+  --fade-from: 0 !important;   /* Overlay neutralisieren */
+  --fade-to:   0 !important;   /* Overlay neutralisieren */
+  background: linear-gradient(90deg,
+              color-mix(in oklab, var(--bottom-cyan) 52%, transparent),
+              color-mix(in oklab, var(--bottom-magenta) 22%, transparent)) !important;
+}
+
+#partners::before{
+  background: transparent !important; /* kein Aufhell-Overlay */
+}
+
+/* ws: packdat/partners-carousel speed — 2025-10-07
+   Änderung: Logo-Laufgeschwindigkeit verlangsamt (größere Dauer = langsamer).
+   Wirkung: ca. 2–3x langsamer als vorher; feinjustieren über Sekundenwert.
+*/
+
+#partners .client-carousel .cc-track{
+  animation-duration: 80s !important; /* z.B. 80s statt 30–40s */
+}
+
+/* Optional: auf Mobil noch etwas ruhiger */
+@media (max-width: 768px){
+  #partners .client-carousel .cc-track{
+    animation-duration: 110s !important;
+  }
+}
+
+/* ================= Pink-Justage v1 — ANHÄNGEN, NICHTS ERSETZEN ================= */
+
+/* ===== Gradient Override v4 – Look wie Referenzbild (Accepty-Style) ===== */
+body::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    /* warm-orange Top-Right */
+    radial-gradient(1000px 600px at 90% -10%, hsl(30 100% 75% / 0.45), transparent 70%),
+    /* violett-blau zentrales Feld */
+    radial-gradient(1400px 800px at 60% 20%, hsl(265 90% 80% / 0.50), transparent 70%),
+    /* hell-cyan Basis unten links */
+    radial-gradient(1600px 900px at 10% 90%, hsl(195 95% 78% / 0.60), transparent 65%),
+    /* zarte Weiß-Aufhellung */
+    linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0) 50%, rgba(255,255,255,0.20));
+  background-repeat: no-repeat;
+  background-blend-mode: screen;
+}
+
+/* === Inline-Wort-Badges (dezent, wie im Screenshot) =======================
+   Ablage: hb_add_pd.css (ganz unten)
+   Einsatz:
+   <span class="word-badge word-badge--pink">
+     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+       <path class="layer-1" d="M12 3l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/>
+       <circle class="layer-2" cx="12" cy="12" r="2"/>
+     </svg>
+     Marke
+   </span>
+   <span class="word-badge word-badge--blue">Wachstumstreiber</span>
+------------------------------------------------------------------------- */
+
+.word-badge{
+  --wb: currentColor;                              /* Basisfarbe */
+  display:inline-flex;
+  align-items:center;
+  gap:.45em;
+  padding:.18em .70em;                             /* kompakt */
+  border-radius:9999px;
+  border:1px solid color-mix(in oklab, var(--wb) 55%, transparent);
+  background:color-mix(in oklab, var(--wb) 14%, transparent);
+  color:var(--wb);
+  font-weight:inherit;                             /* NICHT fetter machen */
+  line-height:1;
+  letter-spacing:.01em;
+  vertical-align:baseline;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:
+    background-color var(--dur-fast,.2s) var(--ease-standard,cubic-bezier(.4,0,.2,1)),
+    border-color var(--dur-fast,.2s) var(--ease-standard,cubic-bezier(.4,0,.2,1));
+}
+
+/* Hausfarben-Zuweisung */
+.word-badge--pink{ --wb: var(--bottom-magenta, #ff3cd0); }
+.word-badge--blue{ --wb: var(--bottom-cyan,    #207cfa); }
+
+/* Icon: mehrteilig, fein abgestuft – ohne „fetter“ zu wirken */
+.word-badge .icon{
+  width:1em; height:1em; flex:0 0 auto;
+  stroke:currentColor; fill:none; stroke-width:1.8;
+}
+.word-badge .icon .layer-1{ opacity:.85; } /* Hauptstrich */
+.word-badge .icon .layer-2{ opacity:.55; } /* Zweitlayer */
+.word-badge .icon .layer-3{ opacity:.35; } /* Akzentlayer */
+
+/* Hover nur minimal kräftiger, weiterhin dezent */
+.word-badge:hover{
+  background:color-mix(in oklab, var(--wb) 20%, transparent);
+  border-color:color-mix(in oklab, var(--wb) 72%, transparent);
+}
+
+
+
+
+/* === HB Top-Button – vollständiger Ablauf (Hero-Flow) =====================
+   - unsichtbar am Start
+   - blendet ab erstem Drittel ein
+   - Klick → up.svg skaliert + switch → Hero
+   - Hero skaliert sanft von X-Achse nach oben
+   - nach ScrollToTop bleibt Hero 5 s sichtbar, dann Fade-out
+========================================================================== */
+
+.topbtn {
+  all: unset;
+  position: fixed;
+  bottom: clamp(2px, 1.5vw, 5px);
+  right: clamp(2px, 2vw, 15px);
+  width: clamp(30px, 10vw, 60px);
+  height: clamp(30px, 10vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.3s ease;
+}
+
+.topbtn img {
+  position: absolute;
+  width: clamp(50px, 10vw, 50px);
+  height: clamp(50px, 10vw, 50px);
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+/* Sichtbarkeit */
+.topbtn .icon-shield { opacity: 1; }
+.topbtn .icon-hero   { opacity: 0; }
+
+/* Klick: Wechsel auf Hero + Skalierung */
+.topbtn.active .icon-shield { opacity: 0; }
+.topbtn.active .icon-hero {
+  opacity: 1;
+  transform-origin: center center;
+  animation: heroLift 0.9s ease forwards;
+}
+
+/* Hover: sanfter Upscale des up.svg */
+.topbtn:hover .icon-shield {
+  transform: scale(1.1);
+}
+
+/* Hero-Lift: sanftes Aufskalieren (ohne Wippen) */
+@keyframes heroLift {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); }
+  100% { transform: scale(1.1); }
+}
+

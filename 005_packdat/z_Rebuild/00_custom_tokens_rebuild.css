@@ -1,0 +1,190 @@
+:root {
+  color-scheme: dark;
+
+  /* Typography */
+  --hb-font-sans: "Hanken Grotesk", "Hanken", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hb-font-display: "Montserrat", "Hanken Grotesk", "Hanken", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --hb-text-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.78rem);
+  --hb-text-sm: clamp(0.82rem, 0.76rem + 0.3vw, 0.95rem);
+  --hb-text-base: clamp(1rem, 0.94rem + 0.35vw, 1.18rem);
+  --hb-text-md: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --hb-text-lg: clamp(1.45rem, 1.3rem + 0.65vw, 1.85rem);
+  --hb-text-xl: clamp(1.8rem, 1.6rem + 1vw, 2.6rem);
+  --hb-display-sub: clamp(2.2rem, 1.9rem + 1.5vw, 3.4rem);
+  --hb-display-hero: clamp(3.4rem, 2.6rem + 4.2vw, 6.4rem);
+
+  /* Layout */
+  --hb-container-max: 1200px;
+  --hb-space-0: 0;
+  --hb-space-1: clamp(0.35rem, 0.26rem + 0.25vw, 0.55rem);
+  --hb-space-2: clamp(0.55rem, 0.42rem + 0.35vw, 0.85rem);
+  --hb-space-3: clamp(0.75rem, 0.6rem + 0.45vw, 1.2rem);
+  --hb-space-4: clamp(1rem, 0.8rem + 0.55vw, 1.55rem);
+  --hb-space-5: clamp(1.35rem, 1.1rem + 0.7vw, 2rem);
+  --hb-space-6: clamp(1.75rem, 1.4rem + 0.9vw, 2.6rem);
+  --hb-space-7: clamp(2.25rem, 1.8rem + 1.1vw, 3.25rem);
+  --hb-space-8: clamp(2.85rem, 2.3rem + 1.35vw, 4.1rem);
+  --hb-space-9: clamp(3.4rem, 2.7rem + 1.6vw, 4.9rem);
+  --hb-space-10: clamp(4.2rem, 3.2rem + 2vw, 6rem);
+  --hb-space-11: clamp(5.1rem, 3.9rem + 2.6vw, 7.2rem);
+  --hb-space-12: clamp(6rem, 4.6rem + 3.2vw, 8.6rem);
+
+  /* Radii */
+  --hb-radius-xs: clamp(0.35rem, 0.3rem + 0.15vw, 0.5rem);
+  --hb-radius-sm: clamp(0.55rem, 0.45rem + 0.25vw, 0.85rem);
+  --hb-radius-md: clamp(0.9rem, 0.7rem + 0.35vw, 1.25rem);
+  --hb-radius-lg: clamp(1.4rem, 1.1rem + 0.55vw, 2rem);
+  --hb-radius-xl: clamp(2.1rem, 1.6rem + 0.9vw, 3.1rem);
+  --hb-radius-pill: 999px;
+
+  /* Shadows */
+  --hb-shadow-soft: 0 24px 60px rgba(4, 12, 36, 0.35);
+  --hb-shadow-glass: 0 24px 80px rgba(9, 21, 60, 0.45);
+  --hb-shadow-glow: 0 0 45px rgba(76, 125, 255, 0.45);
+
+  /* Colors */
+  --hb-color-body: #050916;
+  --hb-color-body-soft: #080f26;
+  --hb-color-surface: rgba(10, 18, 44, 0.72);
+  --hb-color-surface-strong: rgba(13, 24, 58, 0.86);
+  --hb-color-surface-solid: #0c152f;
+  --hb-color-glass-border: rgba(79, 127, 255, 0.35);
+  --hb-color-primary: #4c7dff;
+  --hb-color-primary-strong: #2c58ff;
+  --hb-color-accent: #ff4dda;
+  --hb-color-accent-alt: #00d2ff;
+  --hb-color-highlight: #63f0ff;
+  --hb-color-muted: #a7b8dd;
+  --hb-color-muted-strong: #d6e0ff;
+  --hb-color-text: #f7f9ff;
+  --hb-color-heading: #ffffff;
+  --hb-color-border-subtle: rgba(167, 184, 221, 0.25);
+  --hb-color-footer: #020410;
+
+  /* Gradients */
+  --hb-gradient-hero: radial-gradient(circle at 15% 15%, rgba(81, 136, 255, 0.55) 0%, transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(0, 210, 255, 0.45) 0%, transparent 60%),
+    linear-gradient(140deg, rgba(5, 11, 32, 0.98) 0%, rgba(4, 9, 32, 0.9) 45%, rgba(9, 19, 54, 0.92) 100%);
+  --hb-gradient-panel: linear-gradient(165deg, rgba(13, 24, 58, 0.88) 0%, rgba(8, 16, 38, 0.92) 65%);
+  --hb-gradient-footer: linear-gradient(100deg, #ff3ac7 0%, #01d1ff 100%);
+  --hb-gradient-partner: radial-gradient(circle at center, rgba(32, 64, 210, 0.18), rgba(9, 14, 35, 0.88));
+
+  /* Blur */
+  --hb-blur-sm: blur(12px);
+  --hb-blur-md: blur(18px);
+  --hb-blur-lg: blur(28px);
+
+  /* Durations */
+  --hb-duration-quick: 160ms;
+  --hb-duration-base: 260ms;
+  --hb-duration-slow: 480ms;
+
+  /* Z-Index */
+  --hb-z-nav: 40;
+  --hb-z-overlay: 45;
+  --hb-z-dialog: 50;
+}
+
+@keyframes hbFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--hb-space-4), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hbGlowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 77, 218, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(99, 240, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 77, 218, 0.0);
+  }
+}
+
+@keyframes hbMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes hbFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hbGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --hb-duration-quick: 1ms;
+    --hb-duration-base: 1ms;
+    --hb-duration-slow: 1ms;
+  }
+
+  @keyframes hbFadeUp {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes hbGlowPulse {
+    from,
+    to {
+      box-shadow: none;
+    }
+  }
+
+  @keyframes hbMarquee {
+    from,
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes hbFloat {
+    from,
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes hbGradientShift {
+    from,
+    to {
+      background-position: 0% 50%;
+    }
+  }
+}
