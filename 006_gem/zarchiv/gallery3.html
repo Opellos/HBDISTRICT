@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gallery – Strukturierte Varianten (1530px)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Structured v2025.11.05h – klare Raster, feste Kartenhöhen, Captions außen */
+:root{ --maxw:1530px; --gap:18px; --radius:16px; --pad: clamp(16px,3vw,28px); }
+*{box-sizing:border-box}
+body{margin:0; font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:#111; background:#ffffff}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:var(--pad)}
+h1{margin:0 0 8px; font-weight:800; letter-spacing:.2px}
+.section{padding-block: clamp(12px,4vw,36px); border-top:1px solid #eef1f6}
+.section:first-of-type{border-top:0}
+.section h2{margin:0 0 6px; font-size: clamp(20px,3.6vw,30px)}
+.section p.lead{margin:0 0 18px; color:#556070}
+
+/* === Grid System === */
+.grid{display:grid; gap:var(--gap)}
+.cols-4{grid-template-columns: repeat(4, 1fr)}
+.cols-3{grid-template-columns: repeat(3, 1fr)}
+.cols-2{grid-template-columns: repeat(2, 1fr)}
+@media (max-width:1100px){.cols-4{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.cols-3,.cols-4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cols-2,.cols-3,.cols-4{grid-template-columns:1fr}}
+
+/* === Card Sizes (verhindert Übergröße) === */
+.tile{position:relative; display:block; background:#fff; border:1px solid #e8edf5; border-radius:var(--radius); overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.tile .media{width:100%; height: clamp(180px, 26vw, 320px); /* feste, aber responsive Höhe */}
+.tile .media img,.tile .media video{width:100%; height:100%; object-fit:cover; display:block}
+.tile .meta{padding:12px 14px}
+.tile .title{margin:0 0 4px; font-weight:700}
+.tile .sub{margin:0; color:#6a7380; font-size:14px}
+
+/* Ratio-Utilities (optional, falls gebraucht) */
+.ratio{aspect-ratio: var(--ar, 4/3)}
+.r-1x1{ --ar:1/1 } .r-3x2{ --ar:3/2 } .r-2x3{ --ar:2/3 } .r-16x9{ --ar:16/9 } .r-4x5{ --ar:4/5 }
+
+/* === Lightbox (sauber begrenzt) === */
+.lb{position:fixed; inset:0; background:rgba(0,0,0,.68); display:none; align-items:center; justify-content:center; padding:20px; z-index:999; opacity:0; transition:opacity .18s ease}
+.lb.open{display:flex; opacity:1}
+.lb-inner{position:relative; max-width:min(1200px, 96vw); max-height:min(82vh, 820px); background:#fff; border-radius:14px; box-shadow:0 24px 100px rgba(0,0,0,.25); overflow:hidden}
+.lb-media{display:grid; place-items:center; width:min(96vw, 1200px); height:min(82vh, 820px); background:#000}
+.lb-media img,.lb-media video{max-width:100%; max-height:100%; width:auto; height:auto}
+.lb-x{position:absolute; top:8px; right:8px; width:36px; height:36px; border:0; border-radius:10px; background:#fff; color:#111; font-weight:800; box-shadow:0 2px 8px rgba(0,0,0,.2); cursor:pointer}
+
+/* === Perf === */
+.card:hover{transform:translateY(-2px)}
+@supports (content-visibility:auto){ .tile{content-visibility:auto; contain-intrinsic-size: 280px 200px} }
+img{loading:lazy; decoding:async}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Gallery – Struktur & Größen im Griff</h1>
+
+    <!-- Sektion 1: Übersichtsraster (Kacheln, externe Captions) -->
+    <section class="section">
+      <h2>Übersichts‑Grid</h2>
+      <p class="lead">Kompakte Karten, feste Medienhöhe – keine übergroßen Bilder. Texte stehen **außerhalb**.</p>
+      <div class="grid cols-4" id="gridA">
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a1/2000/1334">
+          <div class="media"><img src="https://picsum.photos/seed/a1/800/534" alt=""></div>
+          <div class="meta"><p class="title">Serie A1</p><p class="sub">Editorial</p></div>
+        </a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a2/1500/1500">
+          <div class="media"><img src="https://picsum.photos/seed/a2/800/800" alt=""></div>
+          <div class="meta"><p class="title">Serie A2</p><p class="sub">Portrait</p></div>
+        </a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a3/1200/1800">
+          <div class="media"><img src="https://picsum.photos/seed/a3/600/900" alt=""></div>
+          <div class="meta"><p class="title">Serie A3</p><p class="sub">Urban</p></div>
+        </a>
+        <a href="#" class="tile" data-video="https://files.samplescdn.com/demo/video/sea.mp4" data-poster="https://picsum.photos/seed/vid1/1440/810">
+          <div class="media"><img src="https://picsum.photos/seed/vid1/800/450" alt="Video"></div>
+          <div class="meta"><p class="title">Showreel</p><p class="sub">Video</p></div>
+        </a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a5/1600/2000">
+          <div class="media"><img src="https://picsum.photos/seed/a5/640/800" alt=""></div>
+          <div class="meta"><p class="title">Serie A5</p><p class="sub">Object</p></div>
+        </a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a6/1600/1200">
+          <div class="media"><img src="https://picsum.photos/seed/a6/800/600" alt=""></div>
+          <div class="meta"><p class="title">Serie A6</p><p class="sub">Travel</p></div>
+        </a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a7/1500/1500">
+          <div class="media"><img src="https://picsum.photos/seed/a7/800/800" alt=""></div>
+          <div class="meta"><p class="title">Serie A7</p><p class="sub">Studio</p></div>
+        </a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/a8/1200/1800">
+          <div class="media"><img src="https://picsum.photos/seed/a8/600/900" alt=""></div>
+          <div class="meta"><p class="title">Serie A8</p><p class="sub">People</p></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Sektion 2: Case‑Grid (größer, 3 Spalten) -->
+    <section class="section">
+      <h2>Case‑Grid</h2>
+      <p class="lead">Größere Karten (3 Spalten). Gleiches Prinzip – Medienhöhen begrenzt.</p>
+      <div class="grid cols-3" id="gridB">
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/b1/2000/1334"><div class="media"><img src="https://picsum.photos/seed/b1/800/534" alt=""></div><div class="meta"><p class="title">Case B1</p><p class="sub">Campaign</p></div></a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/b2/1600/1200"><div class="media"><img src="https://picsum.photos/seed/b2/800/600" alt=""></div><div class="meta"><p class="title">Case B2</p><p class="sub">Food</p></div></a>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/b3/1500/1500"><div class="media"><img src="https://picsum.photos/seed/b3/800/800" alt=""></div><div class="meta"><p class="title">Case B3</p><p class="sub">Portrait</p></div></a>
+      </div>
+    </section>
+
+    <!-- Sektion 3: Feature‑Row (Text + großes Bild rechts) -->
+    <section class="section">
+      <h2>Feature‑Row</h2>
+      <p class="lead">Ein Projekt hervorheben – daneben Copy.</p>
+      <div class="grid cols-2" id="gridC">
+        <div class="tile">
+          <div class="meta"><p class="title">Projektname</p><p class="sub">Kurztext zum Projekt, Leistungen, Jahr.</p></div>
+        </div>
+        <a href="#" class="tile" data-src="https://picsum.photos/seed/c1/2000/1400">
+          <div class="media"><img src="https://picsum.photos/seed/c1/1200/840" alt=""></div>
+          <div class="meta"><p class="title">Key Visual</p><p class="sub">Editorial</p></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lb" id="lb" role="dialog" aria-label="Vorschau">
+    <div class="lb-inner">
+      <div class="lb-media" id="lbMedia"></div>
+      <button class="lb-x" id="lbX" aria-label="Schließen">×</button>
+    </div>
+  </div>
+
+<script>
+// Lightbox
+const lb = document.getElementById('lb');
+const lbMedia = document.getElementById('lbMedia');
+const lbX = document.getElementById('lbX');
+
+document.addEventListener('click', function(e){
+  const a = e.target.closest('a.tile');
+  if(!a) return;
+  e.preventDefault();
+  lbMedia.innerHTML = '';
+  if(a.dataset.video){
+    const v = document.createElement('video');
+    v.src = a.dataset.video; v.controls = true; v.autoplay = true; v.playsInline = true; if(a.dataset.poster) v.poster = a.dataset.poster;
+    lbMedia.appendChild(v);
+  } else {
+    const img = document.createElement('img');
+    img.src = a.dataset.src || a.querySelector('img').src; img.alt = '';
+    lbMedia.appendChild(img);
+  }
+  document.body.style.overflow='hidden';
+  lb.classList.add('open');
+});
+
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+lbX.addEventListener('click', closeLb);
+lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
+window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lb.classList.contains('open')) closeLb(); });
+</script>
+</body>
+</html>
