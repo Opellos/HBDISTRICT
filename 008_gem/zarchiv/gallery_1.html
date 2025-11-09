@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery Varianten – HB CI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* HB Gallery Kit v2025.11.05d — mehrere Varianten, eine Section pro Variante */
+    :root{
+      --maxw: 1530px; --pad: clamp(16px, 3vw, 32px); --gap: clamp(14px, 2vw, 22px);
+      --radius: 16px; --radius-lg: 22px; --shadow: 0 12px 30px rgba(23,32,46,.12);
+      /* HB CI */
+      --blue:#207cfa; --pink:#ff3cd0; --purple:#7d32df;
+      --ink:#101317; --muted:#5b6370; --card:#ffffff; --bg:#f6f7fb; --line:#e9edf3;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:var(--ink); background:linear-gradient(#fafbff 0 40%, #f2f4f9 40% 100%)}
+    .wrap{max-width:var(--maxw); margin:auto; padding:var(--pad)}
+    h2{ margin: 8px 0 18px; font-size: clamp(20px,3.8vw,32px); }
+    p.plain{ color:var(--muted); max-width:66ch }
+
+    /* Utility */
+    .grid{ display:grid; gap:var(--gap) }
+    .cols-4{ grid-template-columns: repeat(4, 1fr) }
+    .cols-3{ grid-template-columns: repeat(3, 1fr) }
+    .cols-2{ grid-template-columns: repeat(2, 1fr) }
+    @media (max-width: 1100px){ .cols-4{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width: 780px){ .cols-3,.cols-4{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 520px){ .cols-2,.cols-3,.cols-4{grid-template-columns:1fr} }
+
+    /* Card (Bild-only) */
+    .card{ position:relative; border-radius:var(--radius); overflow:hidden; background:#0b0f16; box-shadow:var(--shadow); aspect-ratio: 4/3 }
+    .card img{ width:100%; height:100%; object-fit:cover; display:block }
+
+    /* Figure mit externer Caption (plain außerhalb dichten Bereichs) */
+    figure.media{ margin:0 }
+    .media .visual{ border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); background:#0b0f16 }
+    .media .visual img{ display:block; width:100%; height:auto }
+    .media figcaption{ margin-top:10px; color:var(--muted) }
+
+    /* Feature-Row (Text links, großes Bild rechts) */
+    .feature{ display:grid; grid-template-columns: 1.05fr 1fr; gap: var(--gap); align-items:center }
+    .feature .copy h3{ margin:0 0 10px; font-size: clamp(22px,4.5vw,40px) }
+    .feature .copy p{ color:var(--muted); margin:0 0 16px; max-width: 60ch }
+    .btn{ appearance:none; border:1px solid #cfd6e3; background:#fff; color:var(--ink); border-radius:14px; padding:12px 14px; font-weight:800; cursor:pointer }
+    .btn.primary{ border-color:transparent; color:#fff; background:linear-gradient(90deg, var(--blue), var(--purple)) }
+    @media (max-width: 980px){ .feature{ grid-template-columns:1fr } }
+
+    /* Mixed Grid mit Ratio-Utilities */
+    .ar{ aspect-ratio: var(--ar, 4/3) }
+    .ar-1x1{ --ar:1/1 } .ar-3x2{ --ar:3/2 } .ar-2x3{ --ar:2/3 } .ar-16x9{ --ar:16/9 } .ar-4x5{ --ar:4/5 }
+
+    /* Strip Gallery (horiz. Scroll, optional) */
+    .strip{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(260px, 1fr); gap:var(--gap); overflow:auto; padding-bottom:4px; scroll-snap-type:x mandatory }
+    .strip .card{ scroll-snap-align:start }
+
+    /* Lightbox (optional) */
+    dialog.lb{ position:fixed; inset:0; background: color-mix(in oklab, #000 75%, transparent 25%); border:0; padding:0; display:none }
+    dialog.lb[open]{ display:grid; place-items:center }
+    .lb figure{ width:min(92vw,1400px); height:min(92vh,840px); margin:0; background:#0b0f16; border-radius:18px; overflow:hidden }
+    .lb img{ width:100%; height:100%; object-fit:contain }
+    .lb .x{ position:fixed; top:18px; right:18px; width:40px; height:40px; display:grid; place-items:center; border-radius:12px; border:1px solid #cfd6e3; background:#fff; font-weight:800 }
+  </style>
+</head>
+<body>
+
+  <!-- VARIANTE A: Simple Grid (Bild-only) -->
+  <section class="wrap">
+    <h2>Variante A – Simple Grid (Bild-only)</h2>
+    <p class="plain">Schnelles Portfolio-Raster ohne Texte im Bild. Ideal, wenn die Bildsprache für sich spricht.</p>
+    <div class="grid cols-4">
+      <a class="card ar ar-3x2" href="#" data-src="https://picsum.photos/seed/a1/2000/1334"><img src="https://picsum.photos/seed/a1/1200/800" alt=""></a>
+      <a class="card ar ar-1x1" href="#" data-src="https://picsum.photos/seed/a2/1500/1500"><img src="https://picsum.photos/seed/a2/1000/1000" alt=""></a>
+      <a class="card ar ar-2x3" href="#" data-src="https://picsum.photos/seed/a3/1200/1800"><img src="https://picsum.photos/seed/a3/900/1350" alt=""></a>
+      <a class="card ar ar-16x9" href="#" data-src="https://picsum.photos/seed/a4/2560/1440"><img src="https://picsum.photos/seed/a4/1440/810" alt=""></a>
+      <a class="card ar ar-4x5" href="#" data-src="https://picsum.photos/seed/a5/1600/2000"><img src="https://picsum.photos/seed/a5/1200/1500" alt=""></a>
+      <a class="card ar ar-4x3" href="#" data-src="https://picsum.photos/seed/a6/1600/1200"><img src="https://picsum.photos/seed/a6/1200/900" alt=""></a>
+      <a class="card ar ar-1x1" href="#" data-src="https://picsum.photos/seed/a7/1500/1500"><img src="https://picsum.photos/seed/a7/1000/1000" alt=""></a>
+      <a class="card ar ar-2x3" href="#" data-src="https://picsum.photos/seed/a8/1200/1800"><img src="https://picsum.photos/seed/a8/900/1350" alt=""></a>
+    </div>
+  </section>
+
+  <!-- VARIANTE B: Grid mit externer Caption (Text außerhalb) -->
+  <section class="wrap">
+    <h2>Variante B – Grid mit externer Caption</h2>
+    <p class="plain">Plain Copy steht unterhalb als <em>figcaption</em>. Keine Überlagerung, maximale Ruhe.</p>
+    <div class="grid cols-3">
+      <figure class="media"><div class="visual"><img src="https://picsum.photos/seed/b1/1600/1100" alt="Editorial"></div><figcaption>Editorial Series · 2025 · Hamburg</figcaption></figure>
+      <figure class="media"><div class="visual"><img src="https://picsum.photos/seed/b2/1600/1100" alt="Portrait"></div><figcaption>Portraits · Studio & On‑Location</figcaption></figure>
+      <figure class="media"><div class="visual"><img src="https://picsum.photos/seed/b3/1600/1100" alt="Object"></div><figcaption>Objects · Minimal Set</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- VARIANTE C: Feature-Row (Text + großes Bild) -->
+  <section class="wrap">
+    <h2>Variante C – Feature-Row</h2>
+    <div class="feature">
+      <div class="copy">
+        <h3>SHAPE YOUR BRAND</h3>
+        <p>Markante Visuals. Präzise Struktur. Kurze Wege. Diese Stage eignet sich als Aufmacher für Kampagnen, Case-Intros oder heroische Einzelwerke.</p>
+        <div class="actions"><button class="btn primary">Projekt ansehen</button> <button class="btn">Mehr erfahren</button></div>
+      </div>
+      <figure class="media"><div class="visual"><img src="https://picsum.photos/seed/c1/2000/1400" alt="Feature"></div><figcaption>Campaign · Key Visual</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- VARIANTE D: Strip Gallery (horiz. Scroll) -->
+  <section class="wrap">
+    <h2>Variante D – Strip Gallery</h2>
+    <p class="plain">Dezenter, touch‑freundlicher Horizontal‑Scroller (keine Dots, keine Pfeile nötig).</p>
+    <div class="strip">
+      <a class="card ar ar-3x2" href="#" data-src="https://picsum.photos/seed/d1/2000/1334"><img src="https://picsum.photos/seed/d1/1200/800" alt=""></a>
+      <a class="card ar ar-4x5" href="#" data-src="https://picsum.photos/seed/d2/1600/2000"><img src="https://picsum.photos/seed/d2/1200/1500" alt=""></a>
+      <a class="card ar ar-16x9" href="#" data-src="https://picsum.photos/seed/d3/2560/1440"><img src="https://picsum.photos/seed/d3/1440/810" alt=""></a>
+      <a class="card ar ar-1x1" href="#" data-src="https://picsum.photos/seed/d4/1500/1500"><img src="https://picsum.photos/seed/d4/1000/1000" alt=""></a>
+      <a class="card ar ar-2x3" href="#" data-src="https://picsum.photos/seed/d5/1200/1800"><img src="https://picsum.photos/seed/d5/900/1350" alt=""></a>
+    </div>
+  </section>
+
+  <!-- Optional Lightbox (für A/D) -->
+  <dialog class="lb" id="lb" aria-label="Vorschau">
+    <figure><img id="lbImg" alt=""></figure>
+    <button class="x" id="lbClose" aria-label="Schließen">×</button>
+  </dialog>
+
+  <script>
+    // Lightbox nur für Links mit data-src
+    const lb = document.getElementById('lb');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    document.addEventListener('click', e=>{
+      const a = e.target.closest('a.card');
+      if(!a) return;
+      e.preventDefault();
+      lbImg.src = a.dataset.src || a.querySelector('img').src;
+      lb.showModal();
+    });
+    lbClose.addEventListener('click', ()=> lb.close());
+    lb.addEventListener('click', e=>{ if(e.target===lb) lb.close(); });
+    window.addEventListener('keydown', e=>{ if(lb.open && e.key==='Escape') lb.close(); });
+  </script>
+</body>
+</html>

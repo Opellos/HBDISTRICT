@@ -1,0 +1,299 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-semibold tracking-tight text-gray-900">Media Gallery</h1>
+                <div class="flex items-center gap-3">
+                    <button class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all">
+                        <i data-lucide="filter" class="w-4 h-4"></i>
+                        Filter
+                    </button>
+                    <button class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gray-900 border border-gray-900 rounded-lg hover:bg-gray-800 transition-all">
+                        <i data-lucide="upload" class="w-4 h-4"></i>
+                        Upload
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Tabs -->
+    <div class="border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex gap-8 py-4">
+                <button class="text-sm font-medium text-gray-900 border-b-2 border-gray-900 pb-3 -mb-px transition-all">All Media</button>
+                <button class="text-sm font-medium text-gray-500 hover:text-gray-900 pb-3 transition-all">Images</button>
+                <button class="text-sm font-medium text-gray-500 hover:text-gray-900 pb-3 transition-all">Videos</button>
+                <button class="text-sm font-medium text-gray-500 hover:text-gray-900 pb-3 transition-all">Favorites</button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Image Item 1 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&amp;q=80" alt="3D Render" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Abstract 3D Render</h3>
+                        <p class="text-gray-300 text-xs">1920 × 1080</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Item 1 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&amp;q=80" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all">
+                        <i data-lucide="play" class="w-7 h-7 text-gray-900 ml-1"></i>
+                    </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                    <span class="px-2 py-1 bg-black/70 text-white text-xs font-medium rounded">2:34</span>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Car Journey Video</h3>
+                        <p class="text-gray-300 text-xs">1080p • MP4</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Item 2 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&amp;q=80" alt="Portrait" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Portrait Photography</h3>
+                        <p class="text-gray-300 text-xs">1440 × 1920</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Item 3 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=800&amp;q=80" alt="3D Art" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Digital 3D Art</h3>
+                        <p class="text-gray-300 text-xs">2560 × 1440</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Item 2 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&amp;q=80" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all">
+                        <i data-lucide="play" class="w-7 h-7 text-gray-900 ml-1"></i>
+                    </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                    <span class="px-2 py-1 bg-black/70 text-white text-xs font-medium rounded">1:45</span>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Abstract Visuals</h3>
+                        <p class="text-gray-300 text-xs">4K • MP4</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Item 4 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?w=800&amp;q=80" alt="3D Scene" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">3D Environment</h3>
+                        <p class="text-gray-300 text-xs">3840 × 2160</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Item 5 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&amp;q=80" alt="Portrait" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Fashion Photography</h3>
+                        <p class="text-gray-300 text-xs">1920 × 1280</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Item 3 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1617791160588-241658c0f566?w=800&amp;q=80" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all">
+                        <i data-lucide="play" class="w-7 h-7 text-gray-900 ml-1"></i>
+                    </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                    <span class="px-2 py-1 bg-black/70 text-white text-xs font-medium rounded">3:12</span>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Nature Documentary</h3>
+                        <p class="text-gray-300 text-xs">1080p • MP4</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Item 6 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&amp;q=80" alt="3D Render" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Geometric Design</h3>
+                        <p class="text-gray-300 text-xs">2048 × 1536</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Item 7 -->
+            <div class="group relative bg-gray-100 rounded-xl overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02]">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&amp;q=80" alt="Portrait" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-white font-medium text-sm mb-1">Studio Portrait</h3>
+                        <p class="text-gray-300 text-xs">1920 × 1440</p>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                    <button class="p-2 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                        <i data-lucide="download" class="w-4 h-4 text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Load More -->
+        <div class="flex justify-center mt-12">
+            <button class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all">
+                Load More
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body></html>

@@ -1,4 +1,4 @@
-/* Version 12.6 */
+/* Version 12.4 */
 /*
  * CSS für Hendrik Bogner Portfolio
  *
@@ -639,7 +639,7 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
   font-size: 160px;
 }
 
-/* ABSOLUTE  OFFSETS */
+/* ABSOLUTE OFFSETS */
 .braind .letters .B { left:  10px; top: 10px; }
 .braind .letters .R { left: 118px; top: 10px; }
 .braind .letters .A { left: 230px; top: 10px; }
