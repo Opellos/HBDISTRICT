@@ -21,6 +21,8 @@
   --color-bg-beige: #f5ece1;
   --color-bg-nav: rgba(255, 255, 255, 0.15);
 
+  --ci-pink: #ff3cd0;
+
   --gradient-primary: linear-gradient(135deg, #2d5eff 0%, #7d32df 50%, #ff4bc0 85%);
   --gradient-hero-bg: linear-gradient(135deg, #b5d4ff, #2d5eff);
   --gradient-text: linear-gradient(90deg, #207cfa, #ff00a9);
@@ -95,12 +97,67 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
   font-weight:500;font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;
   color:var(--color-text-primary);padding:var(--space-xs) 0;transition:color var(--transition-fast)
 }
-.nav-left a:hover,.nav-right a:not(.cta-button):hover{color:var(--color-blue)}
+.nav-left a:hover,
+.nav-left a:focus-visible,
+.nav-right a:not(.cta-button):hover,
+.nav-right a:not(.cta-button):focus-visible{color:var(--ci-pink)}
 .navbar-brand-center img{height:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.1))}
 .nav-button{padding:.6em 1.5em;font-size:.85rem;box-shadow:0 4px 15px rgba(0,0,0,.1),var(--shadow-glow)}
 .navbar-toggle{display:none;background:none;border:none;cursor:pointer}
 .icon-bar{display:block;width:25px;height:3px;background-color:var(--color-text-primary);margin:5px 0}
 .mobile-nav{display:none}
+
+header nav a:not(.cta-button),
+.mobile-nav a:not(.cta-button){
+  position:relative;
+  text-decoration:none;
+  transition:color .2s ease;
+}
+
+header nav a:not(.cta-button)::after,
+.mobile-nav a:not(.cta-button)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-0.2em;
+  height:2px;
+  width:100%;
+  background:var(--ci-pink);
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .25s ease;
+}
+
+header nav a:not(.cta-button):hover,
+header nav a:not(.cta-button):focus-visible,
+.mobile-nav a:not(.cta-button):hover,
+.mobile-nav a:not(.cta-button):focus-visible{
+  color:var(--ci-pink);
+}
+
+header nav a:not(.cta-button):hover::after,
+header nav a:not(.cta-button):focus-visible::after,
+.mobile-nav a:not(.cta-button):hover::after,
+.mobile-nav a:not(.cta-button):focus-visible::after{
+  transform:scaleX(1);
+}
+
+header nav a.active:not(.cta-button)::after,
+.mobile-nav a.active:not(.cta-button)::after{
+  transform:scaleX(1);
+}
+
+@media (prefers-reduced-motion:reduce){
+  header nav a:not(.cta-button),
+  .mobile-nav a:not(.cta-button){
+    transition:none;
+  }
+
+  header nav a:not(.cta-button)::after,
+  .mobile-nav a:not(.cta-button)::after{
+    transition:none;
+  }
+}
 
 /* 6) HERO */
 .hero-section{
