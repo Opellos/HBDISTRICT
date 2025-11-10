@@ -1,9 +1,10 @@
-/* Version 13.1 */
+/* Version 12.4 */
 /*
  * CSS für Hendrik Bogner Portfolio
  *
  * HINWEIS:
-
+ * - Korrektur: Das korrekte Neumorphic-Design für die Card-Buttons wurde eingefügt.
+ * - Hinzugefügt: Das fehlende CSS für die Split-Buttons im Bio-Abschnitt.
 */
 
 /* 1) DESIGN TOKENS */
@@ -666,93 +667,3 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
 .braind .letters .D { left: 460px; top: 10px; }
 .braind .letters .A2{ left: 232px; top: 10px; }
 .braind .letters .I { left: 345px; top: 10px; }
-
-/* === NEUER BUTTON-STIL (ANGEPASST) version 2.0 === */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 7rem;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 0;
-  
-  /* ANPASSUNG: Glass-Effekt */
-  background: rgba(255, 255, 255, 0.15); /* Mehr Transparenz */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Feine Kante oben/links */
-  border-right-color: rgba(255, 255, 255, 0.1);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #0066f1; /* Hellerer Text für besseren Kontrast */
-
-  /* ANPASSUNG: Sanfter Übergang für Hover-Effekte */
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
-}
-
-.button:hover {
-  /* ANPASSUNG: Hover-Effekte */
-  transform: translateY(-3px); /* Kleine Erhöhung */
-  box-shadow: 0 0 25px rgba(222, 0, 75, 0.5), 0 8px 10px rgba(0, 0, 0, 0.15); /* Shine-Effekt */
-  
-  /* ANPASSUNG: Kante wandert */
-  border-color: rgba(255, 255, 255, 0.2);
-  border-right-color: rgba(255, 255, 255, 0.3);
-  border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-
-.button:active {
-  transform: scale(0.97);
-}
-
-.hoverEffect {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-}
-
-.hoverEffect div {
-  background: linear-gradient(
-    90deg,
-    rgba(222, 0, 75, 1) 0%,
-    rgba(191, 70, 255, 1) 49%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border-radius: 20rem;
-  transition: all 0.4s ease-in-out;
-  filter: blur(20px); /* Weicherer Blur */
-  animation: effect infinite 4s linear;
-  
-  /* Standard-Glow ist subtiler */
-  width: 7rem;
-  height: 7rem;
-  opacity: 0.5;
-}
-
-.button:hover .hoverEffect div {
-  /* Glow wird bei Hover größer und stärker */
-  width: 10rem;
-  height: 10rem;
-  opacity: 0.6;
-  filter: blur(30px);
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
