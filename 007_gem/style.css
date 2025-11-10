@@ -1,4 +1,4 @@
-/* Version 12.6 */
+/* Version 12.4 */
 /*
  * CSS für Hendrik Bogner Portfolio
  *
@@ -254,14 +254,31 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
   font-weight:900;font-size:clamp(3rem,6vw,5rem);line-height:1.1;letter-spacing:-.05em;margin-bottom:var(--space-l)
 }
 .feature-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-l)}
-.card{
+.card {
+  /* Layout-Eigenschaften von vorher beibehalten */
   display: flex;
   flex-direction: column;
-  background:rgba(255,255,255,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  padding:var(--space-l);border-radius:var(--radius-l);border:1px solid rgba(0,0,0,.08);
-  box-shadow:var(--shadow-card);transition:transform var(--transition-base),box-shadow var(--transition-base)
+  padding: var(--space-l);
+  
+  /* Neue Stile aus dem Beispiel für den Glass-Effekt */
+  box-sizing: border-box;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 17px;
+  cursor: pointer;
+  transition: all 0.5s;
+  user-select: none;
 }
-.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-card-hover)}
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
 .card-icon-wrapper{
   width:60px;height:60px;border-radius:var(--radius-m);display:flex;align-items:center;justify-content:center;
   margin-bottom:var(--space-m);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.1)
@@ -392,9 +409,12 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
 
 
 .cta-button{
-  display:inline-block;padding:.8em 1.8em;border-radius:99px;font-weight:700;
+  display:inline-block;padding:.8em 1.8em;border-radius:10px;font-weight:700;
+	
   color:var(--color-text-light);background:var(--gradient-primary);background-size:200% auto;
+	
   transition:background-position var(--transition-base),transform var(--transition-base);
+	
   box-shadow:0 4px 15px rgba(0,0,0,.2)
 }
 .cta-button:hover{background-position:right center;transform:translateY(-2px)}
@@ -433,7 +453,7 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
 .contact-buttons{display:flex;flex-wrap:wrap;gap:var(--space-s);margin-top:var(--space-m)}
 .bulb-hero{position:relative;display:flex;justify-content:center;align-items:center}
 .bulb-hero img{position:relative;z-index:2;max-width:300px}
-.bulb-glow{
+.bu	lb-glow{
   position:absolute;inset:0;background:radial-gradient(circle,rgba(255,60,208,.4),transparent 70%);
   filter:blur(40px);animation:bulb-pulse 4s ease-in-out infinite;z-index:1
 }
@@ -639,7 +659,7 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
   font-size: 160px;
 }
 
-/* ABSOLUTE  OFFSETS */
+/* ABSOLUTE OFFSETS */
 .braind .letters .B { left:  10px; top: 10px; }
 .braind .letters .R { left: 118px; top: 10px; }
 .braind .letters .A { left: 230px; top: 10px; }
@@ -647,5 +667,3 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
 .braind .letters .D { left: 460px; top: 10px; }
 .braind .letters .A2{ left: 232px; top: 10px; }
 .braind .letters .I { left: 345px; top: 10px; }
-
-
