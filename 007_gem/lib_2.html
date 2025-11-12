@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt-Buttons (1:1 aus hb_brand_pd.css)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+  :root{
+    /* Tokens wie im Projekt vorhanden (nur was die Buttons brauchen) */
+    --shadow-md: 0 10px 24px rgba(0,0,0,.28);
+    --shadow-inset: 0 2px 0 rgba(255,255,255,.12) inset;
+  }
+
+  /* Bühne nur für Demo */
+  body{
+    margin:0; min-height:100dvh; display:grid; place-items:center;
+    background: radial-gradient(1200px 700px at 20% -10%, #6a7fbd 0%, #3158a4 40%, #0a2b74 100%) fixed;
+    font-family: "Hanken Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:#fff;
+  }
+  .wrap{ text-align:center }
+  .btn-group{ display:flex; gap:.6rem; align-items:center; justify-content:center; flex-wrap:wrap; }
+
+  /* ===== 1:1 aus hb_brand_pd.css (#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn ...) ===== */
+  .social-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6rem;
+    padding:.9rem 1.4rem;     /* L20-L27 */
+    min-height:3.2rem;        /* L20-L27 */
+    box-sizing:border-box; 
+    width:auto;               /* L23-L24 */
+    border-radius:14px;       /* L24-L25 */
+    font-weight:600;          /* L25 */
+    white-space:nowrap;
+    text-align:center;
+    box-shadow: var(--shadow-md), var(--shadow-inset); /* L33-L35 */
+    text-decoration:none;
+    color:#fff;
+  }
+  .social-btn i{ margin-right:.6rem } /* L40-L41 */
+
+  /* Varianten */
+  .social-btn.is-primary{
+    background: linear-gradient(90deg, #207cfa, #ff3cd0); /* L29-L33 */
+    border:0;
+  }
+  .social-btn.is-outline{
+    background: transparent;
+    border:1px solid rgba(255,255,255,.85); /* L34-L37 */
+    box-shadow:none;                         /* L50-L52 */
+  }
+
+  /* kleines MQ wie im File: kompakteres Padding */
+  @media (max-width: 420px){
+    .social-btn{ padding:.7rem 1rem; min-height:2.8rem; } /* L53-L56 */
+	  
+	 }  
+	/* === Palette: LinkedIn-Button-Farben === */
+/* === Palette: LinkedIn-Button Nuancen (10+10) === */
+.palette {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+.palette-row {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(64px, 1fr));
+  gap: .8rem;
+}
+.palette h4 {
+  margin: 0;
+  font-size: .95rem;
+  opacity: .9;
+}
+.swatch {
+  display: grid;
+  gap: .35rem;
+  text-align: center;
+  font-size: .85rem;
+}
+.swatch-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md, 0 4px 16px rgba(0,0,0,.15));
+  background: var(--c, #000);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.swatch code { font-weight: 700; font-size: .85rem; letter-spacing: .2px; }
+.swatch small { opacity: .85; font-size: .78rem; }
+@media (max-width: 900px) {
+  .palette-row { grid-template-columns: repeat(5, minmax(64px, 1fr)); }
+}
+@media (max-width: 560px) {
+  .palette-row { grid-template-columns: repeat(4, minmax(56px, 1fr)); }
+}
+
+  
+	  
+	  
+	  
+	  
+	  
+ 
+</style>
+</head>
+<body>
+	
+	
+  <main class="wrap">
+    <div class="btn-group" role="group" aria-label="Kontaktlinks">
+      <a class="social-btn is-primary" href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span>
+      </a>
+      <a class="social-btn is-outline" href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener">
+        <i class="fab fa-youtube" aria-hidden="true"></i><span>YouTube</span>
+      </a>
+    </div>
+	  
+	  
+<!-- Palette: LinkedIn-Button – #207cfa (Blue) -->
+<div class="palette" aria-label="LinkedIn-Button Farbpaletten">
+  <h4>#207cfa – 10 Nuancen</h4>
+  <div class="palette-row">
+    <!-- Tints (hell → dunkel Richtung Basis) -->
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#d2e5fe"></div>
+      <div><code>#d2e5fe</code><br><small>rgb(210,229,254)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#b1d1fd"></div>
+      <div><code>#b1d1fd</code><br><small>rgb(177,209,253)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#90befc"></div>
+      <div><code>#90befc</code><br><small>rgb(144,190,252)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#6eaafc"></div>
+      <div><code>#6eaafc</code><br><small>rgb(110,170,252)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#4d96fb"></div>
+      <div><code>#4d96fb</code><br><small>rgb(77,150,251)</small></div>
+    </div>
+    <!-- Shades (dunkler als Basis) -->
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#1a63c8"></div>
+      <div><code>#1a63c8</code><br><small>rgb(26,99,200)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#1551a2"></div>
+      <div><code>#1551a2</code><br><small>rgb(21,81,162)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#103e7d"></div>
+      <div><code>#103e7d</code><br><small>rgb(16,62,125)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#0b2b58"></div>
+      <div><code>#0b2b58</code><br><small>rgb(11,43,88)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#061932"></div>
+      <div><code>#061932</code><br><small>rgb(6,25,50)</small></div>
+    </div>
+  </div>
+
+  <!-- Palette: LinkedIn-Button – #ff3cd0 (Pink) -->
+  <h4>#ff3cd0 – 10 Nuancen</h4>
+  <div class="palette-row">
+    <!-- Tints -->
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#ffd8f6"></div>
+      <div><code>#ffd8f6</code><br><small>rgb(255,216,246)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#ffbbef"></div>
+      <div><code>#ffbbef</code><br><small>rgb(255,187,239)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#ff9ee8"></div>
+      <div><code>#ff9ee8</code><br><small>rgb(255,158,232)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#ff81e1"></div>
+      <div><code>#ff81e1</code><br><small>rgb(255,129,225)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#ff64da"></div>
+      <div><code>#ff64da</code><br><small>rgb(255,100,218)</small></div>
+    </div>
+    <!-- Shades -->
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#cc30a6"></div>
+      <div><code>#cc30a6</code><br><small>rgb(204,48,166)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#a02685"></div>
+      <div><code>#a02685</code><br><small>rgb(160,38,133)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#751c64"></div>
+      <div><code>#751c64</code><br><small>rgb(117,28,100)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#4a1243"></div>
+      <div><code>#4a1243</code><br><small>rgb(74,18,67)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#1e0822"></div>
+      <div><code>#1e0822</code><br><small>rgb(30,8,34)</small></div>
+    </div>
+  </div>
+</div>
+
+
+	  
+	  
+  </main>
+	
+
+	
+</body>
+</html>
