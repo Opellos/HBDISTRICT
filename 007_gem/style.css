@@ -1571,3 +1571,74 @@ text-align: left;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ########## FIX FÜR TAILWIND-INTEGRATION ########## */
+/* Dieser Block isoliert den Projekt-Grid von globalen Stilen */
+
+#tailwind-grid-wrapper * {
+  /* Setzt die grundlegenden Box-Modell-Werte zurück, damit Tailwind sie steuern kann */
+  margin: revert;
+  padding: revert;
+  border: revert;
+  font-size: revert;
+  font-weight: revert;
+  line-height: revert;
+  letter-spacing: revert;
+  color: revert;
+  background-color: revert;
+  box-sizing: border-box; /* Wichtig für Tailwind */
+}
+
+/* Spezifische Resets für Elemente, die oft Probleme machen */
+#tailwind-grid-wrapper h1,
+#tailwind-grid-wrapper h2,
+#tailwind-grid-wrapper h3,
+#tailwind-grid-wrapper h4,
+#tailwind-grid-wrapper h5,
+#tailwind-grid-wrapper h6,
+#tailwind-grid-wrapper p,
+#tailwind-grid-wrapper span,
+#tailwind-grid-wrapper a {
+  font-family: inherit; /* Lässt Tailwind die Schriftart steuern */
+  text-decoration: none;
+  transition: none;
+}
+
+#tailwind-grid-wrapper button {
+  /* Setzt Button-Stile zurück, die mit den Tailwind-Buttons kollidieren */
+  border-radius: revert;
+  box-shadow: none;
+  transition: none;
+  font-family: inherit;
+  background: revert;
+  padding: revert;
+  line-height: revert;
+  font-weight: revert;
+}
+
+/* Verhindert, dass globale Link-Stile das Grid beeinflussen */
+#tailwind-grid-wrapper a::after {
+    display: none;
+}
+
+
