@@ -1,4 +1,4 @@
-/* Version 13.1 */
+/* Version 14 */
 /*
  * CSS für Hendrik Bogner Portfolio
  *
@@ -45,6 +45,7 @@
 }
 
 /* 2) GLOBAL & RESET */
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{
@@ -64,16 +65,8 @@ a{color:inherit;text-decoration:none}
 
 
 
-
-
-
-
-
-
-
-
-
 /* 3) TYPO */
+
 h1,h2,h3,h4{
   font-family:var(--font-primary);
   font-weight:700;
@@ -98,6 +91,8 @@ h2{font-size:clamp(2rem,4vw + 1rem,3.5rem)}
 /* 4) LAYOUT — Anchor-Offset für festen Header */
 :root{ --header-offset: 88px; } /* bei Bedarf an deine Header-Höhe anpassen */
 section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
+
+
 
 
 /* LAYOUT — Mobile Container-Padding (≤768px) */
@@ -271,26 +266,46 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
   text-shadow:0 4px 10px rgba(0,0,0,.1);
 }
 
-.brand-anchor{position:relative;}
-
-.brand-anchor_2{position:relative;}
 
 
-.brand-anchor .ai-overlay{
-  position:absolute;left:0;
-  background:var(--gradient-text);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-	
-  animation:ai-glow 4s ease-in-out infinite;
+
+
+/* BR·A·AI·ND – Firefox-Fix für deckungsgleiches A */
+
+/* BR·A·AI·ND – Firefox-Fix für deckungsgleiches A */
+/* BR·A·AI·ND – Overlay-A exakt deckungsgleich, ohne Linksdrall */
+.brand-anchor,
+.brand-anchor_2{
+  position: relative;
+  display: inline-block;   /* stabile Referenzbox */
 }
 
-
+.brand-anchor .ai-overlay,
 .brand-anchor_2 .ai-overlay_2{
-  position:absolute;left:0;
-  background:var(--gradient-text);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:ai-glow 4s ease-in-out infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;     /* kein Umbruch, gleiche Glyphen-Position */
+  pointer-events: none;
+
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: ai-glow 4s ease-in-out infinite;
 }
+
+   
+
+
+
+
+
+
+
+
 
 @keyframes ai-glow{
   0% { opacity: 0.4; filter: brightness(1); }
@@ -375,11 +390,6 @@ text-align: left;
 .hero-content-visual {
 	margin-left: -1.4%						
 }
-
-
-
-
-
 
 
 
@@ -1056,7 +1066,6 @@ text-align: left;
   flex-shrink: 0;
 }
 
-...
 
 /* OUTLINE (YouTube) */
 .contact-buttons-v2 .social-btn.is-outline {
@@ -1508,9 +1517,12 @@ text-align: left;
 
 
 
-#hero-section { position: relative; overflow: hidden; }
-#hero-section .vanta-canvas { position: absolute !important; inset: 0; z-index: 0; }
-#hero-section > * { position: relative; z-index: 1; }
+
+
+
+
+
+
 
 
 /* Basis: dezenter statischer Rand */
