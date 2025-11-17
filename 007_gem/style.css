@@ -241,6 +241,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
   letter-spacing:-.03em;
   margin:0;
   text-shadow:0 4px 10px rgba(0,0,0,.1);
+	    margin-left: -22px;
 }
 
 
@@ -253,6 +254,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
   letter-spacing:-.03em;
   margin:0;
   text-shadow:0 4px 10px rgba(0,0,0,.1);
+	    margin-left: -22px;
 }
 
 .hero-projekte-title_2{
@@ -264,6 +266,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
   letter-spacing:-.01em;
   margin:0;
   text-shadow:0 4px 10px rgba(0,0,0,.1);
+	    margin-left: -22px;
 }
 
 
