@@ -190,7 +190,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
   color:var(--color-text-light);text-align:center;
 }
 .hero-section_3{
-  min-height:70vh;
+  min-height:40vh;
 	display:flex;
 	align-items:center;
 	justify-content:center;
@@ -235,7 +235,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
 .hero-brand-title{
   font-family:var(--font-secondary);
   font-weight:800;
-  font-size:clamp(5.5rem, 20vw, 15rem);
+  font-size:clamp(5.1rem, 20vw, 15rem);
   line-height:1;
   color:var(--color-blue);
   letter-spacing:-.03em;
@@ -248,7 +248,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
 .hero-brand-title_2{
   font-family:var(--font-secondary);
   font-weight:800;
-  font-size:clamp(5.5rem, 20vw, 15rem);
+  font-size:clamp(5.1rem, 20vw, 15rem);
   line-height:1;
   color:var(--color-blue);
   letter-spacing:-.03em;
@@ -257,7 +257,10 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
 	    margin-left: -22px;
 }
 
-.hero-projekte-title_2{
+
+
+
+.hero-projekte-title_3{
   font-family:var(--font-secondary);
   font-weight:800;
   font-size:clamp(3.5rem, 20vw, 8rem);
@@ -448,12 +451,6 @@ text-align: left;
 
 
 
-
-
-
-
-
-
 @media (max-width: 768px){
   .hero-main-headline h2{
     margin-left:0; margin-right:0;          /* zentrierende Auto-Margen ausschalten */
@@ -466,6 +463,26 @@ text-align: left;
 }
 
 
+@media (max-width: 768px) {
+	.hero-brand-title {		
+	    margin-left: -10px;
+	}
+}
+	
+
+
+
+
+@media (max-width: 768px) {
+	.hero-brand-title_2 {		
+	    margin-left: -22px;
+	}
+}
+	
+
+
+
+
 /* 6) HERO — Mobile: Glass-Card mehr Breite (≤768px) */
 /* Desktop hat: padding: 0.3125rem var(--space-l); margin-bottom: var(--space-l); */
 @media (max-width: 768px){
@@ -476,6 +493,20 @@ text-align: left;
     margin-right: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

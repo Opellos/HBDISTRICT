@@ -109,7 +109,7 @@
         <section class="hero-section_3" id="hero-section">
             <div class="container hero-container_3">
                 <div class="hero-content-visual">
-                    <p class="hero-tagline">COMING SOON</p>
+                  <!--  <p class="hero-tagline">COMING SOON</p>-->
             <!-- NEU (inline clamp) -->
 			<h1 class="hero-brand-title"
 				style="font-size: clamp(3rem, 6vw, 20.5rem);">
@@ -123,8 +123,8 @@
                 </div>
                 <div class="hero-main-headline">
                    <!-- <h2>Produkte gehen über den Tresen. <br><span class="italic-inline">Marken unter die Haut.</span></h2>-->
-					<h2>Produkte<span class="word-badge word-badge--blue">braucht man</span>Marken <span class="word-badge word-badge--pink">will man</span>
-</h2>
+<!--					<h2>Produkte<span class="word-badge word-badge--blue">braucht man</span>Marken <span class="word-badge word-badge--pink">will man</span>
+</h2>-->
                 </div>
 <!--                <aside class="hero-content-text text-left">
                     <div class="glass-card">
@@ -205,6 +205,41 @@
                     </div>
                 </div>
             </div>
+			
+            <!-- Quote Card -->
+            <div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
+                <i data-lucide="quote" class="w-10 h-10 text-gray-300 mb-4"></i>
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Marken machen sichtbar.<br> Identität macht unverwechselbar."</p>
+                <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
+            </div>
+
+<!-- Video Card Tall 2 -->
+<div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
+    <video class="w-full h-full object-cover hidden" src="video/001_3d_auto_01.mp4"></video>
+
+    <div class="h-full overflow-hidden">
+        <img src="img/main2/wireframe_car_1.png" alt="Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
+        <div class="w-20 h-20 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-2xl">
+            <i data-lucide="play" class="w-9 h-9 text-gray-900 ml-1"></i>
+        </div>
+    </div>
+    <div class="absolute top-6 left-6">
+        <span class="px-3 py-1.5 bg-black/80 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">4:23</span>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+        <div>
+            <h4 class="text-white font-bold text-2xl mb-2">Motion Story</h4>
+            <p class="text-gray-200 text-sm leading-relaxed">Strategien für eine sichere Zukunft</p>
+			<p class="text-gray-200 text-sm leading-relaxed">- Kundenauftrag</p>
+            <button class="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                Abspielen
+            </button>
+        </div>
+    </div>
+</div>
 
             <!-- Thin Typography Card -->
             <div class="lg:col-span-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-8 flex items-center justify-center text-center hover:scale-[1.02] transition-all duration-500 shadow-xl">
@@ -234,30 +269,32 @@
                 <p class="text-gray-500 text-sm leading-relaxed font-light">Jedes einzelne erzählt eine einzigartige Geschichte von Vision und Ausführung.</p>
             </div>
 
-            <!-- Video Card Tall -->
-            <div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
-                <div class="h-full overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&amp;q=80" alt="Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
-                    <div class="w-20 h-20 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-2xl">
-                        <i data-lucide="play" class="w-9 h-9 text-gray-900 ml-1"></i>
-                    </div>
-                </div>
-                <div class="absolute top-6 left-6">
-                    <span class="px-3 py-1.5 bg-black/80 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">4:23</span>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                    <div>
-                        <h4 class="text-white font-bold text-2xl mb-2">Motion Story</h4>
-                        <p class="text-gray-200 text-sm leading-relaxed">Eine cinematische Reise durch urbane Landschaften und moderne Architektur.</p>
-                        <button class="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-100 transition-all">
-                            <i data-lucide="play-circle" class="w-4 h-4"></i>
-                            Abspielen
-                        </button>
-                    </div>
-                </div>
-            </div>
+           <!-- Video Card Tall -->
+<div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
+    <div class="h-full overflow-hidden relative">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&amp;q=80" alt="Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <video class="w-full h-full object-cover hidden" src="video/002_falk_01.mp4"></video>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
+        <div class="w-20 h-20 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-2xl">
+            <i data-lucide="play" class="w-9 h-9 text-gray-900 ml-1"></i>
+        </div>
+    </div>
+    <div class="absolute top-6 left-6">
+        <span class="px-3 py-1.5 bg-black/80 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">4:23</span>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+        <div>
+            <h4 class="text-white font-bold text-2xl mb-2">Motion Story II</h4>
+            <p class="text-gray-200 text-sm leading-relaxed">Eine cinematische Reise durch urbane Landschaften und moderne Architektur.</p>
+            <button class="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                Abspielen
+            </button>
+        </div>
+    </div>
+</div>
+
 
             <!-- Bold Typography Card -->
             <div class="lg:col-span-5 bg-black rounded-2xl p-10 flex flex-col justify-center hover:scale-[1.02] transition-all duration-500 shadow-2xl overflow-hidden relative group">
@@ -317,30 +354,33 @@
                 </div>
             </div>
 
-            <!-- Tall Text Card -->
-            <div class="lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-8 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl">
-                <div>
-                    <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="layers" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white mb-4 tracking-tight leading-tight">Multi-Layer Design</h3>
-                    <p class="text-emerald-100 text-sm leading-relaxed font-light">Tiefe entsteht durch Schichten. Jede Ebene erzählt ihre eigene Geschichte.</p>
-                </div>
-                <div class="space-y-3 mt-6">
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-white rounded-full"></div>
-                        <span class="text-emerald-100 text-sm font-light">Ebene für Ebene</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-white rounded-full"></div>
-                        <span class="text-emerald-100 text-sm font-light">Perfektion im Detail</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 bg-white rounded-full"></div>
-                        <span class="text-emerald-100 text-sm font-light">Endlose Möglichkeiten</span>
-                    </div>
-                </div>
-            </div>
+<!-- Tall Text Card mit Video --> 
+<div class="lg:col-span-3 lg:row-span-2 bg-[#f4c9a5] rounded-2xl p-8 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl">
+    <video class="w-full mb-6 rounded-2xl overflow-hidden" src="video/002_close_up_01.mp4" controls></video>
+
+    <div>
+        <div class="w-14 h-14 bg-black/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="layers" class="w-7 h-7 text-slate-900"></i>
+        </div>
+        <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">Multi-Layer Design</h3>
+        <p class="text-slate-900 text-sm leading-relaxed font-light">Tiefe entsteht durch Schichten. Jede Ebene erzählt ihre eigene Geschichte.</p>
+    </div>
+    <div class="space-y-3 mt-6">
+        <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
+            <span class="text-slate-900 text-sm font-light">Ebene für Ebene</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
+            <span class="text-slate-900 text-sm font-light">Perfektion im Detail</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
+            <span class="text-slate-900 text-sm font-light">Endlose Möglichkeiten</span>
+        </div>
+    </div>
+</div>
+
 
             <!-- Square Image -->
             <div class="lg:col-span-4 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-xl">
@@ -384,8 +424,8 @@
             <!-- Quote Card -->
             <div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
                 <i data-lucide="quote" class="w-10 h-10 text-gray-300 mb-4"></i>
-                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Design ist nicht nur, wie es aussieht. Design ist, wie es funktioniert."</p>
-                <div class="text-sm text-gray-500 font-medium">— Steve Jobs</div>
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Produkte sind das Was.<br> Marken das Wie. <br>Identität das Warum."</p>
+                <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
             </div>
 
         </div>
@@ -398,7 +438,7 @@
         
 
         <!-- PARTNERS SECTION -->
-        <section class="content-section bg-light" id="partners">
+<!--        <section class="content-section bg-light" id="partners">
             <div class="container">
                 <h2 class="sr-only">Partner</h2>
                 <div class="client-carousel">
@@ -408,7 +448,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <!-- CONTACT SECTION -->
         <section class="content-section gradient-background" id="Kontakt">

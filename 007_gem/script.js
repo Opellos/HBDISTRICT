@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+	
+	function playVideo(card) {
+  const video = card.querySelector('video');
+  const img = card.querySelector('img');
+  const overlay = card.querySelector('.video-play-overlay');
+
+  if (!video) return;
+
+  if (img) img.classList.add('hidden');
+  if (overlay) overlay.classList.add('hidden');
+
+  video.classList.remove('hidden');
+  video.setAttribute('controls', 'true');
+  video.play();
+}
+
 
   /* =========================
      SPLASH SCREEN (optional)
@@ -172,6 +188,25 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('section[id]').forEach(sec => io.observe(sec));
 
   /* =========================
+     VIDEO-CARD: PLAY HANDLER
+  ========================== */
+  window.playVideo = function (card) {
+    const video   = card.querySelector('video');                 // Video-Element
+    const img     = card.querySelector('img');                   // Vorschaubild
+    const overlay = card.querySelector('.video-play-overlay');   // Play-Overlay
+
+    if (!video) return;
+
+    if (img) img.classList.add('hidden');          // Bild ausblenden
+    if (overlay) overlay.classList.add('hidden');  // Overlay ausblenden
+
+    video.classList.remove('hidden');              // Video einblenden
+    video.setAttribute('controls', 'true');        // Controls aktivieren
+    video.play();                                  // Abspielen
+  };
+  /* ===== END: VIDEO-CARD: PLAY HANDLER ===== */
+
+  /* =========================
      LUCIDE ICONS (optional)
   ========================== */
   if (typeof lucide !== 'undefined') {
@@ -179,3 +214,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+
