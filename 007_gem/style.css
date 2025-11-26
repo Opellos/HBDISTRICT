@@ -1,10 +1,5 @@
 /* Version 14 */
-/*
- * CSS für Hendrik Bogner Portfolio
- *
- * HINWEIS: +
 
-*/
 
 /* 1) DESIGN TOKENS */
 :root {
@@ -277,9 +272,10 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
 
 
 /* BR·A·AI·ND – Firefox-Fix für deckungsgleiches A */
-
 /* BR·A·AI·ND – Firefox-Fix für deckungsgleiches A */
 /* BR·A·AI·ND – Overlay-A exakt deckungsgleich, ohne Linksdrall */
+
+
 .brand-anchor,
 .brand-anchor_2{
   position: relative;
