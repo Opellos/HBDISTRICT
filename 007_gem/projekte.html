@@ -145,7 +145,8 @@
         
         <!--inhalte implementiert -->
  <main class="max-w-[1600px] mx-auto px-6 lg:px-12 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto">
+        <!-- HB Update (CX-17): Grid dichter packen, damit Restflächen belegt werden -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
             
            <!-- Large Hero Text Card -->
 <!-- Large Hero Text Card -->
@@ -320,7 +321,8 @@
 
 
             <!-- Bold Typography Card -->
-<div class="lg:col-span-5 rounded-2xl p-10 flex flex-col justify-center hover:scale-[1.02] transition-all duration-500 shadow-2xl overflow-hidden relative group">
+            <!-- HB Update (CX-17): Karte spannt zwei Grid-Reihen, um Lücken zu schließen -->
+<div class="lg:col-span-5 lg:row-span-2 rounded-2xl p-10 flex flex-col justify-center hover:scale-[1.02] transition-all duration-500 shadow-2xl overflow-hidden relative group h-full">
     <div class="absolute inset-0 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 opacity-100 transition-opacity duration-500"></div>
     <div class="relative z-10">
         <h3 class="text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4">BOLD<br>MOVES</h3>
@@ -341,7 +343,8 @@
             </div>-->
 
             <!-- Text Card with Button -->
-<div class="lg:col-span-4 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 rounded-2xl p-8 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+            <!-- HB Update (CX-17): Schnell-&-Dynamisch-Kachel nutzt zwei Reihen und volle Höhe -->
+<div class="lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 rounded-2xl p-8 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full">
     <div>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" class="lucide lucide-zap w-10 h-10 text-blue-100 mb-4">
             <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
