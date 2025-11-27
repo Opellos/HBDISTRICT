@@ -30,6 +30,22 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        /* CX-17: Gallery-Grid enger packen und Höhe angleichen */
+        .gallery-grid {
+            grid-auto-rows: minmax(260px, auto);
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-auto-rows: minmax(280px, auto);
+                grid-auto-flow: row dense;
+            }
+
+            .gallery-grid > * {
+                height: 100%;
+            }
+        }
+
         .animate-gradient {
             background-size: 200% 200%;
             animation: gradient 15s ease infinite;
@@ -146,7 +162,8 @@
         <!--inhalte implementiert -->
  <main class="max-w-[1600px] mx-auto px-6 lg:px-12 py-12">
         <!-- HB Update (CX-17): Grid dichter packen, damit Restflächen belegt werden -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
+        <!-- CX-17: Gallery-Grid (dichter, ohne Oversize-Kacheln) -->
+        <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
             
            <!-- Large Hero Text Card -->
 <!-- Large Hero Text Card -->
