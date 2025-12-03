@@ -1,3 +1,5 @@
+/* Mittwoch, 03. Dezember 2025 17:54  */
+
 document.addEventListener('DOMContentLoaded', function() {
 	
 	function playVideo(card) {
