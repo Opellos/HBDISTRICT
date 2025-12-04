@@ -52,6 +52,7 @@
 	
 
 		<script src="script.js" defer></script>
+	
 
 </head>
 <body>
@@ -153,25 +154,33 @@
 <!-- SS -->
 			
 <!-- Large Hero Text Card -->
-<div class="lg:col-span-6 lg:row-span-2 bg-white rounded-2xl md:p-12 p-6 flex flex-col justify-between overflow-hidden relative group shadow-lg hover:shadow-xl transition-all duration-500">
+<div class="lg:col-span-6 lg:row-span-2 bg-white border border-[#e6ecff] rounded-2xl md:p-12 p-6 flex flex-col justify-between overflow-hidden relative group shadow-lg hover:shadow-xl transition-all duration-500">
+  <!-- Bezier-artige Farbfläche im unteren Drittel, weicher nach oben auslaufend -->
+  <div class="pointer-events-none absolute inset-x-[-15%] bottom-[-10%] h-1/2 bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)] opacity-70 blur-2xl rotate-[-4deg]"></div>
+
   <div class="relative z-10">
     <span class="text-blue-400 text-sm font-extrabold tracking-wide uppercase">Projekte Hendrik Bogner</span>
     <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1]">
       Strategie sichtbar machen.
     </h2>
-    <p class="text-gray-700 text-base leading-normal font-normal">
+    <p class="text-gray-700 text-[18px] leading-[24px] font-normal max-w-xl">
       Das Visuelle ist das Finale, die Strategie davor der entscheidende Hebel. Ich nehme Sie gerne mit in einen Deep Dive durch meine Projekte, damit Sie sehen, wie ich arbeite. Machen wir es unkompliziert: Ein Klick in meinen Kalender genügt, Sie wählen Ihre Zeit, und wir sprechen über das, was Ihre Marke voranbringt.
     </p>
   </div>
   <div class="relative z-10 mt-6">
-    <a href="https://bogner.youcanbook.me" target="_blank" rel="noopener noreferrer" class="button w-full max-w-md mx-auto py-4 text-base flex items-center justify-center">
-      Deep Dive mit Hendrik Bogner
+    <a href="https://bogner.youcanbook.me"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="button w-[70%] py-4 text-base flex items-center justify-center text-center rounded-2xl">
+      Deep Dive mit<br>Hendrik Bogner
       <div class="hoverEffect">
         <div></div>
       </div>
     </a>
   </div>
 </div>
+
+
 
 
 
@@ -222,12 +231,17 @@
 </div>
 
 			
-            <!-- Quote Card -->
-            <div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
-                <p class="text-2xl font-normal text-gray-900 italic leading-relaxed mb-4">"Marken machen sichtbar.<br> Identität macht unverwechselbar."</p>
-                <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
-            </div>
+<!-- Quote Card -->
+<div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center hover:shadow-xl transition-all duration-500">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4">
+        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+    </svg>
+    <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Marken machen sichtbar.<br>Identität macht unverwechselbar."</p>
+    <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
+
+</div>
+
 
 <!-- Video Card Tall (Wireframe-SUV) -->
 <div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
@@ -266,11 +280,12 @@
 
 
 			
-			<!-- Quote Card II -->
-<div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
+<!-- Quote Card II -->
+<div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center hover:shadow-xl transition-all duration-500">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
     <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Fortschritt zeigt, was möglich ist.<br>Marke zeigt, wer wir sind."</p>
-    <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
+    <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
+
 </div>
 
             <!-- Thin Typography Card -->
@@ -296,7 +311,18 @@
 
             <!-- Text Only Card with Stats strt -->
 <!-- Text Only Card with Stats -->
-			<div class="lg:col-span-4 bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-gray-200"><div class="text-6xl font-bold text-gray-900 tracking-tight">17 ...</div><h2 class="text-[28px] font-extrabold text-[#3D4654] mt-2 mb-4">... kreative Projekte in der Pipeline</h2><p class="text-gray-500 text-sm leading-relaxed font-light">Jeden Montag eine einzigartige Geschichte von Vision und Ausführung.</p></div>
+<div class="lg:col-span-4 bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-gray-200">
+  <div class="text-6xl font-extrabold text-[#3D4654] tracking-tight">
+    17 Kreative Projekte
+  </div>
+  <h2 class="text-[28px] font-light italic text-[#3D4654] mt-2 mb-4">
+    in der Pipeline
+  </h2>
+  <p class="text-gray-500 text-sm leading-relaxed font-light">
+    Jeden Montag eine einzigartige Geschichte von Vision und Ausführung.
+  </p>
+</div>
+
 
 
 <!-- Video Card Tall --> 
@@ -350,6 +376,10 @@
             </div>-->
 
             <!-- Text Card with Button -->
+			
+			
+			
+			
             <!-- HB Update (CX-17): Schnell-&-Dynamisch-Kachel nutzt zwei Reihen und volle Höhe -->
 <div class="lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 rounded-2xl p-8 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full">
     <div>
@@ -395,13 +425,24 @@
 </div>
 
 
-<!-- Tall Text Card mit Video --> 
-<!-- Tall Text Card mit Video --> 
+
+<!-- Tall Text Card mit Double Video -->
 <div class="lg:col-span-3 lg:row-span-3 bg-[#dbeafe] rounded-2xl p-8 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl">
-    <video class="w-full mb-6 rounded-2xl overflow-hidden" src="video/002_close_up_01.mp4" controls=""></video>
+
+    <!-- VIDEO 1: autoplay, kein Button, keine Controls -->
+    <div class="relative mb-6">
+        <video
+            class="w-full rounded-2xl"
+            src="video/002_close_up_01.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+        ></video>
+    </div>
 
     <div>
-     <div class="w-14 h-14 bg-black/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+        <div class="w-14 h-14 bg-black/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
             <i data-lucide="layers" class="w-7 h-7 text-slate-900"></i>
         </div>
         <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">AI -Character-Design</h3>
@@ -409,19 +450,32 @@
     </div>
 
     <div class="space-y-3 mt-6">
-        <div class="flex items-center gap-1">
-            <video class="w-full mb-6 rounded-2xl overflow-hidden" src="video/002_close_up_01.mp4" controls=""></video>
+
+        <!-- VIDEO 2: autoplay, kein Button, keine Controls -->
+        <div class="relative">
+            <video
+                class="w-full rounded-2xl"
+                src="video/002_close_up_01.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+            ></video>
         </div>
-        <div class="flex items-center gap-2">
+
+<!--        <div class="flex items-center gap-2">
             <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
             <span class="text-slate-900 text-sm font-light">Perfektion im Detail</span>
-        </div>
-        <div class="flex items-center gap-3">
+        </div>-->
+
+<!--        <div class="flex items-center gap-3">
             <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
             <span class="text-slate-900 text-sm font-light">Endlose Möglichkeiten</span>
-        </div>
+        </div>-->
     </div>
 </div>
+
+
 
 
             <!-- Square Image -->
@@ -495,13 +549,8 @@
                 </div>
             </div>
             <!-- END CX-17: Video-Slider Kaleidoskop -->
-			            <!-- START CX-17: Zitat Produkte neben Nature -->
-            <div class="lg:col-span-3 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-purple-900 hover:shadow-xl transition-all duration-500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
-                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Produkte sind das Was.<br> Marken das Wie. <br>Identität das Warum."</p>
-                <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
-            </div>
-            <!-- END CX-17: Zitat Produkte neben Nature -->
+			
+			
 
 
             <!-- START CX-17: Gallery-Stack "Dynamik" -->
@@ -566,15 +615,33 @@
             </div>
             <!-- END CX-17: Micro-Grid "Video+Slider" -->
 
-            <!-- START CX-17: Breites Zitat Vision -->
-            <div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
-                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Ideen brauchen Bühne.<br> Marken geben Richtung.<br> Momentum entsteht im Zusammenspiel."</p>
-                <div class="text-sm text-gray-500 font-medium">— CX-17</div>
-            </div>
-            <!-- END CX-17: Breites Zitat Vision -->
+<!-- START CX-17: Breites Zitat Vision -->
+<div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center hover:shadow-xl transition-all duration-500">
 
-            <!-- START CX-17: Kompaktes Zitat Fokus -->
+    <!-- Zitat links -->
+    <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">
+        "Wo Leistung entsteht, muss Bedeutung folgen."
+    </p>
+
+    <!-- Name rechts -->
+    <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
+
+</div>
+			
+						            <!-- START CX-17: Zitat Produkte neben Nature -->
+            <div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center  border-purple-900 hover:shadow-xl transition-all duration-500">
+             
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Produkte sind das Was.<br> Marken das Wie. <br>Identität das Warum."</p>
+                <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
+
+            </div>
+            <!-- END CX-17: Zitat Produkte neben Nature -->
+
+<!-- END CX-17: Breites Zitat Vision -->
+
+
+
+          <!-- START CX-17: Kompaktes Zitat Fokus -->
 <!--            <div class="lg:col-span-4 bg-white rounded-2xl p-8 flex flex-col justify-center border-l-4 border-blue-900 hover:shadow-xl transition-all duration-500">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-8 h-8 text-gray-300 mb-3"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
                 <p class="text-xl font-light text-gray-900 italic leading-relaxed mb-3">"Mutig denken, klar gestalten."

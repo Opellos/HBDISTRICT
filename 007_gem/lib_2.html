@@ -104,11 +104,12 @@
   
 	  
 	  
-	  
-	  
+	
 	  
  
 </style>
+	  <script src="https://cdn.tailwindcss.com"></script>
+	  
 </head>
 <body>
 	
@@ -175,53 +176,123 @@
   <!-- Palette: LinkedIn-Button – #ff3cd0 (Pink) -->
   <h4>#ff3cd0 – 10 Nuancen</h4>
   <div class="palette-row">
-    <!-- Tints -->
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#ffd8f6"></div>
-      <div><code>#ffd8f6</code><br><small>rgb(255,216,246)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#ffbbef"></div>
-      <div><code>#ffbbef</code><br><small>rgb(255,187,239)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#ff9ee8"></div>
-      <div><code>#ff9ee8</code><br><small>rgb(255,158,232)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#ff81e1"></div>
-      <div><code>#ff81e1</code><br><small>rgb(255,129,225)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#ff64da"></div>
-      <div><code>#ff64da</code><br><small>rgb(255,100,218)</small></div>
-    </div>
-    <!-- Shades -->
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#cc30a6"></div>
-      <div><code>#cc30a6</code><br><small>rgb(204,48,166)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#a02685"></div>
-      <div><code>#a02685</code><br><small>rgb(160,38,133)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#751c64"></div>
-      <div><code>#751c64</code><br><small>rgb(117,28,100)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#64165a"></div>
-      <div><code>#64165a</code><br><small>rgb(100,22,90)</small></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-box" style="--c:#2a0c30"></div>
-      <div><code>#2a0c30</code><br><small>rgb(42,12,48)</small></div>
+  <!-- Tints -->
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ffd8f6"></div>
+    <div><code>#ffd8f6</code><br><small>rgb(255,216,246)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ffbbef"></div>
+    <div><code>#ffbbef</code><br><small>rgb(255,187,239)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ff9ee8"></div>
+    <div><code>#ff9ee8</code><br><small>rgb(255,158,232)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ff81e1"></div>
+    <div><code>#ff81e1</code><br><small>rgb(255,129,225)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ff64da"></div>
+    <div><code>#ff64da</code><br><small>rgb(255,100,218)</small></div>
+  </div>
+  <!-- Shades (raspberry instead of bordeaux) -->
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#e01171"></div>
+    <div><code>#e01171</code><br><small>rgb(224,17,113)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#c2185b"></div>
+    <div><code>#c2185b</code><br><small>rgb(194,24,91)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ad1457"></div>
+    <div><code>#ad1457</code><br><small>rgb(173,20,87)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#880e4f"></div>
+    <div><code>#880e4f</code><br><small>rgb(136,14,79)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#560022"></div>
+    <div><code>#560022</code><br><small>rgb(86,0,34)</small></div>
+  </div>
+</div>
+	  
+	<div>
+	<!-- Gradient-Palette Section -->
+<section class="w-full bg-white py-10">
+  <div class="max-w-5xl mx-auto px-4">
+    <h3 class="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2">
+      Gradient-Palette
+    </h3>
+    <p class="text-sm text-gray-600 mb-6 max-w-2xl">
+      Master-Verlauf und Varianten für Cards, Hintergründe und Buttons.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <!-- Master Gradient (Hero-Verlauf) -->
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
+          <div class="w-full h-full bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Master Gradient</strong><br>
+          bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]
+        </div>
+      </div>
+
+      <!-- Gradient 2 – Soft Diagonal -->
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
+          <div class="w-full h-full bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Soft Diagonal</strong><br>
+          bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- Gradient 3 – Raspberry Focus -->
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
+          <div class="w-full h-full bg-[radial-gradient(circle_at_35%_65%,_#ff3cd0_0%,_#e01171_30%,_#ad1457_55%,_#207cfa_85%,_#0b1020_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Raspberry Focus</strong><br>
+          bg-[radial-gradient(circle_at_35%_65%,_#ff3cd0_0%,_#e01171_30%,_#ad1457_55%,_#207cfa_85%,_#0b1020_100%)]
+        </div>
+      </div>
+
+      <!-- Gradient 4 – Split Blend -->
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_25%,_#b5d4ff_55%,_#207cfa_80%,_#7b5cff_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Split Blend</strong><br>
+          bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_25%,_#b5d4ff_55%,_#207cfa_80%,_#7b5cff_100%)]
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-
+	
+	
+	</div>  
 	  
 	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </div> 	  
   </main>
 	
 
