@@ -220,59 +220,125 @@
   </div>
 </div>
 	  
-	<div>
-	<!-- Gradient-Palette Section -->
-<section class="w-full bg-white py-10">
-  <div class="max-w-5xl mx-auto px-4">
-    <h3 class="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2">
+	
+	<!-- Gradient-Palette (10 lineare Verläufe, kein eigener Hintergrund) -->
+<section class="w-full py-10">
+  <div class="max-w-6xl mx-auto px-4">
+    <h3 class="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2 text-center">
       Gradient-Palette
     </h3>
-    <p class="text-sm text-gray-600 mb-6 max-w-2xl">
-      Master-Verlauf und Varianten für Cards, Hintergründe und Buttons.
+    <p class="text-sm text-gray-600 mb-8 max-w-2xl mx-auto text-center">
+      Lineare Verläufe auf Basis von #ff3cd0, #207cfa und Violetttönen.
     </p>
 
-    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-      <!-- Master Gradient (Hero-Verlauf) -->
-      <div class="flex flex-col gap-3">
-        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
-          <div class="w-full h-full bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]"></div>
-        </div>
-        <div class="text-xs text-gray-500 leading-snug">
-          <strong>Master Gradient</strong><br>
-          bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]
-        </div>
-      </div>
-
-      <!-- Gradient 2 – Soft Diagonal -->
-      <div class="flex flex-col gap-3">
-        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- 1: Master Linear -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
           <div class="w-full h-full bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
         </div>
         <div class="text-xs text-gray-500 leading-snug">
-          <strong>Soft Diagonal</strong><br>
+          <strong>Master Linear</strong><br>
           bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]
         </div>
       </div>
 
-      <!-- Gradient 3 – Raspberry Focus -->
-      <div class="flex flex-col gap-3">
-        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
-          <div class="w-full h-full bg-[radial-gradient(circle_at_35%_65%,_#ff3cd0_0%,_#e01171_30%,_#ad1457_55%,_#207cfa_85%,_#0b1020_100%)]"></div>
+      <!-- 2: Pink → Blue -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_30%,_#b5d4ff_65%,_#207cfa_100%)]"></div>
         </div>
         <div class="text-xs text-gray-500 leading-snug">
-          <strong>Raspberry Focus</strong><br>
-          bg-[radial-gradient(circle_at_35%_65%,_#ff3cd0_0%,_#e01171_30%,_#ad1457_55%,_#207cfa_85%,_#0b1020_100%)]
+          <strong>Pink &gt; Blue</strong><br>
+          bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_30%,_#b5d4ff_65%,_#207cfa_100%)]
         </div>
       </div>
 
-      <!-- Gradient 4 – Split Blend -->
-      <div class="flex flex-col gap-3">
-        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff] bg-white/40">
-          <div class="w-full h-full bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_25%,_#b5d4ff_55%,_#207cfa_80%,_#7b5cff_100%)]"></div>
+      <!-- 3: Blue → Pink -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#207cfa_0%,_#b5d4ff_35%,_#ff64da_70%,_#ff3cd0_100%)]"></div>
         </div>
         <div class="text-xs text-gray-500 leading-snug">
-          <strong>Split Blend</strong><br>
-          bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_25%,_#b5d4ff_55%,_#207cfa_80%,_#7b5cff_100%)]
+          <strong>Blue &gt; Pink</strong><br>
+          bg-[linear-gradient(90deg,_#207cfa_0%,_#b5d4ff_35%,_#ff64da_70%,_#ff3cd0_100%)]
+        </div>
+      </div>
+
+      <!-- 4: Raspberry Strip -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#ff3cd0_0%,_#e01171_40%,_#ad1457_80%,_#0b1020_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Raspberry Strip</strong><br>
+          bg-[linear-gradient(90deg,_#ff3cd0_0%,_#e01171_40%,_#ad1457_80%,_#0b1020_100%)]
+        </div>
+      </div>
+
+      <!-- 5: Pink Center -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#207cfa_0%,_#ff3cd0_45%,_#ff3cd0_55%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Pink Center</strong><br>
+          bg-[linear-gradient(90deg,_#207cfa_0%,_#ff3cd0_45%,_#ff3cd0_55%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 6: Soft Pastel -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(135deg,_#ffd8f6_0%,_#ffbbef_30%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Soft Pastel</strong><br>
+          bg-[linear-gradient(135deg,_#ffd8f6_0%,_#ffbbef_30%,_#b5d4ff_70%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 7: Violet Blend -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff64da_25%,_#7b5cff_65%,_#0b1020_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Violet Blend</strong><br>
+          bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff64da_25%,_#7b5cff_65%,_#0b1020_100%)]
+        </div>
+      </div>
+
+      <!-- 8: Sky Divider -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff9ee8_25%,_#b5d4ff_50%,_#207cfa_75%,_#0b1020_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Sky Divider</strong><br>
+          bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff9ee8_25%,_#b5d4ff_50%,_#207cfa_75%,_#0b1020_100%)]
+        </div>
+      </div>
+
+      <!-- 9: Pink Horizon -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(180deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Pink Horizon</strong><br>
+          bg-[linear-gradient(180deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 10: Deep Night -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ad1457_35%,_#207cfa_70%,_#0b1020_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Deep Night</strong><br>
+          bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ad1457_35%,_#207cfa_70%,_#0b1020_100%)]
         </div>
       </div>
     </div>
@@ -291,8 +357,7 @@
 	  
 	  
 	  
-	  
-	  </div> 	  
+		  
   </main>
 	
 
