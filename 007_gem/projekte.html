@@ -330,7 +330,7 @@
         </div>-->
     </div>
     <div class="absolute top-6 left-6">
-        <span class="px-3 py-1.5 bg-black/80 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">© Hendrik Bogner – Urheber- und Designrechte.</span>
+        <span class="px-3 py-1.5 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">© Hendrik Bogner</span>
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-8">
         <div>
@@ -392,9 +392,9 @@
 </div>
 -->
 			
-<!-- II HB Update (CX-17): Schnell-&-Dynamisch-Kachel mit drei Bildformen (nur abgerundete Ecken) -->
-<div class="lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 rounded-2xl p-8 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full">
-    <div class="space-y-5">
+<!-- II HB Update (CX-17): Schnell-&-Dynamisch-Kachel mit Rahmen um den Gesamtframe -->
+<div class="lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-sky-100 via-sky-200 to-pink-200/30 rounded-2xl p-3 sm:p-4 lg:p-6 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full border border-white/70">
+    <div class="space-y-3 lg:space-y-4">
         <div>
             <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">
                 Schnell &amp; dynamisch ins Bild gesetzt
@@ -404,25 +404,25 @@
             </p>
         </div>
 
-        <!-- Bild 1: oben, nur OBERE Ecken gerundet -->
-        <div class="relative w-full overflow-hidden aspect-[4/3] shadow-lg rounded-t-2xl">
+        <!-- Bild 1: oben, nur OBERE Ecken gerundet, OHNE eigene Kante -->
+        <div class="relative w-full overflow-hidden aspect-[4/3] rounded-t-2xl">
             <img src="img3/01_telekom_shoot_sess_48.png" alt="Telekom Visual – Top" class="w-full h-full object-cover">
         </div>
 
-        <!-- Bild 2: Mitte, GAR KEINE Rundungen -->
-        <div class="relative w-full overflow-hidden aspect-[4/3] shadow-lg">
+        <!-- Bild 2: Mitte, ohne Rundungen, OHNE eigene Kante -->
+        <div class="relative w-full overflow-hidden aspect-[4/3]">
             <img src="img3/01_telekom_shoot_sess_06.png" alt="Telekom Visual – Mitte" class="w-full h-full object-cover">
         </div>
 
-        <!-- Bild 3: unten, nur UNTERE Ecken gerundet -->
-        <div class="relative w-full overflow-hidden aspect-[4/3] shadow-lg rounded-b-2xl">
+        <!-- Bild 3: unten, nur UNTERE Ecken gerundet, OHNE eigene Kante -->
+        <div class="relative w-full overflow-hidden aspect-[4/3] rounded-b-2xl">
             <img src="img3/01_telekom_shoot_sess_47.png" alt="Telekom Visual – Unten" class="w-full h-full object-cover">
         </div>
     </div>
 
-    <!-- CTA-Button: ohne Pfeil, leichter Verlauf, Glas-Kante -->
+    <!-- markanter Button (wie gewünscht beibehalten) -->
     <button
-        class="mt-6 inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/30 to-white/5 rounded-lg border border-white/40 backdrop-blur-sm hover:from-white/50 hover:to-white/10 transition-all self-start">
+        class="mt-4 lg:mt-5 inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/85 to-white/50 rounded-xl border border-white/70 backdrop-blur-sm shadow-md hover:from-white hover:to-white/70 hover:shadow-lg transition-all self-start">
         Telekom Visual-Showcase öffnen
     </button>
 </div>
@@ -443,7 +443,8 @@
 
             <!-- Wide Image with Overlay Text Farbverlauf-->
 <div class="lg:col-span-8 lg:row-span-1 group relative bg-gray-900 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl">
-    <div class="h-full min-h-[300px] overflow-hidden">
+    <!--<div class="h-full min-h-[300px] overflow-hidden">-->
+	<div class="h-[260px] overflow-hidden"> <!-- statt h-full min-h-[300px] -->
         <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&amp;q=80" alt="Abstract" class="w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-all duration-700 group-hover:scale-105">
     </div>
     <div class="absolute inset-0 bg-gradient-to-r from-sky-300 via-sky-400 to-pink-200 flex items-center p-10">
@@ -496,33 +497,34 @@
                 </div>
             </div>-->
 
-            <!-- Mini Carousel Card -->
-            <div class="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                <div class="relative aspect-[16/9] group">
-                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel2">
-                        <div class="carousel-item min-w-full h-full">
-                            <img src="img3/01_telekom_shoot_sess_19.png">
-                        </div>
-                        <div class="carousel-item min-w-full h-full">
-                            <img src="img3/01_telekom_shoot_sess_32.png">
-                        </div>
-                    </div>
-<!--                    <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel2', -1)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" class="lucide lucide-chevron-left w-5 h-5 text-gray-900"><path d="m15 18-6-6 6-6"></path></svg>
-                    </button>-->
-<!--                    <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel2', 1)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right w-5 h-5 text-gray-900"><path d="m9 18 6-6-6-6"></path></svg>
-                    </button>-->
-                    <div class="absolute bottom-4 right-4 flex gap-2" id="carousel2-dots">
-                        <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow-lg transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel2', 0)"></div>
-                        <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow-lg transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel2', 1)"></div>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Nature Series</h3>
-                    <p class="text-gray-600 text-sm">Zwei Welten, eine Vision</p>
-                </div>
+<!-- Mini Carousel Card – Textbereich und Dots weiter verschlankt -->
+<div class="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+    <div class="relative aspect-[16/9] group">
+        <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel2">
+            <div class="carousel-item min-w-full h-full">
+                <img src="img3/01_telekom_shoot_sess_19.png"
+                     class="w-full h-full object-cover object-bottom">
             </div>
+            <div class="carousel-item min-w-full h-full">
+                <img src="img3/01_telekom_shoot_sess_32.png"
+                     class="w-full h-full object-cover object-bottom">
+            </div>
+        </div>
+
+        <div class="absolute bottom-2 right-2 flex gap-1" id="carousel2-dots">
+            <div class="carousel-dot w-1.5 h-1.5 bg-white rounded-full shadow transition-all cursor-pointer"
+                 data-index="0" onclick="goToSlide('carousel2', 0)"></div>
+            <div class="carousel-dot w-1.5 h-1.5 bg-white/50 rounded-full shadow transition-all cursor-pointer"
+                 data-index="1" onclick="goToSlide('carousel2', 1)"></div>
+        </div>
+    </div>
+
+    <div class="p-3">
+        <h3 class="text-sm font-semibold text-gray-900 mb-1">Nature Series</h3>
+        <p class="text-gray-600 text-[11px] leading-snug">Zwei Welten, eine Vision</p>
+    </div>
+</div>
+
 
 
 <!-- START CX-17: Video-Slider Telekom Ranger A -->
@@ -567,7 +569,7 @@
         <h3 class="text-2xl font-semibold leading-tight">Telekom Ranger – Sammel- und Rollout-Timeline</h3>
         <p class="text-sm text-gray-600">Zwei Perspektiven auf den Rollout – vom ersten Einsatz bis zur Fläche.</p>
     </div>
-	<
+	
 </div>
 <!-- END CX-17: Video-Slider Telekom Ranger -->
 
