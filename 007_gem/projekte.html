@@ -458,7 +458,7 @@
 
 
 <!-- Tall Text Card mit Double Video -->
-<div class="lg:col-span-3 lg:row-span-2 bg-[#dbeafe] rounded-2xl p-8 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl">
+<div class="lg:col-span-3 lg:row-span-2 bg-[#dbeafe] rounded-2xl p-4 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl">
 
     <!-- VIDEO 1: autoplay, kein Button, keine Controls -->
     <div class="relative mb-6">
@@ -497,34 +497,33 @@
                 </div>
             </div>-->
 
-<!-- Mini Carousel Card – Textbereich und Dots weiter verschlankt -->
-<div class="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-    <div class="relative aspect-[16/9] group">
-        <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel2">
-            <div class="carousel-item min-w-full h-full">
-                <img src="img3/01_telekom_shoot_sess_19.png"
-                     class="w-full h-full object-cover object-bottom">
+            <!-- Mini Carousel Card -->
+            <div class="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative aspect-[12/9] group">
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel2">
+                        <div class="carousel-item min-w-full h-full">
+                            <img src="img3/01_telekom_shoot_sess_19.png">
+                        </div>
+                        <div class="carousel-item min-w-full h-full">
+                            <img src="img3/01_telekom_shoot_sess_32.png">
+                        </div>
+                    </div>
+<!--                    <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel2', -1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" class="lucide lucide-chevron-left w-5 h-5 text-gray-900"><path d="m15 18-6-6 6-6"></path></svg>
+                    </button>-->
+<!--                    <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel2', 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right w-5 h-5 text-gray-900"><path d="m9 18 6-6-6-6"></path></svg>
+                    </button>-->
+                    <div class="absolute bottom-4 right-4 flex gap-2" id="carousel2-dots">
+                        <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow-lg transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel2', 0)"></div>
+                        <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow-lg transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel2', 1)"></div>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Nature Series</h3>
+                    <p class="text-sm text-gray-600 ">Zwei Welten, eine Vision</p>
+                </div>
             </div>
-            <div class="carousel-item min-w-full h-full">
-                <img src="img3/01_telekom_shoot_sess_32.png"
-                     class="w-full h-full object-cover object-bottom">
-            </div>
-        </div>
-
-        <div class="absolute bottom-2 right-2 flex gap-1" id="carousel2-dots">
-            <div class="carousel-dot w-1.5 h-1.5 bg-white rounded-full shadow transition-all cursor-pointer"
-                 data-index="0" onclick="goToSlide('carousel2', 0)"></div>
-            <div class="carousel-dot w-1.5 h-1.5 bg-white/50 rounded-full shadow transition-all cursor-pointer"
-                 data-index="1" onclick="goToSlide('carousel2', 1)"></div>
-        </div>
-    </div>
-
-    <div class="p-3">
-        <h3 class="text-sm font-semibold text-gray-900 mb-1">Nature Series</h3>
-        <p class="text-gray-600 text-[11px] leading-snug">Zwei Welten, eine Vision</p>
-    </div>
-</div>
-
 
 
 <!-- START CX-17: Video-Slider Telekom Ranger A -->
@@ -598,30 +597,29 @@
                     </div>
                 </div>
             </div>-->
+			
+			
             <!-- END CX-17: Gallery-Stack "Dynamik" -->
-
  <div class="lg:col-span-7 lg:row-span-2 bg-gradient-to-br from-sky-50 via-white to-pink-50 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
     <div class="p-6 pb-4 flex items-center justify-between">
         <div>
-            <!-- Label: nicht mehr versal -->
             <p class="text-xs text-sky-600">Micro Showcase</p>
-            <!-- Titel angepasst -->
             <h3 class="text-2xl font-semibold text-gray-900">Projekt: Telekom</h3>
-            <!-- Untertitel generisch / Portfolio-Hinweis -->
             <p class="text-sm text-gray-600">Portfolio-Auszug aus mehreren Telekom-Projekten.</p>
         </div>
-        <!-- Badge in CI-Farbe statt Schwarz -->
-        <span class="px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-semibold shadow-sm">CX-17</span>
     </div>
 
-    <div class="grid grid-cols-5 gap-3 p-6 pt-2">
-        <div class="col-span-2 row-span-2 relative rounded-xl overflow-hidden shadow-lg">
+    <!-- Mobile: 1 Spalte, Desktop: 5 Spalten -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-3 p-4 lg:p-6 pt-2">
+        <!-- 1) Reel – oben (Mobile), links (Desktop) -->
+        <div class="order-1 lg:order-none lg:col-span-2 lg:row-span-2 relative rounded-xl overflow-hidden shadow-lg">
             <video class="w-full h-full object-cover" src="video/001_3d_auto_01.mp4" autoplay muted loop></video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute bottom-3 left-3 text-white text-xs font-semibold uppercase tracking-[0.2em]">Reel</div>
         </div>
 
-        <div class="col-span-3 rounded-xl overflow-hidden relative shadow-lg">
+        <!-- 2) Parship-Slider – Mitte (Mobile), rechts oben (Desktop) -->
+        <div class="order-2 lg:order-none lg:col-span-3 rounded-xl overflow-hidden relative shadow-lg">
             <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel4">
                 <div class="carousel-item min-w-full h-full relative">
                     <img src="img2/parship1.png" alt="Slider Frame" class="w-full h-full object-cover">
@@ -636,21 +634,22 @@
             </div>
         </div>
 
-        <div class="col-span-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm flex items-center justify-between">
+        <!-- 3) CTA – unten (Mobile), unten rechts (Desktop) -->
+        <div class="order-3 lg:order-none lg:col-span-3 rounded-xl border border-gray-200 bg-white p-4 lg:p-4 shadow-sm flex items-center justify-between">
             <div>
-                <!-- nicht mehr versal -->
                 <p class="text-xs text-gray-500">Schauen Sie in meinen Kalender</p>
-                <!-- Claim angepasst -->
-                <h4 class="text-lg font-semibold text-gray-900">Jetzt Brand-Expertise buchen</h4>
+                <h4 class="text-base lg:text-lg font-semibold text-gray-900">Jetzt Brand-Expertise buchen</h4>
                 <p class="text-sm text-gray-500">Ein Klick, und wir sprechen über Ihre Marke.</p>
             </div>
-            <!-- Button mit leichtem Bottom-Gradient -->
-            <button class="px-3 py-2 bg-gradient-to-t from-sky-600 to-sky-500 text-white text-xs font-semibold rounded-lg shadow-sm hover:from-sky-700 hover:to-sky-600 transition">
+            <!-- Glas-Button-Stil aus dem gelobten Panel -->
+            <button
+                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/85 to-white/50 rounded-xl border border-white/70 backdrop-blur-sm shadow-md hover:from-white hover:to-white/70 hover:shadow-lg transition-all">
                 Go
             </button>
         </div>
     </div>
 </div>
+
 
 
 <!-- START CX-17: Breites Zitat Vision -->
