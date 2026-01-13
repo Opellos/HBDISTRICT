@@ -180,33 +180,38 @@
 <!-- K-Projekt-Smartsleep-002 -->
 <!-- Image with Carousel (sichtbarer Bottom-Gradient-Overlay, fade-out bei Hover) -->
 
-<div class="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-sky-50 via-white to-pink-50 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
-  <div class="p-6 pb-4 flex items-center justify-between">
-    <div>
-      <!-- FIX: text-xm -> text-xs (oder text-sm, je nach gewünschter Größe) -->
-      <p class="text-base text-sky-600">Compact Guided Walktrough</p>
+<div class="lg:col-span-6 lg:row-span-2 bg-white border border-[#e6ecff] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col relative group">
 
-    <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1] whitespace-normal break-words">
-  Markentechnik: Außen simpel – innen Science
-</h2>
+  <!-- Verlauf/Blob (identisch zur linken Box) -->
+  <div class="pointer-events-none absolute inset-x-[-15%] bottom-[-10%] h-1/2
+              bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]
+              opacity-70 blur-2xl rotate-[-4deg]"></div>
 
-      <p class="text-gray-700 text-[18px] leading-[24px] font-normal max-w-xl">
-        Bevor eine Marke visuell nach außen tritt, ist bereits viel passiert.<br>
-        Vieles kann Standard sein, das meiste ist jedoch individuell – sollte es zumindest.<br>
-        Ich nehme Sie gerne mit und führe Sie durch spannende Entwicklungsjourneys – persönlich und unverbindlich.<br>
-        Buchen Sie mich bequem in meinen Kalender.<br><br>
-        Ich nehme Sie gerne mit in einen Deep Dive durch meine Projekte, damit Sie sehen, wie ich arbeite.
-        Machen wir es unkompliziert: Ein Klick in meinen Kalender genügt, Sie wählen Ihre Zeit,
-        und wir sprechen über das, was Ihre Marke voranbringt.
-      </p>
-    </div>
+<!-- Kopfbereich -->
+<div class="relative z-10 p-6 pb-4 flex items-start">
+  <div class="min-w-0 w-full">
+    <p class="text-base text-sky-600">Compact Guided Walktrough</p>
+
+    <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1]">
+      Markentechnik
+    </h2>
+
+    <p class="text-gray-700 text-[18px] leading-[24px] font-normal max-w-xl break-words">
+      Bevor eine Marke visuell nach außen tritt, ist bereits viel passiert.<br>
+      Vieles kann Standard sein, das meiste ist jedoch individuell – sollte es zumindest.<br>
+      Ich nehme Sie gerne mit und führe Sie durch spannende Entwicklungsjourneys – persönlich und unverbindlich.<br>
+      Buchen Sie mich bequem in meinen Kalender.
+    </p>
   </div>
+</div>
+
 
   <!-- Mobile: 1 Spalte, Desktop: 5 Spalten -->
-  <div class="grid grid-cols-1 lg:grid-cols-5 gap-3 p-4 lg:p-6 pt-2">
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-3 p-4 lg:p-6 pt-2">
+
     <!-- 1) Reel – oben (Mobile), links (Desktop) -->
     <div class="order-1 lg:order-none lg:col-span-2 lg:row-span-2 relative rounded-xl overflow-hidden shadow-lg">
-      <video class="w-full h-full object-cover" src="video/001_3d_auto_01.mp4" autoplay muted loop></video>
+      <video class="w-full h-full object-cover" src="video/001_3d_auto_01.mp4" autoplay="" muted="" loop=""></video>
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
       <div class="absolute bottom-3 left-3 text-white text-xs font-semibold uppercase tracking-[0.2em]">Reel</div>
     </div>
@@ -221,6 +226,7 @@
           <img src="img2/parship2.png" alt="Slider Frame" class="w-full h-full object-cover">
         </div>
       </div>
+
       <div class="absolute bottom-3 right-3 flex gap-1" id="carousel4-dots">
         <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow" data-index="0" onclick="goToSlide('carousel4', 0)"></div>
         <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow" data-index="1" onclick="goToSlide('carousel4', 1)"></div>
@@ -234,11 +240,12 @@
         <h4 class="text-base lg:text-lg font-semibold text-gray-900">Jetzt Brand-Expertise buchen</h4>
         <p class="text-sm text-gray-500">Ein Klick, und wir sprechen über Ihre Marke.</p>
       </div>
-      <button
-        class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/85 to-white/50 rounded-xl border border-white/70 backdrop-blur-sm shadow-md hover:from-white hover:to-white/70 hover:shadow-lg transition-all">
+
+      <button class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/85 to-white/50 rounded-xl border border-white/70 backdrop-blur-sm shadow-md hover:from-white hover:to-white/70 hover:shadow-lg transition-all">
         Go
       </button>
     </div>
+
   </div>
 </div>
 
