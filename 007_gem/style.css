@@ -174,7 +174,7 @@ section[id], [id^="section-"]{ scroll-margin-top: var(--header-offset); }
 /* 6) HERO */
 
 .hero-section{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  min-height:80vh;display:flex;align-items:center;justify-content:center; /* Höhe um ca. 20% reduziert */
   padding:8rem 0 var(--space-xl);
   background: linear-gradient(125deg, #cc30a6 0%, #2d5eff 8%, #a8d5ff 45%, #a8d5ff 55%, #2d5eff 80%, #cc30a6 100%);
   color:var(--color-text-light);text-align:center;
