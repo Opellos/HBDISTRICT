@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Telekom D2D – Glasfaser an der Haustür (Entwurf)</title>
+  <style>
+    :root{
+      --bg: #f6f4f1;
+      --surface: rgba(255,255,255,0.62);
+      --surface-strong: rgba(255,255,255,0.78);
+      --ink: #141414;
+      --muted: rgba(20,20,20,0.72);
+      --hairline: rgba(20,20,20,0.10);
+      --shadow: 0 18px 46px rgba(0,0,0,0.10);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --radius-lg: 28px;
+      --pad: clamp(18px, 2.6vw, 28px);
+      --gap: clamp(18px, 3vw, 40px);
+      --max: 1120px;
+      --accent: #e20074;
+    }
+
+    *{ box-sizing: border-box; }
+
+    html, body{ height: 100%; }
+
+    body{
+      margin: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0) 100%),
+        radial-gradient(900px 650px at 95% 18%, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0)),
+        var(--bg);
+    }
+
+    a{ color: inherit; text-decoration: none; }
+
+    .page{
+      min-height: 100%;
+      padding: 36px 18px 80px;
+    }
+
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    header{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      width: fit-content;
+      border: 1px solid var(--hairline);
+      border-radius: 999px;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+    }
+
+    .kicker .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(226,0,116,0.10);
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(26px, 3.4vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle{
+      margin: 0;
+      max-width: 78ch;
+      font-size: clamp(14px, 1.7vw, 17px);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .divider{
+      margin: 22px 0 34px;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(20,20,20,0), rgba(20,20,20,0.18), rgba(20,20,20,0));
+    }
+
+    section{
+      margin: 0 0 22px;
+    }
+
+    .block{
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: var(--gap);
+      align-items: center;
+      padding: var(--pad);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .left{
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .right{
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      justify-items: stretch;
+    }
+
+    .num{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,0.48);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .num strong{
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .h2{
+      margin: 0;
+      font-size: clamp(18px, 2.4vw, 26px);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .h3{
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .p{
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.62;
+      color: var(--muted);
+    }
+
+    .featured-tag{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(226,0,116,0.30);
+      background: rgba(226,0,116,0.06);
+      color: rgba(226,0,116,0.92);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .quote{
+      margin: 0;
+      padding: 14px 16px;
+      border-left: 3px solid rgba(226,0,116,0.70);
+      background: rgba(255,255,255,0.42);
+      border-radius: 14px;
+      color: rgba(20,20,20,0.90);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .image{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: var(--radius);
+      border: 1px solid var(--hairline);
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.25)),
+        radial-gradient(900px 450px at 15% 15%, rgba(226,0,116,0.15), rgba(226,0,116,0)),
+        radial-gradient(700px 420px at 90% 30%, rgba(0,0,0,0.08), rgba(0,0,0,0));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .image.small{ aspect-ratio: 16 / 9; }
+
+    .image.tall{ aspect-ratio: 4 / 5; }
+
+    .image .label{
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(20,20,20,0.10);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .image .label strong{
+      display: block;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .stack{
+      display: grid;
+      gap: 14px;
+    }
+
+    .triple{
+      display: grid;
+      gap: 14px;
+    }
+
+    .subblock{
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(20,20,20,0.10);
+      background: rgba(255,255,255,0.40);
+    }
+
+    .subblock .h3{
+      margin-bottom: 6px;
+    }
+
+    .cta{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(226,0,116,0.45);
+      background: rgba(226,0,116,0.10);
+      color: rgba(226,0,116,0.95);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      width: fit-content;
+      box-shadow: 0 12px 28px rgba(226,0,116,0.12);
+      transition: transform 160ms ease, background 160ms ease;
+      user-select: none;
+    }
+
+    .cta:active{
+      transform: translateY(1px);
+    }
+
+    .footer-note{
+      margin-top: 26px;
+      padding: 14px 16px;
+      border: 1px dashed rgba(20,20,20,0.22);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.35);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 940px){
+      .block{ grid-template-columns: 1fr; }
+      .image.tall{ aspect-ratio: 16 / 10; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="container">
+      <header>
+        <div class="kicker"><span class="dot"></span> Case-Entwurf · Layout, Typografie und Bildräume zur Aufwandsschätzung</div>
+        <h1>Telekom D2D – Glasfaser an der Haustür erklären</h1>
+        <p class="subtitle">Wie ein sensibler Vertriebskanal neu aufgesetzt wird, damit Menschen komplexe Infrastrukturangebote im Alltag verstehen und sich gut aufgehoben fühlen.</p>
+      </header>
+
+      <hr class="divider" />
+
+      <section id="block-2">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>2</strong> Zitat-Bereich als Einstieg der Story</div>
+            <div class="featured-tag">FEATURED</div>
+            <p class="quote">„Am Anfang stand keine Kollektion oder gar eine Academy-Plattform, sondern ein Bauchgefühl. Zwischen dem Anspruch der Marke und dem, was draußen ankommt, klaffte eine Lücke. Genau diese Lücke wollten wir greifbar machen.“</p>
+            <p class="p">Der Einstieg setzt den Ton: Problemverständnis, Verantwortungsgefühl und die Motivation, eine Lücke im Markenerlebnis systematisch zu schließen.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <div class="label"><strong>Bildplatzhalter</strong>„Bauchgefühl“-Motiv: du von hinten/seitlich vor einer skizzierten Gedankenwolke mit Icons</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-1">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>1</strong> Featured-Bereich direkt unter dem Zitat</div>
+            <h2 class="h2">Telekom D2D – Glasfaser an der Haustür erklären</h2>
+            <p class="p">Ein Projekt, das komplexe Infrastrukturangebote dort erklärt, wo Entscheidungen wirklich getroffen werden: zu Hause.</p>
+            <p class="p">Der Abschnitt funktioniert als visuelle Klammer: schnelle Einordnung, klare Positionierung, danach der Einstieg in die Argumentation.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <div class="label"><strong>Bildplatzhalter</strong>Horizontaler Hero: du halbnah im Raum, im Hintergrund Glasfaser-Illustrationen, idealerweise an der Glasfassade erklärend</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-3">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>3</strong> Worum es eigentlich geht</div>
+            <h2 class="h2">Der Kanal, den wir neu aufsetzen</h2>
+            <p class="p">Glasfaser wird nicht im Laden entschieden, sondern mitten im Alltag der Menschen. Dieses Projekt setzt genau dort an: beim persönlichen Kontakt an der Haustür, der verlässlich informieren soll, ohne wie ein klassisches Haustürgeschäft zu wirken.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <div class="label"><strong>Bildplatzhalter</strong>Collage: Ausbau-Statistiken, vorsichtiger Blick durch Türspalt, Ranger-Mitarbeiter respektvoll vor der Tür</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-4">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>4</strong> Ausgangslage und Beteiligte</div>
+            <h2 class="h2">Ausgangslage und Beteiligte</h2>
+            <p class="p">Der Ausbau von Glasfaser ist an konkrete zeitliche Vorgaben gebunden und steht politisch wie gesellschaftlich im Fokus.<br>
+            Für uns bedeutete das: Wir müssen Menschen in einem Moment erreichen, in dem sie selbst noch nicht aktiv nach einem Anschluss suchen.<br>
+            Über den Shop allein wird nur der Teil erreicht, der ohnehin bereits auf der Suche ist.<br>
+            Die entscheidenden Begegnungen finden im Alltag statt – an der Haustür, im direkten Umfeld der Menschen.<br>
+            Gleichzeitig wird dieser Kanal gesellschaftlich intensiv diskutiert.<br>
+            Nicht, weil er grundsätzlich unseriös wäre, sondern weil die Qualität der Begegnungen stark schwankt.<br>
+            Für eine Premium-Marke wie die Telekom entsteht daraus eine besondere Verantwortung: Wer an der Haustür klingelt, soll Orientierung geben, Sicherheit ausstrahlen und komplexe Themen verständlich machen.</p>
+          </div>
+          <div class="right">
+            <div class="stack">
+              <div class="image small">
+                <div class="label"><strong>Bildplatzhalter</strong>Meeting-Szene mit internen Stakeholdern am Tisch</div>
+              </div>
+              <div class="image small">
+                <div class="label"><strong>Bildplatzhalter</strong>Illustration: Haushalt/Familie vor der Tür + schmale Leiste „Status-Quo“-Motive</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-5">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>5</strong> System-Idee</div>
+            <h2 class="h2">System statt Einzelmaßnahme</h2>
+            <p class="p">Aus vielen Einzelmaßnahmen ist ein zusammenhängendes System entstanden.<br>
+            Analysen, Gespräche und zahlreiche Teilprojekte fließen in eine strukturierte Karte, die Ziele, Themen und Abhängigkeiten sichtbar macht.<br>
+            Meine eigene Anwendung unterstützt dabei, ein zunächst unübersichtliches Umfeld in klare Bausteine zu übersetzen, über die alle Beteiligten sprechen können.<br>
+            Ich verantworte in diesem Projekt sowohl das Brand Management als auch die gestalterischen Entscheidungen und den Aufbau der unterstützenden Tools.</p>
+          </div>
+          <div class="right">
+            <div class="stack">
+              <div class="image small">
+                <div class="label"><strong>Bildplatzhalter</strong>Brain-/Gedankenwolken-Illustration mit vielen Themen</div>
+              </div>
+              <div class="image">
+                <div class="label"><strong>Bildplatzhalter</strong>Brand Project Mapper (Desktop-Screenshot) mit Knoten und Verbindungen</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-6">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>6</strong> Drei Anwendungsfelder</div>
+            <h2 class="h2">Drei Anwendungsfelder im Alltag</h2>
+
+            <div class="triple">
+              <div class="subblock">
+                <h3 class="h3">Einführung über Events</h3>
+                <p class="p">Das neue System wurde über interne Formate und ein Summit eingeführt.<br>
+                Teams erlebten die Inhalte live, konnten Fragen stellen und die neue Art der Begegnung direkt ausprobieren.</p>
+              </div>
+
+              <div class="subblock">
+                <h3 class="h3">Auftritt im Alltag</h3>
+                <p class="p">Outfits, Ausstattung und Routinen wurden so gestaltet, dass sie Sicherheit, Professionalität und Zugehörigkeit vermitteln.<br>
+                Entscheidend war, dass sich die Menschen in ihrer Rolle wohlfühlen und die Begegnung an der Haustür natürlich wirkt.</p>
+              </div>
+
+              <div class="subblock">
+                <h3 class="h3">Tools und Leitplanken</h3>
+                <p class="p">Digitale Tools, Playbooks und Guidelines halten das System im Alltag zusammen.<br>
+                Sie sorgen dafür, dass Inhalte skalierbar bleiben und neue Teams schnell anschlussfähig sind.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="stack">
+              <div class="image small">
+                <div class="label"><strong>Bildplatzhalter</strong>Event: Summit/Veranstaltung mit Bühne oder Fotoshooting am Campus</div>
+              </div>
+              <div class="image small">
+                <div class="label"><strong>Bildplatzhalter</strong>Alltag: Ranger-Teams im Einsatz, idealerweise zwei Personen vor Hauseingang</div>
+              </div>
+              <div class="image small">
+                <div class="label"><strong>Bildplatzhalter</strong>Tools: „Co-Branding Guidelines“-Cover + kleiner App-/Mapper-Screenshot</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-7">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>7</strong> Arbeit geht erst los</div>
+            <h2 class="h2">Vom Konzept in die Umsetzung</h2>
+            <p class="p">Auf Basis der System-Idee wurden Ausstattung, Bildwelten und Materialien konkret ausgearbeitet.<br>
+            Skizzen, Prototypen und Tests halfen, Funktion, Sicherheit und Identifikation in Einklang zu bringen.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <div class="label"><strong>Bildplatzhalter</strong>Umsetzung: Skizzen, Prototypen, Materialtests, Layoutstudien oder Einsatz-Szenen im Feld</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-8">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>8</strong> Abschluss</div>
+            <h2 class="h2">Was sich dadurch verändert</h2>
+            <p class="p">Der Kanal wirkt planbarer und vertrauenswürdiger.<br>
+            Haushalte erhalten vor Ort eine strukturierte, verständliche Beratung.<br>
+            Mitarbeitende haben klare Leitplanken und Werkzeuge für ihren Alltag.<br>
+            Für die Telekom entsteht ein sensibler Kontaktpunkt, der dem eigenen Anspruch an Professionalität und Verlässlichkeit besser entspricht.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <div class="label"><strong>Bildplatzhalter</strong>Ruhige, positive Szene: Ranger und Kund:innen entspannt im Gespräch (freundliche, helle Umgebung)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-9">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>9</strong> CTA</div>
+            <h2 class="h2">Ähnliche Aufgabenstellung?</h2>
+            <p class="p">Wenn Sie vergleichbare Kanäle neu denken oder bestehende Vertriebskanäle professionalisieren möchten, begleite ich Sie gern von der Analyse bis zur Umsetzung.</p>
+            <a class="cta" href="#">Projekt anfragen</a>
+            <div class="footer-note">Hinweis zum Entwurf: Die Bildflächen sind bewusst als Platzhalter angelegt, um den räumlichen Umfang der Seite sichtbar zu machen (Hero, Collagen, Leisten, Screenshots). Typografie, Abstände und Hierarchie sind bereits im Standardraster angelegt, damit Aufwand, Content-Bedarf und Layout-Logik realistisch eingeschätzt werden können.</div>
+          </div>
+          <div class="right">
+            <div class="image tall">
+              <div class="label"><strong>Bildplatzhalter</strong>Mini-Illustration „Idee/Glühbirne“ oder reduziertes Portrait für den Seitenabschluss</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
