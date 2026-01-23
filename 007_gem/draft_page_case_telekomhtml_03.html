@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Telekom D2D – Ein neuer Auftritt an der Haustür (Entwurf) iV</title>
+  <style>
+    :root{
+      --bg: #f6f4f1;
+      --surface: rgba(255,255,255,0.62);
+      --surface-strong: rgba(255,255,255,0.78);
+
+      /* Palette */
+      --white: #ffffff;
+      --anthracite: #2b2f33;
+      --pink: #ffb3d9;
+      --blue: #b9d7ff;
+
+      --ink: var(--anthracite);
+      --muted: rgba(43,47,51,0.72);
+      --hairline: rgba(43,47,51,0.10);
+      --shadow: 0 18px 46px rgba(0,0,0,0.10);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --radius-lg: 28px;
+      --pad: clamp(18px, 2.6vw, 28px);
+      --gap: clamp(18px, 3vw, 40px);
+      --max: 1120px;
+      --accent: var(--pink);
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+
+    body{
+      margin: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0) 100%),
+        radial-gradient(900px 650px at 95% 18%, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0)),
+        var(--bg);
+    }
+
+    a{ color: inherit; text-decoration: none; }
+
+    .page{
+      min-height: 100%;
+      padding: 36px 18px 80px;
+    }
+
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    header{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      width: fit-content;
+      border: 1px solid var(--hairline);
+      border-radius: 999px;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+    }
+
+    .kicker .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 6px rgba(185,215,255,0.30);
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(26px, 3.4vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle{
+      margin: 0;
+      max-width: 78ch;
+      font-size: clamp(14px, 1.7vw, 17px);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .divider{
+      margin: 22px 0 34px;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(20,20,20,0), rgba(20,20,20,0.18), rgba(20,20,20,0));
+    }
+
+    section{ margin: 0 0 22px; }
+
+    .block{
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: var(--gap);
+      align-items: center;
+      padding: var(--pad);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .left{
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .right{
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      justify-items: stretch;
+    }
+
+    .num{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,0.48);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .num strong{
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .h2{
+      margin: 0;
+      font-size: clamp(18px, 2.4vw, 26px);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .h3{
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .p{
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.62;
+      color: var(--muted);
+    }
+
+    .featured-tag{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,179,217,0.55);
+      background: rgba(255,179,217,0.18);
+      color: rgba(43,47,51,0.90);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .quote{
+      margin: 0;
+      padding: 14px 16px;
+      border-left: 3px solid rgba(255,179,217,0.95);
+      background: rgba(255,255,255,0.42);
+      border-radius: 14px;
+      color: rgba(43,47,51,0.92);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .image{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: var(--radius);
+      border: 1px solid var(--hairline);
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.25)),
+        radial-gradient(900px 450px at 15% 15%, rgba(226,0,116,0.15), rgba(226,0,116,0)),
+        radial-gradient(700px 420px at 90% 30%, rgba(0,0,0,0.08), rgba(0,0,0,0));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .image img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image.icon img{
+      object-fit: contain;
+      padding: 22px;
+    }
+
+    .image.small{ aspect-ratio: 16 / 9; }
+    .image.tall{ aspect-ratio: 4 / 5; }
+
+    .image .label{
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(43,47,51,0.12);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .image .label strong{
+      display: block;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .stack{ display: grid; gap: 14px; }
+    .triple{ display: grid; gap: 14px; }
+
+    .subblock{
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(20,20,20,0.10);
+      background: rgba(255,255,255,0.40);
+    }
+
+    .subblock .h3{ margin-bottom: 6px; }
+
+    .cta{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(226,0,116,0.45);
+      background: rgba(226,0,116,0.10);
+      color: rgba(226,0,116,0.95);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      width: fit-content;
+      box-shadow: 0 12px 28px rgba(226,0,116,0.12);
+      transition: transform 160ms ease, background 160ms ease;
+      user-select: none;
+    }
+
+    .cta:active{ transform: translateY(1px); }
+
+    .footer-note{
+      margin-top: 26px;
+      padding: 14px 16px;
+      border: 1px dashed rgba(20,20,20,0.22);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.35);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 940px){
+      .block{ grid-template-columns: 1fr; }
+      .image.tall{ aspect-ratio: 16 / 10; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="container">
+
+      <header>
+        <div class="kicker"><span class="dot"></span> Case-Entwurf · Layout, Typografie und Bildräume zur Aufwandsschätzung</div>
+        <h1>Telekom D2D – Ein neuer Auftritt an der Haustür</h1>
+        <p class="subtitle">Wie ein sensibler Kontaktpunkt zur Bühne für Beratung, Vertrauen und den Glasfaser-Ausbau wurde.</p>
+      </header>
+
+      <hr class="divider" />
+
+      <section id="block-1">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>1</strong> Case-Hero ganz oben</div>
+            <h2 class="h2">Telekom D2D – Ein neuer Auftritt an der Haustür</h2>
+            <p class="p">Wie ein sensibler Kontaktpunkt zur Bühne für Beratung, Vertrauen und den Glasfaser-Ausbau wurde.</p>
+            <p class="p">Betty 1 ist der breite Einstieg, der dich als Brand Manager in Aktion zeigt – nicht als „Model“.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <img src="case_assets/telekom-d2d_hero.png" alt="Telekom D2D Case Hero" />
+              <div class="label"><strong>Bildplatzhalter</strong>Betty $1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-2">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>2</strong> Zitat-Karte</div>
+            <div class="featured-tag">FEATURED</div>
+            <p class="quote">„Am Anfang stand keine Kollektion oder gar eine Academy-Plattform, sondern ein Bauchgefühl.<br>
+            Zwischen dem Anspruch der Marke und dem, was draußen ankommt, klaffte eine Lücke.<br>
+            Genau diese Lücke wollten wir greifbar machen.“</p>
+            <p class="p">Das Bild darf ruhig „überladen“ wirken – das Chaos vor dem System.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <img src="case_assets/telekom-d2d_bauchgefuehl-brain.png" alt="Zitatmotiv – Brain" />
+              <div class="label"><strong>Bildplatzhalter</strong>Betty 2$1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-3">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>3</strong> Kanal-Fokus</div>
+            <h2 class="h2">Worum es in diesem Kanal wirklich geht</h2>
+            <p class="p">Glasfaser wird selten im Laden entschieden, sondern mitten im Alltag der Menschen.<br>
+            Genau dort setzt dieser Kanal an: bei Begegnungen an der Haustür, in denen in wenigen Sekunden klar werden muss, ob sich ein Gespräch lohnt.<br>
+            Die Aufgabe war, eine Form dieser Begegnungen zu entwickeln, die verlässlich informiert, sich gut anfühlt und deutlich macht, dass hier im Auftrag der Telekom gehandelt wird – ohne wie ein klassisches Haustürgeschäft zu wirken.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <img src="case_assets/telekom-d2d_haustuer-collage.png" alt="Haustür Collage" />
+              <div class="label"><strong>Bildplatzhalter</strong>Betty 3$1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-4">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>4</strong> Umfeld & Beteiligte</div>
+            <h2 class="h2">Das Umfeld und die Menschen dahinter</h2>
+            <p class="p">Der Glasfaserausbau ist an konkrete Zeitfenster gekoppelt und steht politisch wie gesellschaftlich im Fokus.<br>
+            Für das Projekt hieß das: Wir müssen Menschen in einem Moment erreichen, in dem sie selbst noch nicht aktiv nach einem Anschluss suchen.<br>
+            Über den Shop allein erreicht man nur diejenigen, die ohnehin schon unterwegs sind. Die entscheidenden Begegnungen finden im direkten Lebensumfeld statt – an der Haustür, in Hauseingängen, auf Wegen und Treppen.<br>
+            Gleichzeitig wird dieser Kanal öffentlich intensiv diskutiert. Nicht, weil er per se unseriös wäre, sondern weil die Qualität der Kontakte stark schwankt.<br>
+            Für eine Premium-Marke wie die Telekom entsteht daraus eine besondere Verantwortung: Wer im Namen der Marke klingelt, soll Orientierung geben, Sicherheit ausstrahlen und komplexe Themen verständlich machen – für Kundinnen und Kunden, für Mitarbeitende und für alle Partner im Ausbau.</p>
+          </div>
+          <div class="right">
+            <div class="stack">
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_stakeholder-meeting.png" alt="Stakeholder Meeting" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 4$1</div>
+              </div>
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_status-quo-strip.png" alt="Status Quo Illustrationen" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 5$1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-5">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>5</strong> System-Idee</div>
+            <h2 class="h2">Von der Problemwolke zum Brand System</h2>
+            <p class="p">Statt einzelne Maßnahmen zu optimieren, haben wir den Kanal als System gedacht.<br>
+            Analysen, Gespräche und zahlreiche Teilprojekte sind in eine visuelle Karte geflossen, die Ziele, Themen und Abhängigkeiten sichtbar macht.<br>
+            Herzstück ist mein eigener Brand Project Mapper – eine Anwendung, die das gesamte Projektwissen strukturiert, Zusammenhänge zeigt und Entscheidungen vorbereitet.<br>
+            So entsteht aus einer unübersichtlichen Gemengelage ein Brand System, über das alle Beteiligten sprechen, entscheiden und später auch steuern können.<br>
+            Meine Rolle: Brand Management, Designentscheidungen und Aufbau der Tools lagen in einer Hand – und damit auch die Verantwortung, dass das System in der Praxis funktioniert.</p>
+          </div>
+          <div class="right">
+            <div class="stack">
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_brand-mapper-main.png" alt="Brand Project Mapper" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 6$1</div>
+              </div>
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_brain-to-map.png" alt="Brain to Map" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 7$1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-6">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>6</strong> Drei Anwendungsfelder</div>
+            <h2 class="h2">Drei Bühnen, auf denen das System lebt</h2>
+
+            <div class="triple">
+              <div class="subblock">
+                <h3 class="h3">Die Bühne</h3>
+                <p class="p">Das System wurde über interne Formate und ein großes Summit eingeführt.<br>
+                Bühnenbild, Leitmotiv, Animationen, Catwalk und Inszenierung der Kollektion waren auf die neue Rolle des Kanals abgestimmt.<br>
+                Teams konnten das Konzept live erleben, Fragen stellen und den neuen Auftritt gemeinsam testen – nicht als Folie, sondern als Show.</p>
+              </div>
+
+              <div class="subblock">
+                <h3 class="h3">Der Alltag im Feld</h3>
+                <p class="p">Outfits, Ausstattung und Routinen wurden so gestaltet, dass sie Sicherheit, Professionalität und Zugehörigkeit vermitteln.<br>
+                Vom Schnitt der Jacken über Reflektoren und Logos bis zur Detailgestaltung der Accessoires zahlt jedes Element auf das Gefühl ein: „Ich weiß, was ich tue, und ich darf hier stehen.“<br>
+                So wird die Marke im Alltag der Teams sichtbar, ohne wie Kostüm oder Kampagne zu wirken.</p>
+              </div>
+
+              <div class="subblock">
+                <h3 class="h3">Die Plattform dahinter</h3>
+                <p class="p">Digitale Tools, Playbooks und Guidelines halten das System im Alltag zusammen.<br>
+                Dazu gehören Co-Branding-Guidelines, eine Schulungsplattform und KI-gestützte Workflows, mit denen Inhalte schnell angepasst und erweitert werden können.<br>
+                Neue Teams können so schneller andocken, und der Kanal bleibt steuerbar, auch wenn er skaliert.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="stack">
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_event-stage.png" alt="Event Stage" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 8$1</div>
+              </div>
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_field-situation.png" alt="Field Situation" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 9$1</div>
+              </div>
+              <div class="image small">
+                <img src="case_assets/telekom-d2d_cobranding-guidelines.png" alt="Co-Branding Guidelines" />
+                <div class="label"><strong>Bildplatzhalter</strong>Betty 10$1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-7">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>7</strong> Umsetzung</div>
+            <h2 class="h2">Vom Konzept auf die Straße</h2>
+            <p class="p">Damit das System trägt, musste jede Entscheidung durch die Praxisprobe.<br>
+            Skizzen, Musterteile und Prototypen sind in Tests mit Teams und Stakeholdern gegangen: Sitzt die Kleidung, halten die Materialien, funktioniert die Ausstattung im echten Einsatz.<br>
+            Parallel dazu wurden Bildwelten, Schulungsinhalte und Prozesse so verknüpft, dass sie in Summe funktionieren – vom ersten Briefing bis zur letzten Retouren-Schleife.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <img src="case_assets/telekom-d2d_workbench.png" alt="Workbench" />
+              <div class="label"><strong>Bildplatzhalter</strong>Betty 11$1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-8">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>8</strong> Wirkung</div>
+            <h2 class="h2">Was sich im Kanal verändert hat</h2>
+            <p class="p">Der Kanal wirkt planbarer, ruhiger und vertrauenswürdiger.<br>
+            Haushalte bekommen vor Ort eine strukturierte, verständliche Beratung statt spontaner Verkaufsversuche.<br>
+            Mitarbeitende haben klare Leitplanken, spürbaren Rückhalt und Werkzeuge, mit denen sie ihren Job ernsthaft ausfüllen können.<br>
+            Für die Telekom ist ein sensibler Kontaktpunkt entstanden, der dem eigenen Anspruch an Professionalität und Verlässlichkeit deutlich näherkommt – und der als Blaupause für weitere Kanäle dienen kann.</p>
+          </div>
+          <div class="right">
+            <div class="image">
+              <img src="case_assets/telekom-d2d_trust-moment.png" alt="Trust Moment" />
+              <div class="label"><strong>Bildplatzhalter</strong>Betty 12$1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="block-9">
+        <div class="block">
+          <div class="left">
+            <div class="num"><strong>9</strong> CTA</div>
+            <h2 class="h2">Ähnliche Aufgabenstellung?</h2>
+            <p class="p">Wenn Sie sensible Kanäle neu denken oder bestehende Vertriebskanäle professionalisieren möchten, begleite ich Sie von der ersten Problemwolke bis zur Bühne – Strategie, Design und Tools aus einer Hand.</p>
+            <a class="cta" href="#">Projekt anfragen</a>
+            <div class="footer-note">Hinweis zum Entwurf: Die Bildflächen sind bewusst als Platzhalter angelegt, um den räumlichen Umfang der Seite sichtbar zu machen. Die Platzhalter sind in einer einfachen „Betty“-Logik nummeriert, damit das Einpflegen der finalen Assets schnell und eindeutig bleibt.</div>
+          </div>
+          <div class="right">
+            <div class="image tall icon">
+              <img src="case_assets/telekom-d2d_cta-icon.png" alt="CTA Icon" />
+              <div class="label"><strong>Bildplatzhalter</strong>Betty 13$1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="assets" style="margin-top: 86px;">
+        <div class="block">
+          <div class="left" style="grid-column: 1 / -1;">
+            <h2 class="h2" style="margin-bottom: 6px;">Bildbriefings (intern)</h2>
+            <p class="p" style="max-width: 68ch;">Diese Informationen sind für Produktion und Umsetzung gedacht und werden im Case nicht als Fließtext gezeigt.</p>
+
+            <details style="margin-top: 10px;">
+              <summary style="cursor: pointer; font-weight: 700; padding: 10px 10px; border-radius: 14px; border: 1px solid rgba(43,47,51,0.12); background: rgba(185,215,255,0.26);">Bildliste anzeigen</summary>
+              <div style="margin-top: 14px; display: grid; gap: 12px; max-width: 68ch;">
+
+                <div class="subblock" style="border: 1px solid rgba(43,47,51,0.10);">
+                  <div class="h3" style="padding-bottom: 10px; border-bottom: 1px solid rgba(43,47,51,0.10);">Section 1 · Betty 1 · <code>telekom-d2d_hero.jpg</code></div>
+                  <p class="p">Breites Panorama mit dir im Loft / Meetingraum am Whiteboard oder Glasboard, klarer System-Skizze im Hintergrund, leichte Telekom-Anmutung in Farben. Du als Brand-Architekt, nicht als Model.</p>
+                  <p class="p"><span style="font-weight:700; color: var(--ink);">Optional Animation:</span> 4–6 Sekunden Loop (leichter Kameraschwenk, leicht animierte Linien im Systemdiagramm), der beim Laden des Cases abgespielt wird.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 2 · Betty 2 · <code>telekom-d2d_bauchgefuehl-brain.jpg</code></div>
+                  <p class="p">Du vor der großen, skizzierten Gedankenwolke (Brain), eher illustrativ, schwarz/weiß mit wenigen magenta Akzenten. Bild wirkt wie „Chaos im Kopf vor der Struktur“.</p>
+                  <p class="p">Optional Animation: Leicht pulsierende oder langsam wachsende Brain-Linien im Hintergrund.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 3 · Betty 3 · <code>telekom-d2d_haustuer-collage.jpg</code></div>
+                  <p class="p">Eine fertige Collage als EIN Bild: links skeptischer Blick durch den Türspalt (Illustration), mittig respektvolle Begegnung Ranger / Bewohner:in an der Haustür (Foto oder Illu), rechts einfache Ausbau-Grafik (Diagramm / Icon für Glasfaser-Ausbau). Ruhige, helle Optik.</p>
+                  <p class="p">Optional Animation: On-scroll leichter Parallax-Effekt der drei Teilflächen innerhalb der Collage.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 4 · Betty 4 · <code>telekom-d2d_stakeholder-meeting.jpg</code></div>
+                  <p class="p">Foto mit dir im Gespräch mit internen Stakeholdern am Tisch (Telekom / Ranger / ggf. Politik, wenn vorhanden). Fokus: Mimik, Austausch, Unterlagen / Screens auf dem Tisch.</p>
+                  <p class="p"><span style="font-weight:700; color: var(--ink);">Zusatzbild:</span> Betty 5 · <code>telekom-d2d_status-quo-strip.jpg</code> – schmaler Bildstreifen unten mit 2–3 deiner Status-Quo-Illustrationen (Türspalt, Charts, Gesellschafts-Kontext).</p>
+                  <p class="p">Optional Animation: Leichtes Rein- und Rausfaden der kleinen Status-Quo-Icons beim Scrollen.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 5 · Betty 6 · <code>telekom-d2d_brand-mapper-main.jpg</code></div>
+                  <p class="p">Großer, klar lesbarer Screenshot deines Brand Project Mapper in Desktop-Ansicht. Knoten, Linien, Cluster gut erkennbar. Dunkler Hintergrund, magenta/blau Akzente.</p>
+                  <p class="p">Zusatzbild: Betty 7 · <code>telekom-d2d_brain-to-map.jpg</code> – kleines Overlay-Bild (Brain-Wolke + kurzer Mapper-Ausschnitt), das den Übergang „Chaos → System“ visualisiert.</p>
+                  <p class="p">Optional Animation: Kurzer Loop (3–4 Sek.), in dem ein Ast im Mapper aufklappt oder ein Node hervorgehoben wird.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 6a · Betty 8 · <code>telekom-d2d_event-stage.jpg</code></div>
+                  <p class="p">Show-Foto mit Bühne, großem 4D-Ranger/Telekom-Logo, Leinwand, Publikum, idealerweise Moment mit 2–3 Personen auf der Bühne. Stimmung: professionelles Live-Event, nicht Messe-Schnappschuss.</p>
+                  <p class="p">Zusatzbild: <code>telekom-d2d_event-backstage.jpg</code> – Backstage-/Box-Show-Motiv mit dir im Team, letzte Abstimmung vor dem Catwalk.</p>
+                  <p class="p">Optional Animation: kurzer Stage-Loop (Licht fährt hoch, Logo pulsiert minimal, ohne zu sehr abzulenken).</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 6b · Betty 9 · <code>telekom-d2d_field-situation.jpg</code></div>
+                  <p class="p">Foto mit 2–3 Ranger:innen in vollständiger Kleidung vor einer echten Haustür oder im urbanen Setting, in Interaktion mit einer Person. Golden Hour / Abendlicht funktioniert gut.</p>
+                  <p class="p">Zusatzbild: <code>telekom-d2d_outfit-lineup.jpg</code> – Freisteller mit allen 6 Ranger:innen nebeneinander vor neutralem Hintergrund, damit man die Kollektion im Ganzen sieht.</p>
+                  <p class="p">Optional Animation: dezentes Hover, bei dem bei der Lineup-Grafik einzelne Outfits kurz hervorgehoben werden.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 6c · Betty 10 · <code>telekom-d2d_cobranding-guidelines.jpg</code></div>
+                  <p class="p">Magentafarbenes „Co-Branding Guidelines“-Buch in cleanem Studio-Setup, frontal, wertig.</p>
+                  <p class="p">Zusatzbild: <code>telekom-d2d_academy-screen.jpg</code> – Screen der Academy / Schulungsplattform oder deines KI-Workflows (z. B. Brand Mapper Detail, KI-gestützte Ansicht).</p>
+                  <p class="p">Optional Animation: Kleiner Slider oder Mini-Galerie, in der Guidelines-Cover, Academy-Screen und ein Tool-Screen nacheinander erscheinen.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 7 · Betty 11 · <code>telekom-d2d_workbench.jpg</code></div>
+                  <p class="p">Deine „Arbeit geht erst los“-Szene: du am Tisch mit Mustern, Paketen, Begleitmaterial, Entwürfen, ggf. kleiner Infomobil-Render im Hintergrund. Es soll nach Werkstatt und Produktion aussehen.</p>
+                  <p class="p">Zusatzbild: <code>telekom-d2d_sketch-jackets.jpg</code> – ein ausgewähltes Jacken-Skizzen-Board (beiges Papier, technische Zeichnungen, magenta Anmerkungen).</p>
+                  <p class="p">Optional Animation: On-scroll kurzes Reinzoomen in Details (z. B. Reflektoren, Taschen, Kapuze) in der Skizze.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 8 · Betty 12 · <code>telekom-d2d_trust-moment.jpg</code></div>
+                  <p class="p">Ruhige, dokumentarische Szene: Ranger und Kund:in im Gespräch vor der Tür oder im Eingangsbereich, beide entspannt, klare Körperhaltung, Tageslicht. Kein großes Branding-Feuerwerk, Fokus auf Beziehung.</p>
+                  <p class="p">Optional Animation: ganz subtiler Fokus-Shift (Hintergrund leicht blur, Personen bleiben scharf) beim Scrollen durch den Abschnitt.</p>
+                </div>
+
+                <div class="subblock">
+                  <div class="h3">Section 9 · Betty 13 · <code>telekom-d2d_cta-icon.png</code></div>
+                  <p class="p">Minimalistisches Icon passend zu deinem Gesamtlook – z. B. stilisierte Glühbirne mit Vernetzungs-Linien oder reduziertes Systemdiagramm, magenta Akzent, sonst weiß/hell. Kein Foto, keine Person.</p>
+                  <p class="p">Optional Animation: leichtes, langsames „Atmen“ des Icons (Scale 100–103 %) im Loop, damit der CTA-Bereich lebendig wirkt, ohne zu schreien.</p>
+                </div>
+
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
