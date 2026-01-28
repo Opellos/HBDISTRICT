@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telekom &amp; Ranger – Glasfaser an der Haustür</title>
+  <style>
+    :root {
+      --bg: #e9f0ff;
+      --bg-alt: #f4f5ff;
+      --card: #ffffff;
+      --accent: #ff2e9f;
+      --accent-alt: #5b8dff;
+      --accent-soft: rgba(255,46,159,0.12);
+      --border-subtle: rgba(15,23,42,0.08);
+      --text-main: #192132;
+      --text-muted: #4b5565;
+      --text-soft: #9ca3af;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 24px 60px rgba(15,23,42,0.18);
+      --shadow-subtle: 0 18px 40px rgba(15,23,42,0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top left, #dbeafe 0, #eef2ff 45%, #ffe6ff 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 20px 88px;
+    }
+
+    header.case-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 32px;
+      align-items: stretch;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 880px) {
+      header.case-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-text {
+      padding: 26px 28px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      border: none;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(236,72,153,0.9);
+      background: #ffffff;
+      color: #111827;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero-label-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 20%, #fff 0, #ff2e9f 35%, transparent 70%);
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 4.6vw, 44px);
+      line-height: 1.08;
+      margin: 0 0 14px;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .hero-title span.accent {
+      color: #ffe4ff;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(249,250,251,0.9);
+      max-width: 34rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      margin-bottom: 20px;
+    }
+
+    .hero-meta span {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(15,23,42,0.35);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-cta-primary {
+      border-radius: 12px;
+      border: none;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ec4899, #4f46e5);
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15,23,42,0.28);
+    }
+
+    .hero-cta-secondary {
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .hero-image {
+      border-radius: var(--radius-xl);
+      background: #ffffff;
+      border: none;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+
+    .hero-image-inner {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      background-image: url("img3/01_telekom_shoot_sess_04.png");
+      filter: saturate(1.03);
+    }
+
+    .hero-image-overlay-label {
+      position: absolute;
+      left: 18px;
+      bottom: 14px;
+      padding: 6px 10px;
+      font-size: 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      color: #111827;
+      border: 1px solid rgba(148,163,184,0.7);
+      backdrop-filter: blur(18px);
+    }
+
+    .quote-section {
+      margin-bottom: 40px;
+    }
+
+    .quote-card {
+      border-radius: var(--radius-xl);
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 20px 20px;
+      position: relative;
+      overflow: hidden;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (max-width: 720px) {
+      .quote-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .quote-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 2px;
+      order: 1;
+    }
+
+    .quote-text {
+      font-size: 20px;
+      line-height: 1.6;
+      margin: 0 0 4px;
+      color: var(--text-main);
+      order: 2;
+    }
+
+    .quote-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      order: 3;
+    }
+
+    .quote-side-image {
+      order: 0;
+      border-radius: var(--radius-lg);
+      background-image: url("case_assets/telekom-d2d_hero.png");
+      background-size: cover;
+      background-position: center;
+      min-height: 220px;
+      border: 1px solid rgba(148,163,184,0.6);
+      margin-bottom: 6px;
+    }
+
+    .case-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .case-section {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+      padding: 18px 20px;
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    @media (max-width: 880px) {
+      .case-section {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .case-section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .case-section-number {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-alt);
+    }
+
+    .case-section-title {
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .case-section-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .case-section-text p {
+      margin: 0 0 10px;
+    }
+
+    .case-section-text ul {
+      margin: 0 0 8px 1.1rem;
+      padding: 0;
+      color: var(--text-muted);
+    }
+
+    .case-section-text li {
+      margin-bottom: 4px;
+    }
+
+    .case-section-image {
+      margin-top: 8px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .case-section-image-main {
+      border-radius: 12px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+    }
+
+    .case-section-image-caption {
+      position: static;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(148,163,184,0.6);
+      backdrop-filter: blur(12px);
+    }
+
+    .case-section-image-dual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .case-section-image-grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .case-section-image-tile {
+      border-radius: 12px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+    }
+
+    .case-section-image-stack {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 8px;
+    }
+
+    .case-section-image-animation {
+      border-radius: 999px;
+      border: 1px dashed rgba(148,163,184,0.9);
+      background: radial-gradient(circle at 10% 0, rgba(236,72,153,0.35), rgba(15,23,42,0.9));
+      font-size: 11px;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+    }
+
+    .case-section-subhero {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .case-section-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .bridge-section {
+      padding: 16px 20px 18px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .bridge-headline {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .bridge-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .bridge-image {
+      border-radius: var(--radius-lg);
+      background-size: cover;
+      background-position: center;
+      height: 190px;
+      box-shadow: var(--shadow-subtle);
+      border: 1px solid rgba(148,163,184,0.7);
+      background-color: #ffffff;
+    }
+
+    .bridge-symbol {
+      min-width: 90px;
+      font-size: 11px;
+      color: var(--text-soft);
+      border-radius: 999px;
+      border: 1px dashed rgba(148,163,184,0.9);
+      padding: 6px 12px;
+      text-align: center;
+      background: rgba(248,250,252,0.95);
+    }
+
+    @media (max-width: 720px) {
+      .bridge-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bridge-image {
+        height: 160px;
+      }
+
+      .bridge-symbol {
+        justify-self: flex-start;
+      }
+    }
+
+    .mini-block {
+      border-radius: var(--radius-lg);
+      background: rgba(248,250,252,0.95);
+      border: 1px solid rgba(148,163,184,0.7);
+      padding: 12px 13px 11px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .mini-block-title {
+      font-size: 13px;
+      font-weight: 550;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .cta-section {
+      margin-top: 36px;
+      padding: 20px 22px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow-soft);
+      color: #ffffff;
+    }
+
+    @media (max-width: 720px) {
+      .cta-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .cta-text {
+      max-width: 460px;
+    }
+
+    .cta-title {
+      font-size: 20px;
+      margin: 0 0 4px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .cta-body {
+      font-size: 18px;
+      color: rgba(249,250,251,0.9);
+      margin: 0;
+    }
+
+    .cta-button {
+      border-radius: 12px;
+      border: none;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ec4899, #4f46e5);
+      color: #ffffff;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 14px 30px rgba(15,23,42,0.28);
+    }
+
+    .cta-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #ff2e9f 35%, #4f46e5 85%);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    footer {
+      padding-top: 32px;
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: left;
+    }
+      .quote-card-wide {
+      padding-top: 16px;
+    }
+
+    .quote-wide-image {
+      border-radius: var(--radius-xl);
+      background-image: url("case_assets/dynamic_brand_work.png");
+      background-size: cover;
+      background-position: center;
+      min-height: 260px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(148,163,184,0.6);
+    }
+
+    .panel-cta-row {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      order: 4;
+    }
+
+    .panel-cta-button {
+      border-radius: 10px;
+      border: none;
+      padding: 11px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ec4899, #4f46e5);
+      color: #ffffff;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 12px 24px rgba(15,23,42,0.24);
+    }
+
+    .fashion-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      grid-column: 1 / -1;
+    }
+
+    .fashion-tile {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      aspect-ratio: 3 / 2;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.16);
+    }
+
+    .fashion-tile.span-2 {
+      grid-column: span 2;
+    }
+
+    .fashion-tile.tall {
+      grid-row: span 2;
+      aspect-ratio: 2 / 3;
+    }
+
+    .fashion-tile-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 6px 10px;
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--text-main);
+      background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0));
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <main class="page-inner">
+      <header class="case-hero">
+        <div class="hero-text">
+          <div class="hero-label">
+            <div class="hero-label-dot"></div>
+            <span>Featured Case</span>
+          </div>
+          <div class="hero-kicker">Markensynergien von Partnerschaften</div>
+          <h1 class="hero-title">
+            Telekom &amp; <span class="accent">Ranger</span> – ein neuer Auftritt an der Haustür
+          </h1>
+          <p class="hero-subtitle">
+            Wie aus einem schwierigen Umfeld vor der Haustür ein klar gestalteter Auftritt wurde – mit Markenführung, Design und einem KI-gestützten Brand System in einer Hand.
+          </p>
+          <div class="hero-meta">
+            <span>Telekom &amp; Ranger</span>
+            <span>Brand Management</span>
+            <span>Design &amp; Workwear</span>
+            <span>AI Workflow &amp; Tools</span>
+          </div>
+          <div class="hero-cta-row">
+            <button class="hero-cta-primary" type="button">Gespräch vereinbaren</button>
+            <div class="hero-cta-secondary">Case: Door-to-Door &amp; Glasfaser in sensiblen Alltagssituationen.</div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-inner"></div>
+          <div class="hero-image-overlay-label">img3/01_telekom_shoot_sess_04.png – Brand-Architektur im Raum</div>
+        </div>
+      </header>
+
+      <section class="quote-section">
+        <div class="quote-card">
+          <div class="quote-label">Ausgangspunkt</div>
+          <div class="quote-side-image"></div>
+          <p class="quote-text">
+            „Am Anfang stand keine Kollektion oder gar eine Academy-Plattform, sondern ein Bauchgefühl. Zwischen dem Anspruch der Marke und dem, was draußen ankommt, klaffte eine Lücke. Genau diese Lücke wollten wir greifbar machen.“
+          </p>
+          <p class="quote-meta">Telekom &amp; Ranger – Einstieg in das gemeinsame Projekt.</p>
+        </div>
+      </section>
+
+      <section class="case-grid">
+        <section class="case-section" id="status-quo">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">01</div>
+              <div class="case-section-title">Status quo vor der Haustür</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Glasfaser ist begehrt, alle reden über Geschwindigkeit und Zukunftsfähigkeit – und trotzdem kommen die Abschlüsse nicht in dem Maß, wie sie könnten.
+              </p>
+              <p>
+                Viele Menschen erleben Besuche an der Tür als störend und undurchsichtig. Vor den Türen stehen ständig wechselnde Anbieter, ohne klare Kennzeichnung und ohne gemeinsame Standards.
+              </p>
+              <p>
+                Das Bild: viel Klingen, wenig Klarheit, viel Potenzial für ein wichtiges Infrastrukturangebot, das im Alltag oft nicht ankommt.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-main" style="background-image:url('case_assets/telekom-d2d_haustuer-collage.png');"></div>
+            <div class="case-section-image-caption">telekom-d2d_haustuer-collage.png – Misstrauen und unruhiges Feld an der Haustür vor Projektbeginn.</div>
+          </div>
+        </section>
+
+        <section class="case-section" id="anspruchsgruppen">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">02</div>
+              <div class="case-section-title">Perspektiven der Anspruchsgruppen</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Der Ausbau von Glasfaser ist an konkrete Zeitfenster gekoppelt und steht politisch wie gesellschaftlich im Fokus. Gleichzeitig treffen hier unterschiedliche Interessen aufeinander: Kund:innen, Vertrieb, Telekom, Ranger sowie lokale Politik und Regulatoren.
+              </p>
+              <p>
+                Es gab bislang keinen klar definierten, positiv belegten Auftritt an der Haustür – teilweise war das Format negativ konnotiert. Für das Projekt haben wir umfangreiche Markt- und Bedarfsanalysen, Daten, Gespräche und Beobachtungen zusammengeführt, um diese Lage belastbar zu verstehen.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-dual">
+              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_stakeholder-meeting.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_status-quo-strip.png');"></div>
+            </div>
+            <div class="case-section-image-caption">telekom-d2d_stakeholder-meeting.png / telekom-d2d_status-quo-strip.png – Stakeholder-Gespräche und Verdichtung der Ausgangslage.</div>
+          </div>
+        </section>
+
+        <section class="case-section bridge-section" id="brand-system-bridge">
+          <div style="grid-column:1 / -1;">
+            <div class="bridge-headline">Datenwolke wird zur spruchreifen Roadmap</div>
+            <div class="bridge-row">
+              <div class="bridge-image" style="background-image:url('case_assets/telekom-d2d_bauchgefuehl-brain.png');"></div>
+              <div class="bridge-symbol">Symbol / Animation: Datenstrom</div>
+              <div class="bridge-image" style="background-image:url('case_assets/telekom-d2d_brand-mapper-main.png');"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section" id="brand-system">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">03</div>
+              <div class="case-section-title">KI‑gestütztes Brand System</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Statt nur an einzelnen Maßnahmen zu drehen, haben wir den Auftritt an der Haustür als System gedacht. Analysen, Gespräche und zahlreiche Teilprojekte sind in eine visuelle Karte geflossen, die Ziele, Themen und Abhängigkeiten sichtbar macht.
+              </p>
+              <p>
+                Herzstück ist mein Brand Project Mapper – eine Anwendung, die Projektwissen strukturiert, Zusammenhänge erkennt und Entscheidungen vorbereitet. Er kann Informationen zuordnen, kennt Fachabteilungen und Themen, generiert präsentationsfähige Ebenen und erzeugt Bildwelten direkt aus den hinterlegten Inhalten.
+              </p>
+              <p>
+                Daraus entstanden mehrere Teilprojekte, die in diesem Case exemplarisch gezeigt werden: Lernplattform und Behaviour, Kleidung und visuelle Identität, Launch und Rollout.
+              </p>
+              <p>
+                Brand Management, Designentscheidungen und der Aufbau der Tools lagen in einer Hand – damit das System nicht nur auf dem Papier, sondern im Alltag funktioniert.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-dual">
+              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_brand-mapper-main.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_brain-to-map.png');"></div>
+            </div>
+            <div class="case-section-image-caption">telekom-d2d_brand-mapper-main.png / telekom-d2d_brain-to-map.png – vom diffusen Bild zur strukturierten Brand-Systemkarte.</div>
+          </div>
+        </section>
+
+        <section class="quote-section" id="dynamic-brand-work">
+          <div class="quote-card quote-card-wide">
+            <div class="quote-wide-image"></div>
+            <div class="quote-label">Dynamische Umsetzung im Brand Panel</div>
+            <p class="quote-text">
+              In diesem Schritt werden die Informationen aus dem Brand System und die recherchierten Erkenntnisse in konkrete Umsetzung überführt. Das Panel bündelt Entscheidungen, Übersichten und To-dos so, dass die Umsetzung klar strukturiert und im Alltag deutlich erleichtert wird. Schnittstellen und Rollen sind definiert, Beteiligte können ergänzt werden und das System kann organisch mitwachsen – ohne dass der Gesamtaufbau jedes Mal neu gedacht werden muss.
+            </p>
+            <div class="panel-cta-row">
+              <button class="panel-cta-button" type="button">Brand Project Mapper prototypisch erkunden</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section" id="teilprojekt-kleidung">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">3.1</div>
+              <div class="case-section-title">Kleidung &amp; visuelle Identität</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Gestaltung der Arbeitskleidung als zentrales Trägermedium des Auftritts: Funktion, Sicherheit, Komfort und visuelle Identität greifen ineinander.
+              </p>
+              <p>
+                Co-Branding-Logik, Guideline und Endorsement regeln das Zusammenspiel von Telekom und Ranger – von Logos und Farben bis zu Details wie Reflektoren, Zippern und Accessoires.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-dual">
+              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_field-situation.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_outfit-lineup.png');"></div>
+            </div>
+            <div class="case-section-image-caption">telekom-d2d_field-situation.png / telekom-d2d_outfit-lineup.png – Auftritt im Alltag und Kollektion im Überblick.</div>
+          </div>
+          <div class="fashion-grid">
+            <div class="fashion-tile span-2" style="background-image:url('case_assets/hendrik_bogner_design_01.png');">
+              <div class="fashion-tile-caption">Schnittentwicklung und erste Silhouetten.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_02.png');">
+              <div class="fashion-tile-caption">Varianten für unterschiedliche Wetterlagen.</div>
+            </div>
+            <div class="fashion-tile tall" style="background-image:url('case_assets/hendrik_bogner_design_03.png');">
+              <div class="fashion-tile-caption">Feinzeichnung der markentypischen Details.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_04.png');">
+              <div class="fashion-tile-caption">Kapuzendetails und Reflektoren.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_05.png');">
+              <div class="fashion-tile-caption">Taschen, Zipper und Bedienbarkeit im Einsatz.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_06.png');">
+              <div class="fashion-tile-caption">Caps, Schirme und ergänzende Accessoires.</div>
+            </div>
+            <div class="fashion-tile span-2" style="background-image:url('case_assets/hendrik_bogner_design_07.png');">
+              <div class="fashion-tile-caption">Team-Aufstellung im neuen Auftritt.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_08.png');">
+              <div class="fashion-tile-caption">Silhouetten im Tageslicht am Einsatzort.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_09.png');">
+              <div class="fashion-tile-caption">Kollektion im Überblick für Stakeholder.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_10.png');">
+              <div class="fashion-tile-caption">Material- und Farbtests für Komfort.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_11.png');">
+              <div class="fashion-tile-caption">Detailprüfung von Nähten und Abschlüssen.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_12.png');">
+              <div class="fashion-tile-caption">Zusätzliche Varianten und Accessoires im Überblick.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section" id="teilprojekt-lernplattform">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">3.2</div>
+              <div class="case-section-title">Shooting Photoshooting</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Aufbau einer Plattform f&uuml;r Verhaltens- und Produktschulung. Marken- und Vertriebsanforderungen werden in konkrete Leitlinien &uuml;bersetzt.
+              </p>
+              <p>
+                Bildwelten und Inhalte bereiten den Alltag an der Haust&uuml;r realistisch vor und machen Erwartungen an Rolle, Auftreten und Argumentation konkret besprechbar.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-main" style="background-image:url('case_assets/shooting_01.png');"></div>
+            <div class="case-section-image-caption">shooting_01.png &ndash; Hauptmotiv des Shootings, erg&auml;nzt um shooting_02&ndash;07 als Szenen aus der Kollektion im Einsatz.</div>
+          </div>
+          <div class="fashion-grid shooting-grid">
+            <div class="fashion-tile" style="background-image:url('case_assets/shooting_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/shooting_03.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/shooting_04.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/shooting_05.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/shooting_06.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/shooting_07.png');"></div>
+          </div>
+        </section>
+
+        <section class="case-section" id="teilprojekt-launch">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">3.3</div>
+              <div class="case-section-title">Launch &amp; Rollout</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Einführung über Events, Summit und interne Kommunikation. Sinn und Zweck werden für Mitarbeitende nachvollziehbar gemacht, Identifikation gefördert.
+              </p>
+              <p>
+                Die Umsetzung wird in Prozesse, Logistik und den täglichen Einsatz überführt – vom ersten Briefing bis zu Schulungen und Nachjustierungen im Feld.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-main" style="background-image:url('case_assets/rollout_01.png');"></div>
+            <div class="case-section-image-caption">rollout_01.png – Hauptmotiv für Launch &amp; Rollout, ergänzt um rollout_02–07 als Szenen aus Events und Alltag.</div>
+          </div>
+          <div class="fashion-grid rollout-grid">
+            <div class="fashion-tile" style="background-image:url('case_assets/rollout_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/rollout_03.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/rollout_04.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/rollout_05.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/rollout_06.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/rollout_07.png');"></div>
+          </div>
+        </section>
+
+                        <section class="case-section" id="arbeit-geht-los">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">04</div>
+              <div class="case-section-title">Vom Konzept auf die Straße</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Damit das System trägt, musste jede Entscheidung durch die Praxisprobe. Skizzen, Musterteile und Prototypen sind in Tests mit Teams und Stakeholdern gegangen: Sitzt die Kleidung, halten die Materialien, funktioniert die Ausstattung im echten Einsatz.
+              </p>
+              <p>
+                Parallel wurden Bildwelten, Schulungsinhalte, Guidelines und Prozesse so verknüpft, dass sie in Summe funktionieren – vom ersten Briefing über die Events bis zur letzten Retouren-Schleife.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-main" style="background-image:url('case_assets/strasse_01.png');"></div>
+            <div class="case-section-image-caption">strasse_01.png / strasse_02.png / strasse_03.png – vom Prototyp auf der Werkbank zum Auftritt auf der Straße.</div>
+          </div>
+          <div class="fashion-grid strasse-grid">
+            <div class="fashion-tile" style="background-image:url('case_assets/strasse_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/strasse_03.png');"></div>
+          </div>
+        </section>
+
+                <section class="case-section" id="wirkung">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">05</div>
+              <div class="case-section-title">Wirkung im Alltag</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Der Auftritt an der Haustür wirkt heute planbarer, ruhiger und vertrauenswürdiger. Haushalte bekommen vor Ort eine strukturierte, verständliche Beratung statt spontaner Verkaufsversuche.
+              </p>
+              <p>
+                Mitarbeitende haben klare Leitplanken, spürbaren Rückhalt und Werkzeuge, mit denen sie ihren Job ernsthaft ausfüllen können. Für die Telekom und Ranger ist ein sensibler Kontaktpunkt entstanden, der dem eigenen Anspruch an Professionalität und Verlässlichkeit deutlich näherkommt – und als Blaupause für weitere Vertriebswege dienen kann.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-main" style="background-image:url('case_assets/alltag_01.png');"></div>
+            <div class="case-section-image-caption">alltag_01.png / alltag_02.png / alltag_03.png – ruhige Alltagsszenen mit klar erkennbarem Auftritt an der Haustür.</div>
+          </div>
+          <div class="fashion-grid alltag-grid">
+            <div class="fashion-tile" style="background-image:url('case_assets/alltag_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('case_assets/alltag_03.png');"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="cta-section" id="cta">
+        <div class="cta-text">
+          <h2 class="cta-title">Lassen Sie uns über Ihren Auftritt sprechen</h2>
+          <p class="cta-body">
+            Wenn Sie sensible Kontaktpunkte – wie Haustür, Vertrieb oder Service – neu denken oder professionalisieren möchten, begleite ich Sie von der ersten Problemwolke bis zur Bühne: Strategie, Design und Tools aus einer Hand.
+          </p>
+        </div>
+        <button class="cta-button" type="button">Gespräch vereinbaren</button>
+      </section>
+
+      <footer>
+        Case-Konzept und Umsetzung: Brand Management, Design &amp; AI-gestützte Tools in einer Rolle zusammengeführt.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

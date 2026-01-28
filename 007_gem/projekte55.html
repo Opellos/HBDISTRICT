@@ -562,11 +562,12 @@
     }
 
     .panel-cta-row {
-      margin-top: 12px;
+      margin-top: 16px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: flex-end;
+      order: 4;
     }
 
     .panel-cta-button {
@@ -582,6 +583,45 @@
       cursor: pointer;
       white-space: nowrap;
       box-shadow: 0 12px 24px rgba(15,23,42,0.24);
+    }
+
+    .fashion-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      grid-column: 1 / -1;
+    }
+
+    .fashion-tile {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      aspect-ratio: 3 / 2;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.16);
+    }
+
+    .fashion-tile.span-2 {
+      grid-column: span 2;
+    }
+
+    .fashion-tile.tall {
+      grid-row: span 2;
+      aspect-ratio: 2 / 3;
+    }
+
+    .fashion-tile-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 6px 10px;
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--text-main);
+      background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0));
     }
   </style>
 </head>
@@ -732,31 +772,10 @@
           </div>
         </section>
 
-        <section class="case-section" id="teilprojekt-lernplattform">
-          <div>
-            <div class="case-section-header">
-              <div class="case-section-number">3.1</div>
-              <div class="case-section-title">Lernplattform &amp; Behaviour</div>
-            </div>
-            <div class="case-section-text">
-              <p>
-                Aufbau einer Plattform für Verhaltens- und Produktschulung. Marken- und Vertriebsanforderungen werden in konkrete Leitlinien übersetzt.
-              </p>
-              <p>
-                Bildwelten und Inhalte bereiten den Alltag an der Haustür realistisch vor und machen Erwartungen an Rolle, Auftreten und Argumentation konkret besprechbar.
-              </p>
-            </div>
-          </div>
-          <div class="case-section-image">
-            <div class="case-section-image-main" style="background-image:url('case_assets/telekom-d2d_academy-screen.png');"></div>
-            <div class="case-section-image-caption">telekom-d2d_academy-screen.png – Lernplattform und Behaviour-Inhalte als Grundlage für den Auftritt.</div>
-          </div>
-        </section>
-
         <section class="case-section" id="teilprojekt-kleidung">
           <div>
             <div class="case-section-header">
-              <div class="case-section-number">3.2</div>
+              <div class="case-section-number">3.1</div>
               <div class="case-section-title">Kleidung &amp; visuelle Identität</div>
             </div>
             <div class="case-section-text">
@@ -774,6 +793,65 @@
               <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_outfit-lineup.png');"></div>
             </div>
             <div class="case-section-image-caption">telekom-d2d_field-situation.png / telekom-d2d_outfit-lineup.png – Auftritt im Alltag und Kollektion im Überblick.</div>
+          </div>
+          <div class="fashion-grid">
+            <div class="fashion-tile span-2" style="background-image:url('case_assets/hendrik_bogner_design_01.png');">
+              <div class="fashion-tile-caption">Schnittentwicklung und erste Silhouetten.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_02.png');">
+              <div class="fashion-tile-caption">Varianten für unterschiedliche Wetterlagen.</div>
+            </div>
+            <div class="fashion-tile tall" style="background-image:url('case_assets/hendrik_bogner_design_03.png');">
+              <div class="fashion-tile-caption">Feinzeichnung der markentypischen Details.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_04.png');">
+              <div class="fashion-tile-caption">Kapuzendetails und Reflektoren.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_05.png');">
+              <div class="fashion-tile-caption">Taschen, Zipper und Bedienbarkeit im Einsatz.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_06.png');">
+              <div class="fashion-tile-caption">Caps, Schirme und ergänzende Accessoires.</div>
+            </div>
+            <div class="fashion-tile span-2" style="background-image:url('case_assets/hendrik_bogner_design_07.png');">
+              <div class="fashion-tile-caption">Team-Aufstellung im neuen Auftritt.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_08.png');">
+              <div class="fashion-tile-caption">Silhouetten im Tageslicht am Einsatzort.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_09.png');">
+              <div class="fashion-tile-caption">Kollektion im Überblick für Stakeholder.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_10.png');">
+              <div class="fashion-tile-caption">Material- und Farbtests für Komfort.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_11.png');">
+              <div class="fashion-tile-caption">Detailprüfung von Nähten und Abschlüssen.</div>
+            </div>
+            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_12.png');">
+              <div class="fashion-tile-caption">Zusätzliche Varianten und Accessoires im Überblick.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section" id="teilprojekt-lernplattform">
+          <div>
+            <div class="case-section-header">
+              <div class="case-section-number">3.2</div>
+              <div class="case-section-title">Lernplattform &amp; Behaviour</div>
+            </div>
+            <div class="case-section-text">
+              <p>
+                Aufbau einer Plattform für Verhaltens- und Produktschulung. Marken- und Vertriebsanforderungen werden in konkrete Leitlinien übersetzt.
+              </p>
+              <p>
+                Bildwelten und Inhalte bereiten den Alltag an der Haustür realistisch vor und machen Erwartungen an Rolle, Auftreten und Argumentation konkret besprechbar.
+              </p>
+            </div>
+          </div>
+          <div class="case-section-image">
+            <div class="case-section-image-main" style="background-image:url('case_assets/telekom-d2d_academy-screen.png');"></div>
+            <div class="case-section-image-caption">telekom-d2d_academy-screen.png – Lernplattform und Behaviour-Inhalte als Grundlage für den Auftritt.</div>
           </div>
         </section>
 
