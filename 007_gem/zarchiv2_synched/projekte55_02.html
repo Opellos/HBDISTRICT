@@ -183,7 +183,7 @@
       flex: 1;
       background-size: cover;
       background-position: center;
-      background-image: url("img3/01_telekom_shoot_sess_04.png");
+      background-image: url("../img3/01_telekom_shoot_sess_04.png");
       filter: saturate(1.03);
     }
 
@@ -218,288 +218,15 @@
       gap: 10px;
     }
 
-    @media (max-width: 720px) {
-      .quote-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .quote-label {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 2px;
-      order: 1;
-    }
-
-    .quote-text {
-      font-size: 20px;
-      line-height: 1.6;
-      margin: 0 0 4px;
-      color: var(--text-main);
-      order: 2;
-    }
-
-    .quote-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      order: 3;
-    }
-
+    /* Bild im Ausgangspunkt-Quote */
     .quote-side-image {
-      order: 0;
+      margin: 8px 0 16px;
       border-radius: var(--radius-lg);
-      background-image: url("case_assets/telekom-d2d_hero.png");
+      background-image: url('../case_assets/telekom-d2d_hero.png');
       background-size: cover;
       background-position: center;
-      min-height: 220px;
-      border: 1px solid rgba(148,163,184,0.6);
-      margin-bottom: 6px;
-    }
-
-    .case-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-    }
-
-    .case-section {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-      gap: 24px;
-      padding: 18px 20px;
-      border-radius: var(--radius-xl);
-      background: var(--card);
-      border: 1px solid var(--border-subtle);
+      min-height: 260px;
       box-shadow: var(--shadow-subtle);
-    }
-
-    @media (max-width: 880px) {
-      .case-section {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .case-section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .case-section-number {
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-alt);
-    }
-
-    .case-section-title {
-      font-size: 28px;
-      line-height: 1.2;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-
-    .case-section-text {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    .case-section-text p {
-      margin: 0 0 10px;
-    }
-
-    .case-section-text ul {
-      margin: 0 0 8px 1.1rem;
-      padding: 0;
-      color: var(--text-muted);
-    }
-
-    .case-section-text li {
-      margin-bottom: 4px;
-    }
-
-    .case-section-image {
-      margin-top: 8px;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      border: none;
-      background: transparent;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .case-section-image-main {
-      border-radius: 12px;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-      aspect-ratio: 3 / 2;
-    }
-
-    .case-section-image-caption {
-      position: static;
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--text-muted);
-      padding: 6px 8px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(148,163,184,0.6);
-      backdrop-filter: blur(12px);
-    }
-
-    .case-section-image-dual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      width: 100%;
-    }
-
-    .case-section-image-grid3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      width: 100%;
-      margin-top: 8px;
-    }
-
-    .case-section-image-tile {
-      border-radius: 12px;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-      aspect-ratio: 3 / 2;
-    }
-
-    .case-section-image-stack {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 8px;
-    }
-
-    .case-section-image-animation {
-      border-radius: 999px;
-      border: 1px dashed rgba(148,163,184,0.9);
-      background: radial-gradient(circle at 10% 0, rgba(236,72,153,0.35), rgba(15,23,42,0.9));
-      font-size: 11px;
-      color: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 10px;
-    }
-
-    .case-section-subhero {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-      margin-bottom: 8px;
-    }
-
-    .case-section-columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      margin-top: 4px;
-    }
-
-    .bridge-section {
-      padding: 16px 20px 18px;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-
-    .bridge-headline {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    .bridge-row {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .bridge-image {
-      border-radius: var(--radius-lg);
-      background-size: cover;
-      background-position: center;
-      height: 190px;
-      box-shadow: var(--shadow-subtle);
-      border: 1px solid rgba(148,163,184,0.7);
-      background-color: #ffffff;
-    }
-
-    .bridge-symbol {
-      min-width: 90px;
-      font-size: 11px;
-      color: var(--text-soft);
-      border-radius: 999px;
-      border: 1px dashed rgba(148,163,184,0.9);
-      padding: 6px 12px;
-      text-align: center;
-      background: rgba(248,250,252,0.95);
-    }
-
-    @media (max-width: 720px) {
-      .bridge-row {
-        grid-template-columns: 1fr;
-      }
-
-      .bridge-image {
-        height: 160px;
-      }
-
-      .bridge-symbol {
-        justify-self: flex-start;
-      }
-    }
-
-    .mini-block {
-      border-radius: var(--radius-lg);
-      background: rgba(248,250,252,0.95);
-      border: 1px solid rgba(148,163,184,0.7);
-      padding: 12px 13px 11px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .mini-block-title {
-      font-size: 13px;
-      font-weight: 550;
-      margin-bottom: 4px;
-      color: var(--text-main);
-    }
-
-    .cta-section {
-      margin-top: 36px;
-      padding: 20px 22px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, #4f46e5, #ec4899);
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      box-shadow: var(--shadow-soft);
-      color: #ffffff;
     }
 
     @media (max-width: 720px) {
@@ -507,10 +234,48 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .cta-figure {
+        width: 180px;
+        align-self: center;
+      }
+
+      .quote-side-image {
+        min-height: 200px;
+        aspect-ratio: 3 / 2;
+      }
     }
 
     .cta-text {
       max-width: 460px;
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .cta-figure {
+      position: relative;
+      width: 320px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .cta-figure-inner {
+      position: absolute;
+      right: -30px;
+      bottom: -24px;
+      top: -80px;
+      width: 320px;
+      background-image: url('../case_assets/HB_01.png');
+      background-size: contain;
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      pointer-events: none;
     }
 
     .cta-title {
@@ -561,7 +326,7 @@
 
     .quote-wide-image {
       border-radius: var(--radius-xl);
-      background-image: url("case_assets/dynamic_brand_work.png");
+      background-image: url("../case_assets/dynamic_brand_work.png");
       background-size: cover;
       background-position: center;
       min-height: 260px;
@@ -631,7 +396,226 @@
       color: var(--text-main);
       background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0));
     }
-  </style>
+  
+    /* Layout-Fix: Case-Abschnitte und Abschluss-CTA */
+
+    .case-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .case-section {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+      align-items: stretch;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .case-section-header {
+      margin-bottom: 12px;
+    }
+
+    .case-section-number {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .case-section-title {
+      font-size: 28px;
+      line-height: 33.6px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .case-section-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0 0 12px;
+    }
+
+    .case-section-image {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .case-section-image-main {
+      border-radius: var(--radius-lg);
+      background-size: cover;
+      background-position: center;
+      min-height: 260px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .case-section-image-dual {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .case-section-image-tile {
+      border-radius: var(--radius-lg);
+      background-size: cover;
+      background-position: center;
+      min-height: 170px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .case-section-image-caption {
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--text-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      align-self: flex-end;
+    }
+
+    .bridge-section {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .bridge-headline {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+
+    .bridge-row {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) auto minmax(0, 2.3fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .bridge-image {
+      border-radius: var(--radius-lg);
+      background-size: cover;
+      background-position: center;
+      min-height: 200px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .bridge-symbol {
+      font-size: 12px;
+      color: var(--text-soft);
+      text-align: center;
+      padding: 10px 8px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .quote-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .quote-text {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 4px 0 6px;
+    }
+
+    .quote-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .cta-section {
+      margin-top: 40px;
+      padding: 22px 24px 20px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      color: #ffffff;
+      position: relative;
+      overflow: visible;
+    }
+
+    .cta-title {
+      font-size: 28px;
+      line-height: 33.6px;
+      font-weight: 800;
+      margin: 0 0 4px;
+      color: #ffffff;
+    }
+
+    .cta-body {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+      color: rgba(249, 250, 251, 0.9);
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+      max-width: 560px;
+    }
+
+    .cta-figure {
+      position: relative;
+      width: 320px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .cta-figure-inner {
+      position: absolute;
+      right: -20px;
+      bottom: -16px;
+      top: -100px;
+      width: 320px;
+      background-image: url('../case_assets/HB_01.png');
+      background-size: contain;
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    .cta-figure-img {
+      position: absolute;
+      right: -20px;
+      bottom: -24px;
+      width: 320px;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    @media (max-width: 880px) {
+      .case-section {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    </style>
 </head>
 <body>
   <div class="page-shell">
@@ -697,7 +681,7 @@
             </div>
           </div>
           <div class="case-section-image">
-            <div class="case-section-image-main" style="background-image:url('case_assets/telekom-d2d_haustuer-collage.png');"></div>
+            <div class="case-section-image-main" style="background-image:url('../case_assets/telekom-d2d_haustuer-collage.png');"></div>
             <div class="case-section-image-caption">telekom-d2d_haustuer-collage.png – Misstrauen und unruhiges Feld an der Haustür vor Projektbeginn.</div>
           </div>
         </section>
@@ -719,8 +703,8 @@
           </div>
           <div class="case-section-image">
             <div class="case-section-image-dual">
-              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_stakeholder-meeting.png');"></div>
-              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_status-quo-strip.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('../case_assets/telekom-d2d_stakeholder-meeting.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('../case_assets/telekom-d2d_status-quo-strip.png');"></div>
             </div>
             <div class="case-section-image-caption">telekom-d2d_stakeholder-meeting.png / telekom-d2d_status-quo-strip.png – Stakeholder-Gespräche und Verdichtung der Ausgangslage.</div>
           </div>
@@ -730,9 +714,9 @@
           <div style="grid-column:1 / -1;">
             <div class="bridge-headline">Datenwolke wird zur spruchreifen Roadmap</div>
             <div class="bridge-row">
-              <div class="bridge-image" style="background-image:url('case_assets/telekom-d2d_bauchgefuehl-brain.png');"></div>
+              <div class="bridge-image" style="background-image:url('../case_assets/telekom-d2d_bauchgefuehl-brain.png');"></div>
               <div class="bridge-symbol">Symbol / Animation: Datenstrom</div>
-              <div class="bridge-image" style="background-image:url('case_assets/telekom-d2d_brand-mapper-main.png');"></div>
+              <div class="bridge-image" style="background-image:url('../case_assets/telekom-d2d_brand-mapper-main.png');"></div>
             </div>
           </div>
         </section>
@@ -760,8 +744,8 @@
           </div>
           <div class="case-section-image">
             <div class="case-section-image-dual">
-              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_brand-mapper-main.png');"></div>
-              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_brain-to-map.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('../case_assets/telekom-d2d_brand-mapper-main.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('../case_assets/telekom-d2d_brain-to-map.png');"></div>
             </div>
             <div class="case-section-image-caption">telekom-d2d_brand-mapper-main.png / telekom-d2d_brain-to-map.png – vom diffusen Bild zur strukturierten Brand-Systemkarte.</div>
           </div>
@@ -797,46 +781,46 @@
           </div>
           <div class="case-section-image">
             <div class="case-section-image-dual">
-              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_field-situation.png');"></div>
-              <div class="case-section-image-tile" style="background-image:url('case_assets/telekom-d2d_outfit-lineup.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('../case_assets/telekom-d2d_field-situation.png');"></div>
+              <div class="case-section-image-tile" style="background-image:url('../case_assets/telekom-d2d_outfit-lineup.png');"></div>
             </div>
             <div class="case-section-image-caption">telekom-d2d_field-situation.png / telekom-d2d_outfit-lineup.png – Auftritt im Alltag und Kollektion im Überblick.</div>
           </div>
           <div class="fashion-grid">
-            <div class="fashion-tile span-2" style="background-image:url('case_assets/hendrik_bogner_design_01.png');">
+            <div class="fashion-tile span-2" style="background-image:url('../case_assets/hendrik_bogner_design_01.png');">
               <div class="fashion-tile-caption">Schnittentwicklung und erste Silhouetten.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_02.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_02.png');">
               <div class="fashion-tile-caption">Varianten für unterschiedliche Wetterlagen.</div>
             </div>
-            <div class="fashion-tile tall" style="background-image:url('case_assets/hendrik_bogner_design_03.png');">
+            <div class="fashion-tile tall" style="background-image:url('../case_assets/hendrik_bogner_design_03.png');">
               <div class="fashion-tile-caption">Feinzeichnung der markentypischen Details.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_04.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_04.png');">
               <div class="fashion-tile-caption">Kapuzendetails und Reflektoren.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_05.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_05.png');">
               <div class="fashion-tile-caption">Taschen, Zipper und Bedienbarkeit im Einsatz.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_06.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_06.png');">
               <div class="fashion-tile-caption">Caps, Schirme und ergänzende Accessoires.</div>
             </div>
-            <div class="fashion-tile span-2" style="background-image:url('case_assets/hendrik_bogner_design_07.png');">
+            <div class="fashion-tile span-2" style="background-image:url('../case_assets/hendrik_bogner_design_07.png');">
               <div class="fashion-tile-caption">Team-Aufstellung im neuen Auftritt.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_08.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_08.png');">
               <div class="fashion-tile-caption">Silhouetten im Tageslicht am Einsatzort.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_09.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_09.png');">
               <div class="fashion-tile-caption">Kollektion im Überblick für Stakeholder.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_10.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_10.png');">
               <div class="fashion-tile-caption">Material- und Farbtests für Komfort.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_11.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_11.png');">
               <div class="fashion-tile-caption">Detailprüfung von Nähten und Abschlüssen.</div>
             </div>
-            <div class="fashion-tile" style="background-image:url('case_assets/hendrik_bogner_design_12.png');">
+            <div class="fashion-tile" style="background-image:url('../case_assets/hendrik_bogner_design_12.png');">
               <div class="fashion-tile-caption">Zusätzliche Varianten und Accessoires im Überblick.</div>
             </div>
           </div>
@@ -858,16 +842,16 @@
             </div>
           </div>
           <div class="case-section-image">
-            <div class="case-section-image-main" style="background-image:url('case_assets/shooting_01.png');"></div>
+            <div class="case-section-image-main" style="background-image:url('../case_assets/shooting_01.png');"></div>
             <div class="case-section-image-caption">shooting_01.png &ndash; Hauptmotiv des Shootings, erg&auml;nzt um shooting_02&ndash;07 als Szenen aus der Kollektion im Einsatz.</div>
           </div>
           <div class="fashion-grid shooting-grid">
-            <div class="fashion-tile" style="background-image:url('case_assets/shooting_02.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/shooting_03.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/shooting_04.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/shooting_05.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/shooting_06.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/shooting_07.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/shooting_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/shooting_03.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/shooting_04.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/shooting_05.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/shooting_06.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/shooting_07.png');"></div>
           </div>
         </section>
 
@@ -887,16 +871,16 @@
             </div>
           </div>
           <div class="case-section-image">
-            <div class="case-section-image-main" style="background-image:url('case_assets/rollout_01.png');"></div>
+            <div class="case-section-image-main" style="background-image:url('../case_assets/rollout_01.png');"></div>
             <div class="case-section-image-caption">rollout_01.png – Hauptmotiv für Launch &amp; Rollout, ergänzt um rollout_02–07 als Szenen aus Events und Alltag.</div>
           </div>
           <div class="fashion-grid rollout-grid">
-            <div class="fashion-tile" style="background-image:url('case_assets/rollout_02.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/rollout_03.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/rollout_04.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/rollout_05.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/rollout_06.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/rollout_07.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/rollout_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/rollout_03.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/rollout_04.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/rollout_05.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/rollout_06.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/rollout_07.png');"></div>
           </div>
         </section>
 
@@ -916,12 +900,12 @@
             </div>
           </div>
           <div class="case-section-image">
-            <div class="case-section-image-main" style="background-image:url('case_assets/strasse_01.png');"></div>
+            <div class="case-section-image-main" style="background-image:url('../case_assets/strasse_01.png');"></div>
             <div class="case-section-image-caption">strasse_01.png / strasse_02.png / strasse_03.png – vom Prototyp auf der Werkbank zum Auftritt auf der Straße.</div>
           </div>
           <div class="fashion-grid strasse-grid">
-            <div class="fashion-tile" style="background-image:url('case_assets/strasse_02.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/strasse_03.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/strasse_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/strasse_03.png');"></div>
           </div>
         </section>
 
@@ -941,24 +925,29 @@
             </div>
           </div>
           <div class="case-section-image">
-            <div class="case-section-image-main" style="background-image:url('case_assets/alltag_01.png');"></div>
+            <div class="case-section-image-main" style="background-image:url('../case_assets/alltag_01.png');"></div>
             <div class="case-section-image-caption">alltag_01.png / alltag_02.png / alltag_03.png – ruhige Alltagsszenen mit klar erkennbarem Auftritt an der Haustür.</div>
           </div>
           <div class="fashion-grid alltag-grid">
-            <div class="fashion-tile" style="background-image:url('case_assets/alltag_02.png');"></div>
-            <div class="fashion-tile" style="background-image:url('case_assets/alltag_03.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/alltag_02.png');"></div>
+            <div class="fashion-tile" style="background-image:url('../case_assets/alltag_03.png');"></div>
           </div>
         </section>
       </section>
 
       <section class="cta-section" id="cta">
-        <div class="cta-text">
-          <h2 class="cta-title">Lassen Sie uns über Ihren Auftritt sprechen</h2>
-          <p class="cta-body">
-            Wenn Sie sensible Kontaktpunkte – wie Haustür, Vertrieb oder Service – neu denken oder professionalisieren möchten, begleite ich Sie von der ersten Problemwolke bis zur Bühne: Strategie, Design und Tools aus einer Hand.
-          </p>
+        <div class="cta-content">
+          <div class="cta-text">
+            <h2 class="cta-title">Lassen Sie uns über Ihren Auftritt sprechen</h2>
+            <p class="cta-body">
+              Wenn Sie sensible Kontaktpunkte – wie Haustür, Vertrieb oder Service – neu denken oder professionalisieren möchten, begleite ich Sie von der ersten Problemwolke bis zur Bühne: Strategie, Design und Tools aus einer Hand.
+            </p>
+          </div>
+          <button class="cta-button" type="button">Gespräch vereinbaren</button>
         </div>
-        <button class="cta-button" type="button">Gespräch vereinbaren</button>
+        <div class="cta-figure">
+          <img src="../case_assets/HB_01.png" alt="Hendrik Bogner – Auftritt im Gespräch" class="cta-figure-img" />
+        </div>
       </section>
 
       <footer>
