@@ -183,9 +183,9 @@
 
     .hero-image-inner {
       flex: 1;
-      background-size: cover;
-      background-position: center;
-      background-image: url("img3/01_telekom_shoot_sess_04.png");
+      /* background-size: cover; */
+      /* background-position: center; */
+      /* background-image: url("img3/01_telekom_shoot_sess_04.png"); */
       filter: saturate(1.03);
     }
 
@@ -224,8 +224,8 @@
     .quote-side-image {
       margin: 8px 0 16px;
       border-radius: var(--radius-lg);
-      background-size: cover;
-      background-position: center;
+      /* background-size: cover; */
+      /* background-position: center; */
       min-height: 260px;
       box-shadow: var(--shadow-subtle);
     }
@@ -328,8 +328,8 @@
 
     .quote-wide-image {
       border-radius: var(--radius-xl);
-      background-size: cover;
-      background-position: center;
+      /* background-size: cover; */
+      /* background-position: center; */
       min-height: 260px;
       margin-bottom: 12px;
       border: 1px solid rgba(148,163,184,0.6);
@@ -371,8 +371,8 @@
       position: relative;
       border-radius: 14px;
       overflow: hidden;
-      background-size: cover;
-      background-position: center;
+      /* background-size: cover; */
+      /* background-position: center; */
       aspect-ratio: 3 / 2;
       box-shadow: 0 10px 22px rgba(15,23,42,0.16);
     }
@@ -485,8 +485,8 @@
         background-color: #f8f8f8; /* Light background for the image container */
         position: relative; /* Needed for img inside to fill */
         overflow: hidden; /* Hide overflow if image is too big */
-        background-size: cover;
-        background-position: center;
+        /* background-size: cover; */
+        /* background-position: center; */
         display: flex; /* Still flex for centering or layout if needed */
         justify-content: center;
         align-items: center;
