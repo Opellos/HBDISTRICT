@@ -1046,3 +1046,120 @@ footer {
   line-height:1.68;
   color:#334155;
 }
+
+/* === Refinement pass: freieres Layout + Header unter Nummer === */
+.case-gradient-wrapper{
+  position:relative;
+  isolation:isolate;
+}
+
+.case-gradient-wrapper::before{
+  content:"";
+  position:absolute;
+  inset:-30px 0 0;
+  z-index:-1;
+  background:
+    radial-gradient(120% 90% at 80% 0%, rgba(226,0,116,0.20), rgba(226,0,116,0) 62%),
+    radial-gradient(110% 80% at 10% 10%, rgba(32,124,250,0.22), rgba(32,124,250,0) 68%),
+    linear-gradient(180deg, rgba(234,241,255,0.95) 0%, rgba(247,250,255,0.6) 35%, rgba(255,255,255,0) 100%);
+  pointer-events:none;
+}
+
+.case-section{
+  padding: 16px 0;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.case-section-header{
+  display:block !important;
+  margin-bottom:16px;
+}
+
+.case-section-title{
+  display:block;
+  padding-bottom:0;
+  margin:0;
+}
+
+.case-section-title::after{
+  display:none;
+}
+
+.case-section-image-main,
+.case-section-image-tile,
+.quote-side-image,
+.quote-wide-image,
+.bridge-image,
+.case-section-image-caption{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* Anspruchsgruppen: mehr Luft und hochformatiges Bild kleiner */
+#anspruchsgruppen .case-section-image-dual{
+  display:grid;
+  gap:20px;
+}
+
+#anspruchsgruppen .case-section-image-tile:first-child{
+  max-width:min(78%, 360px);
+}
+
+#anspruchsgruppen .case-section-image-tile:first-child .aspect-\[3\/4\]{
+  aspect-ratio: 4 / 5;
+}
+
+/* Slider-Text: frei schwebend ohne Box */
+.k3-wrap .k3-caption{
+  left:20px;
+  right:auto;
+  bottom:20px;
+}
+
+.k3-wrap .k3-caption-inner{
+  padding:0;
+  border-radius:0;
+  background:transparent !important;
+  backdrop-filter:none;
+  box-shadow:none;
+  gap:10px;
+  transition:transform 560ms cubic-bezier(.2,.82,.16,1.02);
+}
+
+.k3-wrap .k3-cap-title{
+  font-size: clamp(1.45rem, 2.9vw, 2.7rem);
+  font-weight: 900;
+  color:#f4f7ff;
+  text-shadow:0 8px 26px rgba(0,0,0,0.55);
+}
+
+.k3-wrap .k3-cap-sub{
+  font-size: clamp(0.85rem, 1.35vw, 1.15rem);
+  font-weight: 800;
+  color:#c8dbff;
+  letter-spacing:0.22em;
+  text-shadow:0 6px 20px rgba(0,0,0,0.45);
+}
+
+.k3-wrap .k3-slide:nth-child(odd) .k3-caption{ left:14px; bottom:18px; }
+.k3-wrap .k3-slide:nth-child(even) .k3-caption{ left:28px; bottom:30px; }
+.k3-wrap .k3-slide:nth-child(3n) .k3-caption{ left:auto; right:18px; bottom:24px; }
+
+/* Slider-Bildflächen ohne Kacheln */
+.k3-wrap .k3-media{
+  border:0;
+  border-radius:0;
+  background:transparent;
+  overflow:visible;
+}
+
+.k3-wrap .k3-media::after{
+  display:none;
+}
+
+.k3-wrap .k3-media img{
+  filter:drop-shadow(0 16px 44px rgba(24,42,78,0.22));
+}

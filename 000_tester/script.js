@@ -464,7 +464,10 @@ function initK3Slider(trackId) {
     });
   };
 
-  const parallaxCaptions = () => {
+  let smoothLeft = track.scrollLeft;
+  let smoothVelocity = 0;
+
+  const parallaxCaptions = (scrollLeftRef = track.scrollLeft) => {
     const tr = track.getBoundingClientRect();
     const center = tr.left + tr.width / 2;
 
@@ -473,16 +476,17 @@ function initK3Slider(trackId) {
       if (!cap) return;
 
       const er = el.getBoundingClientRect();
-      const elCenter = er.left + er.width / 2;
+      const visualShift = track.scrollLeft - scrollLeftRef;
+      const elCenter = er.left + er.width / 2 + visualShift;
       const delta = (elCenter - center) / tr.width;
 
-      const x = clamp(delta * -44, -44, 44);
-      const y = clamp(delta * 12, -12, 12);
+      const x = clamp(delta * -68, -68, 68);
+      const y = clamp(delta * 18, -18, 18);
       cap.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
   };
 
-  const parallaxMedia = () => {
+  const parallaxMedia = (scrollLeftRef = track.scrollLeft) => {
     const tr = track.getBoundingClientRect();
     const center = tr.left + tr.width / 2;
 
@@ -491,21 +495,22 @@ function initK3Slider(trackId) {
       if (!media) return;
 
       const er = el.getBoundingClientRect();
-      const elCenter = er.left + er.width / 2;
+      const visualShift = track.scrollLeft - scrollLeftRef;
+      const elCenter = er.left + er.width / 2 + visualShift;
       const delta = (elCenter - center) / tr.width;
 
-      const x = clamp(delta * -34, -34, 34);
-      const scale = clamp(1.09 - Math.abs(delta) * 0.11, 1.01, 1.09);
+      const x = clamp(delta * -54, -54, 54);
+      const scale = clamp(1.14 - Math.abs(delta) * 0.16, 1.0, 1.14);
       media.style.transform = `translate3d(${x}px,0,0) scale(${scale})`;
     });
   };
 
-  const parallaxBackground = () => {
+  const parallaxBackground = (scrollLeftRef = track.scrollLeft) => {
     if (!bg) return;
     const max = track.scrollWidth - track.clientWidth;
-    const p = max > 0 ? (track.scrollLeft / max) : 0;
-    const x = (p - 0.5) * 160;
-    bg.style.transform = `translate3d(${x}px,0,0) scale(1.1)`;
+    const p = max > 0 ? (scrollLeftRef / max) : 0;
+    const x = (p - 0.5) * 220;
+    bg.style.transform = `translate3d(${x}px,0,0) scale(1.12)`;
   };
 
   const scrollToIndex = (idx) => {
@@ -580,14 +585,21 @@ function initK3Slider(trackId) {
   });
 
   let raf = 0;
+  const renderParallax = () => {
+    const force = (track.scrollLeft - smoothLeft) * 0.16;
+    smoothVelocity = (smoothVelocity + force) * 0.78;
+    smoothLeft += smoothVelocity;
+
+    setActive(activeIndex());
+    parallaxCaptions(smoothLeft);
+    parallaxMedia(smoothLeft);
+    parallaxBackground(smoothLeft);
+
+    raf = requestAnimationFrame(renderParallax);
+  };
+
   const onScroll = () => {
-    cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      setActive(activeIndex());
-      parallaxCaptions();
-      parallaxMedia();
-      parallaxBackground();
-    });
+    if (!raf) raf = requestAnimationFrame(renderParallax);
   };
 
   onScroll();
