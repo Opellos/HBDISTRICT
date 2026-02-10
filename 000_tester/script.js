@@ -302,6 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initK3Slider('k3Track32');
   initK3Slider('k3Track33');
   initCarouselParallax('carousel1');
+  initRoadmapThemeSwitch();
+  initScrollReveal();
 });
 
 /**
@@ -439,6 +441,7 @@ function initK3Slider(trackId) {
   if (!track.hasAttribute('tabindex')) track.setAttribute('tabindex', '0');
 
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const mediaScaleBase = trackId === 'k3Track' ? 1 : 0.65;
 
   const activeIndex = () => {
     const r = track.getBoundingClientRect();
@@ -500,7 +503,10 @@ function initK3Slider(trackId) {
       const delta = (elCenter - center) / tr.width;
 
       const x = clamp(delta * -54, -54, 54);
-      const scale = clamp(1.14 - Math.abs(delta) * 0.16, 1.0, 1.14);
+      const rawScale = clamp(1.14 - Math.abs(delta) * 0.16, 1.0, 1.14);
+      const scale = trackId === 'k3Track'
+        ? rawScale
+        : clamp(rawScale * mediaScaleBase, 0.62, 0.78);
       media.style.transform = `translate3d(${x}px,0,0) scale(${scale})`;
     });
   };
@@ -608,3 +614,43 @@ function initK3Slider(trackId) {
 }
 
 
+
+
+function initRoadmapThemeSwitch() {
+  const trigger = document.getElementById('brand-system-bridge');
+  if (!trigger) return;
+
+  const applyState = () => {
+    const triggerTop = trigger.getBoundingClientRect().top + window.scrollY;
+    const switchLine = window.scrollY + Math.max(80, window.innerHeight * 0.18);
+    document.body.classList.toggle('roadmap-theme-active', switchLine >= triggerTop);
+  };
+
+  applyState();
+  window.addEventListener('scroll', applyState, { passive: true });
+  window.addEventListener('resize', applyState);
+}
+
+function initScrollReveal() {
+  const targets = Array.from(document.querySelectorAll(
+    '.case-section, .k3-wrap, .bridge-section, .quote-section, .cta-section, .case-section-image-main, .case-section-image-tile, .fashion-tile, .k3-slide'
+  ));
+
+  if (!targets.length || !('IntersectionObserver' in window)) return;
+
+  targets.forEach((el, index) => {
+    el.classList.add('reveal-on-scroll');
+    if (index % 3 === 1) el.classList.add('reveal-left');
+    if (index % 3 === 2) el.classList.add('reveal-right');
+    el.style.setProperty('--reveal-delay', `${Math.min(index % 8, 5) * 45}ms`);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      else if (entry.boundingClientRect.top > window.innerHeight * 1.1) entry.target.classList.remove('is-visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  targets.forEach((el) => io.observe(el));
+}
