@@ -716,14 +716,14 @@ footer {
 }
 
 /* Teilprojekt 3.1: Basis */
-#teilprojekt-kleidung.k3-wrap{
+.k3-wrap.k3-wrap{
   width:100%;
   max-width:1440px;
   margin:70px auto;
   padding:0 24px;
 }
 
-#teilprojekt-kleidung .k3-roof{
+.k3-wrap .k3-roof{
   display:grid;
   grid-template-columns:1fr;
   gap:22px;
@@ -732,7 +732,7 @@ footer {
 }
 
 @media (min-width:1024px){
-  #teilprojekt-kleidung .k3-roof{
+  .k3-wrap .k3-roof{
     grid-template-columns: 1.15fr 0.85fr;
     gap:56px;
     margin-bottom:26px;
@@ -740,11 +740,11 @@ footer {
 }
 
 /* 3.1 Titel: nicht abschneiden */
-#teilprojekt-kleidung .k3-title{
+.k3-wrap .k3-title{
   font-weight:900;
   letter-spacing:-0.05em;
   line-height:0.92;
-  color:#3D4654;
+  color:#26313f;
   margin:14px 0 18px;
   font-size:clamp(2.1rem,5vw,4.2rem);
   white-space:normal;
@@ -752,12 +752,12 @@ footer {
 }
 
 @media (max-width: 520px){
-  #teilprojekt-kleidung .k3-title{
+  .k3-wrap .k3-title{
     font-size:clamp(2.0rem, 9vw, 3.2rem);
   }
 }
 
-#teilprojekt-kleidung .k3-lead{
+.k3-wrap .k3-lead{
   color:rgba(61,70,84,0.78);
   font-size:clamp(1.05rem,1.25vw,1.25rem);
   line-height:1.65;
@@ -765,7 +765,7 @@ footer {
 }
 
 /* Dachbild rechts: nicht abschneiden */
-#teilprojekt-kleidung .k3-hero{
+.k3-wrap .k3-hero{
   height:min(420px,48vh);
   background:transparent;
   border:0;
@@ -777,7 +777,7 @@ footer {
   justify-content:center;
 }
 
-#teilprojekt-kleidung .k3-hero img{
+.k3-wrap .k3-hero img{
   width:100%;
   height:100%;
   display:block;
@@ -790,7 +790,7 @@ footer {
 }
 
 /* Slider Shell: Hintergrund komplett weg */
-#teilprojekt-kleidung .k3-shell{
+.k3-wrap .k3-shell{
   position:relative;
   margin-top:16px;
   padding:18px 0 26px;
@@ -798,13 +798,13 @@ footer {
   overflow:visible;
 }
 
-#teilprojekt-kleidung .k3-parallax,
-#teilprojekt-kleidung .k3-grain{
+.k3-wrap .k3-parallax,
+.k3-wrap .k3-grain{
   display:none !important;
 }
 
 /* Track: scrollt, aber ohne Scrollbar */
-#teilprojekt-kleidung .k3-track{
+.k3-wrap .k3-track{
   display:flex;
   gap:22px;
   overflow-x:auto;
@@ -824,24 +824,24 @@ footer {
   z-index:2;
 }
 
-#teilprojekt-kleidung .k3-track::-webkit-scrollbar{ display:none; }
+.k3-wrap .k3-track::-webkit-scrollbar{ display:none; }
 
-#teilprojekt-kleidung .k3-track:focus-visible{
+.k3-wrap .k3-track:focus-visible{
   outline:2px solid #2563eb;
   outline-offset:4px;
 }
 
-#teilprojekt-kleidung .k3-track.is-dragging{
+.k3-wrap .k3-track.is-dragging{
   cursor:grabbing;
   scroll-behavior:auto;
 }
 
 @media (max-width:880px){
-  #teilprojekt-kleidung .k3-track{ scroll-padding: 10vw; }
+  .k3-wrap .k3-track{ scroll-padding: 10vw; }
 }
 
 /* Slides: clean, neutral */
-#teilprojekt-kleidung .k3-slide{
+.k3-wrap .k3-slide{
   flex:0 0 auto;
   scroll-snap-align:center;
   background:transparent;
@@ -851,17 +851,29 @@ footer {
   box-shadow:none;
   transform:none;
   transition:none;
+  position:relative;
 }
 
-#teilprojekt-kleidung .k3-media{
+.k3-wrap .k3-media{
   width:100%;
+  height:100%;
+  position:relative;
   background:transparent;
   border-radius:12px;
   overflow:hidden;
   border:1px solid rgba(0,0,0,0.10);
 }
 
-#teilprojekt-kleidung .k3-media img{
+.k3-wrap .k3-media::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:45%;
+  background:linear-gradient(to top, rgba(9,13,22,0.72), rgba(9,13,22,0));
+  pointer-events:none;
+}
+
+.k3-wrap .k3-media img{
   width:100%;
   height:100%;
   display:block;
@@ -877,47 +889,58 @@ footer {
 }
 
 /* Größen */
-#teilprojekt-kleidung .k3-w-wide{ width:min(84vw, 980px); }
-#teilprojekt-kleidung .k3-w-mid { width:min(66vw, 820px); }
-#teilprojekt-kleidung .k3-w-nar { width:min(50vw, 640px); }
+.k3-wrap .k3-w-wide{ width:min(84vw, 980px); }
+.k3-wrap .k3-w-mid { width:min(66vw, 820px); }
+.k3-wrap .k3-w-nar { width:min(50vw, 640px); }
 
-#teilprojekt-kleidung .k3-h-tall{ height:clamp(320px, 52vh, 560px); }
-#teilprojekt-kleidung .k3-h-mid { height:clamp(280px, 46vh, 500px); }
-#teilprojekt-kleidung .k3-h-low { height:clamp(240px, 40vh, 440px); }
+.k3-wrap .k3-h-tall{ height:clamp(320px, 52vh, 560px); }
+.k3-wrap .k3-h-mid { height:clamp(280px, 46vh, 500px); }
+.k3-wrap .k3-h-low { height:clamp(240px, 40vh, 440px); }
 
 @media (max-width:880px){
-  #teilprojekt-kleidung .k3-w-wide,
-  #teilprojekt-kleidung .k3-w-mid,
-  #teilprojekt-kleidung .k3-w-nar{ width:88vw; }
+  .k3-wrap .k3-w-wide,
+  .k3-wrap .k3-w-mid,
+  .k3-wrap .k3-w-nar{ width:88vw; }
 }
 
 /* Caption clean */
-#teilprojekt-kleidung .k3-caption{
-  padding:14px 0 0;
+.k3-wrap .k3-caption{
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:14px;
+  z-index:3;
+  padding:0;
   background:transparent;
   border:0;
+  pointer-events:none;
 }
 
-#teilprojekt-kleidung .k3-caption-inner{
-  display:flex;
+.k3-wrap .k3-caption-inner{
+  display:inline-flex;
   gap:12px;
   align-items:baseline;
+  max-width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.86);
+  backdrop-filter:blur(7px);
   will-change:transform;
-  transition:transform 240ms ease-out;
+  transition:transform 320ms cubic-bezier(.22,.75,.2,1.02);
 }
 
-#teilprojekt-kleidung .k3-cap-title{
+.k3-wrap .k3-cap-title{
   font-weight:900;
   letter-spacing:-0.03em;
-  color:#3D4654;
+  color:#26313f;
   font-size: clamp(1.15rem, 2.0vw, 1.75rem);
   line-height:1.05;
   margin:0;
   white-space:nowrap;
 }
 
-#teilprojekt-kleidung .k3-cap-sub{
-  color: rgba(61,70,84,0.70);
+.k3-wrap .k3-cap-sub{
+  color: rgba(38,49,63,0.72);
   font-weight:650;
   font-size: 12px;
   letter-spacing:0.14em;
@@ -926,42 +949,11 @@ footer {
   white-space:nowrap;
 }
 
-/* Dots */
-#teilprojekt-kleidung .k3-dots{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:flex-start;
-  padding-top:10px;
-}
-
-#teilprojekt-kleidung .k3-dot{
-  width:16px;
-  height:16px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,0.25);
-  background:transparent;
-  opacity:0.55;
-  transition:transform 220ms ease, opacity 220ms ease, background 220ms ease;
-  cursor:pointer;
-}
-
-#teilprojekt-kleidung .k3-dot:focus-visible{
-  outline:2px solid #2563eb;
-  outline-offset:2px;
-}
-
-#teilprojekt-kleidung .k3-dot.is-active{
-  opacity:1;
-  transform:scale(1.35);
-  background: rgba(0,0,0,0.55);
-}
-
 
 
 
 /* IN style2.css GANZ UNTEN EINFÜGEN */
-#teilprojekt-kleidung .k3-hero{
+.k3-wrap .k3-hero{
   height:auto !important;
   max-height:none !important;
   overflow:visible !important;
@@ -973,7 +965,7 @@ footer {
   justify-content:center !important;
 }
 
-#teilprojekt-kleidung .k3-hero img{
+.k3-wrap .k3-hero img{
   width:100% !important;
   height:auto !important;
   max-height:420px !important;
@@ -985,7 +977,72 @@ footer {
   mix-blend-mode:normal !important;
 }
 
-#teilprojekt-kleidung .k3-roof,
-#teilprojekt-kleidung .k3-roof > div{
+.k3-wrap .k3-roof,
+.k3-wrap .k3-roof > div{
   overflow:visible !important;
+}
+
+
+.k3-wrap .k3-drag-hint{
+  position:absolute;
+  top:12px;
+  right:14px;
+  z-index:5;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#ffffff;
+  background:rgba(20,30,48,0.42);
+  backdrop-filter:blur(6px);
+  animation:k3HintFloat 2.3s ease-in-out infinite;
+}
+
+.k3-wrap .k3-drag-hint i{
+  width:18px;
+  height:2px;
+  border-radius:99px;
+  background:currentColor;
+  position:relative;
+}
+
+.k3-wrap .k3-drag-hint i::before,
+.k3-wrap .k3-drag-hint i::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:6px;
+  height:2px;
+  background:currentColor;
+}
+
+.k3-wrap .k3-drag-hint i::before{ left:-2px; transform:translateY(-50%) rotate(35deg); }
+.k3-wrap .k3-drag-hint i::after{ right:-2px; transform:translateY(-50%) rotate(-35deg); }
+
+@keyframes k3HintFloat{
+  0%,100%{ transform:translate3d(0,0,0); opacity:.72; }
+  50%{ transform:translate3d(-6px,0,0); opacity:1; }
+}
+
+.case-section.k3-section-head .case-section-header .case-number-wrapper{
+  background-color:#207cfa;
+  color:#fff;
+  box-shadow:none;
+}
+
+.case-section.k3-section-head .case-section-title{
+  font-size:clamp(2rem,3.4vw,3.15rem);
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  color:#3D4654;
+}
+
+.case-section.k3-section-head .case-section-text{
+  font-size:1.03rem;
+  line-height:1.68;
+  color:#334155;
 }

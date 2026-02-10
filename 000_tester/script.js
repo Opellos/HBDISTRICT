@@ -297,8 +297,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3.1 Slider initialisieren
-  initK3Slider();
+  // K3 Slider initialisieren
+  initK3Slider('k3Track');
+  initK3Slider('k3Track32');
+  initK3Slider('k3Track33');
   initCarouselParallax('carousel1');
 });
 
@@ -423,9 +425,8 @@ window.playVideo = function (element) {
 /**
  * 3.1 Slider (k3) – exakt einmal initialisieren
  */
-function initK3Slider() {
-  const track = document.getElementById('k3Track');
-  const dotsWrap = document.getElementById('k3Dots');
+function initK3Slider(trackId) {
+  const track = document.getElementById(trackId);
   const shell = track?.closest('.k3-shell');
   const bg = shell?.querySelector('.k3-parallax');
   if (!track || !shell) return;
@@ -435,45 +436,23 @@ function initK3Slider() {
 
   track.setAttribute('role', 'region');
   track.setAttribute('aria-roledescription', 'carousel');
-  track.setAttribute('aria-label', 'Kleidung und visuelle Identität Slider');
-  track.setAttribute('aria-live', 'polite');
   if (!track.hasAttribute('tabindex')) track.setAttribute('tabindex', '0');
-  if (dotsWrap) dotsWrap.setAttribute('role', 'tablist');
 
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-
-  const makeDots = () => {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'k3-dot';
-      b.setAttribute('role', 'tab');
-      b.setAttribute('aria-label', 'Slide ' + (i + 1));
-      b.setAttribute('aria-controls', 'k3Track');
-      b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-      b.setAttribute('tabindex', i === 0 ? '0' : '-1');
-      b.addEventListener('click', () => {
-        scrollToIndex(i);
-        track.focus({ preventScroll: true });
-      });
-      dotsWrap.appendChild(b);
-    });
-  };
 
   const activeIndex = () => {
     const r = track.getBoundingClientRect();
     const center = r.left + r.width / 2;
-
     let best = 0;
     let bestDist = Infinity;
+
     slides.forEach((el, i) => {
       const er = el.getBoundingClientRect();
       const c = er.left + er.width / 2;
       const d = Math.abs(c - center);
       if (d < bestDist) { bestDist = d; best = i; }
     });
+
     return best;
   };
 
@@ -483,16 +462,6 @@ function initK3Slider() {
       el.classList.toggle('is-active', active);
       el.setAttribute('aria-hidden', active ? 'false' : 'true');
     });
-
-    if (dotsWrap) {
-      const dots = Array.from(dotsWrap.querySelectorAll('.k3-dot'));
-      dots.forEach((d, i) => {
-        const active = i === idx;
-        d.classList.toggle('is-active', active);
-        d.setAttribute('aria-selected', String(active));
-        d.setAttribute('tabindex', active ? '0' : '-1');
-      });
-    }
   };
 
   const parallaxCaptions = () => {
@@ -507,8 +476,8 @@ function initK3Slider() {
       const elCenter = er.left + er.width / 2;
       const delta = (elCenter - center) / tr.width;
 
-      const x = clamp(delta * -36, -36, 36);
-      const y = clamp(delta * 10, -10, 10);
+      const x = clamp(delta * -44, -44, 44);
+      const y = clamp(delta * 12, -12, 12);
       cap.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
   };
@@ -525,8 +494,8 @@ function initK3Slider() {
       const elCenter = er.left + er.width / 2;
       const delta = (elCenter - center) / tr.width;
 
-      const x = clamp(delta * -28, -28, 28);
-      const scale = clamp(1.06 - Math.abs(delta) * 0.08, 1.0, 1.06);
+      const x = clamp(delta * -34, -34, 34);
+      const scale = clamp(1.09 - Math.abs(delta) * 0.11, 1.01, 1.09);
       media.style.transform = `translate3d(${x}px,0,0) scale(${scale})`;
     });
   };
@@ -535,8 +504,8 @@ function initK3Slider() {
     if (!bg) return;
     const max = track.scrollWidth - track.clientWidth;
     const p = max > 0 ? (track.scrollLeft / max) : 0;
-    const x = (p - 0.5) * 140;
-    bg.style.transform = `translate3d(${x}px,0,0) scale(1.08)`;
+    const x = (p - 0.5) * 160;
+    bg.style.transform = `translate3d(${x}px,0,0) scale(1.1)`;
   };
 
   const scrollToIndex = (idx) => {
@@ -566,11 +535,11 @@ function initK3Slider() {
 
     const dx = event.clientX - startX;
     const dy = event.clientY - startY;
-    if (Math.abs(dx) > 6) moved = true;
 
+    if (Math.abs(dx) > 6) moved = true;
     if (Math.abs(dx) > Math.abs(dy)) {
       event.preventDefault();
-      track.scrollLeft = baseLeft - dx * 1.1;
+      track.scrollLeft = baseLeft - dx * 1.08;
     }
   };
 
@@ -589,8 +558,7 @@ function initK3Slider() {
       track.addEventListener('click', suppressClick, true);
     }
 
-    const idx = activeIndex();
-    scrollToIndex(idx);
+    scrollToIndex(activeIndex());
   };
 
   track.addEventListener('pointerdown', onPointerDown);
@@ -601,18 +569,13 @@ function initK3Slider() {
 
   track.addEventListener('keydown', (event) => {
     const idx = activeIndex();
+
     if (event.key === 'ArrowRight') {
       event.preventDefault();
       scrollToIndex(Math.min(slides.length - 1, idx + 1));
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault();
       scrollToIndex(Math.max(0, idx - 1));
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      scrollToIndex(0);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      scrollToIndex(slides.length - 1);
     }
   });
 
@@ -620,18 +583,16 @@ function initK3Slider() {
   const onScroll = () => {
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(() => {
-      const idx = activeIndex();
-      setActive(idx);
+      setActive(activeIndex());
       parallaxCaptions();
       parallaxMedia();
       parallaxBackground();
     });
   };
 
-  makeDots();
   onScroll();
-
   track.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
 }
+
 
