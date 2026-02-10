@@ -731,21 +731,21 @@
 
       <div class="group lg:col-span-7 lg:row-span-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
         <div class="relative aspect-video">
-          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel1">
+          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel1" role="region" aria-label="Projektcarousel mit drei Szenen" tabindex="0">
             <div class="carousel-item min-w-full h-full relative z-0">
-              <img src="img2/parship1.png" alt="Scene 1" class="w-full h-full object-cover">
+              <img src="img2/parship1.png" alt="Scene 1" class="w-full h-full object-cover" data-parallax-media>
               <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
                 <span class="carousel-counter">1</span> / 3
               </div>
             </div>
             <div class="carousel-item min-w-full h-full relative z-0">
-              <img src="img2/parship2.png" alt="Scene 2" class="w-full h/full object-cover">
+              <img src="img2/parship2.png" alt="Scene 2" class="w-full h-full object-cover" data-parallax-media>
               <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
                 <span class="carousel-counter">2</span> / 3
               </div>
             </div>
             <div class="carousel-item min-w-full h-full relative z-0">
-              <img src="img2/parship3.png" alt="Scene 3" class="w-full h/full object-cover">
+              <img src="img2/parship3.png" alt="Scene 3" class="w-full h-full object-cover" data-parallax-media>
               <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
                 <span class="carousel-counter">3</span> / 3
               </div>
@@ -758,10 +758,10 @@
         <div class="p-6">
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Zusammen was zusammen gehört</h3>
           <p class="text-gray-600 text-sm leading-relaxed">Drei Szenen, eine Vision.</p>
-          <div class="flex gap-2 mt-4" id="carousel1-dots">
-            <div class="carousel-dot w-12 h-1 bg-gray-900 rounded-full transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel1', 0)"></div>
-            <div class="carousel-dot w-12 h-1 bg-gray-300 rounded-full transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel1', 1)"></div>
-            <div class="carousel-dot w-12 h-1 bg-gray-300 rounded-full transition-all cursor-pointer" data-index="2" onclick="goToSlide('carousel1', 2)"></div>
+          <div class="flex gap-2 mt-4" id="carousel1-dots" role="tablist" aria-label="Slides auswählen">
+            <button class="carousel-dot w-12 h-3 bg-gray-900 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3D4654]" data-index="0" onclick="goToSlide('carousel1', 0)" type="button" role="tab" aria-label="Slide 1 anzeigen" aria-controls="carousel1" aria-selected="true"></button>
+            <button class="carousel-dot w-12 h-3 bg-gray-300 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3D4654]" data-index="1" onclick="goToSlide('carousel1', 1)" type="button" role="tab" aria-label="Slide 2 anzeigen" aria-controls="carousel1" aria-selected="false"></button>
+            <button class="carousel-dot w-12 h-3 bg-gray-300 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3D4654]" data-index="2" onclick="goToSlide('carousel1', 2)" type="button" role="tab" aria-label="Slide 3 anzeigen" aria-controls="carousel1" aria-selected="false"></button>
           </div>
         </div>
       </div>

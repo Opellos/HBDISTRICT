@@ -231,25 +231,75 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCarouselDots('carousel3');
   updateCarouselDots('carousel4');
 
-  // Touch-Swipe Support
-  document.querySelectorAll('.carousel-container').forEach(carousel => {
+  // Drag/Swipe + Tastaturzugriff für Carousels
+  document.querySelectorAll('.carousel-container').forEach((carousel) => {
+    let isPointerDown = false;
     let startX = 0;
+    let startY = 0;
     let scrollLeft = 0;
+    let moved = false;
 
-    carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX;
+    const startDrag = (event) => {
+      isPointerDown = true;
+      moved = false;
+      startX = event.clientX;
+      startY = event.clientY;
       scrollLeft = carousel.scrollLeft;
-    }, { passive: true });
+      carousel.classList.add('is-dragging');
+      carousel.setPointerCapture?.(event.pointerId);
+    };
 
-    carousel.addEventListener('touchmove', (e) => {
-      const x = e.touches[0].pageX;
-      const walk = (startX - x) * 2;
-      carousel.scrollLeft = scrollLeft + walk;
-    }, { passive: true });
+    const moveDrag = (event) => {
+      if (!isPointerDown) return;
+
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+
+      if (Math.abs(deltaX) > 6) moved = true;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        event.preventDefault();
+        carousel.scrollLeft = scrollLeft - deltaX * 1.15;
+      }
+    };
+
+    const endDrag = (event) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      carousel.classList.remove('is-dragging');
+      if (event.pointerId != null) carousel.releasePointerCapture?.(event.pointerId);
+
+      if (moved) {
+        const suppressClick = (clickEvent) => {
+          clickEvent.preventDefault();
+          clickEvent.stopPropagation();
+          carousel.removeEventListener('click', suppressClick, true);
+        };
+        carousel.addEventListener('click', suppressClick, true);
+      }
+    };
+
+    carousel.addEventListener('pointerdown', startDrag);
+    carousel.addEventListener('pointermove', moveDrag, { passive: false });
+    carousel.addEventListener('pointerup', endDrag);
+    carousel.addEventListener('pointercancel', endDrag);
+    carousel.addEventListener('pointerleave', endDrag);
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        window.scrollCarousel(carousel.id, 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        window.scrollCarousel(carousel.id, -1);
+      }
+    });
   });
 
   // 3.1 Slider initialisieren
   initK3Slider();
+  initCarouselParallax('carousel1');
 });
 
 /**
@@ -274,6 +324,7 @@ window.goToSlide = function (carouselId, index) {
   if (!carousel) return;
   const scrollAmount = carousel.offsetWidth;
   carousel.scrollTo({ left: scrollAmount * index, behavior: 'smooth' });
+  carousel.focus({ preventScroll: true });
 };
 
 /**
@@ -292,7 +343,11 @@ function updateCarouselDots(carouselId) {
 
     const dots = dotsContainer.querySelectorAll('.carousel-dot');
     dots.forEach((dot, index) => {
-      if (index === currentIndex) {
+      const isActive = index === currentIndex;
+      dot.setAttribute('aria-selected', String(isActive));
+      dot.setAttribute('tabindex', isActive ? '0' : '-1');
+
+      if (isActive) {
         if (carouselId === 'carousel1') {
           dot.classList.remove('bg-gray-300');
           dot.classList.add('bg-gray-900');
@@ -314,6 +369,36 @@ function updateCarouselDots(carouselId) {
 
   carousel.addEventListener('scroll', applyState, { passive: true });
   applyState();
+}
+
+function initCarouselParallax(carouselId) {
+  const carousel = document.getElementById(carouselId);
+  if (!carousel) return;
+
+  const mediaItems = Array.from(carousel.querySelectorAll('[data-parallax-media]'));
+  if (!mediaItems.length) return;
+
+  mediaItems.forEach((item) => {
+    item.setAttribute('draggable', 'false');
+  });
+
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+  const render = () => {
+    const width = carousel.offsetWidth || 1;
+    const progress = carousel.scrollLeft / width;
+
+    mediaItems.forEach((item, index) => {
+      const distance = index - progress;
+      const offset = clamp(distance * 24, -24, 24);
+      const scale = clamp(1.08 - Math.abs(distance) * 0.05, 1.01, 1.08);
+      item.style.transform = `translate3d(${offset}px, 0, 0) scale(${scale})`;
+    });
+  };
+
+  carousel.addEventListener('scroll', render, { passive: true });
+  window.addEventListener('resize', render);
+  render();
 }
 
 /**
@@ -348,6 +433,13 @@ function initK3Slider() {
   const slides = Array.from(track.querySelectorAll('.k3-slide'));
   if (!slides.length) return;
 
+  track.setAttribute('role', 'region');
+  track.setAttribute('aria-roledescription', 'carousel');
+  track.setAttribute('aria-label', 'Kleidung und visuelle Identität Slider');
+  track.setAttribute('aria-live', 'polite');
+  if (!track.hasAttribute('tabindex')) track.setAttribute('tabindex', '0');
+  if (dotsWrap) dotsWrap.setAttribute('role', 'tablist');
+
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
   const makeDots = () => {
@@ -357,9 +449,14 @@ function initK3Slider() {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'k3-dot';
+      b.setAttribute('role', 'tab');
       b.setAttribute('aria-label', 'Slide ' + (i + 1));
+      b.setAttribute('aria-controls', 'k3Track');
+      b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      b.setAttribute('tabindex', i === 0 ? '0' : '-1');
       b.addEventListener('click', () => {
-        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        scrollToIndex(i);
+        track.focus({ preventScroll: true });
       });
       dotsWrap.appendChild(b);
     });
@@ -371,7 +468,6 @@ function initK3Slider() {
 
     let best = 0;
     let bestDist = Infinity;
-
     slides.forEach((el, i) => {
       const er = el.getBoundingClientRect();
       const c = er.left + er.width / 2;
@@ -382,10 +478,20 @@ function initK3Slider() {
   };
 
   const setActive = (idx) => {
-    slides.forEach((el, i) => el.classList.toggle('is-active', i === idx));
+    slides.forEach((el, i) => {
+      const active = i === idx;
+      el.classList.toggle('is-active', active);
+      el.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+
     if (dotsWrap) {
       const dots = Array.from(dotsWrap.querySelectorAll('.k3-dot'));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+      dots.forEach((d, i) => {
+        const active = i === idx;
+        d.classList.toggle('is-active', active);
+        d.setAttribute('aria-selected', String(active));
+        d.setAttribute('tabindex', active ? '0' : '-1');
+      });
     }
   };
 
@@ -401,9 +507,27 @@ function initK3Slider() {
       const elCenter = er.left + er.width / 2;
       const delta = (elCenter - center) / tr.width;
 
-      const x = clamp(delta * -26, -26, 26);
-      const y = clamp(delta * 18, -18, 18);
+      const x = clamp(delta * -36, -36, 36);
+      const y = clamp(delta * 10, -10, 10);
       cap.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    });
+  };
+
+  const parallaxMedia = () => {
+    const tr = track.getBoundingClientRect();
+    const center = tr.left + tr.width / 2;
+
+    slides.forEach((el) => {
+      const media = el.querySelector('.k3-media img');
+      if (!media) return;
+
+      const er = el.getBoundingClientRect();
+      const elCenter = er.left + er.width / 2;
+      const delta = (elCenter - center) / tr.width;
+
+      const x = clamp(delta * -28, -28, 28);
+      const scale = clamp(1.06 - Math.abs(delta) * 0.08, 1.0, 1.06);
+      media.style.transform = `translate3d(${x}px,0,0) scale(${scale})`;
     });
   };
 
@@ -411,37 +535,86 @@ function initK3Slider() {
     if (!bg) return;
     const max = track.scrollWidth - track.clientWidth;
     const p = max > 0 ? (track.scrollLeft / max) : 0;
-    const x = (p - 0.5) * 120;
+    const x = (p - 0.5) * 140;
     bg.style.transform = `translate3d(${x}px,0,0) scale(1.08)`;
   };
 
-  let autoplay = true;
-  let last = performance.now();
-  let idleTimer = 0;
-
-  const pause = () => {
-    autoplay = false;
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => { autoplay = true; }, 2000);
+  const scrollToIndex = (idx) => {
+    const target = slides[idx];
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   };
 
-  track.addEventListener('wheel', pause, { passive:true });
-  track.addEventListener('pointerdown', pause);
-  track.addEventListener('touchstart', pause, { passive:true });
-  track.addEventListener('keydown', pause);
+  let isPointerDown = false;
+  let startX = 0;
+  let startY = 0;
+  let baseLeft = 0;
+  let moved = false;
 
-  const tick = (ts) => {
-    const dt = Math.min(40, ts - last);
-    last = ts;
+  const onPointerDown = (event) => {
+    isPointerDown = true;
+    moved = false;
+    startX = event.clientX;
+    startY = event.clientY;
+    baseLeft = track.scrollLeft;
+    track.classList.add('is-dragging');
+    track.setPointerCapture?.(event.pointerId);
+  };
 
-    if (autoplay) {
-      track.scrollLeft += 0.18 * dt;
-      const end = track.scrollWidth - track.clientWidth - 2;
-      if (track.scrollLeft >= end) track.scrollLeft = 0;
+  const onPointerMove = (event) => {
+    if (!isPointerDown) return;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+    if (Math.abs(dx) > 6) moved = true;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      event.preventDefault();
+      track.scrollLeft = baseLeft - dx * 1.1;
+    }
+  };
+
+  const onPointerEnd = (event) => {
+    if (!isPointerDown) return;
+    isPointerDown = false;
+    track.classList.remove('is-dragging');
+    if (event.pointerId != null) track.releasePointerCapture?.(event.pointerId);
+
+    if (moved) {
+      const suppressClick = (clickEvent) => {
+        clickEvent.preventDefault();
+        clickEvent.stopPropagation();
+        track.removeEventListener('click', suppressClick, true);
+      };
+      track.addEventListener('click', suppressClick, true);
     }
 
-    requestAnimationFrame(tick);
+    const idx = activeIndex();
+    scrollToIndex(idx);
   };
+
+  track.addEventListener('pointerdown', onPointerDown);
+  track.addEventListener('pointermove', onPointerMove, { passive: false });
+  track.addEventListener('pointerup', onPointerEnd);
+  track.addEventListener('pointercancel', onPointerEnd);
+  track.addEventListener('pointerleave', onPointerEnd);
+
+  track.addEventListener('keydown', (event) => {
+    const idx = activeIndex();
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      scrollToIndex(Math.min(slides.length - 1, idx + 1));
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      scrollToIndex(Math.max(0, idx - 1));
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      scrollToIndex(0);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      scrollToIndex(slides.length - 1);
+    }
+  });
 
   let raf = 0;
   const onScroll = () => {
@@ -450,6 +623,7 @@ function initK3Slider() {
       const idx = activeIndex();
       setActive(idx);
       parallaxCaptions();
+      parallaxMedia();
       parallaxBackground();
     });
   };
@@ -457,8 +631,7 @@ function initK3Slider() {
   makeDots();
   onScroll();
 
-  track.addEventListener('scroll', onScroll, { passive:true });
-  window.addEventListener('resize', () => { makeDots(); onScroll(); });
-
-  requestAnimationFrame(tick);
+  track.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
 }
+

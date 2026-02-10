@@ -19,6 +19,11 @@ body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scroll-behavior: smooth;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 }
 /* Hide scrollbar for Webkit browsers */
 .carousel-container::-webkit-scrollbar {
@@ -27,6 +32,33 @@ body {
 /* Carousel item snap alignment */
 .carousel-item {
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.carousel-container:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.carousel-container.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.carousel-container .carousel-item img,
+.carousel-container .carousel-item video {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#carousel1 .carousel-item {
+  overflow: hidden;
+}
+
+#carousel1 [data-parallax-media] {
+  will-change: transform;
+  transform: scale(1.08);
+  transition: transform 220ms linear;
 }
 
 :root {
@@ -776,12 +808,15 @@ footer {
   display:flex;
   gap:22px;
   overflow-x:auto;
-  overflow-y:visible;
+  overflow-y:hidden;
   padding:10px 0 8px;
   scroll-snap-type:x mandatory;
   scroll-padding: 12vw;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior-x:contain;
+  overscroll-behavior-y:none;
+  touch-action:pan-x;
+  cursor:grab;
 
   scrollbar-width:none;
   -ms-overflow-style:none;
@@ -790,6 +825,16 @@ footer {
 }
 
 #teilprojekt-kleidung .k3-track::-webkit-scrollbar{ display:none; }
+
+#teilprojekt-kleidung .k3-track:focus-visible{
+  outline:2px solid #2563eb;
+  outline-offset:4px;
+}
+
+#teilprojekt-kleidung .k3-track.is-dragging{
+  cursor:grabbing;
+  scroll-behavior:auto;
+}
 
 @media (max-width:880px){
   #teilprojekt-kleidung .k3-track{ scroll-padding: 10vw; }
@@ -825,7 +870,10 @@ footer {
   filter:none !important;
   opacity:1 !important;
   mix-blend-mode:normal !important;
-  transform:none !important;
+  will-change:transform;
+  transition:transform 220ms ease-out;
+  user-select:none;
+  -webkit-user-drag:none;
 }
 
 /* Größen */
@@ -833,9 +881,9 @@ footer {
 #teilprojekt-kleidung .k3-w-mid { width:min(66vw, 820px); }
 #teilprojekt-kleidung .k3-w-nar { width:min(50vw, 640px); }
 
-#teilprojekt-kleidung .k3-h-tall{ height:clamp(420px, 62vh, 700px); }
-#teilprojekt-kleidung .k3-h-mid { height:clamp(380px, 56vh, 640px); }
-#teilprojekt-kleidung .k3-h-low { height:clamp(340px, 50vh, 580px); }
+#teilprojekt-kleidung .k3-h-tall{ height:clamp(320px, 52vh, 560px); }
+#teilprojekt-kleidung .k3-h-mid { height:clamp(280px, 46vh, 500px); }
+#teilprojekt-kleidung .k3-h-low { height:clamp(240px, 40vh, 440px); }
 
 @media (max-width:880px){
   #teilprojekt-kleidung .k3-w-wide,
@@ -851,10 +899,11 @@ footer {
 }
 
 #teilprojekt-kleidung .k3-caption-inner{
-  transform:none !important;
   display:flex;
   gap:12px;
   align-items:baseline;
+  will-change:transform;
+  transition:transform 240ms ease-out;
 }
 
 #teilprojekt-kleidung .k3-cap-title{
@@ -887,14 +936,19 @@ footer {
 }
 
 #teilprojekt-kleidung .k3-dot{
-  width:8px;
-  height:8px;
+  width:16px;
+  height:16px;
   border-radius:999px;
   border:1px solid rgba(0,0,0,0.25);
   background:transparent;
   opacity:0.55;
   transition:transform 220ms ease, opacity 220ms ease, background 220ms ease;
   cursor:pointer;
+}
+
+#teilprojekt-kleidung .k3-dot:focus-visible{
+  outline:2px solid #2563eb;
+  outline-offset:2px;
 }
 
 #teilprojekt-kleidung .k3-dot.is-active{
@@ -935,4 +989,3 @@ footer {
 #teilprojekt-kleidung .k3-roof > div{
   overflow:visible !important;
 }
-
