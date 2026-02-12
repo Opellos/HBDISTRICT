@@ -303,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initK3Slider('k3Track33');
   initCarouselParallax('carousel1');
   initRoadmapThemeSwitch();
-  initScrollReveal();
 });
 
 /**
@@ -578,6 +577,13 @@ function initK3Slider(trackId) {
   track.addEventListener('pointercancel', onPointerEnd);
   track.addEventListener('pointerleave', onPointerEnd);
 
+  track.addEventListener('wheel', (event) => {
+    const mostlyVertical = Math.abs(event.deltaY) > Math.abs(event.deltaX);
+    if (mostlyVertical) return;
+    event.preventDefault();
+    track.scrollLeft += event.deltaY + event.deltaX;
+  }, { passive: false });
+
   track.addEventListener('keydown', (event) => {
     const idx = activeIndex();
 
@@ -632,25 +638,5 @@ function initRoadmapThemeSwitch() {
 }
 
 function initScrollReveal() {
-  const targets = Array.from(document.querySelectorAll(
-    '.case-section, .k3-wrap, .bridge-section, .quote-section, .cta-section, .case-section-image-main, .case-section-image-tile, .fashion-tile, .k3-slide'
-  ));
-
-  if (!targets.length || !('IntersectionObserver' in window)) return;
-
-  targets.forEach((el, index) => {
-    el.classList.add('reveal-on-scroll');
-    if (index % 3 === 1) el.classList.add('reveal-left');
-    if (index % 3 === 2) el.classList.add('reveal-right');
-    el.style.setProperty('--reveal-delay', `${Math.min(index % 8, 5) * 45}ms`);
-  });
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-      else if (entry.boundingClientRect.top > window.innerHeight * 1.1) entry.target.classList.remove('is-visible');
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-  targets.forEach((el) => io.observe(el));
+  // Scrollytelling vorerst deaktiviert (auf Wunsch), bis ein klarer Motion-Flow neu aufgebaut wird.
 }
