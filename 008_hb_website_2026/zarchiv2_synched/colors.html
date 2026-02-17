@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="de">
+	<!--Montag, 22. Dezember 2025 18:51-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farbübersicht Projekt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #d0d0d0;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #a0a0a0;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .color-tile {
+            background-color: #2a2a44;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .color-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        .color-swatch {
+            height: 120px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex; /* For gradient representation */
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        }
+        .tile-content {
+            padding: 20px;
+        }
+        .tile-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+        .tile-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #b0b0d0;
+            min-width: 90px;
+            margin-right: 10px;
+        }
+        .tile-value {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            flex-grow: 1;
+        }
+        .hex-codes, .section-tags, .origin-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .hex-tag, .section-tag, .origin-tag {
+            background-color: #4a4a6e;
+            color: #c0c0e0;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .durchkommt-status {
+            background-color: #38a169;
+            color: #e6fffa;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .durchkommt-status.no {
+            background-color: #e53e3e;
+            color: #fff5f5;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        .label-gradient-full {
+            white-space: normal;
+
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Farben & Verläufe</h1>
+        <p>Visuelle Übersicht in Reihen: Hex/Stops, Abschnitt(e), Ursprung der Definition und was in der normalen Ansicht tatsächlich durchkommt.</p>
+
+        <h2>Globale Akzente & Basisfarben</h2>
+        <div class="color-grid">
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #207cfa;">#207cfa</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--color-blue</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#207cfa</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">Navbar</span><span class="section-tag">Hero-Titel</span><span class="section-tag">Word-Badges</span><span class="section-tag">Card-Icons</span><span class="section-tag">Split-Buttons</span><span class="section-tag">Chapter-Titel</span><span class="section-tag">Contact-Buttons</span><span class="section-tag">Vanta.js</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #ff3cd0;">#ff3cd0</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--color-pink</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#ff3cd0</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">Word-Badges</span><span class="section-tag">Card-Icons</span><span class="section-tag">Split-Buttons</span><span class="section-tag">Chapter-Titel</span><span class="section-tag">Bulb-Glow</span><span class="section-tag">HB-Mail</span><span class="section-tag">Contact-Buttons</span><span class="section-tag">Vanta.js</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #ffffff;">#ffffff</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Weiß (--color-text-light)</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#ffffff</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">Text</span><span class="section-tag">Hintergründe</span><span class="section-tag">Borders</span><span class="section-tag">Icons</span><span class="section-tag">Footer</span><span class="section-tag">Projekte Grid Cards</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span><span class="origin-tag">index.html</span><span class="origin-tag">projekte.html</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #3d4654;">#3d4654</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Haupttextfarbe (--color-text-primary)</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#3d4654</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">body</span><span class="section-tag">Nav-Links</span><span class="section-tag">Card-Titel</span><span class="section-tag">Primärtext</span><span class="section-tag">Projekte Grid Cards</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #7d32df;">#7d32df</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--color-purple</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#7d32df</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">Card-Icon</span><span class="section-tag">Main Gradient</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #7a5af8;">#7a5af8</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--hb-blue</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#7a5af8</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">HB-Mail Button</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #e20074;">#e20074</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Telekom Akzent</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#e20074</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #ff00b0;">#ff00b0</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Vanta.js Punktfarbe 1</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#ff00b0</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">#hero-section</span><span class="section-tag">Vanta.js Konfig</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">index.html</span><span class="origin-tag">Inline Script</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #ff20e4;">#ff20e4</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Vanta.js Punktfarbe 2</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#ff20e4</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">#hero-section</span><span class="section-tag">Vanta.js Konfig</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">index.html</span><span class="origin-tag">Inline Script</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #fafafa;">#fafafa</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--color-bg-light</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#fafafa</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">.bg-light</span><span class="section-tag">#partners</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #f5ece1;">#f5ece1</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--color-bg-beige</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#f5ece1</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">::root</span><span class="section-tag">.bg-beige</span><span class="section-tag">Chapter Sektionen</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #dbeafe;">#dbeafe</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Blue-100 / Direct</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#dbeafe</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.text-blue-100</span><span class="section-tag">.bg-[#dbeafe]</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #0f172a;">#0f172a</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Slate 900</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#0f172a</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.text-slate-900</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Globale Site-Verläufe (durchscheinend unter transparenten Sektionen)</h2>
+        <div class="color-grid">
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(125deg, #cc30a6 0%, #2d5eff 8%, #a8d5ff 45%, #a8d5ff 55%, #2d5eff 80%, #cc30a6 100%);">
+                    Global Site Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Hero & Footer Hintergrund</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#cc30a6</span><span class="hex-tag">#2d5eff</span><span class="hex-tag">#a8d5ff</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.hero-section</span><span class="section-tag">.hero-section_3</span><span class="section-tag">.main-footer</span><span class="section-tag">.gradient-background</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span><span class="origin-tag">index.html</span><span class="origin-tag">projekte.html</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(90deg, #207cfa, #ff00a9);">
+                    Text-Akzent Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">--gradient-text (BR<span style="background: linear-gradient(90deg, #207cfa, #ff00a9); -webkit-background-clip: text; color: transparent;">AI</span>ND, KI-Workflow)</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#207cfa</span><span class="hex-tag">#ff00a9</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.ai-overlay</span><span class="section-tag">.chapter-title.ki-workflow</span><span class="section-tag">.connect-dots</span><span class="section-tag">.social-btn.is-primary</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: rgba(255, 255, 255, 0.15);">
+                    rgba(255, 255, 255, 0.15)
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Navigation Hintergrund (Transparent)</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">rgba(255,255,255,0.15)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.main-header</span><span class="section-tag">--color-bg-nav</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(90deg, #3a8dff, #a5bfff, #3a8dff);">
+                    Partner-Slider Hintergrund
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">#partners Hintergrund</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#3a8dff</span><span class="hex-tag">#a5bfff</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">#partners</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%);">
+                    Projekte Hero Card Akzent
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Projekte Grid Card Overlay</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#ff3cd0</span><span class="hex-tag">#207cfa</span><span class="hex-tag">#7b5cff</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">projekte.html</span><span class="section-tag">bg-[radial-gradient(...)]</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: rgba(217, 217, 217, 0.58);">
+                    rgba(217, 217, 217, 0.58)
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Card Hintergrund (Glass-Effekt)</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">rgba(217,217,217,0.58)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.card</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: radial-gradient(circle, rgba(255, 60, 208, .4), transparent 70%);">
+                    Bulb Glow Radial Gradient
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Glühbirnen-Glühen</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">rgba(255,60,208,0.4)</span><span class="hex-tag">transparent</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.bulb-glow</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: rgba(230, 24, 250, 0.1);">
+                    rgba(230, 24, 250, 0.1)
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Kapitelnummer Overlay</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">rgba(230,24,250,0.1)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.chapter-number</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.64) 35%, rgba(0,0,0,0.32) 60%, rgba(0,0,0,0) 100%);">
+                    Dunkler Overlay Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Projekte Card Text Overlay</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">rgba(0,0,0,0.88)</span><span class="hex-tag">rgba(0,0,0,0.64)</span><span class="hex-tag">rgba(0,0,0,0.32)</span><span class="hex-tag">rgba(0,0,0,0)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(to bottom right, #e0f2fe 0%, #bae6fd 50%, rgba(251, 207, 232, 0.3) 100%);">
+                    Sky 100-200 zu Pink 200/30 Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Projekte Schnell & Dynamisch Card</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#e0f2fe</span><span class="hex-tag">#bae6fd</span><span class="hex-tag">rgba(251,207,232,0.3)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-gradient-to-br</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(to top, rgba(14, 165, 233, 0.7) 0%, rgba(125, 211, 252, 0.4) 50%, rgba(251, 207, 232, 0.2) 100%);">
+                    Sky 500-300 zu Pink 200/20 Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Projekte Video Card Overlay</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">rgba(14,165,233,0.7)</span><span class="hex-tag">rgba(125,211,252,0.4)</span><span class="hex-tag">rgba(251,207,232,0.2)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-gradient-to-t</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(to bottom right, #bae6fd 0%, #7dd3fc 50%, rgba(249, 168, 212, 0.4) 100%);">
+                    Sky 200-300 zu Pink 300/40 Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Projekte Bold Moves Card</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#bae6fd</span><span class="hex-tag">#7dd3fc</span><span class="hex-tag">rgba(249,168,212,0.4)</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-gradient-to-br</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Weitere Tailwind & spezifische Farben</h2>
+        <div class="color-grid">
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #374151;">#374151</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Gray 700</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#374151</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.text-gray-700</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">cdn.tailwindcss.com</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #111827;">#111827</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Gray 900</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#111827</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-black/70</span><span class="section-tag">.bg-gray-900</span><span class="section-tag">.text-gray-900</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">cdn.tailwindcss.com</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #6b7280;">#6b7280</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Gray 500</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#6b7280</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.text-gray-500</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">cdn.tailwindcss.com</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #d1d5db;">#d1d5db</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Gray 300</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#d1d5db</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-gray-300</span><span class="section-tag">.text-gray-300</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">cdn.tailwindcss.com</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #f3f4f6;">#f3f4f6</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Tailwind Gray 100</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#f3f4f6</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-gray-100</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">cdn.tailwindcss.com</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background-color: #b1d1fd;">#b1d1fd</div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Card Hover Border</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/RGB</span>
+                        <div class="hex-codes"><span class="hex-tag">#b1d1fd</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">.card:hover</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">style.css</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-tile">
+                <div class="color-swatch" style="background: linear-gradient(to right, #7dd3fc 0%, #38bdf8 50%, #fbcfe8 100%);">
+                    Sky 300-400 zu Pink 200 Verlauf
+                </div>
+                <div class="tile-content">
+                    <div class="tile-row">
+                        <span class="tile-label">Name</span>
+                        <span class="tile-value">Projekte Visual Poetry Card</span>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Hex/Stops</span>
+                        <div class="hex-codes"><span class="hex-tag">#7dd3fc</span><span class="hex-tag">#38bdf8</span><span class="hex-tag">#fbcfe8</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Sektionen</span>
+                        <div class="section-tags"><span class="section-tag">Projekte Grid Card</span><span class="section-tag">.bg-gradient-to-r</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Ursprung</span>
+                        <div class="origin-tags"><span class="origin-tag">projekte.html</span><span class="origin-tag">Tailwind inline</span></div>
+                    </div>
+                    <div class="tile-row">
+                        <span class="tile-label">Durchkommt</span>
+                        <span class="durchkommt-status">Ja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

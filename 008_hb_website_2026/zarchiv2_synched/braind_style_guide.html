@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BRAiND Style Guide – Basis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Brand */
+      --ci-blue:#207cfa;
+      --ci-pink:#ff3cd0;
+
+      /* Neutrals */
+      --bg:#0f1216;           /* Global background (no pure black) */
+      --surface:#1a1d21;      /* Cards / inputs */
+      --border:#334155;       /* Hairlines */
+
+      /* Text */
+      --text:#ffffff;
+      --muted:#94a3b8;
+
+      /* Radii */
+      --r-sm:4px;
+      --r-md:8px;
+      --r-lg:12px;
+
+      /* Spacing scale */
+      --s-1:4px;
+      --s-2:8px;
+      --s-3:12px;
+      --s-4:16px;
+      --s-6:24px;
+      --s-8:32px;
+      --s-10:40px;
+
+      /* Shadows (Glow) */
+      --glow-blue:0 0 28px rgba(32,124,250,.18);
+      --glow-pink:0 0 28px rgba(255,60,208,.16);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      padding:40px;
+      background:var(--bg);
+      color:var(--text);
+      font:400 16px/1.55 "Hanken Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      border:1px solid var(--ci-blue);
+      border-radius:var(--r-lg);
+      padding:var(--s-10);
+      box-shadow:var(--glow-blue);
+      background:linear-gradient(180deg, rgba(26,29,33,.42), rgba(15,18,22,.0));
+    }
+
+    /* Layout helpers */
+    .row{display:flex; gap:var(--s-8)}
+    .col{display:flex; flex-direction:column; gap:var(--s-4)}
+    .grid{display:grid; gap:var(--s-4)}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(auto-fill, minmax(220px, 1fr))}
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .hr{height:1px; background:var(--border); border:0; margin:var(--s-10) 0}
+
+    /* Header */
+    h1{
+      font-size:48px;
+      line-height:1;
+      letter-spacing:-2px;
+      margin:0 0 var(--s-2) 0;
+      font-weight:900;
+    }
+    h2{
+      margin:0;
+      font-size:22px;
+      font-weight:800;
+    }
+    .header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      padding-bottom:var(--s-8);
+      border-bottom:1px solid var(--border);
+      margin-bottom:var(--s-10);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(26,29,33,.55);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Sections */
+    .section{
+      margin-top:var(--s-10);
+    }
+    .section-head{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:var(--s-6);
+    }
+    .sec-num{
+      font-size:18px;
+      color:var(--muted);
+      width:48px;
+    }
+
+    /* Cards / boxes */
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--r-lg);
+      padding:var(--s-6);
+    }
+    .card.dashed{
+      border-style:dashed;
+      border-color:var(--ci-blue);
+    }
+
+    /* Brand mark */
+    .brand{
+      font-weight:900;
+      letter-spacing:-2px;
+      font-size:56px;
+      line-height:1;
+    }
+    .blue{color:var(--ci-blue)}
+    .pink{color:var(--ci-pink)}
+
+    /* Color cards */
+    .swatch{
+      height:110px;
+      border-radius:var(--r-md);
+      border:1px solid rgba(255,255,255,.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .tag{
+      position:absolute;
+      left:10px;
+      bottom:10px;
+      font-size:10px;
+      opacity:.85;
+      mix-blend-mode:overlay;
+      color:#fff;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .chip{
+      display:inline-block;
+      padding:2px 6px;
+      border-radius:6px;
+      border:1px solid rgba(32,124,250,.35);
+      background:rgba(32,124,250,.10);
+      color:var(--ci-blue);
+      font-size:11px;
+    }
+
+    /* Type samples */
+    .type-sample{
+      border-bottom:1px solid rgba(148,163,184,.18);
+      padding-bottom:10px;
+      margin-bottom:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:12px;
+    }
+
+    /* Components */
+    .btn{
+      appearance:none;
+      border:1px solid transparent;
+      border-radius:var(--r-sm);
+      padding:12px 14px;
+      font-weight:700;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      user-select:none;
+      cursor:default;
+      width:100%;
+    }
+    .btn.primary{background:var(--ci-blue); color:#fff}
+    .btn.magic{background:linear-gradient(90deg,var(--ci-blue),var(--ci-pink)); color:#fff}
+    .btn.secondary{background:transparent; border-color:var(--border); color:var(--muted)}
+    .input{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--r-sm);
+      padding:10px 12px;
+      color:var(--text);
+      width:100%;
+      outline:none;
+    }
+    .input::placeholder{color:rgba(148,163,184,.75)}
+    .help{font-size:12px; color:var(--muted)}
+    .node{
+      background:var(--bg);
+      border:1px solid var(--ci-blue);
+      border-radius:var(--r-md);
+      padding:18px;
+      box-shadow:var(--glow-blue);
+      position:relative;
+    }
+    .node::before{
+      content:"";
+      position:absolute;
+      left:0; top:0; right:0;
+      height:4px;
+      background:linear-gradient(90deg,var(--ci-blue), transparent);
+      border-top-left-radius:var(--r-md);
+      border-top-right-radius:var(--r-md);
+    }
+    .node-head{
+      display:inline-block;
+      background:var(--ci-blue);
+      color:#fff;
+      padding:6px 10px;
+      border-radius:var(--r-sm);
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    /* Tables */
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:var(--r-md);
+      border:1px solid var(--border);
+      background:rgba(26,29,33,.35);
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(148,163,184,.14);
+      text-align:left;
+      font-size:13px;
+      color:var(--text);
+    }
+    th{color:var(--muted); font-weight:700; background:rgba(26,29,33,.55)}
+    tr:last-child td{border-bottom:0}
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <h1>StyleGuide <span style="font-weight:300;color:var(--ci-blue)">by</span>
+          <span class="blue">BRA</span><span class="pink">i</span><span class="blue">ND</span>
+        </h1>
+        <div class="badge mono">Design System – Basis (HTML)</div>
+      </div>
+      <div class="mono muted" style="text-align:right;font-size:12px">
+        Version: 0.1<br>
+        Stand: <span id="today"></span>
+      </div>
+    </header>
+
+    <!-- 00 Brand -->
+    <section class="section">
+      <div class="section-head">
+        <div class="sec-num mono">00.</div><h2>Brand Identity</h2>
+      </div>
+
+      <div class="card dashed">
+        <div class="brand">
+          <span class="blue">BRA</span><span class="pink">i</span><span class="blue">ND</span>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:24px">
+          <div class="col">
+            <strong>Schreibweise & Casing</strong>
+            <div class="muted" style="font-size:14px">
+              Markenname grundsätzlich VERSAL, Ausnahme: „i“ bleibt klein.
+            </div>
+            <ul class="muted" style="margin:10px 0 0 18px; font-size:14px">
+              <li>Korrekt: BRAiND</li>
+              <li>Falsch: Braind, BRAINDT, BrainD</li>
+              <li>Display-Ausnahme: BRAIND (I in CI Pink)</li>
+            </ul>
+          </div>
+
+          <div class="col">
+            <strong>Farbzuordnung im Wortmarken-Setting</strong>
+            <div class="muted" style="font-size:14px">
+              <span class="blue">BRA &amp; ND</span> = Electric Blue (<span class="mono">#207cfa</span>)<br>
+              <span class="pink">i</span> = Neon Magenta (<span class="mono">#ff3cd0</span>)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <!-- 01 Tokens -->
+    <section class="section">
+      <div class="section-head">
+        <div class="sec-num mono" style="color:var(--ci-pink)">01.</div><h2>Design Tokens</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <strong class="mono muted" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase">Farbpalette</strong>
+          <div class="grid grid-4" style="margin-top:14px">
+            <div class="col">
+              <div class="swatch" style="background:#207cfa"><span class="tag">Primary</span></div>
+              <div class="row" style="justify-content:space-between; align-items:center; gap:10px">
+                <div style="font-weight:800">Electric Blue</div><span class="chip mono">#207cfa</span>
+              </div>
+              <div class="muted" style="font-size:12px">Interaction, Focus</div>
+            </div>
+
+            <div class="col">
+              <div class="swatch" style="background:#ff3cd0"><span class="tag">Highlight</span></div>
+              <div class="row" style="justify-content:space-between; align-items:center; gap:10px">
+                <div style="font-weight:800">Neon Magenta</div><span class="chip mono" style="border-color:rgba(255,60,208,.35); background:rgba(255,60,208,.10); color:var(--ci-pink)">#ff3cd0</span>
+              </div>
+              <div class="muted" style="font-size:12px">AI Magic, Accents</div>
+            </div>
+
+            <div class="col">
+              <div class="swatch" style="background:#0f1216"><span class="tag">Background</span></div>
+              <div class="row" style="justify-content:space-between; align-items:center; gap:10px">
+                <div style="font-weight:800">Deep Void</div><span class="chip mono">#0f1216</span>
+              </div>
+              <div class="muted" style="font-size:12px">Global Background</div>
+            </div>
+
+            <div class="col">
+              <div class="swatch" style="background:#1a1d21"><span class="tag">Surface</span></div>
+              <div class="row" style="justify-content:space-between; align-items:center; gap:10px">
+                <div style="font-weight:800">Surface Dark</div><span class="chip mono">#1a1d21</span>
+              </div>
+              <div class="muted" style="font-size:12px">Cards, Inputs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <strong class="mono muted" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase">Spacing / Radius / Shadow</strong>
+
+          <div style="margin-top:14px">
+            <table>
+              <thead>
+                <tr><th>Token</th><th>Wert</th><th>Verwendung</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="mono">--s-4</td><td class="mono">16px</td><td class="muted">Default Padding</td></tr>
+                <tr><td class="mono">--r-lg</td><td class="mono">12px</td><td class="muted">Cards / Container</td></tr>
+                <tr><td class="mono">--glow-blue</td><td class="mono">0 0 28px …</td><td class="muted">Neon-Look (sparsam)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="muted" style="font-size:12px; margin-top:12px">
+            Regel: Kontrast über Farbe/Weight, nicht über reine Größe. Keine reine Schwarzfläche.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <!-- 02 Typography -->
+    <section class="section">
+      <div class="section-head">
+        <div class="sec-num mono" style="color:var(--ci-blue)">02.</div><h2>Typografie</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div style="font-size:76px; font-weight:300; line-height:1; margin-bottom:10px">Aa</div>
+          <div class="mono muted" style="font-size:12px; margin-bottom:14px">FONT: HANKEN GROTESK</div>
+
+          <div class="type-sample">
+            <div style="font-size:22px; font-weight:300">Light 300</div>
+            <div class="mono muted" style="font-size:12px">Display Headlines</div>
+          </div>
+          <div class="type-sample">
+            <div style="font-size:22px; font-weight:400">Regular 400</div>
+            <div class="mono muted" style="font-size:12px">Body / Inputs</div>
+          </div>
+          <div class="type-sample">
+            <div style="font-size:22px; font-weight:700">Bold 700</div>
+            <div class="mono muted" style="font-size:12px">Buttons</div>
+          </div>
+          <div class="type-sample" style="margin-bottom:0">
+            <div style="font-size:22px; font-weight:900">Black 900</div>
+            <div class="mono muted" style="font-size:12px">Brand</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <strong class="mono" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ci-pink)">Regeln</strong>
+          <div class="col" style="margin-top:14px">
+            <div class="row" style="gap:14px; align-items:flex-start">
+              <div style="width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(26,29,33,.55)">T</div>
+              <div>
+                <div style="font-weight:800">Hierarchie</div>
+                <div class="muted" style="font-size:13px">White vs. Muted für Struktur, dann Größe/Weight.</div>
+              </div>
+            </div>
+
+            <div class="row" style="gap:14px; align-items:flex-start">
+              <div style="width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(26,29,33,.55)">L</div>
+              <div>
+                <div style="font-weight:800">Line Height</div>
+                <div class="muted" style="font-size:13px">1.5 im Fließtext; Inputs locker für Lesbarkeit.</div>
+              </div>
+            </div>
+
+            <div class="row" style="gap:14px; align-items:flex-start">
+              <div style="width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(26,29,33,.55)">K</div>
+              <div>
+                <div style="font-weight:800">Konsistenz</div>
+                <div class="muted" style="font-size:13px">Max. 2 Schriftgewichte pro UI-Block.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <!-- 03 Components -->
+    <section class="section">
+      <div class="section-head">
+        <div class="sec-num mono">03.</div><h2>UI Komponenten</h2>
+      </div>
+
+      <div class="card">
+        <div class="mono muted" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px">Buttons</div>
+        <div class="grid grid-3">
+          <div class="col">
+            <div class="btn primary">Primary Action</div>
+            <div class="mono muted" style="font-size:12px">BG: #207cfa</div>
+          </div>
+          <div class="col">
+            <div class="btn magic">AI Action</div>
+            <div class="mono muted" style="font-size:12px">Gradient</div>
+          </div>
+          <div class="col">
+            <div class="btn secondary">Secondary</div>
+            <div class="mono muted" style="font-size:12px">Border: 1px</div>
+          </div>
+        </div>
+
+        <div class="hr" style="margin:24px 0"></div>
+
+        <div class="grid grid-2">
+          <div class="col">
+            <div class="mono muted" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase">Inputs</div>
+            <input class="input" placeholder="Placeholder (Muted)" />
+            <textarea class="input" rows="4" placeholder="Multiline Content Area"></textarea>
+            <div class="help">Input BG: #1a1d21 | Border: #334155</div>
+          </div>
+
+          <div class="col">
+            <div class="mono muted" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase">Node</div>
+            <div class="node">
+              <div class="node-head">Node Header</div>
+              <div class="input muted" style="font-size:12px">Input Field (#1a1d21)</div>
+              <div class="input muted" style="font-size:12px; margin-top:10px; min-height:64px">Content Area</div>
+              <div class="help" style="margin-top:10px">Regel: 1px Identity Border + sparsam Glow.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section muted" style="font-size:12px; margin-top:40px">
+      Hinweis: Diese HTML-Datei ist als Grundlage/Preview gedacht; Tokens/CSS sind bewusst inline, um schnell iterierbar zu bleiben.
+    </footer>
+  </main>
+
+  <script>
+    // Simple date fill-in (client-side)
+    try {
+      const d = new Date();
+      document.getElementById("today").textContent =
+        d.toLocaleDateString("de-DE", { year:"numeric", month:"2-digit", day:"2-digit" });
+    } catch (_) {}
+  </script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+	
+    <!-- Fonts & Icons -->
+	<link rel="shortcut icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Tailwind + Lucide (für _beta-Grid) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Dein globales CSS danach -->
+    <link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../style2.css">
+
+	
+	
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@600;800&display=swap');
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+        }
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            scroll-snap-align: start;
+        }
+    </style>
+	
+
+		<script src="../script.js" defer></script>
+
+</head>
+<body>
+
+
+
+<header class="main-header" id="page-top">
+  <nav class="navbar container">
+    <div class="nav-left">
+      <a href="../index.html#hero-section">HOME</a>
+      <a href="../index.html#video-bio">PROFIL</a>
+      <a href="../index.html#focus">EXPERTISE</a>
+    </div>
+
+    <a class="navbar-brand-center hb-mail" href="mailto:marke.design.ai@hendrik-bogner.de" aria-label="E-Mail senden">
+      <span class="hb-fold"></span>
+      <div class="hb-points">
+        <i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i>
+        <i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i>
+      </div>
+      <span class="hb-inner">HENDRIK 
+        <svg class="hb-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="2" y="4" width="20" height="16" rx="2.5" ry="2.5"></rect>
+          <polyline points="22 6 12 13 2 6"></polyline>
+        </svg>
+        BOGNER 
+      </span>
+    </a>
+
+    <div class="nav-right">
+      <a href="../projekte.html" class="active">PROJEKTE</a>
+      <a href="../index.html#vision1">BRAND+AI</a>
+      <a href="../index.html#Kontakt">KONTAKT</a>
+    </div>
+
+    <button class="navbar-toggle" aria-controls="main-nav-mobile" aria-expanded="false" aria-label="Menü umschalten">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav" id="main-nav-mobile">
+    <a href="../index.html#hero-section">HOME</a>
+    <a href="../index.html#video-bio">PROFIL</a>
+    <a href="../index.html#focus">EXPERTISE</a>
+    <a href="../projekte.html" class="active">PROJEKTE</a>
+    <a href="../index.html#vision1">BRAND+AI</a>
+    <a href="../index.html#Kontakt">KONTAKT</a>
+  </div>
+</header>
+
+
+ <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section_3" id="hero-section">
+            <div class="container hero-container_3">
+                <div class="hero-content-visual">
+                  <!--  <p class="hero-tagline">COMING SOON</p>-->
+            <!-- NEU (inline clamp) -->
+			<h1 class="hero-brand-title" style="font-size: clamp(3rem, 6vw, 10.5rem);">
+			  Projekte
+			</h1>
+                    <p class="hero-subline">
+                        <span>BRAND STRATEGY ·  </span>
+                        <span>BRAND DESIGN ·  </span>
+                        <span> AI - WORKFLOW </span>
+                    </p>
+                </div>
+                <div class="hero-main-headline">
+                   <!-- <h2>Produkte gehen über den Tresen. <br><span class="italic-inline">Marken unter die Haut.</span></h2>-->
+<!--					<h2>Produkte<span class="word-badge word-badge--blue">braucht man</span>Marken <span class="word-badge word-badge--pink">will man</span>
+</h2>-->
+                </div>
+<!--                <aside class="hero-content-text text-left">
+                    <div class="glass-card">
+                        <p><br>Den Wert der <span class="word-badge pink">Marke</span> in die Herzen der Menschen zu übertragen, ist unabdingbar, um eine langfristige Bindung zu Ihren Kunden aufzubauen und zu erhalten. Mit klarer Trennschärfe zwischen Marke und Marketing gewinnen Sie Fokus auf die wahren <span class="word-badge blue">Wachstumstreiber</span> Ihrer Unternehmensstrategie. Ich baue Ihre Marke auf – in fester Anstellung in Ihrem Unternehmen oder auf Projektbasis.</p><br>
+                    </div>-->
+<!--				<a href="https://calendly.com/hbmailer" class="button">
+				  Wert Ihrer Marke skalieren
+				  <div class="hoverEffect">
+					<div></div>
+				  </div>
+				</a>-->
+         </div>
+        </section>
+
+<!-- Mig Aktion -->
+		
+		
+         <!-- PROJECTS GRID SECTION (aus _beta) -->
+        
+        <!--inhalte implementiert -->
+ <main class="max-w-[1600px] mx-auto px-6 lg:px-12 py-12">
+        <!-- HB Update (CX-17): Grid dichter packen, damit Restflächen belegt werden -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
+            
+           <!-- SS -->
+<!-- Large Hero Text Card -->
+<div class="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-200 rounded-2xl md:p-12 p-6 flex flex-col justify-between overflow-hidden relative group hover:shadow-2xl transition-all duration-500">
+    <div class="absolute inset-0 bg-gradient-to-br from-sky-300/40 to-pink-300/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+        <span class="text-blue-400 text-sm font-extrabold tracking-wide uppercase">Projekte Hendrik Bogner</span>
+        <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1]">
+            Strategie sichtbar machen.
+        </h2>
+        <p class="text-[#3D4654] text-lg leading-snug font-light">
+           Das Visuelle ist das Finale, die Strategie davor der entscheidende Hebel. Ich nehme Sie gerne mit in einen Deep Dive durch meine Projekte, damit Sie sehen, wie ich arbeite. Machen wir es unkompliziert: Ein Klick in meinen Kalender genügt, Sie wählen Ihre Zeit, und wir sprechen über das, was Ihre Marke voranbringt.
+        </p>
+    </div>
+    <div class="relative z-10 mt-6">
+        <a href="https://bogner.youcanbook.me" target="_blank" rel="noopener noreferrer" class="button w-full max-w-md mx-auto py-4 text-base flex items-center justify-center">
+            Deep Dive mit Hendrik Bogner
+            <div class="hoverEffect">
+                <div></div>
+            </div>
+        </a>
+    </div>
+    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-gradient-to-br from-sky-400/40 to-pink-400/40 rounded-full blur-3xl"></div>
+</div>
+
+
+
+
+            <!-- Image with Carousel -->
+<div class="lg:col-span-6 lg:row-span-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+    <div class="relative aspect-video">
+        <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel1">
+            <div class="carousel-item min-w-full h-full relative">
+                <img src="../img2/parship1.png" alt="Scene 1" class="w-full h-full object-cover">
+                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                    <span class="carousel-counter">1</span> / 3
+                </div>
+            </div>
+            <div class="carousel-item min-w-full h-full relative">
+                <img src="../img2/parship2.png" alt="Scene 2" class="w-full h-full object-cover">
+                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                    <span class="carousel-counter">2</span> / 3
+                </div>
+            </div>
+            <div class="carousel-item min-w-full h-full relative">
+                <img src="../img2/parship3.png" alt="Scene 3" class="w-full h-full object-cover">
+                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                    <span class="carousel-counter">3</span> / 3
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+ <div class="pointer-events-none absolute inset-0 bg-sky-300/70 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+
+
+        <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel1', -1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" class="lucide lucide-chevron-left w-5 h-5 text-gray-900"><path d="m15 18-6-6 6-6"></path></svg>
+        </button>
+        <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel1', 1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right w-5 h-5 text-gray-900"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zusammen was zusammen gehört</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Drei Szenen, eine Vision.</p>
+        <div class="flex gap-2 mt-4" id="carousel1-dots">
+            <div class="carousel-dot w-12 h-1 bg-gray-900 rounded-full transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel1', 0)"></div>
+            <div class="carousel-dot w-12 h-1 bg-gray-300 rounded-full transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel1', 1)"></div>
+            <div class="carousel-dot w-12 h-1 bg-gray-300 rounded-full transition-all cursor-pointer" data-index="2" onclick="goToSlide('carousel1', 2)"></div>
+        </div>
+    </div>
+</div>
+
+			
+            <!-- Quote Card -->
+            <div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <p class="text-2xl font-normal text-gray-900 italic leading-relaxed mb-4">"Marken machen sichtbar.<br> Identität macht unverwechselbar."</p>
+                <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
+            </div>
+
+<!-- Video Card Tall (Wireframe-SUV) -->
+<div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
+    <video class="w-full h-full object-cover hidden" src="../video/001_3d_auto_01.mp4"></video>
+
+    <div class="h-full overflow-hidden">
+        <img src="../img2/wireframe_car_1.png" alt="Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+    </div>
+
+    <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
+        <!-- Play-Overlay aktuell deaktiviert -->
+    </div>
+
+    <div class="absolute top-3 left-3 sm:top-6 sm:left-6">
+        <span class="px-2.5 py-1 bg-black/80 backdrop-blur-sm text-white text-[10px] sm:text-xs font-semibold rounded-lg">
+            © Hendrik Bogner – Urheber- und Designrechte.
+        </span>
+    </div>
+
+    <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-8 pointer-events-none">
+        <div class="max-w-xs sm:max-w-sm">
+            <h4 class="text-white font-bold text-lg sm:text-2xl mb-1 sm:mb-2">Motion Story</h4>
+            <p class="text-sky-50 text-xs sm:text-sm leading-relaxed">Strategien für eine sichere Zukunft</p>
+            <p class="text-sky-50 text-xs sm:text-sm leading-relaxed">- Kundenauftrag</p>
+            <button class="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-semibold text-gray-900 bg-white/70 hover:bg-white/90 rounded-lg pointer-events-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4">
+                    <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path>
+                    <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span>Abspielen</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+			
+			<!-- Quote Card II -->
+<div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+    <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Fortschritt zeigt, was möglich ist.<br>Marke zeigt, wer wir sind."</p>
+    <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
+</div>
+
+            <!-- Thin Typography Card -->
+<!--            <div class="lg:col-span-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-8 flex items-center justify-center text-left hover:scale-[1.02] transition-all duration-500 shadow-xl">
+                <div>
+                    <h3 class="text-4xl lg:text-5xl font-thin text-white tracking-tight leading-tight">"Fortschritt zeigt, was möglich ist.<br> Marke zeigt, wer wir sind.</h3>
+                    <p class="text-purple-100 text-sm mt-3 font-light">- Hendrik Bogner</p>
+                </div>
+            </div>-->
+
+            <!-- Small Image Card -->
+<div class="lg:col-span-4 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-xl">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&amp;q=80" alt="Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg">Pure Emotion</h4>
+                        <p class="text-gray-200 text-sm mt-1">Authentische Momente</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Only Card with Stats strt -->
+<!-- Text Only Card with Stats --><div class="lg:col-span-4 bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-gray-200"><div class="text-6xl font-bold text-gray-900 tracking-tight">17 ...</div><h2 class="text-[28px] font-extrabold text-[#3D4654] mt-2 mb-4">... kreative Projekte in der Pipeline</h2><p class="text-gray-500 text-sm leading-relaxed font-light">Jeden Montag eine einzigartige Geschichte von Vision und Ausführung.</p></div>
+
+
+<!-- Video Card Tall --> 
+<div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
+    <div class="h-full overflow-hidden relative">
+        <img src="../img2/002_falk_01.png" alt="Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <video class="w-full h-full object-cover hidden" src="../video/002_falk_01.mp4" muted></video>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
+        <div class="w-20 h-20 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" class="lucide lucide-play w-9 h-9 text-gray-900 ml-1"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+        </div>
+    </div>
+    <div class="absolute top-6 left-6">
+        <span class="px-3 py-1.5 bg-black/80 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">© Hendrik Bogner – Urheber- und Designrechte.</span>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-8">
+        <div>
+            <h4 class="text-white font-bold text-2xl mb-2">Mit der Zeit gehen</h4>
+            <p class="text-gray-200 text-sm leading-relaxed">Aus diesem Alltagsobjekt entwickelt das Unternehmen Hightech-Ikonen.<br>Kundenauftrag</p>
+            <button class="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                Abspielen
+            </button>
+        </div>
+    </div>
+</div>
+
+            <!-- Text Card with Button -->
+            <!-- HB Update (CX-17): Schnell-&-Dynamisch-Kachel nutzt zwei Reihen und volle Höhe -->
+<div class="lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 rounded-2xl p-8 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full">
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" class="lucide lucide-zap w-10 h-10 text-blue-100 mb-4">
+            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+        </svg>
+        <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Schnell &amp; Dynamisch</h3>
+        <p class="text-blue-100 text-sm leading-relaxed font-light">Performance trifft auf elegantes Design. Alles läuft flüssig und reaktionsschnell.</p>
+    </div>
+    <button class="mt-6 inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-blue-600 bg-white rounded-lg hover:bg-blue-50 transition-all self-start">
+        Entdecken
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up-right" class="lucide lucide-arrow-up-right w-4 h-4">
+            <path d="M7 7h10v10"></path>
+            <path d="M7 17 17 7"></path>
+        </svg>
+    </button>
+</div>
+
+
+            <!-- Bold Typography Card -->
+            <!-- HB Update (CX-17): Karte spannt zwei Grid-Reihen, um Lücken zu schließen -->
+<div class="lg:col-span-5 lg:row-span-2 rounded-2xl p-10 flex flex-col justify-center hover:scale-[1.02] transition-all duration-500 shadow-2xl overflow-hidden relative group h-full">
+    <div class="absolute inset-0 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+        <h3 class="text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4">BOLD<br>MOVES</h3>
+        <p class="text-gray-400 text-base font-light max-w-xs">Mutige Schritte für außergewöhnliche Ergebnisse.</p>
+    </div>
+</div>
+
+
+            <!-- Small Image with Description -->
+<!--            <div class="lg:col-span-3 bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&amp;q=80" alt="3D Art" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-5">
+                    <h4 class="text-base font-semibold text-gray-900">Geometric Flow</h4>
+                    <p class="text-gray-500 text-xs mt-1 leading-relaxed">Abstrakte Formen in perfekter Harmonie</p>
+                </div>
+            </div>-->
+
+
+
+            <!-- Portrait Image -->
+<!--            <div class="lg:col-span-3 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-xl">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&amp;q=80" alt="Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2.5 bg-white rounded-lg hover:bg-gray-100 transition-all shadow-lg" onclick="toggleLike(this, event)">
+                        <i data-lucide="heart" class="w-4 h-4 text-gray-900 like-icon"></i>
+                    </button>
+                </div>
+            </div>-->
+
+            <!-- Wide Image with Overlay Text Farbverlauf-->
+<div class="lg:col-span-5 lg:row-span-1 group relative bg-gray-900 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl">
+    <div class="h-full min-h-[300px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&amp;q=80" alt="Abstract" class="w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-all duration-700 group-hover:scale-105">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-sky-300 via-sky-400 to-pink-200 flex items-center p-10">
+        <div class="max-w-md">
+            <h3 class="text-4xl font-bold text-white tracking-tight mb-3">Visual Poetry</h3>
+            <p class="text-gray-200 text-sm leading-relaxed font-light">Wo Farbe auf Emotion trifft und Bewegung zur Kunst wird.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Tall Text Card mit Video --> 
+<!-- Tall Text Card mit Video --> 
+<div class="lg:col-span-3 lg:row-span-2 bg-[#dbeafe] rounded-2xl p-8 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl">
+    <video class="w-full mb-6 rounded-2xl overflow-hidden" src="../video/002_close_up_01.mp4" controls=""></video>
+
+    <div>
+ <!--       <div class="w-14 h-14 bg-black/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="layers" class="w-7 h-7 text-slate-900"></i>
+        </div>-->
+        <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">AI -Character-Design</h3>
+        <p class="text-slate-900 text-sm leading-relaxed font-light">Tiefe entsteht durch Schichten. Jede Ebene erzählt ihre eigene Geschichte.</p>
+    </div>
+
+<!--    <div class="space-y-3 mt-6">
+        <div class="flex items-center gap-1">
+            <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
+            <span class="text-slate-900 text-sm font-light">Ebene für Ebene</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
+            <span class="text-slate-900 text-sm font-light">Perfektion im Detail</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-slate-900 rounded-full"></div>
+            <span class="text-slate-900 text-sm font-light">Endlose Möglichkeiten</span>
+        </div>
+    </div>-->
+</div>
+
+
+            <!-- Square Image -->
+<!--            <div class="lg:col-span-4 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-xl">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&amp;q=80" alt="Fashion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                    <h4 class="text-white font-semibold text-lg mb-1">Fashion Forward</h4>
+                    <p class="text-gray-200 text-sm">Style meets substance</p>
+                </div>
+            </div>-->
+
+            <!-- Mini Carousel Card -->
+            <div class="lg:col-span-5 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative aspect-[16/9] group">
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel2">
+                        <div class="carousel-item min-w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1617791160588-241658c0f566?w=1200&amp;q=80" alt="Nature 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-item min-w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=1200&amp;q=80" alt="Nature 2" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel2', -1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" class="lucide lucide-chevron-left w-5 h-5 text-gray-900"><path d="m15 18-6-6 6-6"></path></svg>
+                    </button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all shadow-lg opacity-0 group-hover:opacity-100" onclick="scrollCarousel('carousel2', 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right w-5 h-5 text-gray-900"><path d="m9 18 6-6-6-6"></path></svg>
+                    </button>
+                    <div class="absolute bottom-4 right-4 flex gap-2" id="carousel2-dots">
+                        <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow-lg transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel2', 0)"></div>
+                        <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow-lg transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel2', 1)"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Nature Series</h3>
+                    <p class="text-gray-600 text-sm">Zwei Welten, eine Vision</p>
+                </div>
+            </div>
+
+            <!-- START CX-17: Zitat Produkte neben Nature -->
+            <div class="lg:col-span-4 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-purple-900 hover:shadow-xl transition-all duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Produkte sind das Was.<br> Marken das Wie. <br>Identität das Warum."</p>
+                <div class="text-sm text-gray-500 font-medium">— Hendrik Bogner</div>
+            </div>
+            <!-- END CX-17: Zitat Produkte neben Nature -->
+
+            <!-- START CX-17: Video-Slider Kaleidoskop -->
+            <div class="lg:col-span-5 lg:row-span-2 bg-gray-900 text-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
+                <div class="relative aspect-[3/4] group">
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel3">
+                        <div class="carousel-item min-w-full h-full relative">
+                            <video class="w-full h-full object-cover" src="../video/002_3d_auto_outake.mp4" autoplay muted loop></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        </div>
+                        <div class="carousel-item min-w-full h-full relative">
+                            <video class="w-full h-full object-cover" src="../video/002_close_up_01.mp4" autoplay muted loop></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-sky-900/70 via-sky-700/20 to-transparent"></div>
+                        </div>
+                    </div>
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 text-gray-900 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shadow-lg" onclick="scrollCarousel('carousel3', -1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m15 18-6-6 6-6"></path></svg>
+                    </button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 text-gray-900 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shadow-lg" onclick="scrollCarousel('carousel3', 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+                    </button>
+                    <div class="absolute bottom-4 left-4 flex gap-2" id="carousel3-dots">
+                        <div class="carousel-dot w-8 h-1 bg-white rounded-full transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel3', 0)"></div>
+                        <div class="carousel-dot w-8 h-1 bg-white/50 rounded-full transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel3', 1)"></div>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col gap-3">
+                    <p class="text-xs uppercase tracking-[0.2em] text-sky-300">Motion • Slider</p>
+                    <h3 class="text-2xl font-semibold leading-tight">Video Kaleidoskop</h3>
+                    <p class="text-sm text-gray-200">Zwei Perspektiven, ein dynamisches Narrativ – ready für Socials und Pitch-Deck.</p>
+                </div>
+            </div>
+            <!-- END CX-17: Video-Slider Kaleidoskop -->
+
+            <!-- START CX-17: Gallery-Stack "Dynamik" -->
+            <div class="lg:col-span-3 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
+                <div class="grid grid-cols-2 h-full">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="../img2/wireframe_car_1.png" alt="Render" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                    </div>
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="../img2/002_falk_01.png" alt="Detail" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-sky-500/60 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="col-span-2 p-5 flex flex-col gap-2 bg-gradient-to-r from-gray-900 via-sky-900 to-gray-800 text-white">
+                        <p class="text-xs uppercase tracking-[0.2em] text-sky-200">Gallery Stack</p>
+                        <h3 class="text-xl font-semibold leading-tight">Schnell &amp; Dynamisch</h3>
+                        <p class="text-sm text-sky-100">Zwei starke Frames als Duo, um Lücken im Grid gezielt zu schließen.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END CX-17: Gallery-Stack "Dynamik" -->
+
+            <!-- START CX-17: Micro-Grid "Video+Slider" -->
+            <div class="lg:col-span-7 lg:row-span-2 bg-gradient-to-br from-sky-50 via-white to-pink-50 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
+                <div class="p-6 pb-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs uppercase tracking-[0.2em] text-sky-600">Micro Showcase</p>
+                        <h3 class="text-2xl font-semibold text-gray-900">Video + Slider Combo</h3>
+                        <p class="text-sm text-gray-600">Ein Raster für schnelle Swipes: Reel, Still und ein Call-to-Action.</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-gray-900 text-white text-xs font-semibold">CX-17</span>
+                </div>
+                <div class="grid grid-cols-5 gap-3 p-6 pt-2">
+                    <div class="col-span-2 row-span-2 relative rounded-xl overflow-hidden shadow-lg">
+                        <video class="w-full h-full object-cover" src="../video/001_3d_auto_01.mp4" autoplay muted loop></video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 text-white text-xs font-semibold uppercase tracking-[0.2em]">Reel</div>
+                    </div>
+                    <div class="col-span-3 rounded-xl overflow-hidden relative shadow-lg">
+                        <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel4">
+                            <div class="carousel-item min-w-full h-full relative">
+                                <img src="../img2/parship1.png" alt="Slider Frame" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item min-w-full h-full relative">
+                                <img src="../img2/parship2.png" alt="Slider Frame" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-3 right-3 flex gap-1" id="carousel4-dots">
+                            <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow" data-index="0" onclick="goToSlide('carousel4', 0)"></div>
+                            <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow" data-index="1" onclick="goToSlide('carousel4', 1)"></div>
+                        </div>
+                    </div>
+                    <div class="col-span-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.2em] text-gray-500">CTA</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Jetzt Motion buchen</h4>
+                            <p class="text-sm text-gray-500">Ein Klick, und die Story läuft.</p>
+                        </div>
+                        <button class="px-3 py-2 bg-gray-900 text-white text-xs font-semibold rounded-lg hover:bg-black transition">Go</button>
+                    </div>
+                </div>
+            </div>
+            <!-- END CX-17: Micro-Grid "Video+Slider" -->
+
+            <!-- START CX-17: Breites Zitat Vision -->
+            <div class="lg:col-span-8 bg-white rounded-2xl p-10 flex flex-col justify-center border-l-4 border-gray-900 hover:shadow-xl transition-all duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-10 h-10 text-gray-300 mb-4"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Ideen brauchen Bühne.<br> Marken geben Richtung.<br> Momentum entsteht im Zusammenspiel."</p>
+                <div class="text-sm text-gray-500 font-medium">— CX-17</div>
+            </div>
+            <!-- END CX-17: Breites Zitat Vision -->
+
+            <!-- START CX-17: Kompaktes Zitat Fokus -->
+            <div class="lg:col-span-4 bg-white rounded-2xl p-8 flex flex-col justify-center border-l-4 border-blue-900 hover:shadow-xl transition-all duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote w-8 h-8 text-gray-300 mb-3"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <p class="text-xl font-light text-gray-900 italic leading-relaxed mb-3">"Mutig denken, klar gestalten."
+                </p>
+                <div class="text-sm text-gray-500 font-medium">— CX-17</div>
+            </div>
+            <!-- END CX-17: Kompaktes Zitat Fokus -->
+
+        </div>
+    </main>
+       <!-- FIX END: Ende des Wrapper Divs -->
+        <!-- PARTNERS SECTION -->
+<!--        <section class="content-section bg-light" id="partners">
+            <div class="container">
+                <h2 class="sr-only">Partner</h2>
+                <div class="client-carousel">
+                    <div class="carousel-track">
+                        <img src="img/kunden/Samsung.svg" alt="Samsung Logo"><img src="img/kunden/droege.png" alt="Droege Group Logo"><img src="img/kunden/RWE_Logo_2020.svg" alt="RWE Logo"><img src="img/kunden/Telekom_Logo.svg" alt="Telekom Logo"><img src="img/kunden/aldi3.png" alt="Aldi Logo"><img src="img/kunden/web_smartsleep_original_logo.svg" alt="Smartsleep Logo">
+                        <img src="img/kunden/Samsung.svg" alt="Samsung Logo"><img src="img/kunden/droege.png" alt="Droege Group Logo"><img src="img/kunden/RWE_Logo_2020.svg" alt="RWE Logo"><img src="img/kunden/Telekom_Logo.svg" alt="Telekom Logo"><img src="img/kunden/aldi3.png" alt="Aldi Logo"><img src="img/kunden/web_smartsleep_original_logo.svg" alt="Smartsleep Logo">
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <!-- CONTACT SECTION -->
+        <section class="content-section gradient-background" id="Kontakt">
+            <div class="container contact-container">
+                <div class="contact-text-wrapper">
+                    <h4>Auf der Suche nach einem großen Gedanken der Unternehmen inspiriert und Kunden fasziniert?</h4>
+                    <p>Kontaktieren Sie mich auf LinkedIn und lassen Sie uns gemeinsam Ihre nächsten Erfolge gestalten.</p>
+                </div>
+                <div class="contact-visual-wrapper">
+                    <div class="bulb-hero">
+                        <img src="../img/bulb_web.png" alt="Leuchtende Glühbirne mit einem Gehirn darin">
+                        <div class="bulb-glow"></div>
+                    </div>
+                </div>
+<!-- CONTACT BUTTONS v2 – INLINE SVGs -->
+<!-- CONTACT BUTTONS v2 — FA-Icons (crisp) -->
+<!-- CONTACT BUTTONS v2 — inline SVG (crisp) -->
+<div class="contact-buttons-v2">
+  <div class="btn-group" role="group" aria-label="Kontaktlinks">
+    <!-- LinkedIn (Primary / Gradient) -->
+    <a class="social-btn is-primary" href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener">
+      <svg class="logo logo-in" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <!-- „in“-Monogramm (ohne Quadrat) -->
+        <path d="M4.8 9h3.3v9.4H4.8V9Zm1.7-6.2A2 2 0 1 1 4.7 5 2 2 0 0 1 6.5 2.8ZM10.4 9h3.1v1.3h.1c.4-.8 1.4-1.6 3.1-1.6 3.2 0 3.8 2.1 3.8 4.7v4.9h-3V14c0-1 .1-2.2-1.4-2.2s-1.6 1.1-1.6 2.2v4.4h-3.1V9Z"></path>
+      </svg>
+      <span>LinkedIn</span>
+    </a>
+
+    <!-- YouTube (Outline) -->
+    <a class="social-btn is-outline" href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener">
+      <svg class="logo logo-yt" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="1.5" y="5" width="21" height="14" rx="4.2" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+        <path d="M10 9l6 3-6 3z"></path>
+      </svg>
+      <span>YouTube</span>
+    </a>
+  </div>
+</div>
+
+
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer gradient-background">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <img class="footer-logo" src="../img/main/braind_logo_und_claim.svg" alt="BRAiND Logo">
+                <span class="footer-copyright">© 2025 Hendrik Bogner
+				</span>
+            </div>
+            <nav class="footer-right">
+                <a href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+<!--    <a href="#page-top" class="scroll-to-top" aria-label="Nach oben">
+        <i class="fas fa-chevron-up"></i>
+    </a>-->
+
+ 
+		<script>
+        lucide.createIcons();
+
+        // Carousel functionality
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const scrollAmount = carousel.offsetWidth;
+            carousel.scrollBy({
+                left: scrollAmount * direction,
+                behavior: 'smooth'
+            });
+        }
+
+        function goToSlide(carouselId, index) {
+            const carousel = document.getElementById(carouselId);
+            const scrollAmount = carousel.offsetWidth;
+            carousel.scrollTo({
+                left: scrollAmount * index,
+                behavior: 'smooth'
+            });
+        }
+
+        // Update carousel dots on scroll
+        function updateCarouselDots(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const dotsContainer = document.getElementById(carouselId + '-dots');
+            
+            if (!carousel || !dotsContainer) return;
+            
+            carousel.addEventListener('scroll', () => {
+                const scrollLeft = carousel.scrollLeft;
+                const scrollWidth = carousel.offsetWidth;
+                const currentIndex = Math.round(scrollLeft / scrollWidth);
+                
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        if (carouselId === 'carousel1') {
+                            dot.classList.remove('bg-gray-300');
+                            dot.classList.add('bg-gray-900');
+                        } else {
+                            dot.classList.remove('bg-white/50');
+                            dot.classList.add('bg-white');
+                        }
+                    } else {
+                        if (carouselId === 'carousel1') {
+                            dot.classList.remove('bg-gray-900');
+                            dot.classList.add('bg-gray-300');
+                        } else {
+                            dot.classList.remove('bg-white');
+                            dot.classList.add('bg-white/50');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize carousel dots
+        updateCarouselDots('carousel1');
+        updateCarouselDots('carousel2');
+
+        // Video play functionality
+        function playVideo(element) {
+            const overlay = element.querySelector('.video-play-overlay');
+            if (overlay) {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    alert('Video würde hier abspielen (Demo)');
+                    overlay.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        // Like functionality
+        function toggleLike(button, event) {
+            event.stopPropagation();
+            const icon = button.querySelector('.like-icon');
+            const currentIcon = icon.getAttribute('data-lucide');
+            
+            if (currentIcon === 'heart') {
+                icon.setAttribute('data-lucide', 'heart');
+                icon.classList.toggle('text-red-500');
+                icon.classList.toggle('text-gray-900');
+            }
+            
+            lucide.createIcons();
+        }
+
+        // Touch swipe support for carousels
+        document.querySelectorAll('.carousel-container').forEach(carousel => {
+            let startX = 0;
+            let scrollLeft = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                const x = e.touches[0].pageX;
+                const walk = (startX - x) * 2;
+                carousel.scrollLeft = scrollLeft + walk;
+            });
+        });
+</script>
+
+
+	
+	
+	
+	
+
+</body>
+</html>
