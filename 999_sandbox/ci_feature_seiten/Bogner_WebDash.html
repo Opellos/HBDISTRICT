@@ -1,0 +1,627 @@
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Dashboard</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+
+  <style>
+    :root {
+      /* CI-Basisfarben (anpassbar) */
+      --hb-bg: #020617;
+      --hb-surface: #020a1f;
+      --hb-border: #0b1b3f;
+      --hb-blue: #207cfa;   /* BRAND */
+      --hb-pink: #ff3cd0;   /* AI */
+      --hb-soft: #b5d4ff;
+
+      --radius-xl: 1.5rem;
+      --radius-m: 0.9rem;
+      --gap-m: 0.85rem;
+      --pad-tile: 0.75rem 1.1rem;
+      --shadow-soft: 0 20px 35px rgba(0,0,0,0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #2d5eff 0, transparent 45%),
+                  radial-gradient(circle at top right, #ff3cd0 0, transparent 55%),
+                  var(--hb-bg);
+      color: #e5edff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .dashboard-shell {
+      width: min(1100px, 100%);
+      background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(3, 8, 35, 0.9)
+        );
+      border-radius: 1.75rem;
+      border: 1px solid rgba(181, 212, 255, 0.16);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      padding: 1.3rem 1.5rem;
+      order: 2;
+    }
+
+    .btc-shell {
+      width: min(800px, 100%);
+      background: radial-gradient(circle at top left, rgba(32, 124, 250, 0.22), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 60, 208, 0.22), transparent 60%),
+                  rgba(3, 8, 35, 0.96);
+      border-radius: 1.3rem;
+      border: 1px solid rgba(255, 60, 208, 0.45);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(20px);
+      padding: 1.1rem 1.3rem;
+      order: 1;
+    }
+
+    .notes-shell {
+      width: min(800px, 100%);
+      background: radial-gradient(circle at top left, rgba(32, 124, 250, 0.16), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 60, 208, 0.18), transparent 60%),
+                  rgba(3, 8, 35, 0.96);
+      border-radius: 1.3rem;
+      border: 1px solid rgba(181, 212, 255, 0.32);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(18px);
+      padding: 1.1rem 1.3rem;
+      order: 3;
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .notes-title {
+      font-weight: 600;
+      color: var(--hb-soft);
+    }
+
+    .notes-meta {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    .notes-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .notes-textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      padding: 0.7rem 0.85rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(181, 212, 255, 0.4);
+      background: rgba(2, 10, 31, 0.9);
+      color: #e5edff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .notes-textarea::placeholder {
+      color: rgba(181, 212, 255, 0.55);
+    }
+
+    .notes-footer {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    #notes-length {
+      min-width: 2ch;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time-strip {
+      display: flex;
+      gap: var(--gap-m);
+      justify-content: space-between;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .time-tile {
+      flex: 1 1 150px;
+      min-width: 135px;
+      padding: var(--pad-tile);
+      border-radius: var(--radius-m);
+      border: 1px solid var(--hb-border);
+      background: radial-gradient(circle at top left, rgba(45, 94, 255, 0.16), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 60, 208, 0.14), transparent 55%),
+                  rgba(3, 9, 33, 0.92);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .time-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        rgba(32, 124, 250, 0.4),
+        rgba(255, 60, 208, 0.4)
+      );
+      mix-blend-mode: soft-light;
+      opacity: 0;
+      transition: opacity 0.18s ease-out;
+      pointer-events: none;
+    }
+
+    .time-tile:hover::before {
+      opacity: 1;
+    }
+
+    .time-tile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .badge {
+      padding: 0.16rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(181, 212, 255, 0.4);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge-dot {
+      width: 0.32rem;
+      height: 0.32rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--hb-pink) 0, #ffb7f0 50%, transparent 70%);
+      box-shadow: 0 0 10px rgba(255, 60, 208, 0.95);
+    }
+
+    .time-label {
+      font-weight: 600;
+      color: var(--hb-soft);
+    }
+
+    .time-value {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 1.35rem;
+      letter-spacing: 0.09em;
+      margin-top: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .time-subline {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 0.15rem;
+    }
+
+    .time-tile--accent-blue {
+      border-color: rgba(32, 124, 250, 0.8);
+      box-shadow: 0 0 0 1px rgba(32, 124, 250, 0.35);
+    }
+
+    .time-tile--accent-pink {
+      border-color: rgba(255, 60, 208, 0.8);
+      box-shadow: 0 0 0 1px rgba(255, 60, 208, 0.35);
+    }
+
+    .time-tile--accent-mixed {
+      border-image: linear-gradient(135deg, var(--hb-blue), var(--hb-pink)) 1;
+      border-width: 1px;
+      box-shadow: 0 0 0 1px rgba(181, 212, 255, 0.28);
+    }
+
+    @media (max-width: 720px) {
+      .dashboard-shell {
+        padding: 1.1rem;
+        border-radius: 1.4rem;
+      }
+
+      .time-tile {
+        flex: 1 1 calc(50% - var(--gap-m));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .time-strip {
+        flex-direction: column;
+      }
+
+      .time-tile {
+        flex: 1 1 auto;
+      }
+    }
+    .btc-strip {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: var(--gap-m);
+      justify-content: space-between;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .btc-tile {
+      flex: 1 1 150px;
+      min-width: 135px;
+      padding: var(--pad-tile);
+      border-radius: var(--radius-m);
+      border: 1px solid var(--hb-border);
+      background: radial-gradient(circle at top left, rgba(32, 124, 250, 0.18), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 60, 208, 0.18), transparent 55%),
+                  rgba(3, 9, 33, 0.96);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btc-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(32, 124, 250, 0.35), rgba(255, 60, 208, 0.35));
+      mix-blend-mode: soft-light;
+      opacity: 0;
+      transition: opacity 0.18s ease-out;
+      pointer-events: none;
+    }
+
+    .btc-tile:hover::before {
+      opacity: 1;
+    }
+
+    .btc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .btc-label {
+      font-weight: 600;
+      color: var(--hb-soft);
+    }
+
+    .btc-pair-badge {
+      padding: 0.16rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(181, 212, 255, 0.5);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .btc-price {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      margin-top: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .btc-meta {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 0.15rem;
+    }
+
+    .btc-error {
+      color: #f97373;
+    }
+
+    @media (max-width: 720px) {
+      .btc-strip {
+        margin-top: 1rem;
+      }
+
+      .btc-tile {
+        flex: 1 1 calc(50% - var(--gap-m));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .btc-strip {
+        flex-direction: column;
+      }
+
+      .btc-tile {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div class="time-strip">
+      <!-- USA Westküste -->
+      <div class="time-tile time-tile--accent-blue">
+        <div class="time-tile-header">
+          <span class="time-label">USA · West</span>
+          <span class="badge">
+            <span class="badge-dot"></span>
+            PST/PDT
+          </span>
+        </div>
+        <div id="us-west-time" class="time-value">--:--:--</div>
+        <div class="time-subline">Los Angeles / San Francisco</div>
+      </div>
+
+      <!-- USA Ostküste -->
+      <div class="time-tile time-tile--accent-blue">
+        <div class="time-tile-header">
+          <span class="time-label">USA · East</span>
+          <span class="badge">
+            <span class="badge-dot"></span>
+            EST/EDT
+          </span>
+        </div>
+        <div id="us-east-time" class="time-value">--:--:--</div>
+        <div class="time-subline">New York / Miami</div>
+      </div>
+
+      <!-- Europa / Zentraleuropäisch -->
+      <div class="time-tile time-tile--accent-mixed">
+        <div class="time-tile-header">
+          <span class="time-label">Europa</span>
+          <span class="badge">
+            <span class="badge-dot"></span>
+            CET/CEST
+          </span>
+        </div>
+        <div id="eu-time" class="time-value">--:--:--</div>
+        <div class="time-subline">Berlin / Paris / Amsterdam</div>
+      </div>
+
+      <!-- Datum (Europa) -->
+      <div class="time-tile time-tile--accent-pink">
+        <div class="time-tile-header">
+          <span class="time-label">Datum</span>
+          <span class="badge">
+            <span class="badge-dot"></span>
+            DE
+          </span>
+        </div>
+        <div id="date-display" class="time-value">--.--.----</div>
+        <div class="time-subline">Format: TT.MM.JJJJ (Europa/Berlin)</div>
+      </div>
+
+      <!-- Wochentag (Europa) -->
+      <div class="time-tile time-tile--accent-pink">
+        <div class="time-tile-header">
+          <span class="time-label">Wochentag</span>
+          <span class="badge">
+            <span class="badge-dot"></span>
+            LOCAL
+          </span>
+        </div>
+        <div id="weekday-display" class="time-value">------</div>
+        <div class="time-subline">Sprache: Deutsch (Europa/Berlin)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btc-shell">
+    <div class="btc-strip">
+      <div class="btc-tile">
+        <div class="btc-header">
+          <span class="btc-label">Bitcoin · EUR</span>
+          <span class="btc-pair-badge">BTCEUR</span>
+        </div>
+        <div id="btc-eur" class="btc-price">Lade...</div>
+        <div class="btc-meta">Quelle: Binance · Aktualisiert alle 5s</div>
+      </div>
+
+      <div class="btc-tile">
+        <div class="btc-header">
+          <span class="btc-label">Bitcoin · USD</span>
+          <span class="btc-pair-badge">BTCUSDC</span>
+        </div>
+        <div id="btc-usd" class="btc-price">Lade...</div>
+        <div class="btc-meta">Quelle: Binance · Aktualisiert alle 5s</div>
+      </div>
+
+      <div class="btc-tile">
+        <div class="btc-header">
+          <span class="btc-label">Bitcoin · USDT</span>
+          <span class="btc-pair-badge">BTCUSDT</span>
+        </div>
+        <div id="btc-usdt" class="btc-price">Lade...</div>
+        <div class="btc-meta">Alarm-tauglicher Referenzkurs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes-shell">
+    <div class="notes-header">
+      <span class="notes-title">Notizen</span>
+      <span class="notes-meta">Speichert lokal im Browser (nur auf diesem Gerät)</span>
+    </div>
+    <div class="notes-body">
+      <textarea id="notes-area" class="notes-textarea" placeholder="Notizen, Ideen, To-dos…"></textarea>
+      <div class="notes-footer">
+        <span id="notes-length">0</span>&nbsp;Zeichen
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const timeZones = {
+      "us-west-time": "America/Los_Angeles",
+      "us-east-time": "America/New_York",
+      "eu-time": "Europe/Berlin"
+    };
+
+    function updateDashboard() {
+      const now = new Date();
+
+      // Uhren
+      Object.entries(timeZones).forEach(([id, tz]) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const time = new Intl.DateTimeFormat("de-DE", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+          timeZone: tz
+        }).format(now);
+
+        el.textContent = time;
+      });
+
+      // Datum (Europa/Berlin)
+      const dateEl = document.getElementById("date-display");
+      if (dateEl) {
+        const dateString = new Intl.DateTimeFormat("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          timeZone: "Europe/Berlin"
+        }).format(now);
+
+        dateEl.textContent = dateString;
+      }
+
+      // Wochentag (Europa/Berlin, Deutsch)
+      const weekdayEl = document.getElementById("weekday-display");
+      if (weekdayEl) {
+        const weekdayString = new Intl.DateTimeFormat("de-DE", {
+          weekday: "long",
+          timeZone: "Europe/Berlin"
+        }).format(now);
+
+        const normalized =
+          weekdayString.charAt(0).toUpperCase() + weekdayString.slice(1);
+
+        weekdayEl.textContent = normalized;
+      }
+    }
+
+    updateDashboard();
+    setInterval(updateDashboard, 1000);
+
+    // Bitcoin-Preise (Binance)
+    function fetchBinancePrice(symbol, elementId, suffix, locale = "en-US") {
+      fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`)
+        .then((response) => response.json())
+        .then((data) => {
+          const price = parseFloat(data.price) || 0;
+          const formatted = price.toLocaleString(locale, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+          const el = document.getElementById(elementId);
+          if (!el) return;
+          el.textContent = `${formatted} ${suffix}`;
+          el.classList.remove("btc-error");
+        })
+        .catch(() => {
+          const el = document.getElementById(elementId);
+          if (!el) return;
+          el.textContent = "Fehler";
+          el.classList.add("btc-error");
+        });
+    }
+
+    function updateBtcPrices() {
+      fetchBinancePrice("BTCEUR", "btc-eur", "€", "de-DE");
+      fetchBinancePrice("BTCUSDC", "btc-usd", "$");
+      fetchBinancePrice("BTCUSDT", "btc-usdt", "USDT");
+    }
+
+    updateBtcPrices();
+    setInterval(updateBtcPrices, 5000);
+
+    const NOTES_STORAGE_KEY = "hb_dashboard_notes_v1";
+
+    function initNotes() {
+      const area = document.getElementById("notes-area");
+      if (!area) return;
+
+      try {
+        const stored = localStorage.getItem(NOTES_STORAGE_KEY);
+        if (stored !== null) {
+          area.value = stored;
+        }
+      } catch (e) {
+        // ignore storage errors
+      }
+
+      const lenEl = document.getElementById("notes-length");
+      if (lenEl) {
+        lenEl.textContent = String(area.value.length);
+      }
+
+      area.addEventListener("input", () => {
+        if (lenEl) {
+          lenEl.textContent = String(area.value.length);
+        }
+        try {
+          localStorage.setItem(NOTES_STORAGE_KEY, area.value);
+        } catch (e) {
+          // ignore storage errors
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", initNotes);
+  </script>
+</body>
+</html>
+

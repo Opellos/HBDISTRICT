@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt-Buttons (1:1 aus hb_brand_pd.css)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+  :root{
+    /* Tokens wie im Projekt vorhanden (nur was die Buttons brauchen) */
+    --shadow-md: 0 10px 24px rgba(0,0,0,.28);
+    --shadow-inset: 0 2px 0 rgba(255,255,255,.12) inset;
+  }
+
+  /* Bühne nur für Demo */
+  body{
+    margin:0; min-height:100dvh; display:grid; place-items:center;
+    background: radial-gradient(1200px 700px at 20% -10%, #6a7fbd 0%, #3158a4 40%, #0a2b74 100%) fixed;
+    font-family: "Hanken Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:#fff;
+  }
+  .wrap{ text-align:center }
+  .btn-group{ display:flex; gap:.6rem; align-items:center; justify-content:center; flex-wrap:wrap; }
+
+  /* ===== 1:1 aus hb_brand_pd.css (#hero-section .btn-group[aria-label="Kontaktlinks"] .social-btn ...) ===== */
+  .social-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6rem;
+    padding:.9rem 1.4rem;     /* L20-L27 */
+    min-height:3.2rem;        /* L20-L27 */
+    box-sizing:border-box; 
+    width:auto;               /* L23-L24 */
+    border-radius:14px;       /* L24-L25 */
+    font-weight:600;          /* L25 */
+    white-space:nowrap;
+    text-align:center;
+    box-shadow: var(--shadow-md), var(--shadow-inset); /* L33-L35 */
+    text-decoration:none;
+    color:#fff;
+  }
+  .social-btn i{ margin-right:.6rem } /* L40-L41 */
+
+  /* Varianten */
+  .social-btn.is-primary{
+    background: linear-gradient(90deg, #207cfa, #ff3cd0); /* L29-L33 */
+    border:0;
+  }
+  .social-btn.is-outline{
+    background: transparent;
+    border:1px solid rgba(255,255,255,.85); /* L34-L37 */
+    box-shadow:none;                         /* L50-L52 */
+  }
+
+  /* kleines MQ wie im File: kompakteres Padding */
+  @media (max-width: 420px){
+    .social-btn{ padding:.7rem 1rem; min-height:2.8rem; } /* L53-L56 */
+	  
+	 }  
+	/* === Palette: LinkedIn-Button-Farben === */
+/* === Palette: LinkedIn-Button Nuancen (10+10) === */
+.palette {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+.palette-row {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(64px, 1fr));
+  gap: .8rem;
+}
+.palette h4 {
+  margin: 0;
+  font-size: .95rem;
+  opacity: .9;
+}
+.swatch {
+  display: grid;
+  gap: .35rem;
+  text-align: center;
+  font-size: .85rem;
+}
+.swatch-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md, 0 4px 16px rgba(0,0,0,.15));
+  background: var(--c, #000);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.swatch code { font-weight: 700; font-size: .85rem; letter-spacing: .2px; }
+.swatch small { opacity: .85; font-size: .78rem; }
+@media (max-width: 900px) {
+  .palette-row { grid-template-columns: repeat(5, minmax(64px, 1fr)); }
+}
+@media (max-width: 560px) {
+  .palette-row { grid-template-columns: repeat(4, minmax(56px, 1fr)); }
+}
+
+</style>
+	
+	<style>
+    .perfectgrad-hb {
+        background: radial-gradient(
+            circle at 35% 65%,
+            #207cfa 0%,
+            #7ac8ff 32%,
+            #ff3cd0 72%,
+            #3D4654 100%
+        );
+    }
+</style>
+	
+	
+	
+	
+	  <script src="https://cdn.tailwindcss.com"></script>
+	  
+</head>
+<body>
+	
+	
+  <main class="wrap">
+    <div class="btn-group" role="group" aria-label="Kontaktlinks">
+      <a class="social-btn is-primary" href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span>
+      </a>
+      <a class="social-btn is-outline" href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener">
+        <i class="fab fa-youtube" aria-hidden="true"></i><span>YouTube</span>
+      </a>
+    </div>
+	  
+
+	  
+	  
+		
+	<!-- PerfectGrad – HB (Library Asset) -->
+<div class="perfectgrad-hb w-full h-full rounded-2xl"></div>  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+<!-- Palette: LinkedIn-Button – #207cfa (Blue) -->
+<div class="palette" aria-label="LinkedIn-Button Farbpaletten">
+  <h4>#207cfa – 10 Nuancen</h4>
+  <div class="palette-row">
+    <!-- Tints (hell → dunkel Richtung Basis) -->
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#d2e5fe"></div>
+      <div><code>#d2e5fe</code><br><small>rgb(210,229,254)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#b1d1fd"></div>
+      <div><code>#b1d1fd</code><br><small>rgb(177,209,253)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#90befc"></div>
+      <div><code>#90befc</code><br><small>rgb(144,190,252)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#6eaafc"></div>
+      <div><code>#6eaafc</code><br><small>rgb(110,170,252)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#4d96fb"></div>
+      <div><code>#4d96fb</code><br><small>rgb(77,150,251)</small></div>
+    </div>
+    <!-- Shades (dunkler als Basis) -->
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#1a63c8"></div>
+      <div><code>#1a63c8</code><br><small>rgb(26,99,200)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#1551a2"></div>
+      <div><code>#1551a2</code><br><small>rgb(21,81,162)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#103e7d"></div>
+      <div><code>#103e7d</code><br><small>rgb(16,62,125)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#0b2b58"></div>
+      <div><code>#0b2b58</code><br><small>rgb(11,43,88)</small></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="--c:#061932"></div>
+      <div><code>#061932</code><br><small>rgb(6,25,50)</small></div>
+    </div>
+  </div>
+
+  <!-- Palette: LinkedIn-Button – #ff3cd0 (Pink) -->
+  <h4>#ff3cd0 – 10 Nuancen</h4>
+  <div class="palette-row">
+  <!-- Tints -->
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ffd8f6"></div>
+    <div><code>#ffd8f6</code><br><small>rgb(255,216,246)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ffbbef"></div>
+    <div><code>#ffbbef</code><br><small>rgb(255,187,239)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ff9ee8"></div>
+    <div><code>#ff9ee8</code><br><small>rgb(255,158,232)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ff81e1"></div>
+    <div><code>#ff81e1</code><br><small>rgb(255,129,225)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ff64da"></div>
+    <div><code>#ff64da</code><br><small>rgb(255,100,218)</small></div>
+  </div>
+  <!-- Shades (raspberry instead of bordeaux) -->
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#e01171"></div>
+    <div><code>#e01171</code><br><small>rgb(224,17,113)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#c2185b"></div>
+    <div><code>#c2185b</code><br><small>rgb(194,24,91)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#ad1457"></div>
+    <div><code>#ad1457</code><br><small>rgb(173,20,87)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#880e4f"></div>
+    <div><code>#880e4f</code><br><small>rgb(136,14,79)</small></div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="--c:#560022"></div>
+    <div><code>#560022</code><br><small>rgb(86,0,34)</small></div>
+  </div>
+</div>
+	  
+	
+
+
+
+	
+	
+	
+	
+	
+	<!-- Gradient-Palette (10 lineare Verläufe, kein eigener Hintergrund) -->
+<section class="w-full py-50">
+  <div class="max-w-2xl mx-auto px-1">
+    <h3 class="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2 text-center">
+      Gradient-Palette
+    </h3>
+    <p class="text-sm text-gray-600 mb-8 max-w-2xl mx-auto text-center">
+      Lineare Verläufe auf Basis von #ff3cd0, #207cfa und Violetttönen.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- 1: Master Linear -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Master Linear</strong><br>
+          bg-[linear-gradient(135deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 2: Pink → Blue -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#ff3cd0_0%,_#ff64da_30%,_#b5d4ff_65%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Pink &gt; Blue</strong><br>
+          bg-[linear-gradient(90deg,_#ff3cd0_0%,
+			_#ff64da_30%,_#b5d4ff_65%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 3: Blue → Pink -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#207cfa_0%,_#b5d4ff_35%,_#ff64da_70%,_#ff3cd0_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Blue &gt; Pink</strong><br>
+          bg-[linear-gradient(90deg,_#207cfa_0%,_#b5d4ff_35%,_#ff64da_70%,_#ff3cd0_100%)]
+        </div>
+      </div>
+
+
+
+      <!-- 5: Pink Center -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(90deg,_#207cfa_0%,_#ff3cd0_45%,_#ff3cd0_55%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Pink Center</strong><br>
+          bg-[linear-gradient(90deg,_#207cfa_0%,_#ff3cd0_45%,_#ff3cd0_55%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 6: Soft Pastel -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(135deg,_#ffd8f6_0%,_#ffbbef_30%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Soft Pastel</strong><br>
+          bg-[linear-gradient(135deg,_#ffd8f6_0%,_#ffbbef_30%,_#b5d4ff_70%,_#207cfa_100%)]
+        </div>
+      </div>
+
+
+
+
+      <!-- 9: Pink Horizon -->
+      <div class="flex flex-col gap-2">
+        <div class="aspect-square w-full rounded-2xl overflow-hidden border border-[#e6ecff]">
+          <div class="w-full h-full bg-[linear-gradient(180deg,_#ff3cd0_0%,_#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]"></div>
+        </div>
+        <div class="text-xs text-gray-500 leading-snug">
+          <strong>Pink Horizon</strong><br>
+          bg-[linear-gradient(180deg,_#ff3cd0_0%,_
+			#ff9ee8_35%,_#b5d4ff_70%,_#207cfa_100%)]
+        </div>
+      </div>
+
+      <!-- 10: Deep Night -->
+
+    </div>
+  </div>
+</section>
+
+	
+	
+	</div>  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+		  
+  </main>
+	
+
+	
+</body>
+</html>

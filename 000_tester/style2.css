@@ -2,7 +2,7 @@
 body {
   font-family: 'Hanken Grotesk', sans-serif;
 }
-/* Keyframes for gradient animation */
+/* Keyframes for gradient animation   codex edit */
 @keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -19,6 +19,11 @@ body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scroll-behavior: smooth;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 }
 /* Hide scrollbar for Webkit browsers */
 .carousel-container::-webkit-scrollbar {
@@ -27,6 +32,33 @@ body {
 /* Carousel item snap alignment */
 .carousel-item {
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.carousel-container:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.carousel-container.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.carousel-container .carousel-item img,
+.carousel-container .carousel-item video {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#carousel1 .carousel-item {
+  overflow: hidden;
+}
+
+#carousel1 [data-parallax-media] {
+  will-change: transform;
+  transform: scale(1.08);
+  transition: transform 220ms linear;
 }
 
 :root {
@@ -684,14 +716,14 @@ footer {
 }
 
 /* Teilprojekt 3.1: Basis */
-#teilprojekt-kleidung.k3-wrap{
+.k3-wrap.k3-wrap{
   width:100%;
   max-width:1440px;
   margin:70px auto;
   padding:0 24px;
 }
 
-#teilprojekt-kleidung .k3-roof{
+.k3-wrap .k3-roof{
   display:grid;
   grid-template-columns:1fr;
   gap:22px;
@@ -700,7 +732,7 @@ footer {
 }
 
 @media (min-width:1024px){
-  #teilprojekt-kleidung .k3-roof{
+  .k3-wrap .k3-roof{
     grid-template-columns: 1.15fr 0.85fr;
     gap:56px;
     margin-bottom:26px;
@@ -708,11 +740,11 @@ footer {
 }
 
 /* 3.1 Titel: nicht abschneiden */
-#teilprojekt-kleidung .k3-title{
+.k3-wrap .k3-title{
   font-weight:900;
   letter-spacing:-0.05em;
   line-height:0.92;
-  color:#3D4654;
+  color:#26313f;
   margin:14px 0 18px;
   font-size:clamp(2.1rem,5vw,4.2rem);
   white-space:normal;
@@ -720,12 +752,12 @@ footer {
 }
 
 @media (max-width: 520px){
-  #teilprojekt-kleidung .k3-title{
+  .k3-wrap .k3-title{
     font-size:clamp(2.0rem, 9vw, 3.2rem);
   }
 }
 
-#teilprojekt-kleidung .k3-lead{
+.k3-wrap .k3-lead{
   color:rgba(61,70,84,0.78);
   font-size:clamp(1.05rem,1.25vw,1.25rem);
   line-height:1.65;
@@ -733,7 +765,7 @@ footer {
 }
 
 /* Dachbild rechts: nicht abschneiden */
-#teilprojekt-kleidung .k3-hero{
+.k3-wrap .k3-hero{
   height:min(420px,48vh);
   background:transparent;
   border:0;
@@ -745,7 +777,7 @@ footer {
   justify-content:center;
 }
 
-#teilprojekt-kleidung .k3-hero img{
+.k3-wrap .k3-hero img{
   width:100%;
   height:100%;
   display:block;
@@ -758,7 +790,7 @@ footer {
 }
 
 /* Slider Shell: Hintergrund komplett weg */
-#teilprojekt-kleidung .k3-shell{
+.k3-wrap .k3-shell{
   position:relative;
   margin-top:16px;
   padding:18px 0 26px;
@@ -766,22 +798,25 @@ footer {
   overflow:visible;
 }
 
-#teilprojekt-kleidung .k3-parallax,
-#teilprojekt-kleidung .k3-grain{
+.k3-wrap .k3-parallax,
+.k3-wrap .k3-grain{
   display:none !important;
 }
 
 /* Track: scrollt, aber ohne Scrollbar */
-#teilprojekt-kleidung .k3-track{
+.k3-wrap .k3-track{
   display:flex;
   gap:22px;
   overflow-x:auto;
-  overflow-y:visible;
+  overflow-y:hidden;
   padding:10px 0 8px;
   scroll-snap-type:x mandatory;
   scroll-padding: 12vw;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior-x:contain;
+  overscroll-behavior-y:none;
+  touch-action:pan-x;
+  cursor:grab;
 
   scrollbar-width:none;
   -ms-overflow-style:none;
@@ -789,14 +824,24 @@ footer {
   z-index:2;
 }
 
-#teilprojekt-kleidung .k3-track::-webkit-scrollbar{ display:none; }
+.k3-wrap .k3-track::-webkit-scrollbar{ display:none; }
+
+.k3-wrap .k3-track:focus-visible{
+  outline:2px solid #2563eb;
+  outline-offset:4px;
+}
+
+.k3-wrap .k3-track.is-dragging{
+  cursor:grabbing;
+  scroll-behavior:auto;
+}
 
 @media (max-width:880px){
-  #teilprojekt-kleidung .k3-track{ scroll-padding: 10vw; }
+  .k3-wrap .k3-track{ scroll-padding: 10vw; }
 }
 
 /* Slides: clean, neutral */
-#teilprojekt-kleidung .k3-slide{
+.k3-wrap .k3-slide{
   flex:0 0 auto;
   scroll-snap-align:center;
   background:transparent;
@@ -806,17 +851,29 @@ footer {
   box-shadow:none;
   transform:none;
   transition:none;
+  position:relative;
 }
 
-#teilprojekt-kleidung .k3-media{
+.k3-wrap .k3-media{
   width:100%;
+  height:100%;
+  position:relative;
   background:transparent;
   border-radius:12px;
   overflow:hidden;
   border:1px solid rgba(0,0,0,0.10);
 }
 
-#teilprojekt-kleidung .k3-media img{
+.k3-wrap .k3-media::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:45%;
+  background:linear-gradient(to top, rgba(9,13,22,0.72), rgba(9,13,22,0));
+  pointer-events:none;
+}
+
+.k3-wrap .k3-media img{
   width:100%;
   height:100%;
   display:block;
@@ -825,50 +882,65 @@ footer {
   filter:none !important;
   opacity:1 !important;
   mix-blend-mode:normal !important;
-  transform:none !important;
+  will-change:transform;
+  transition:transform 220ms ease-out;
+  user-select:none;
+  -webkit-user-drag:none;
 }
 
 /* Größen */
-#teilprojekt-kleidung .k3-w-wide{ width:min(84vw, 980px); }
-#teilprojekt-kleidung .k3-w-mid { width:min(66vw, 820px); }
-#teilprojekt-kleidung .k3-w-nar { width:min(50vw, 640px); }
+.k3-wrap .k3-w-wide{ width:min(84vw, 980px); }
+.k3-wrap .k3-w-mid { width:min(66vw, 820px); }
+.k3-wrap .k3-w-nar { width:min(50vw, 640px); }
 
-#teilprojekt-kleidung .k3-h-tall{ height:clamp(420px, 62vh, 700px); }
-#teilprojekt-kleidung .k3-h-mid { height:clamp(380px, 56vh, 640px); }
-#teilprojekt-kleidung .k3-h-low { height:clamp(340px, 50vh, 580px); }
+.k3-wrap .k3-h-tall{ height:clamp(320px, 52vh, 560px); }
+.k3-wrap .k3-h-mid { height:clamp(280px, 46vh, 500px); }
+.k3-wrap .k3-h-low { height:clamp(240px, 40vh, 440px); }
 
 @media (max-width:880px){
-  #teilprojekt-kleidung .k3-w-wide,
-  #teilprojekt-kleidung .k3-w-mid,
-  #teilprojekt-kleidung .k3-w-nar{ width:88vw; }
+  .k3-wrap .k3-w-wide,
+  .k3-wrap .k3-w-mid,
+  .k3-wrap .k3-w-nar{ width:88vw; }
 }
 
 /* Caption clean */
-#teilprojekt-kleidung .k3-caption{
-  padding:14px 0 0;
+.k3-wrap .k3-caption{
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:14px;
+  z-index:3;
+  padding:0;
   background:transparent;
   border:0;
+  pointer-events:none;
 }
 
-#teilprojekt-kleidung .k3-caption-inner{
-  transform:none !important;
-  display:flex;
+.k3-wrap .k3-caption-inner{
+  display:inline-flex;
   gap:12px;
   align-items:baseline;
+  max-width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.86);
+  backdrop-filter:blur(7px);
+  will-change:transform;
+  transition:transform 320ms cubic-bezier(.22,.75,.2,1.02);
 }
 
-#teilprojekt-kleidung .k3-cap-title{
+.k3-wrap .k3-cap-title{
   font-weight:900;
   letter-spacing:-0.03em;
-  color:#3D4654;
+  color:#26313f;
   font-size: clamp(1.15rem, 2.0vw, 1.75rem);
   line-height:1.05;
   margin:0;
   white-space:nowrap;
 }
 
-#teilprojekt-kleidung .k3-cap-sub{
-  color: rgba(61,70,84,0.70);
+.k3-wrap .k3-cap-sub{
+  color: rgba(38,49,63,0.72);
   font-weight:650;
   font-size: 12px;
   letter-spacing:0.14em;
@@ -877,37 +949,11 @@ footer {
   white-space:nowrap;
 }
 
-/* Dots */
-#teilprojekt-kleidung .k3-dots{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:flex-start;
-  padding-top:10px;
-}
-
-#teilprojekt-kleidung .k3-dot{
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,0.25);
-  background:transparent;
-  opacity:0.55;
-  transition:transform 220ms ease, opacity 220ms ease, background 220ms ease;
-  cursor:pointer;
-}
-
-#teilprojekt-kleidung .k3-dot.is-active{
-  opacity:1;
-  transform:scale(1.35);
-  background: rgba(0,0,0,0.55);
-}
-
 
 
 
 /* IN style2.css GANZ UNTEN EINFÜGEN */
-#teilprojekt-kleidung .k3-hero{
+.k3-wrap .k3-hero{
   height:auto !important;
   max-height:none !important;
   overflow:visible !important;
@@ -919,7 +965,7 @@ footer {
   justify-content:center !important;
 }
 
-#teilprojekt-kleidung .k3-hero img{
+.k3-wrap .k3-hero img{
   width:100% !important;
   height:auto !important;
   max-height:420px !important;
@@ -931,8 +977,550 @@ footer {
   mix-blend-mode:normal !important;
 }
 
-#teilprojekt-kleidung .k3-roof,
-#teilprojekt-kleidung .k3-roof > div{
+.k3-wrap .k3-roof,
+.k3-wrap .k3-roof > div{
   overflow:visible !important;
 }
 
+
+.k3-wrap .k3-drag-hint{
+  position:absolute;
+  top:12px;
+  right:14px;
+  z-index:5;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#ffffff;
+  background:rgba(20,30,48,0.42);
+  backdrop-filter:blur(6px);
+  animation:k3HintFloat 2.3s ease-in-out infinite;
+}
+
+.k3-wrap .k3-drag-hint i{
+  width:18px;
+  height:2px;
+  border-radius:99px;
+  background:currentColor;
+  position:relative;
+}
+
+.k3-wrap .k3-drag-hint i::before,
+.k3-wrap .k3-drag-hint i::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:6px;
+  height:2px;
+  background:currentColor;
+}
+
+.k3-wrap .k3-drag-hint i::before{ left:-2px; transform:translateY(-50%) rotate(35deg); }
+.k3-wrap .k3-drag-hint i::after{ right:-2px; transform:translateY(-50%) rotate(-35deg); }
+
+@keyframes k3HintFloat{
+  0%,100%{ transform:translate3d(0,0,0); opacity:.72; }
+  50%{ transform:translate3d(-6px,0,0); opacity:1; }
+}
+
+.case-section.k3-section-head .case-section-header .case-number-wrapper{
+  background-color:#207cfa;
+  color:#fff;
+  box-shadow:none;
+}
+
+.case-section.k3-section-head .case-section-title{
+  font-size:clamp(2rem,3.4vw,3.15rem);
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  color:#3D4654;
+}
+
+.case-section.k3-section-head .case-section-text{
+  font-size:1.03rem;
+  line-height:1.68;
+  color:#334155;
+}
+
+/* === Refinement pass: freieres Layout + Header unter Nummer === */
+.case-gradient-wrapper{
+  position:relative;
+  isolation:isolate;
+}
+
+.case-gradient-wrapper::before{
+  content:"";
+  position:absolute;
+  inset:-30px 0 0;
+  z-index:-1;
+  background:
+    radial-gradient(120% 90% at 80% 0%, rgba(226,0,116,0.20), rgba(226,0,116,0) 62%),
+    radial-gradient(110% 80% at 10% 10%, rgba(32,124,250,0.22), rgba(32,124,250,0) 68%),
+    linear-gradient(180deg, rgba(234,241,255,0.95) 0%, rgba(247,250,255,0.6) 35%, rgba(255,255,255,0) 100%);
+  pointer-events:none;
+}
+
+.case-section{
+  padding: 16px 0;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.case-section-header{
+  display:block !important;
+  margin-bottom:16px;
+}
+
+.case-section-title{
+  display:block;
+  padding-bottom:0;
+  margin:0;
+}
+
+.case-section-title::after{
+  display:none;
+}
+
+.case-section-image-main,
+.case-section-image-tile,
+.quote-side-image,
+.quote-wide-image,
+.bridge-image,
+.case-section-image-caption{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* Anspruchsgruppen: mehr Luft und hochformatiges Bild kleiner */
+#anspruchsgruppen .case-section-image-dual{
+  display:grid;
+  gap:20px;
+}
+
+#anspruchsgruppen .case-section-image-tile:first-child{
+  max-width:min(78%, 360px);
+}
+
+#anspruchsgruppen .case-section-image-tile:first-child .aspect-\[3\/4\]{
+  aspect-ratio: 4 / 5;
+}
+
+/* Slider-Text: frei schwebend ohne Box */
+.k3-wrap .k3-caption{
+  left:20px;
+  right:auto;
+  bottom:20px;
+}
+
+.k3-wrap .k3-caption-inner{
+  padding:0;
+  border-radius:0;
+  background:transparent !important;
+  backdrop-filter:none;
+  box-shadow:none;
+  gap:10px;
+  transition:transform 560ms cubic-bezier(.2,.82,.16,1.02);
+}
+
+.k3-wrap .k3-cap-title{
+  font-size: clamp(1.45rem, 2.9vw, 2.7rem);
+  font-weight: 900;
+  color:#f4f7ff;
+  text-shadow:0 8px 26px rgba(0,0,0,0.55);
+}
+
+.k3-wrap .k3-cap-sub{
+  font-size: clamp(0.85rem, 1.35vw, 1.15rem);
+  font-weight: 800;
+  color:#c8dbff;
+  letter-spacing:0.22em;
+  text-shadow:0 6px 20px rgba(0,0,0,0.45);
+}
+
+.k3-wrap .k3-slide:nth-child(odd) .k3-caption{ left:14px; bottom:18px; }
+.k3-wrap .k3-slide:nth-child(even) .k3-caption{ left:28px; bottom:30px; }
+.k3-wrap .k3-slide:nth-child(3n) .k3-caption{ left:auto; right:18px; bottom:24px; }
+
+/* Slider-Bildflächen ohne Kacheln */
+.k3-wrap .k3-media{
+  border:0;
+  border-radius:0;
+  background:transparent;
+  overflow:visible;
+}
+
+.k3-wrap .k3-media::after{
+  display:none;
+}
+
+.k3-wrap .k3-media img{
+  filter:drop-shadow(0 16px 44px rgba(24,42,78,0.22));
+}
+
+/* === Final pass: global background switch + typographic reset === */
+.case-gradient-wrapper::before{
+  display:none !important;
+}
+
+body{
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 520ms ease;
+  background:
+    radial-gradient(120% 95% at 12% 12%, rgba(32,124,250,0.38), rgba(32,124,250,0) 58%),
+    radial-gradient(110% 90% at 84% 16%, rgba(226,0,116,0.34), rgba(226,0,116,0) 62%),
+    linear-gradient(180deg, rgba(228,237,255,0.96) 0%, rgba(238,240,255,0.78) 34%, rgba(246,248,255,0.45) 58%, rgba(255,255,255,0.05) 86%, rgba(255,255,255,0) 100%);
+}
+
+body.roadmap-theme-active::before{
+  opacity:1;
+}
+
+/* Slider typo back to dark, no shadow */
+.k3-wrap .k3-caption{
+  bottom:34px;
+}
+
+.k3-wrap .k3-cap-title{
+  color:#1f2937;
+  text-shadow:none;
+  font-size: clamp(1.52rem, 3.05vw, 2.82rem);
+}
+
+.k3-wrap .k3-cap-sub{
+  color:#334155;
+  text-shadow:none;
+  font-size: clamp(0.88rem, 1.4vw, 1.18rem);
+}
+
+.k3-wrap .k3-slide:nth-child(odd) .k3-caption{ left:16px; bottom:34px; }
+.k3-wrap .k3-slide:nth-child(even) .k3-caption{ left:30px; bottom:44px; }
+.k3-wrap .k3-slide:nth-child(3n) .k3-caption{ left:auto; right:20px; bottom:40px; }
+
+/* non-main sliders: assets bewusst kleiner */
+#k3Track32 .k3-media img,
+#k3Track33 .k3-media img{
+  transform-origin:center center;
+}
+
+/* Scroll reveal / scrollytelling */
+.reveal-on-scroll{
+  opacity:0;
+  transform:translate3d(0,26px,0);
+  transition:opacity .65s ease, transform .7s cubic-bezier(.2,.65,.2,1);
+  transition-delay:var(--reveal-delay,0ms);
+  will-change:opacity, transform;
+}
+
+.reveal-on-scroll.reveal-left{ transform:translate3d(-22px,22px,0); }
+.reveal-on-scroll.reveal-right{ transform:translate3d(22px,22px,0); }
+
+.reveal-on-scroll.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal-on-scroll,
+  .reveal-on-scroll.reveal-left,
+  .reveal-on-scroll.reveal-right{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* === Feedback pass: captions, compactness, CTA, dataflow === */
+.hero-text{
+  background: linear-gradient(145deg, rgba(79,70,229,0.84), rgba(236,72,153,0.74));
+}
+
+/* Bildsättigung global im Case-Bereich reduzieren */
+.case-grid img,
+.case-grid video,
+.k3-wrap img,
+.k3-wrap video,
+.quote-section img,
+header.case-hero img{
+  filter: saturate(0.78);
+}
+
+/* kleinere Rundungen */
+.case-section-image-main,
+.case-section-image-tile,
+.hero-image,
+.k3-wrap .k3-media,
+.quote-wide-image,
+.k3-wrap .k3-hero,
+.cta-section,
+.quote-card{
+  border-radius: 10px !important;
+}
+
+/* Caption-Streifen statt Button-Look */
+.hero-image-overlay-label{
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border-radius: 0 !important;
+  padding: clamp(10px, 1.2vw, 14px) clamp(14px, 2vw, 22px) !important;
+  background: rgba(14,23,37,0.68) !important;
+  border: 0 !important;
+  color: rgba(241,245,249,0.96) !important;
+  backdrop-filter: blur(0) !important;
+  font-size: clamp(0.84rem, 1.05vw, 1.08rem) !important;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.case-section-image-caption{
+  align-self: stretch;
+  margin-top: 0;
+  border-radius: 0;
+  background: rgba(14,23,37,0.7) !important;
+  border: 0 !important;
+  color: rgba(241,245,249,0.95) !important;
+  padding: clamp(10px, 1.25vw, 16px) clamp(14px, 1.8vw, 22px) !important;
+  font-size: clamp(0.88rem, 1.02vw, 1.1rem) !important;
+  line-height: 1.4;
+}
+
+/* KI-gestütztes Brand System: mehr Abstand zwischen Bildern */
+#brand-system .case-section-image-dual.case-section-image-dual--stack{
+  gap: 18px;
+}
+
+/* Launch & Rollout kompakter */
+#k3Track33{
+  gap: 12px !important;
+  scroll-padding: 8vw;
+}
+#k3Track33 .k3-w-wide{ width:min(70vw, 760px); }
+#k3Track33 .k3-w-mid{ width:min(56vw, 620px); }
+#k3Track33 .k3-w-nar{ width:min(44vw, 500px); }
+#k3Track33 .k3-h-tall{ height:clamp(220px,38vh,380px); }
+#k3Track33 .k3-h-mid{ height:clamp(200px,34vh,340px); }
+#k3Track33 .k3-h-low{ height:clamp(180px,30vh,300px); }
+
+/* CTA an Markentechnik-Anmutung angleichen */
+.cta-section{
+  background:
+    radial-gradient(115% 80% at 74% 108%, rgba(255,60,208,0.7) 0%, rgba(255,60,208,0.24) 28%, rgba(32,124,250,0.34) 58%, rgba(123,92,255,0.2) 78%, rgba(255,255,255,0) 100%),
+    linear-gradient(160deg, #f7fbff 0%, #e9f3ff 45%, #f5efff 100%) !important;
+  overflow: visible !important;
+}
+
+.cta-title{ color:#1e293b !important; }
+.cta-body{ color:rgba(30,41,59,.84) !important; }
+
+.cta-button{
+  background: linear-gradient(140deg, #ff3cd0 0%, #207cfa 64%, #7b5cff 100%) !important;
+  color:#fff !important;
+  padding: 12px 26px !important;
+  border-radius: 14px !important;
+}
+
+.cta-figure{
+  overflow: visible;
+  align-items: flex-start;
+}
+
+.cta-figure-img{
+  bottom: -10px !important;
+  top: -58px;
+  right: -16px;
+  width: min(340px, 42vw);
+}
+
+/* quote-section als Hero nahezu full width */
+#dynamic-brand-work{
+  width: min(96vw, 1680px);
+  max-width: none;
+  margin-left: calc(50% - min(48vw, 840px));
+  margin-right: calc(50% - min(48vw, 840px));
+}
+
+#dynamic-brand-work .quote-card{
+  padding: 18px clamp(18px, 2.2vw, 34px) 24px;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.panel-cta-button{
+  padding: 14px 30px !important;
+}
+
+/* Swipe indicator deutlicher */
+.k3-wrap .k3-drag-hint{
+  top: 10px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  background: rgba(15,23,42,0.62);
+  color: #dbeafe;
+}
+
+.k3-wrap .k3-drag-hint span::after{
+  content: '  ↔';
+  letter-spacing: .08em;
+}
+
+/* Datenfluss-Loop */
+.bridge-symbol.dataflow-loop{
+  min-width: 132px;
+  min-height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(125,125,255,.3);
+  background: linear-gradient(90deg, rgba(32,124,250,.22), rgba(226,0,116,.22));
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.bridge-symbol.dataflow-loop::before,
+.bridge-symbol.dataflow-loop::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  width:42%;
+  height:2px;
+  transform:translateY(-50%);
+  background: linear-gradient(90deg, rgba(32,124,250,.9), rgba(226,0,116,.95));
+  filter: drop-shadow(0 0 8px rgba(226,0,116,.55));
+  animation:dataFlow 1.8s linear infinite;
+}
+
+.bridge-symbol.dataflow-loop::after{
+  width:16px;
+  height:16px;
+  border-radius:999px;
+  background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(226,0,116,.9) 38%, rgba(32,124,250,.88) 100%);
+  animation:dataParticle 1.8s linear infinite;
+}
+
+@keyframes dataFlow{
+  from{ left:-35%; opacity:.1; }
+  to{ left:100%; opacity:.85; }
+}
+@keyframes dataParticle{
+  from{ left:-12%; opacity:.4; }
+  35%{ opacity:1; }
+  to{ left:100%; opacity:.25; }
+}
+
+/* === Targeted correction pass === */
+/* 1) Status-quo Bildblock tiefer setzen */
+#status-quo .case-section-image{
+  margin-top: 34px;
+}
+
+/* 2) Status-quo Label kleiner, helle Bauchbinde */
+#status-quo .hero-image-overlay-label{
+  left: 10px !important;
+  right: 10px !important;
+  bottom: 10px !important;
+  border-radius: 8px !important;
+  background: rgba(255,255,255,0.72) !important;
+  color: #1f2937 !important;
+  font-size: clamp(0.72rem, .84vw, .88rem) !important;
+  padding: 7px 10px !important;
+  font-weight: 400 !important;
+}
+
+/* 3) Ausgangspunkt-Bild vollständig sichtbar */
+#ausgangspunkt-visual img,
+section.mb-10 .group img{
+  object-fit: contain !important;
+  background: #eef2ff;
+}
+
+/* 4) & 5) Bridge + Section03 engerer Flow */
+#brand-system-bridge{
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+}
+
+#brand-system{
+  margin-top: 0;
+}
+
+/* 6) Brand Panel als Hero-Typo */
+#dynamic-brand-work .quote-label{
+  font-size: clamp(2rem, 4.1vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: #1f2937;
+  margin: 0 0 12px;
+  text-transform: none;
+}
+
+#dynamic-brand-work .quote-em{
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+#dynamic-brand-work .quote-text{
+  font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+  line-height: 1.72;
+}
+
+.panel-cta-button{
+  padding: 16px 38px !important;
+  min-height: 56px;
+  font-size: 14px !important;
+  background: linear-gradient(160deg, #ffffff, #f0f8ff) !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(37,99,235,0.24) !important;
+  box-shadow: 0 18px 40px rgba(59,130,246,0.2) !important;
+}
+
+/* 8) CTA-Person größer und an Unterkante angedockt */
+.cta-figure-img{
+  bottom: 0 !important;
+  top: auto !important;
+  right: -14px !important;
+  width: min(430px, 48vw) !important;
+}
+
+/* 9) Mehr vertikale Abstände zwischen Sections */
+.case-grid{
+  gap: 56px !important;
+}
+
+.k3-wrap{
+  margin: 90px auto !important;
+}
+
+.cta-section{
+  margin-top: 84px !important;
+}
+
+/* 10) Scrollytelling visuell komplett deaktivieren */
+.reveal-on-scroll,
+.reveal-on-scroll.reveal-left,
+.reveal-on-scroll.reveal-right,
+.reveal-on-scroll.is-visible{
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+#brand-system .case-section-image-dual.case-section-image-dual--stack{
+  gap: 28px !important;
+}

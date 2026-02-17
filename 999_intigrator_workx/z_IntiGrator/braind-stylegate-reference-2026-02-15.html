@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAiND STYLEGATE // MASTER REFERENCE</title>
+    
+    <!-- STYLES -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;700;900&display=swap');
+        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #0f1216; color: white; margin: 0; overflow-x: hidden; }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0f1216; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #207cfa; border-radius: 4px; }
+        
+        #loading-overlay { position: fixed; inset: 0; background: #0f1216; display: flex; flex-col: column; align-items: center; justify-content: center; z-index: 50; }
+        #error-overlay { display: none; position: fixed; inset: 0; background: #2a0a0a; z-index: 100; padding: 40px; color: #ff5555; font-family: monospace; overflow: auto; }
+    </style>
+
+    <!-- LIBS: Using cdnjs and jsdelivr for better uptime/speed -->
+    <!-- React -->
+    <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel -->
+    <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    
+    <!-- Lucide React (UMD) -->
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/lucide-react@0.469.0/dist/umd/lucide-react.min.js"></script>
+</head>
+
+<body>
+    <div id="loading-overlay">
+        <div style="text-align:center">
+            <div style="font-weight:900; font-size: 24px; letter-spacing: 0.1em; color: white; margin-bottom: 8px;">BRA<span style="color:#ff3cd0">i</span>ND</div>
+            <div style="font-size: 10px; font-family: monospace; color: #ff3cd0;">INITIALIZING STYLEGATE...</div>
+        </div>
+    </div>
+    <div id="error-overlay"></div>
+    <div id="root"></div>
+    
+    <script>
+        window.onerror = function(msg, url, line, col, error) {
+            document.getElementById('loading-overlay').style.display = 'none';
+            const overlay = document.getElementById('error-overlay');
+            overlay.style.display = 'block';
+            overlay.innerHTML = '<h1>CRITICAL ERROR</h1><h2>' + msg + '</h2><p>Line: ' + line + '</p><pre>' + (error ? error.stack : '') + '</pre>';
+        };
+    </script>
+
+    <script type="text/babel">
+        try {
+            // DEPENDENCY CHECK
+            const missing = [];
+            if (!window.React) missing.push("React");
+            if (!window.ReactDOM) missing.push("ReactDOM");
+            if (!window.lucideReact && !window.lucide) missing.push("Lucide");
+            
+            if (missing.length > 0) {
+                 throw new Error("Failed to load: " + missing.join(", "));
+            }
+
+            // --- GLOBAL SETUP ---
+            window.lucide = window.lucideReact || window.lucide;
+            // DEFINE L ONCE GLOBALLY
+            const L = window.lucide || {};
+
+            const { useState, useEffect, useRef } = React;
+            
+            // Component Code
+            
+    // Lucide Icons Safe Retrieval
+    // L is globally defined in the script header
+
+    const IconRenderer = ({ type, className, style, size }) => {
+      const props = { className, style, size };
+      
+      // Helper: If icon is missing in this version, fallback to 'Search'
+      const I = (name) => {
+         const Comp = L[name];
+         if (!Comp) return <L.Search {...props} />;
+         return <Comp {...props} />;
+      };
+
+      switch (type) {
+        case 'alert': return I('AlertTriangle');
+        case 'search': return I('Search');
+        case 'book': return I('BookOpen');
+        case 'users': return I('Users');
+        case 'smartphone': return I('Smartphone');
+        case 'tablet': return I('Tablet');
+        case 'shirt': return I('Shirt');
+        case 'badge': return I('ShieldCheck');
+        case 'package': return I('Package');
+        case 'recycle': return I('Recycle');
+        case 'flag': return I('Flag');
+        case 'zap': return I('Zap');
+        case 'globe': return I('Globe');
+        case 'settings': return I('Settings');
+        case 'image': return I('Image');
+        case 'map-pin': return I('MapPin');
+        case 'graduation-cap': return I('GraduationCap');
+        case 'file-signature': return I('FileSignature');
+        case 'layout-dashboard': return I('LayoutDashboard');
+        case 'laptop': return I('Laptop');
+        default: return I('Search');
+      }
+    };
+  
+            
+    // Safe Retrieval of specific icons from global L
+    var GitMerge = L.GitMerge || L.Search;
+    var ImageIconStep = L.Image || L.Search;
+
+    const RoadmapCard = ({ step, onClick, onDragMouseDown }) => {
+      const getStrictCIColor = () => {
+        switch (step.color) {
+          case 'pink': case 'orange': return '#ff3cd0';
+          default: return '#207cfa';
+        }
+      };
+      const getSegmentStyle = (segment) => {
+          let classes = "mr-2 last:mr-0 inline-block ";
+          if (segment.isUppercase) classes += "uppercase ";
+          if (segment.fontWeight === 'light') classes += "font-light ";
+          else classes += "font-black ";
+          switch (segment.color) {
+              case 'white': classes += "text-white "; break;
+              case 'gray': classes += "text-gray-400 "; break;
+              case 'pink': classes += "text-[#ff3cd0] "; break;
+              case 'blue': classes += "text-[#207cfa] "; break;
+              case 'gradient': classes += "bg-gradient-to-r from-[#207cfa] to-[#ff3cd0] text-transparent bg-clip-text "; break;
+              default: classes += "text-white "; break;
+          }
+          return classes;
+      };
+
+      const primaryColor = getStrictCIColor();
+      const hasSubSteps = step.subSteps && step.subSteps.length > 0;
+      const activeBrief = step.imageBriefs?.find(b => b.isActive) || null;
+
+      return (
+        <div className="group relative select-none" style={{ width: '400px', height: 'auto', minHeight: '500px' }}>
+          <div className="relative bg-[#1a1f26] border border-white/10 shadow-2xl overflow-hidden flex flex-col h-full rounded-xl transition-all duration-300" style={{ boxShadow: `0 0 0 1px ${primaryColor}40` }}>
+            
+            <div onClick={() => onClick(step)} className="w-full h-52 bg-[#0f1216] flex items-center justify-center relative overflow-hidden border-b border-white/5 cursor-pointer">
+              {activeBrief?.imageUrl ? (
+                <img src={activeBrief.imageUrl} alt={activeBrief.prompt} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
+              ) : (
+                <div className="text-center text-gray-600 flex flex-col items-center gap-2 p-4">
+                  <ImageIconStep size={32} style={{ color: primaryColor }} />
+                  <p className="text-[10px] font-mono uppercase tracking-widest opacity-50">No Visual</p>
+                </div>
+              )}
+              <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: primaryColor }}></div>
+            </div>
+            
+            <div className="p-8 flex flex-col flex-grow bg-[#1a1f26]">
+              
+              <div 
+                 onMouseDown={(e) => { e.stopPropagation(); onDragMouseDown && onDragMouseDown(e); }}
+                 onClick={(e) => e.stopPropagation()}
+                 className="flex justify-between items-start mb-6 cursor-grab active:cursor-grabbing hover:bg-white/5 p-2 -mx-2 -mt-2 rounded-lg transition-colors border border-transparent hover:border-white/5"
+                 title="Drag to move"
+              >
+                 <div className="text-white font-black text-4xl">{step.id}</div>
+                 <div className="flex items-center gap-3">
+                     {hasSubSteps && <div className="flex items-center gap-1 px-3 py-1 rounded bg-[#0f1216] border border-white/10"><GitMerge size={14} className="text-gray-400" /><span className="text-[10px] font-bold text-gray-400 uppercase">Sub</span></div>}
+                     <div style={{ color: primaryColor }}>
+                        <IconRenderer type={step.iconType} size={32} />
+                     </div>
+                 </div>
+              </div>
+
+              <div onClick={() => onClick(step)} className="cursor-pointer">
+                <h3 className="text-4xl leading-none flex flex-wrap items-baseline mb-4" style={{ letterSpacing: '-0.05em' }}>
+                    {step.headlineSegments ? (
+                        step.headlineSegments.map((segment, idx) => (
+                            segment.text ? (
+                                <span key={idx} className={getSegmentStyle(segment)}>
+                                    {segment.text}
+                                </span>
+                            ) : null
+                        ))
+                    ) : (
+                        <span className="text-white uppercase font-black">{step.title}</span>
+                    )}
+                </h3>
+                <div className="w-10 h-1 mb-5" style={{ backgroundColor: primaryColor }}></div>
+                <p className="text-[#207cfa] text-lg font-bold mb-3 leading-snug">{step.subheadline}</p>
+                <p className="text-gray-300 text-lg leading-relaxed font-normal line-clamp-4">{step.fullText}</p>
+              </div>
+            </div>
+            
+            <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none rounded-xl" style={{ boxShadow: `inset 0 0 20px ${primaryColor}20` }} />
+          </div>
+        </div>
+      );
+    };
+    
+            
+            // Main StyleGate App Logic
+            
+    // Fallback to Search icon if specific icon is missing to prevent crash
+    var Palette = L.Palette || L.Search;
+    var ShieldCheck = L.ShieldCheck || L.Search;
+    var Download = L.Download || L.Search;
+    var Layers = L.Layers || L.Search;
+    var Component = L.Component || L.Search;
+    var FileJson = L.FileJson || L.Search;
+    var FileCode = L.FileCode || L.Search;
+    var Check = L.Check || L.Search;
+    var Copy = L.Copy || L.Search;
+    
+    // --- DATA ---
+    const colors = [
+        { name: 'Electric Blue', hex: '#207cfa', description: 'Primary, Interaction, Focus', tag: 'Electric', bg: '#207cfa' },
+        { name: 'Neon Magenta', hex: '#ff3cd0', description: 'Highlight, AI Magic, References', tag: 'Neon', bg: '#ff3cd0' },
+        { name: 'Deep Void', hex: '#0f1216', description: 'Input Backgrounds, Base Layer', tag: 'Deep', bg: '#0f1216' },
+        { name: 'Surface Dark', hex: '#1a1f26', description: 'Card Backgrounds, Modals', tag: 'Surface', bg: '#1a1f26' },
+        { name: 'Pure White', hex: '#ffffff', description: 'Content, High Contrast Text', tag: 'Pure', bg: '#ffffff' },
+    ];
+    
+    const typoWeights = [
+        { weight: 300, name: "Light", use: "Display Headlines" },
+        { weight: 400, name: "Regular", use: "Body Copy" },
+        { weight: 700, name: "Bold", use: "Buttons / Emphasized" },
+        { weight: 900, name: "Black", use: "Brand / Numerals" },
+    ];
+
+    const sampleStep = {
+        id: 1,
+        title: "ROADMAP CARD",
+        headlineSegments: [
+            { text: "ROADMAP", isUppercase: true, color: "white" },
+            { text: "CARD", isUppercase: true, color: "blue" },
+            { text: "", isUppercase: false, color: "white" }
+        ],
+        subheadline: "Atomic Unit of the Visual System",
+        description: "Sample",
+        fullText: "Dies ist die primäre Komponente zur Darstellung von Prozessschritten. Sie kombiniert visuelle Hierarchie mit strikten typografischen Regeln, um komplexe Informationen schnell erfassbar zu machen.",
+        imageBriefs: [],
+        iconType: "layers",
+        color: "blue"
+    };
+
+    // Helper for Spec Cards
+    const SpecCard = ({ title, element, specs }) => (
+      <div className="bg-[#1a1f26] border border-white/5 p-6 rounded-xl flex flex-col md:flex-row gap-8 items-start relative group hover:border-[#207cfa]/30 transition-colors">
+         <div className="absolute top-6 left-0 w-1 h-8 bg-[#207cfa] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+         
+         {/* Visual Element Area */}
+         <div className="flex-shrink-0 min-w-[200px] flex justify-center items-center p-8 bg-black/40 rounded border border-white/5 border-dashed relative">
+            {element}
+            {/* Hairline Connector */}
+            <div className="hidden md:block absolute top-1/2 -right-8 w-8 h-px bg-[#207cfa]/50"></div>
+            <div className="hidden md:block absolute top-1/2 -right-8 w-1 h-1 bg-[#207cfa] rounded-full"></div>
+         </div>
+         
+         {/* Specs Table */}
+         <div className="flex-grow w-full">
+            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 border-b border-white/10 pb-2 flex justify-between">
+                <span>{title}</span>
+                <span className="text-[#207cfa]">CSS / Tailwind Specs</span>
+            </h4>
+            <div className="grid grid-cols-[100px_1fr] gap-y-3 gap-x-4 text-xs font-mono">
+               {Object.entries(specs).map(([k, v]) => (
+                  <React.Fragment key={k}>
+                     <div className="text-gray-500 font-bold text-right">{k}:</div>
+                     <div className="text-[#207cfa] select-all cursor-pointer hover:text-white" title="Click to select">{v}</div>
+                  </React.Fragment>
+               ))}
+            </div>
+         </div>
+      </div>
+    );
+
+    const StyleGate = () => {
+        return (
+            <div className="w-full max-w-7xl mx-auto p-8 pt-12 pb-32 font-['Hanken_Grotesk']">
+                {/* HERO HEADER */}
+                <div className="border-b border-white/10 pb-12 mb-12">
+                    <div className="flex items-center gap-3 mb-2">
+                            <div className="px-2 py-0.5 border border-[#ff3cd0] text-[#ff3cd0] text-[10px] font-bold uppercase tracking-widest rounded">Master Node</div>
+                            <div className="px-2 py-0.5 bg-white/5 text-gray-400 text-[10px] font-bold uppercase tracking-widest rounded">v2.2 HTML EXPORT</div>
+                    </div>
+                    <h1 className="text-7xl font-black text-white tracking-tighter uppercase mb-4">
+                        Style<span className="text-[#207cfa]">Gate</span>
+                    </h1>
+                    <p className="text-gray-400 max-w-2xl text-lg leading-relaxed">
+                        Standalone HTML Reference Document. This file contains the precise CSS, Typography, and Color definitions for the BRAiND Ecosystem.
+                    </p>
+                </div>
+
+                {/* --- 1. CORE DNA --- */}
+                <div className="mb-20">
+                    <h2 className="text-3xl font-black uppercase tracking-tight text-white mb-8 flex items-center gap-3">
+                        <Palette size={24} className="text-[#ff3cd0]" /> Core DNA <span className="text-gray-600 text-lg font-normal normal-case ml-2">| Global Ruleset</span>
+                    </h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        {/* Colors */}
+                        <div className="bg-[#1a1f26] border border-white/5 rounded-2xl p-8">
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Chromatic System</h3>
+                            <div className="space-y-4">
+                                {colors.map(color => (
+                                    <div key={color.name} className="flex items-center gap-4 group cursor-pointer hover:bg-white/5 p-2 rounded transition-colors">
+                                        <div className="w-16 h-16 rounded-lg shadow-lg border border-white/10" style={{ backgroundColor: color.bg }}></div>
+                                        <div className="flex-grow">
+                                            <div className="flex justify-between items-baseline">
+                                                <span className="text-white font-bold">{color.name}</span>
+                                                <span className="text-xs font-mono text-[#207cfa] opacity-100">{color.hex}</span>
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-1">{color.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Typo */}
+                        <div className="bg-[#1a1f26] border border-white/5 rounded-2xl p-8">
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Typography System</h3>
+                            <div className="space-y-8">
+                                <div><div className="text-6xl font-light text-white mb-2">Aa</div><div className="text-sm text-[#207cfa] font-mono uppercase tracking-widest">Hanken Grotesk</div></div>
+                                <div className="space-y-4 border-t border-white/10 pt-6">
+                                    {typoWeights.map(t => (
+                                        <div key={t.weight} className="flex justify-between items-center">
+                                            <span className="text-2xl text-white" style={{ fontWeight: t.weight }}>{t.name}</span>
+                                            <span className="text-xs text-gray-500 font-mono bg-black/30 px-2 py-1 rounded">{t.use}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* --- 2. ATOMIC COMPONENTS --- */}
+                <div className="mb-20">
+                     <h2 className="text-3xl font-black uppercase tracking-tight text-white mb-8 flex items-center gap-3">
+                        <Component size={24} className="text-[#ff3cd0]" /> Atomic Components <span className="text-gray-600 text-lg font-normal normal-case ml-2">| Deep Specs</span>
+                     </h2>
+                     
+                     <div className="space-y-6">
+                        {/* 2.1 LOGO */}
+                        <SpecCard 
+                            title="Primary Logo Wordmark"
+                            element={
+                                <div className="font-black tracking-widest text-white text-2xl select-none leading-none">
+                                    BRA<span className="text-[#ff3cd0]">i</span>ND
+                                </div>
+                            }
+                            specs={{
+                                "Font-Family": "Hanken Grotesk",
+                                "Font-Weight": "900 (Black)",
+                                "Tracking": "widest (0.1em)",
+                                "Colors": "White (#ffffff) & Neon Magenta (#ff3cd0)",
+                                "Structure": "Uppercase 'BRA', Lowercase 'i', Uppercase 'ND'"
+                            }}
+                        />
+
+                        {/* 2.2 OUTLINE BADGE */}
+                        <SpecCard 
+                            title="Master Node Badge (Outline)"
+                            element={
+                                <div className="px-2 py-0.5 border border-[#ff3cd0] text-[#ff3cd0] text-[10px] font-bold uppercase tracking-widest rounded bg-transparent">
+                                    Master Node
+                                </div>
+                            }
+                            specs={{
+                                "Border": "1px solid #ff3cd0",
+                                "Text-Color": "#ff3cd0",
+                                "Font-Size": "10px",
+                                "Font-Weight": "Bold (700)",
+                                "Transform": "Uppercase",
+                                "Tracking": "Widest",
+                                "Padding": "px-2 py-0.5"
+                            }}
+                        />
+
+                        {/* 2.3 PRIMARY BUTTON */}
+                        <SpecCard 
+                            title="Primary Action Button"
+                            element={
+                                <button className="px-6 py-3 bg-[#207cfa] text-white rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-[#207cfa]/20">
+                                    Action
+                                </button>
+                            }
+                            specs={{
+                                "Background": "#207cfa",
+                                "Text-Color": "White",
+                                "Border-Radius": "rounded-xl (0.75rem)",
+                                "Shadow": "shadow-lg shadow-[#207cfa]/20",
+                                "Hover": "bg-white, text-[#207cfa]"
+                            }}
+                        />
+                        
+                        {/* 2.4 NAV ITEM ACTIVE */}
+                        <SpecCard 
+                            title="Navigation Item (Active State)"
+                            element={
+                                <button className="flex items-center gap-2 px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wide bg-[#ff3cd0] text-white shadow-[0_0_15px_rgba(255,60,208,0.4)]">
+                                    STYLEGATE
+                                </button>
+                            }
+                            specs={{
+                                "Background": "#ff3cd0",
+                                "Shadow": "0 0 15px rgba(255,60,208,0.4)",
+                                "Font-Size": "xs (0.75rem)",
+                                "Padding": "px-5 py-2",
+                                "Context": "Used in Top Navigation Bar"
+                            }}
+                        />
+                     </div>
+                </div>
+
+                {/* --- 3. APP SPECIFIC --- */}
+                <div className="mb-20">
+                     <h2 className="text-3xl font-black uppercase tracking-tight text-white mb-8 flex items-center gap-3">
+                        <Layers size={24} className="text-[#207cfa]" /> App Modules <span className="text-gray-600 text-lg font-normal normal-case ml-2">| Project Visualizer</span>
+                     </h2>
+                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
+                         <div className="bg-[#1a1f26] border border-white/5 rounded-2xl p-8">
+                              <h3 className="text-xl font-bold text-white uppercase tracking-tight mb-4">RoadmapCard</h3>
+                              <p className="text-sm text-gray-400 mb-4">The atomic unit of work in the Project Visualizer.</p>
+                              <div className="p-4 bg-black/30 rounded border border-white/5 mb-4">
+                                   <strong className="block text-white text-xs uppercase mb-1">Dimensions</strong>
+                                   <span className="font-mono text-xs text-[#207cfa]">Width: 400px | Min-Height: 500px</span>
+                               </div>
+                         </div>
+                         <div className="relative group flex justify-center p-12 bg-[#0f1216] border border-white/10 rounded-2xl overflow-hidden">
+                              <div className="transform scale-90 sm:scale-100 transition-transform relative z-10">
+                                    <RoadmapCard step={sampleStep} onClick={() => {}} index={0} />
+                              </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        );
+    };
+
+    const App = () => <StyleGate />;
+    
+
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<App />);
+            
+            // Hide Loader if render is successful (useEffect in App handles this, but safety fallback)
+            setTimeout(() => {
+                const loader = document.getElementById('loading-overlay');
+                if(loader) loader.style.display = 'none';
+            }, 500);
+
+        } catch (err) {
+            console.error(err);
+            document.getElementById('loading-overlay').style.display = 'none';
+            const overlay = document.getElementById('error-overlay');
+            overlay.style.display = 'block';
+            overlay.innerHTML = '<h1>RENDER ERROR</h1><pre>' + err.message + '</pre>';
+        }
+    </script>
+</body>
+</html>

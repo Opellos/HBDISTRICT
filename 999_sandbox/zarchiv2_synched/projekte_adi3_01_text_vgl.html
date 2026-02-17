@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hendrik Bogner | Projekte</title>
+    <!-- Sonntag, 08. Februar 2026 02:19 HB-->
+
+    <!-- ===== Fonts & Icons ===== -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- ===== Tailwind CSS & Lucide Icons (for _beta-Grid) ===== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Dein globales CSS danach -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style2.css">
+
+    <!-- Dein globales JS (defer für nicht-blockierende Ausführung) -->
+    <script src="../script.js" defer></script>
+
+	
+	
+	 <style>
+  #teilprojekt-kleidung .fashion-layout{
+    margin-top:14px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  #teilprojekt-kleidung .fashion-tile2{
+    border-radius:18px;
+    overflow:hidden;
+    background:#fff;
+  }
+
+  #teilprojekt-kleidung .fashion-tile2 img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
+    transform:scale(1);
+    transition:transform 700ms ease;
+  }
+
+  #teilprojekt-kleidung .fashion-tile2:hover img{
+    transform:scale(1.06);
+  }
+
+  #teilprojekt-kleidung .fashion-tile2--wide{ aspect-ratio:16/9; }
+  #teilprojekt-kleidung .fashion-tile2--portrait{ aspect-ratio:3/4; }
+
+  #teilprojekt-kleidung .fashion-row2{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:14px;
+    align-items:stretch;
+  }
+
+  #teilprojekt-kleidung .fashion-stack2{
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    gap:14px;
+    align-items:stretch;
+  }
+
+  #teilprojekt-kleidung .fashion-end2{
+    display:flex;
+    justify-content:center;
+  }
+
+  #teilprojekt-kleidung .fashion-end2 .fashion-tile2{
+    width:66.666%;
+    aspect-ratio:16/9;
+  }
+
+  @media (max-width: 880px){
+    #teilprojekt-kleidung .fashion-row2{ grid-template-columns:1fr; }
+    #teilprojekt-kleidung .fashion-stack2{ grid-template-rows:auto; }
+    #teilprojekt-kleidung .fashion-end2 .fashion-tile2{ width:100%; }
+  }
+
+/* ===== Teilprojekt 3.1 – Roof + Cinematic Carousel ===== */
+.kleidung-block {
+  width: 100%;
+  max-width: 1440px;
+  margin: 60px auto;
+  padding: 56px 24px;
+  border-radius: 40px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .kleidung-block { padding: 72px 48px; }
+}
+
+.kleidung-roof {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 1024px) {
+  .kleidung-roof {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    margin-bottom: 38px;
+  }
+}
+
+.kleidung-roof-card {
+  border-radius: 28px;
+  padding: 28px 28px 30px;
+  background: linear-gradient(180deg, rgba(32,124,250,0.06), rgba(32,124,250,0.00));
+  border: 1px solid rgba(32,124,250,0.18);
+}
+
+.kleidung-roof-title {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: #3D4654;
+  margin: 14px 0 18px;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+}
+
+.kleidung-roof-lead {
+  color: rgba(61,70,84,0.78);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.kleidung-quote {
+  margin-top: 18px;
+  padding: 14px 16px 14px 18px;
+  border-left: 6px solid #ff4da6;
+  color: #ff4da6;
+  font-style: italic;
+  font-weight: 650;
+  background: rgba(255,77,166,0.06);
+  border-radius: 14px;
+}
+
+.kleidung-hero {
+  border-radius: 28px;
+  overflow: hidden;
+  height: min(440px, 52vh);
+  background: #f2f4f8;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.10);
+  position: relative;
+}
+
+.kleidung-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.kleidung-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 20% 10%, rgba(32,124,250,0.22), rgba(0,0,0,0.0) 55%),
+              linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.10));
+  pointer-events: none;
+}
+
+.kleidung-carousel-shell {
+  position: relative;
+  margin-top: 22px;
+}
+
+.kleidung-carousel-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 6px 0 14px;
+}
+
+.kleidung-progress {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(61,70,84,0.10);
+  overflow: hidden;
+}
+
+.kleidung-progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #207cfa, #57b6ff);
+  transition: width 220ms ease;
+}
+
+.kleidung-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.kleidung-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  display: grid;
+  place-items: center;
+}
+
+.kleidung-btn:active { transform: scale(0.98); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+.kleidung-btn svg { width: 18px; height: 18px; opacity: 0.85; }
+
+.kleidung-carousel {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding: 14px 6px 26px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 48px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+}
+
+.kleidung-carousel::-webkit-scrollbar { display: none; }
+
+.kleidung-slide {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: min(72vw, 860px);
+  height: clamp(360px, 58vh, 640px);
+  border-radius: 34px;
+  overflow: hidden;
+  position: relative;
+  background: #f2f4f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.14);
+  transform: translateY(12px) scale(0.96);
+  filter: saturate(0.98) contrast(0.98);
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), filter 420ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kleidung-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kleidung-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 20% 10%, rgba(32,124,250,0.18), rgba(0,0,0,0) 55%),
+              linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.18));
+  pointer-events: none;
+}
+
+.kleidung-tag {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.30);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform: translateY(10px);
+  opacity: 0.0;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.kleidung-slide.is-active {
+  transform: translateY(0) scale(1);
+  filter: saturate(1.05) contrast(1.02);
+  box-shadow: 0 34px 90px rgba(0,0,0,0.18);
+}
+
+.kleidung-slide.is-active img { transform: scale(1.04); }
+.kleidung-slide.is-active .kleidung-tag { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 880px) {
+  .kleidung-carousel { scroll-padding: 18px; mask-image: none; }
+  .kleidung-slide { width: 88vw; border-radius: 28px; }
+}
+
+/* ===== 3.1 – Airy Exhibition Carousel (no 2017 scrollbar) ===== */
+.k3-wrap{
+  width:100%;
+  max-width:1440px;
+  margin:70px auto;
+  padding:0 24px;
+}
+
+.k3-roof{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:end;
+  margin-bottom:24px;
+}
+
+@media (min-width:1024px){
+  .k3-roof{ grid-template-columns: 1.15fr 0.85fr; gap:56px; margin-bottom:28px; }
+}
+
+.k3-title{
+  font-weight:900;
+  letter-spacing:-0.05em;
+  line-height:0.92;
+  color:#3D4654;
+  margin:14px 0 18px;
+  font-size:clamp(2.1rem,5vw,4.2rem);
+}
+
+.k3-lead{
+  color:rgba(61,70,84,0.78);
+  font-size:clamp(1.05rem,1.25vw,1.25rem);
+  line-height:1.65;
+  max-width:60ch;
+}
+
+.k3-quote{
+  margin-top:16px;
+  padding:14px 16px 14px 18px;
+  border-left:6px solid #ff4da6;
+  color:#ff4da6;
+  font-style:italic;
+  font-weight:650;
+  background:rgba(255,77,166,0.06);
+  border-radius:14px;
+  width:fit-content;
+}
+
+.k3-hero{
+  border-radius:28px;
+  overflow:hidden;
+  height:min(420px,48vh);
+  background:#f2f4f8;
+  box-shadow:0 18px 60px rgba(0,0,0,0.10);
+  position:relative;
+}
+
+.k3-hero img{ width:100%; height:100%; object-fit:cover; transform:scale(1.02); }
+.k3-hero:after{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(120% 90% at 20% 10%, rgba(32,124,250,0.22), rgba(0,0,0,0) 55%),
+              linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.10));
+  pointer-events:none;
+}
+
+/* Topbar: scrub/progress + minimal controls */
+.k3-topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin:14px 0 10px;
+}
+
+.k3-scrub{
+  flex:1;
+  height:10px;
+  border-radius:999px;
+  background:rgba(61,70,84,0.10);
+  overflow:hidden;
+  position:relative;
+}
+
+.k3-scrub > span{
+  display:block;
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#207cfa,#57b6ff);
+  transition:width 160ms ease;
+}
+
+.k3-controls{ display:flex; gap:10px; }
+.k3-btn{
+  width:44px; height:44px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,0.10);
+  background:rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.10);
+  cursor:pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  display:grid; place-items:center;
+}
+.k3-btn:hover{ transform: translateY(-2px); box-shadow:0 16px 34px rgba(0,0,0,0.12); }
+.k3-btn:active{ transform: translateY(0px) scale(0.98); }
+.k3-btn svg{ width:18px; height:18px; opacity:0.85; }
+
+/* Carousel – airy, peek next slides, no native scrollbar visible */
+.k3-track{
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  padding:14px 0 28px;
+  scroll-snap-type:x mandatory;
+  scroll-padding: 12vw;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  overscroll-behavior-x:contain;
+}
+.k3-track::-webkit-scrollbar{ display:none; }
+
+/* subtle fade edges to imply “more” */
+.k3-track-mask{
+  position:relative;
+}
+.k3-track-mask:before,
+.k3-track-mask:after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:90px;
+  pointer-events:none;
+  z-index:3;
+}
+.k3-track-mask:before{
+  left:0;
+  background:linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.k3-track-mask:after{
+  right:0;
+  background:linear-gradient(270deg, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* Slides: different sizes, cinematic look */
+.k3-slide{
+  flex:0 0 auto;
+  scroll-snap-align:center;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
+  background:#f2f4f8;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 26px 70px rgba(0,0,0,0.14);
+  transform: translateY(14px) scale(0.965);
+  filter:saturate(0.98) contrast(0.98);
+  transition: transform 520ms cubic-bezier(0.16,1,0.3,1), filter 520ms cubic-bezier(0.16,1,0.3,1), box-shadow 520ms cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+
+/* widths for rhythm */
+.k3-w-wide{ width:min(84vw, 980px); height:clamp(380px, 60vh, 660px); }
+.k3-w-mid { width:min(68vw, 820px); height:clamp(360px, 56vh, 620px); }
+.k3-w-nar { width:min(52vw, 640px); height:clamp(340px, 52vh, 580px); }
+
+@media (max-width:880px){
+  .k3-track{ scroll-padding: 10vw; }
+  .k3-track-mask:before, .k3-track-mask:after{ width:52px; }
+  .k3-w-wide, .k3-w-mid, .k3-w-nar{ width:88vw; }
+}
+
+.k3-slide img{
+  width:100%; height:100%;
+  object-fit:cover;
+  transform: scale(1.02);
+  transition: transform 900ms cubic-bezier(0.16,1,0.3,1);
+}
+
+.k3-slide:after{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(120% 90% at 20% 10%, rgba(32,124,250,0.18), rgba(0,0,0,0) 55%),
+              linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.20));
+  pointer-events:none;
+}
+
+/* tag + trailing keywords */
+.k3-tag{
+  position:absolute;
+  left:22px; bottom:22px;
+  padding:12px 16px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.30);
+  color:#fff;
+  font-weight:800;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-size:12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform: translateY(10px);
+  opacity:0;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.k3-keywords{
+  position:absolute;
+  right:22px; top:18px;
+  color:rgba(255,255,255,0.92);
+  font-weight:900;
+  letter-spacing:-0.02em;
+  text-transform:uppercase;
+  line-height:0.95;
+  font-size:clamp(1.25rem, 2.3vw, 2.2rem);
+  opacity:0;
+  transform: translateX(14px);
+  transition: opacity 300ms ease, transform 600ms cubic-bezier(0.16,1,0.3,1);
+  mix-blend-mode: screen;
+  text-align:right;
+  pointer-events:none;
+}
+
+.k3-slide.is-active{
+  transform: translateY(0) scale(1);
+  filter:saturate(1.05) contrast(1.02);
+  box-shadow:0 34px 92px rgba(0,0,0,0.18);
+}
+.k3-slide.is-active img{ transform: scale(1.045); }
+.k3-slide.is-active .k3-tag{ opacity:1; transform:translateY(0); }
+.k3-slide.is-active .k3-keywords{ opacity:1; transform:translateX(0); }
+
+/* subtle hover wiggle, not “crash into each other” */
+@media (hover:hover){
+  .k3-slide:hover{ transform: translateY(-4px) scale(1.005); }
+}
+
+/* Optional: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .k3-slide, .k3-slide img, .k3-btn, .k3-tag, .k3-keywords{ transition:none !important; }
+}
+
+/* ===== Teilprojekt 3.1 – Minimal Cinematic Slider (ohne Scrollbar, ohne Buttons) ===== */
+
+.k3-wrap{
+  width:100%;
+  max-width:1440px;
+  margin:70px auto;
+  padding:0 24px;
+}
+
+.k3-roof{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:end;
+  margin-bottom:24px;
+}
+@media (min-width:1024px){
+  .k3-roof{ grid-template-columns: 1.15fr 0.85fr; gap:56px; margin-bottom:28px; }
+}
+
+.k3-title{
+  font-weight:900;
+  letter-spacing:-0.05em;
+  line-height:0.92;
+  color:#3D4654;
+  margin:14px 0 18px;
+  font-size:clamp(2.1rem,5vw,4.2rem);
+}
+.k3-lead{
+  color:rgba(61,70,84,0.78);
+  font-size:clamp(1.05rem,1.25vw,1.25rem);
+  line-height:1.65;
+  max-width:62ch;
+}
+.k3-quote{
+  margin-top:16px;
+  padding:12px 14px 12px 16px;
+  border-left:5px solid #ff4da6;
+  color:#ff4da6;
+  font-style:italic;
+  font-weight:650;
+  background:rgba(255,77,166,0.06);
+}
+
+.k3-hero{
+  overflow:hidden;
+  height:min(420px,48vh);
+  background:#f2f4f8;
+  box-shadow:0 18px 60px rgba(0,0,0,0.10);
+}
+.k3-hero img{ width:100%; height:100%; object-fit:cover; transform:scale(1.02); }
+
+/* Slider Shell + Hintergrund-Parallax (blurred) */
+.k3-shell{
+  position:relative;
+  margin-top:18px;
+  padding:18px 0 54px;
+  overflow:hidden;
+}
+
+.k3-bg{
+  position:absolute;
+  inset:-30%;
+  background-image: var(--k3bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(26px) saturate(1.05);
+  opacity: 0.16;
+  transform: translate3d(0,0,0) scale(1.08);
+  will-change: transform;
+  pointer-events:none;
+}
+
+.k3-bg:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(70% 60% at 30% 20%, rgba(32,124,250,0.18), rgba(255,255,255,0) 60%),
+              linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,1));
+}
+
+/* Track: echtes horizontales Scrollen, aber Scrollbar unsichtbar */
+.k3-track{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding:10px 0 18px;
+  scroll-snap-type:x mandatory;
+  scroll-padding: 12vw;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge alt */
+}
+.k3-track::-webkit-scrollbar{ display:none; } /* Chrome/Safari */
+
+.k3-slide{
+  flex:0 0 auto;
+  scroll-snap-align:center;
+  overflow:hidden;
+  background:#f2f4f8;
+  border:1px solid rgba(0,0,0,0.10);
+  box-shadow:0 22px 60px rgba(0,0,0,0.14);
+  transform: translateY(10px) scale(0.975);
+  transition: transform 520ms cubic-bezier(0.16,1,0.3,1), box-shadow 520ms cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+
+/* Weniger “Pfannkuchen”: nur leicht gerundet */
+.k3-slide,
+.k3-hero{ border-radius: 12px; }
+
+.k3-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.01);
+  transition: transform 900ms cubic-bezier(0.16,1,0.3,1);
+}
+
+.k3-slide.is-active{
+  transform: translateY(0) scale(1);
+  box-shadow:0 30px 86px rgba(0,0,0,0.18);
+}
+.k3-slide.is-active img{ transform: scale(1.03); }
+
+.k3-w-wide{ width:min(84vw, 980px); height:clamp(360px, 56vh, 640px); }
+.k3-w-mid { width:min(66vw, 820px); height:clamp(340px, 52vh, 600px); }
+.k3-w-nar { width:min(50vw, 640px); height:clamp(320px, 48vh, 560px); }
+
+@media (max-width:880px){
+  .k3-track{ scroll-padding: 10vw; }
+  .k3-w-wide, .k3-w-mid, .k3-w-nar{ width:88vw; }
+}
+
+/* “Mitschwimmende” Typo (nicht im Bild) */
+.k3-float{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:10px;
+  height:38px;
+  pointer-events:none;
+  overflow:visible;
+}
+
+.k3-float-inner{
+  position:absolute;
+  left:0;
+  bottom:0;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+}
+
+.k3-float-label{
+  font-weight:900;
+  letter-spacing:-0.03em;
+  color:#3D4654;
+  font-size: 22px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.k3-float-sub{
+  color:rgba(61,70,84,0.65);
+  font-weight:650;
+  font-size:14px;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+/* Optional: weniger Motion */
+@media (prefers-reduced-motion: reduce){
+  .k3-slide, .k3-slide img, .k3-bg, .k3-float-inner{ transition:none !important; }
+}
+
+/* ===== Teilprojekt 3.1 – Raw Editorial Slider (no overlay, no shadow, neutral) ===== */
+
+.k3-wrap{
+  width:100%;
+  max-width:1440px;
+  margin:70px auto;
+  padding:0 24px;
+}
+
+.k3-roof{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:end;
+  margin-bottom:24px;
+}
+@media (min-width:1024px){
+  .k3-roof{ grid-template-columns: 1.15fr 0.85fr; gap:56px; margin-bottom:28px; }
+}
+
+.k3-title{
+  font-weight:900;
+  letter-spacing:-0.05em;
+  line-height:0.92;
+  color:#3D4654;
+  margin:14px 0 18px;
+  font-size:clamp(2.1rem,5vw,4.2rem);
+}
+
+.k3-lead{
+  color:rgba(61,70,84,0.78);
+  font-size:clamp(1.05rem,1.25vw,1.25rem);
+  line-height:1.65;
+  max-width:62ch;
+}
+
+/* Hero (neutral, no overlay, no shadow) */
+.k3-hero{
+  overflow:hidden;
+  height:min(420px,48vh);
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:8px;
+}
+.k3-hero img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Slider (real scroll, but scrollbar hidden) */
+.k3-track{
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  padding:10px 0 8px;
+  scroll-snap-type:x mandatory;
+  scroll-padding: 12vw;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.k3-track::-webkit-scrollbar{ display:none; }
+
+/* Slides: neutral frame, no shadow, no overlays, minimal radius */
+.k3-slide{
+  flex:0 0 auto;
+  scroll-snap-align:center;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius:8px;
+  overflow:hidden;
+  transform: translateY(6px);
+  transition: transform 520ms cubic-bezier(0.16,1,0.3,1), border-color 520ms cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+
+.k3-slide.is-active{
+  transform: translateY(0);
+  border-color: rgba(0,0,0,0.22);
+}
+
+.k3-media{
+  width:100%;
+  height:100%;
+  display:block;
+  background:#fff;
+}
+
+.k3-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Rhythmus (verschiedene Größen) */
+.k3-w-wide{ width:min(84vw, 980px); }
+.k3-w-mid { width:min(66vw, 820px); }
+.k3-w-nar { width:min(50vw, 640px); }
+
+.k3-h-tall{ height:clamp(420px, 62vh, 700px); }
+.k3-h-mid { height:clamp(380px, 56vh, 640px); }
+.k3-h-low { height:clamp(340px, 50vh, 580px); }
+
+@media (max-width:880px){
+  .k3-track{ scroll-padding: 10vw; }
+  .k3-w-wide, .k3-w-mid, .k3-w-nar{ width:88vw; }
+}
+
+/* Wilder: leichte vertikale Versätze (ohne “Crash”) */
+.k3-slide:nth-child(2n){ margin-top: 18px; }
+.k3-slide:nth-child(3n){ margin-top: 44px; }
+.k3-slide:nth-child(5n){ margin-top: 10px; }
+
+/* Typo ist TEIL des Sliders (eigene Zone im Slide), bewegt sich parallax */
+.k3-caption{
+  padding:16px 18px 18px;
+  border-top:1px solid rgba(0,0,0,0.08);
+  background:#fff;
+  overflow:hidden;
+}
+
+.k3-caption-inner{
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+.k3-cap-title{
+  font-weight:900;
+  letter-spacing:-0.03em;
+  color:#3D4654;
+  font-size: clamp(1.15rem, 2.0vw, 1.75rem);
+  line-height:1.05;
+  margin:0 0 6px;
+}
+
+.k3-cap-sub{
+  color: rgba(61,70,84,0.70);
+  font-weight:650;
+  font-size: 13px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  margin:0;
+}
+
+/* Optional: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .k3-slide, .k3-caption-inner{ transition:none !important; }
+}
+
+/* Patch: absolut kein Overlay / kein Blur / kein Schatten */
+.k3-shell{ background: transparent !important; padding-bottom: 8px !important; }
+.k3-bg{ display:none !important; }
+
+.k3-slide{ box-shadow:none !important; }
+.k3-hero{ box-shadow:none !important; }
+
+.k3-slide::before,
+.k3-slide::after,
+.k3-hero::before,
+.k3-hero::after{ content:none !important; }
+
+.k3-media img{
+  filter:none !important;
+  opacity:1 !important;
+  mix-blend-mode: normal !important;
+}
+/* ===== Teilprojekt 3.1 – Editorial Parallax Slider (neutral, clean, but “alive”) ===== */
+
+.k3-wrap{
+  width:100%;
+  max-width:1440px;
+  margin:70px auto;
+  padding:0 24px;
+}
+
+.k3-roof{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:end;
+  margin-bottom:22px;
+}
+@media (min-width:1024px){
+  .k3-roof{ grid-template-columns: 1.15fr 0.85fr; gap:56px; margin-bottom:26px; }
+}
+
+.k3-title{
+  font-weight:900;
+  letter-spacing:-0.05em;
+  line-height:0.92;
+  color:#3D4654;
+  margin:14px 0 18px;
+  font-size:clamp(2.1rem,5vw,4.2rem);
+}
+
+.k3-lead{
+  color:rgba(61,70,84,0.78);
+  font-size:clamp(1.05rem,1.25vw,1.25rem);
+  line-height:1.65;
+  max-width:62ch;
+}
+
+/* Dachbild neutral, kein Shadow, kein Overlay */
+.k3-hero{
+  overflow:hidden;
+  height:min(420px,48vh);
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius:6px;
+}
+.k3-hero img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Slider Shell: neutral background, aber mit Parallax-BACKGROUND via echtes Bild (kein Overlay auf den Slides) */
+.k3-shell{
+  position:relative;
+  margin-top:16px;
+  padding:18px 0 26px;
+  background:#fff;
+  overflow:hidden;
+}
+
+/* Parallax-Layer: sitzt HINTER dem Slider, nicht AUF den Bildern.
+   Du kannst hier ein eigenes Asset setzen: style="--k3bg:url('case_assets/DEIN_BG.png')" */
+.k3-parallax{
+  position:absolute;
+  inset:-18%;
+  background-image: var(--k3bg);
+  background-size:cover;
+  background-position:center;
+  filter: blur(30px);
+  opacity: 0.12;
+  transform: translate3d(0,0,0) scale(1.08);
+  will-change: transform;
+  pointer-events:none;
+}
+.k3-parallax-off .k3-parallax{ display:none !important; }
+
+/* feines Grain, ebenfalls HINTER allem, verändert die Slides nicht */
+.k3-grain{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:0.07;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.22) 0.6px, transparent 0.8px),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.18) 0.6px, transparent 0.8px),
+    radial-gradient(circle at 40% 80%, rgba(0,0,0,0.16) 0.6px, transparent 0.8px);
+  background-size: 180px 180px, 220px 220px, 260px 260px;
+}
+.k3-grain-off .k3-grain{ display:none !important; }
+
+/* Track: echte horizontale Bewegung, aber Scrollbar komplett unsichtbar */
+.k3-track{
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  padding:10px 0 8px;
+  scroll-snap-type:x mandatory;
+  scroll-padding: 12vw;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  position:relative;
+  z-index:2;
+}
+.k3-track::-webkit-scrollbar{ display:none; }
+
+/* Slides: keine Schatten, keine Overlays, minimaler Rahmen */
+.k3-slide{
+  flex:0 0 auto;
+  scroll-snap-align:center;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:6px;
+  overflow:hidden;
+  transform: translateY(10px);
+  transition: transform 520ms cubic-bezier(0.16,1,0.3,1), border-color 520ms cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+.k3-slide.is-active{
+  transform: translateY(0);
+  border-color: rgba(0,0,0,0.24);
+}
+
+/* Medienbereich: Bild bleibt exakt “clean”, keinerlei Filter */
+.k3-media{
+  width:100%;
+  background:#fff;
+}
+.k3-media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:none !important;
+  opacity:1 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Größenrhythmus */
+.k3-w-wide{ width:min(84vw, 980px); }
+.k3-w-mid { width:min(66vw, 820px); }
+.k3-w-nar { width:min(50vw, 640px); }
+
+.k3-h-tall{ height:clamp(420px, 62vh, 700px); }
+.k3-h-mid { height:clamp(380px, 56vh, 640px); }
+.k3-h-low { height:clamp(340px, 50vh, 580px); }
+
+@media (max-width:880px){
+  .k3-track{ scroll-padding: 10vw; }
+  .k3-w-wide, .k3-w-mid, .k3-w-nar{ width:88vw; }
+}
+
+/* “Wilder” ohne Crash: versetzter Rhythmus */
+.k3-slide:nth-child(2n){ margin-top: 18px; }
+.k3-slide:nth-child(3n){ margin-top: 44px; }
+.k3-slide:nth-child(5n){ margin-top: 8px; }
+
+/* Typo IST Teil des Sliders: eigener Typo-Strip innerhalb jedes Slides
+   Parallax wirkt hier sichtbar über JS: caption zieht nach */
+.k3-caption{
+  position:relative;
+  padding:16px 18px 18px;
+  border-top:1px solid rgba(0,0,0,0.08);
+  background:#fff;
+}
+.k3-caption-inner{
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+}
+.k3-cap-title{
+  font-weight:950;
+  letter-spacing:-0.03em;
+  color:#3D4654;
+  font-size: clamp(1.25rem, 2.2vw, 1.95rem);
+  line-height:1.02;
+  margin:0;
+  white-space:nowrap;
+}
+.k3-cap-sub{
+  color: rgba(61,70,84,0.70);
+  font-weight:650;
+  font-size: 12px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  margin:0;
+  white-space:nowrap;
+}
+
+/* Kleine, granulare UI-Elemente: Dots als Navigation (keine Buttons) */
+.k3-dots{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-start;
+  padding-top:10px;
+  position:relative;
+  z-index:2;
+}
+.k3-dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.25);
+  background:transparent;
+  opacity:0.55;
+  transition: transform 220ms ease, opacity 220ms ease, background 220ms ease;
+  cursor:pointer;
+}
+.k3-dot.is-active{
+  opacity:1;
+  transform: scale(1.35);
+  background: rgba(0,0,0,0.55);
+}
+
+/* Optional: reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .k3-slide, .k3-caption-inner, .k3-parallax{ transition:none !important; }
+}
+</style>
+
+
+
+
+
+	
+</head>
+<body>
+
+<!-- ===== HEADER SECTION ===== -->
+<header class="main-header" id="page-top">
+    <nav class="navbar container">
+        <!-- Header: Navigation Links Left -->
+        <div class="nav-left">
+            <a href="../index.html#hero-section">HOME</a>
+            <a href="../index.html#video-bio">PROFIL</a>
+            <a href="../index.html#focus">EXPERTISE</a>
+        </div>
+
+        <!-- Header: Centered Brand Logo (HENDRIK BOGNER) -->
+        <a class="navbar-brand-center hb-mail" href="mailto:marke.design.ai@hendrik-bogner.de" aria-label="E-Mail senden">
+            <span class="hb-fold"></span>
+            <div class="hb-points">
+                <i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i>
+                <i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i><i class="hb-point"></i>
+            </div>
+            <span class="hb-inner">HENDRIK
+                <svg class="hb-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                  <rect x="2" y="4" width="20" height="16" rx="2.5" ry="2.5"></rect>
+                  <polyline points="22 6 12 13 2 6"></polyline>
+                </svg>
+                BOGNER
+            </span>
+        </a>
+
+        <!-- Header: Navigation Links Right -->
+        <div class="nav-right">
+            <a href="../projekte.html" class="is-active" aria-current="page">PROJEKTE</a>
+            <a href="../index.html#vision1">BRAND+AI</a>
+            <a href="../index.html#Kontakt">KONTAKT</a>
+        </div>
+
+        <!-- Header: Mobile Navigation Toggle Button -->
+        <button class="navbar-toggle" aria-controls="main-nav-mobile" aria-expanded="false" aria-label="Menü umschalten">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </nav>
+
+    <!-- Header: Mobile Navigation Menu -->
+    <div class="mobile-nav" id="main-nav-mobile">
+        <a href="../index.html#hero-section">HOME</a>
+        <a href="../index.html#video-bio">PROFIL</a>
+        <a href="../index.html#focus">EXPERTISE</a>
+        <a href="../projekte.html" class="is-active" aria-current="page">PROJEKTE</a>
+        <a href="../index.html#vision1">BRAND+AI</a>
+        <a href="../index.html#Kontakt">KONTAKT</a>
+    </div>
+</header>
+
+<!-- ===== MAIN CONTENT AREA ===== -->
+<main>
+
+    <!-- SECTION: PROJECTS HERO -->
+    <section class="hero-section_3" id="projekte-hero-section">
+        <div class="container hero-container_3">
+            <!-- Projects Hero: Visual Content Block -->
+            <div class="hero-content-visual">
+                <h1 class="hero-brand-title" style="font-size: clamp(3rem, 4.8vw, 8.4rem);">
+                    Strategie sichtbar machen.
+                </h1>
+            </div>
+            <!-- Projects Hero: Main Headline Block -->
+            <div class="hero-main-headline">
+                <h2>*Das<span class="word-badge word-badge--pink">Visuelle </span>ist das Finale, <br><span class="word-badge word-badge--pink">Strategie</span> davor der entscheidende Hebel.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PROJECTS GRID (main container for all project cards) -->
+    <section class="projects-grid-section max-w-[1600px] mx-auto px-6 lg:px-12 py-12">
+        <!-- Projects Grid: Inner Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
+
+            <!-- PROJECT CARD: Compact Guided Walkthrough (K-Projekt-Smartsleep-002) -->
+            <div class="lg:col-span-6 lg:row-span-2 bg-white border border-[#e6ecff] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col relative group">
+                <!-- Card Background Blob/Gradient -->
+                <div class="pointer-events-none absolute inset-x-[-15%] bottom-[-10%] h-1/2
+                            bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]
+                            opacity-70 blur-2xl rotate-[-4deg]"></div>
+
+                <!-- Card: Header Content -->
+                <div class="relative z-10 p-6 pb-4 flex items-start">
+                    <div class="min-w-0 w-full">
+                        <p class="text-base text-sky-600">Compact Guided Walktrough</p>
+                        <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1] whitespace-normal break-words">
+                            Markentechnik: <br>Außen simpel – innen Science.
+                        </h2>
+                        <p class="text-gray-700 text-[18px] leading-[24px] font-normal max-w-xl break-words">
+                            Bevor eine Marke visuell nach außen tritt, ist bereits vieles passiert. Manche Schritte lassen sich standardisieren, die entscheidenden jedoch sind individuell – sollte es zumindest. <br>
+                            Ich nehme Sie gerne mit und führe Sie durch spannende Entwicklungsjourneys – persönlich und unverbindlich. Buchen Sie mich bequem in meinen Kalender.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card: Media & CTA Grid (Mobile: 1 column, Desktop: 5 columns) -->
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-3 p-4 lg:p-6 pt-2">
+
+                    <!-- Media: Video Reel -->
+                    <div class="order-1 lg:order-none lg:col-span-2 lg:row-span-2 relative rounded-xl overflow-hidden shadow-lg">
+                        <video class="w-full h-full object-cover" src="../video/001_3d_auto_01.mp4" autoplay="" muted="" loop=""></video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 text-white text-xs font-semibold uppercase tracking-[0.2em]">Reel</div>
+                    </div>
+
+                    <!-- Media: Parship Image Slider -->
+                    <div class="order-2 lg:order-none lg:col-span-3 rounded-xl overflow-hidden relative shadow-lg">
+                        <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel4">
+                            <div class="carousel-item min-w-full h-full relative">
+                                <img src="../img2/parship1.png" alt="Slider Frame" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item min-w-full h-full relative">
+                                <img src="../img2/parship2.png" alt="Slider Frame" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Slider Dots -->
+                        <div class="absolute bottom-3 right-3 flex gap-1" id="carousel4-dots">
+                            <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow" data-index="0" onclick="goToSlide('carousel4', 0)"></div>
+                            <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow" data-index="1" onclick="goToSlide('carousel4', 1)"></div>
+                        </div>
+                    </div>
+
+                    <!-- CTA: Call-to-Action Card -->
+                    <div class="order-3 lg:order-none lg:col-span-3 rounded-xl border border-gray-200 bg-white p-4 lg:p-4 shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500">Schauen Sie in meinen Kalender</p>
+                            <h4 class="text-base lg:text-lg font-semibold text-gray-900">Jetzt Brand-Expertise buchen</h4>
+                            <p class="text-sm text-gray-500">Ein Klick, und wir sprechen über Ihre Marke.</p>
+                        </div>
+                        <a href="https://bogner.youcanbook.me"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/85 to-white/50 rounded-xl border border-white/70 backdrop-blur-sm shadow-md hover:from-white hover:to-white/70 hover:shadow-lg transition-all">
+                            Go
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Telekom Visual Showcase (K-Telekom-Showcase-004) -->
+            <div class="lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-sky-100 via-sky-200 to-pink-200/30 rounded-2xl p-3 sm:p-4 lg:p-6 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full border border-white/70">
+                <div class="space-y-3 lg:space-y-4">
+                    <!-- Image 1 -->
+                    <div class="relative w-full overflow-hidden aspect-[16/9] rounded-t-2xl">
+                        <img src="../img3/01_Analyse.png" alt="Telekom Visual – Top" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="relative w-full overflow-hidden aspect-[16/9]">
+                        <img src="../img3/01_Design.png" alt="Telekom Visual – Mitte" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="relative w-full overflow-hidden aspect-[16/9] rounded-b-2xl">
+                        <img src="../img3/01_Launch.png" alt="Telekom Visual – Unten" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Call-to-Action Button -->
+                <button
+                    class="mt-4 lg:mt-5 inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-sky-900 bg-gradient-to-t from-white/85 to-white/50 rounded-xl border border-white/70 backdrop-blur-sm shadow-md hover:from-white hover:to-white/70 hover:shadow-lg transition-all self-start">
+                    Telekom Visual-Showcase öffnen
+                </button>
+            </div>
+
+           <!-- PROJECT CARD: AI-Character-Design (K-AI-Character-Design-014) -->
+<div class="lg:col-span-3 lg:row-span-2 bg-[#dbeafe] rounded-2xl p-4 flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 shadow-xl h-full">
+  <!-- Video Element (fixe Proportion wie bei den anderen Kacheln) -->
+  <div class="relative w-full overflow-hidden rounded-2xl aspect-[16/9] mb-6">
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      src="../video/002_close_up_01.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+  </div>
+
+  <!-- Text Content -->
+  <div>
+    <div class="w-14 h-14 bg-black/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+      <i data-lucide="layers" class="w-7 h-7 text-slate-900"></i>
+    </div>
+    <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">AI -Character-Design</h3>
+    <p class="text-slate-900 text-sm leading-relaxed font-light">
+      Tiefe entsteht durch Schichten. Jede Ebene erzählt ihre eigene Geschichte.
+    </p>
+  </div>
+</div>
+
+			
+			<!-- Start inhalte von projekte_feature.html -->
+			<div class="lg:col-span-12">
+				   <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1] whitespace-normal break-words px-6 lg:px-12">
+                  [FEATURED] 
+                </h2>
+              <!-- SECTION: Hero / Featured Case -->
+              <header class="case-hero">
+                <div class="hero-text">
+                  <div class="hero-label">
+                    <div class="hero-label-dot"></div>
+                    <span>Featured Case</span>
+                  </div>
+                  <div class="hero-kicker">Markensynergien von Partnerschaften</div>
+                  <h1 class="hero-title">
+                    Telekom &amp; <span class="accent">Ranger</span> – ein neuer Auftritt an der Haustür
+                  </h1>
+                  <p class="hero-subtitle">
+                    Wie aus einem schwierigen Umfeld vor der Haustür ein klar gestalteter Auftritt wurde – mit Markenführung, Design und einem KI-gestützten Brand System in einer Hand.
+                  </p>
+                  <div class="hero-meta">
+                    <span>Telekom &amp; Ranger</span>
+                    <span>Brand Management</span>
+                    <span>Design &amp; Workwear</span>
+                    <span>AI Workflow &amp; Tools</span>
+                  </div>
+                  <div class="hero-cta-row">
+                    <button class="hero-cta-primary" type="button">Gespräch vereinbaren</button>
+                    <div class="hero-cta-secondary">Case: Door-to-Door &amp; Glasfaser in sensiblen Alltagssituationen.</div>
+                  </div>
+                </div>
+                <div class="hero-image group"> <!-- Added group class -->
+                  <div class="hero-image-inner overflow-hidden aspect-[3/2]"> <!-- Added overflow-hidden and aspect-[3/2] -->
+                    <img src="../img3/01_telekom_shoot_sess_04.png" alt="Brand-Architektur im Raum" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"> <!-- Added img tag with styling -->
+                  </div>
+                  <div class="hero-image-overlay-label">img3/01_telekom_shoot_sess_04.png – Brand-Architektur im Raum</div>
+                </div>
+              </header>
+
+ <!-- SECTION: Ausgangspunkt – Einstieg ins Projekt -->
+              <section class="mb-10">
+                <h3 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1] whitespace-normal break-words px-6 lg:px-12">
+                  Ausgangspunkt
+                </h3>
+
+                <div class="relative w-full aspect-video md:aspect-[2.5/1] overflow-hidden group"> <!-- Added group class -->
+                  <img src="../case_assets/telekom-d2d_hero.png" alt="Telekom &amp; Ranger – Einstieg in das gemeinsame Projekt." class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"> <!-- Replaced div with img -->
+                  <div class="absolute inset-0 flex items-end justify-end p-6 sm:p-12">
+                    <p class="text-[#3D4654] text-right italic text-base sm:text-lg lg:text-xl leading-relaxed max-w-4xl
+                              bg-white bg-opacity-80 backdrop-blur-sm p-4 rounded-lg">
+                      „Am Anfang stand keine Kollektion oder gar eine Academy-Plattform, sondern ein Bauchgefühl. Zwischen dem Anspruch der Marke und dem, was draußen ankommt, klaffte eine Lücke. Genau diese Lücke wollten wir greifbar machen.“
+                    </p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-500 font-medium text-right mt-4 px-6 lg:px-12">Telekom &amp; Ranger – Einstieg in das gemeinsame Projekt.</p>
+              </section>
+
+
+              <!-- START case-gradient-wrapper -->
+              <div class="case-gradient-wrapper">
+                  <!-- SECTION: Case Grid – alle Projektabschnitte -->
+
+                  <section class="case-grid">
+                    <!-- SECTION 01: Status quo vor der Haustür -->
+                    <section class="case-section" id="status-quo">
+                      <div>
+                        <div class="case-section-header">
+                          <div class="case-number-wrapper">01</div>
+                          <h2 class="case-section-title">Status quo vor der Haustür</h2>
+                        </div>
+                        <div class="case-section-text">
+                          <p>
+                            Glasfaser ist begehrt, alle reden über Geschwindigkeit und Zukunftsfähigkeit – und trotzdem kommen die Abschlüsse nicht in dem Maß, wie sie könnten.
+                          </p>
+                          <p>
+                            Viele Menschen erleben Besuche an der Tür als störend und undurchsichtig. Vor den Türen stehen ständig wechselnde Anbieter, ohne klare Kennzeichnung und ohne gemeinsame Standards.
+                          </p>
+                          <p>
+                            Das Bild: viel Klingen, wenig Klarheit, viel Potenzial für ein wichtiges Infrastrukturangebot, das im Alltag oft nicht ankommt.
+                          </p>
+                        </div>
+                      </div>
+<div class="case-section-image group">
+  <div class="case-section-image-main overflow-hidden aspect-[3/2] relative">
+    <img
+      src="../case_assets/telekom-d2d_haustuer-collage.png"
+      alt="Misstrauen und unruhiges Feld an der Haustür vor Projektbeginn."
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    >
+    <div class="hero-image-overlay-label absolute left-3 bottom-3">
+      telekom-d2d_haustuer-collage.png – Misstrauen und unruhiges Feld an der Haustür vor Projektbeginn.
+    </div>
+  </div>
+</div>
+
+
+                    </section>
+
+<!-- SECTION 02: Perspektiven der Anspruchsgruppen -->
+<section class="case-section" id="anspruchsgruppen">
+  <div>
+    <div class="case-section-header">
+      <div class="case-number-wrapper">02</div>
+      <h2 class="case-section-title">Perspektiven der Anspruchsgruppen</h2>
+    </div>
+    <div class="case-section-text">
+      <p>
+        Der Ausbau von Glasfaser ist an konkrete Zeitfenster gekoppelt und steht politisch wie gesellschaftlich im Fokus. Gleichzeitig treffen hier unterschiedliche Interessen aufeinander: Kund:innen, Vertrieb, Telekom, Ranger sowie lokale Politik und Regulatoren.
+      </p>
+      <p>
+        Es gab bislang keinen klar definierten, positiv belegten Auftritt an der Haustür – teilweise war das Format negativ konnotiert. Für das Projekt haben wir umfangreiche Markt- und Bedarfsanalysen, Daten, Gespräche und Beobachtungen zusammengeführt, um diese Lage belastbar zu verstehen.
+      </p>
+    </div>
+  </div>
+
+  <div class="case-section-image">
+    <div class="case-section-image-dual">
+      <!-- Hochformat -->
+      <div class="case-section-image-tile group">
+        <div class="overflow-hidden aspect-[3/4] relative">
+          <img
+            src="../case_assets/telekom-d2d_stakeholder-meeting.png"
+            alt="Stakeholder-Gespräche"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          >
+          <div class="hero-image-overlay-label absolute left-3 bottom-3">
+            telekom-d2d_stakeholder-meeting.png – Stakeholder-Gespräche
+          </div>
+        </div>
+      </div>
+
+      <!-- Querformat -->
+      <div class="case-section-image-tile group">
+        <div class="overflow-hidden aspect-[3/2] relative">
+          <img
+            src="../case_assets/telekom-d2d_status-quo-strip.png"
+            alt="Verdichtung der Ausgangslage"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          >
+          <div class="hero-image-overlay-label absolute left-3 bottom-3">
+            telekom-d2d_status-quo-strip.png – Verdichtung der Ausgangslage
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="case-section-image-caption">telekom-d2d_stakeholder-meeting.png / telekom-d2d_status-quo-strip.png – Stakeholder-Gespräche und Verdichtung der Ausgangslage.</div> -->
+  </div>
+</section>
+
+
+<!-- SECTION Bridge: Datenwolke zu Brand-System -->
+<section class="case-section bridge-section" id="brand-system-bridge">
+	    <h3 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1] whitespace-normal break-words px-6 lg:px-12">
+                  Datenwolke wird zur spruchreifen Roadmap
+                </h3>	
+  <div style="grid-column:1 / -1;">
+
+    <div class="bridge-row" style="margin-top:0;">
+      <div class="bridge-image" style="background:transparent;border:0;box-shadow:none;">
+        <div
+          style="width:100%;aspect-ratio:16/9;border-radius:26px;overflow:hidden;background:transparent;"
+          onmouseenter="this.querySelector('img').style.transform='scale(1.06)';"
+          onmouseleave="this.querySelector('img').style.transform='scale(1)';"
+        >
+          <img
+            src="../case_assets/telekom-d2d_bauchgefuehl-brain.png"
+            alt="Datenwolke zu Brand-System"
+            style="width:100%;height:100%;display:block;object-fit:cover;object-position:center;transform:scale(1);transition:transform 700ms ease;"
+          >
+        </div>
+      </div>
+
+      <div class="bridge-symbol">
+        DATENFLUSS
+        <i data-lucide="arrow-right"></i>
+      </div>
+
+      <div class="bridge-image" style="background:transparent;border:0;box-shadow:none;">
+        <div
+          style="width:100%;aspect-ratio:16/9;border-radius:26px;overflow:hidden;background:transparent;"
+          onmouseenter="this.querySelector('img').style.transform='scale(1.06)';"
+          onmouseleave="this.querySelector('img').style.transform='scale(1)';"
+        >
+          <img
+            src="../case_assets/telekom-d2d_brand-mapper-main.png"
+            alt="Brand Mapper Main"
+            style="width:100%;height:100%;display:block;object-fit:cover;object-position:center;transform:scale(1);transition:transform 700ms ease;"
+          >
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION 03: KI-gestütztes Brand System -->
+<section class="case-section" id="brand-system">
+  <div>
+    <div class="case-section-header">
+      <div class="case-number-wrapper">03</div>
+      <h2 class="case-section-title">KI-gestütztes Brand System</h2>
+    </div>
+    <div class="case-section-text">
+      <p>
+        Statt nur an einzelnen Maßnahmen zu drehen, haben wir den Auftritt an der Haustür als System gedacht. Analysen, Gespräche und zahlreiche Teilprojekte sind in eine visuelle Karte geflossen, die Ziele, Themen und Abhängigkeiten sichtbar macht.
+      </p>
+      <p>
+        Herzstück ist mein Brand Project Mapper – eine Anwendung, die Projektwissen strukturiert, Zusammenhänge erkennt und Entscheidungen vorbereitet. Er kann Informationen zuordnen, kennt Fachabteilungen und Themen, generiert präsentationsfähige Ebenen und erzeugt Bildwelten direkt aus den hinterlegten Inhalten.
+      </p>
+      <p>
+        Daraus entstanden mehrere Teilprojekte, die in diesem Case exemplarisch gezeigt werden: Lernplattform und Behaviour, Kleidung und visuelle Identität, Launch und Rollout.
+      </p>
+      <p>
+        Brand Management, Designentscheidungen und der Aufbau der Tools lagen in einer Hand – damit das System nicht nur auf dem Papier, sondern im Alltag funktioniert.
+      </p>
+    </div>
+  </div>
+
+  <div class="case-section-image">
+    <div class="case-section-image-dual case-section-image-dual--stack">
+      <div class="case-section-image-tile">
+        <img src="../case_assets/telekom-d2d_brand-mapper-main.png" alt="Brand Mapper Main">
+      </div>
+      <div class="case-section-image-tile">
+        <img src="../case_assets/telekom-d2d_brain-to-map.png" alt="Brain to Map">
+      </div>
+    </div>
+
+    <div class="case-section-image-caption">
+      telekom-d2d_brand-mapper-main.png / telekom-d2d_brain-to-map.png – vom diffusen Bild zur strukturierten Brand-Systemkarte.
+    </div>
+  </div>
+</section>
+
+
+
+
+                    <!-- SECTION: Dynamische Umsetzung im Brand Panel -->
+                    <section class="quote-section" id="dynamic-brand-work">
+                      <div class="quote-card quote-card-wide">
+                        <div class="quote-wide-image overflow-hidden group"> <!-- Add overflow-hidden and group -->
+                          <img src="../case_assets/dynamic_brand_work.png" alt="Dynamische Umsetzung im Brand Panel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"> <!-- Add img tag -->
+                        </div>
+                        <div class="quote-label">Dynamische Umsetzung im Brand Panel</div>
+                        <p class="quote-text">
+                          In diesem Schritt werden die Informationen aus dem Brand System und die recherchierten Erkenntnisse in konkrete Umsetzung überführt. Das Panel bündelt Entscheidungen, Übersichten und To-dos so, dass die Umsetzung klar strukturiert und im Alltag deutlich erleichtert wird. Schnittstellen und Rollen sind definiert, Beteiligte können ergänzt werden und das System kann organisch mitwachsen – ohne dass der Gesamtaufbau jedes Mal neu gedacht werden muss.
+                        </p>
+                        <div class="panel-cta-row">
+                          <button class="panel-cta-button" type="button">Brand Project Mapper prototypisch erkunden</button>
+                        </div>
+                      </div>
+                    </section>
+					  
+					  
+					  
+
+                    <!-- SECTION 3.1: Kleidung & visuelle Identität -->
+<section id="teilprojekt-kleidung" class="k3-wrap">
+  <div class="k3-roof">
+    <div>
+      <div class="case-number-wrapper" style="background-color:#207cfa;color:#fff;box-shadow:none;">
+        3.1
+      </div>
+
+      <h2 class="k3-title">Kleidung &amp;<br>Identität</h2>
+
+      <div class="k3-lead">
+        Gestaltung der Arbeitskleidung als zentrales Trägermedium des Auftritts: Funktion, Sicherheit, Komfort und visuelle Identität greifen ineinander.
+        <br><br>
+        Co-Branding-Logik, Guideline und Endorsement regeln das Zusammenspiel von Telekom und Ranger – von Logos und Farben bis zu Details wie Reflektoren, Zippern und Accessoires.
+      </div>
+    </div>
+
+    <div class="k3-hero">
+      <img src="../case_assets/telekom-d2d_outfit-lineup.png" alt="Telekom Ranger Lineup">
+    </div>
+  </div>
+
+  <!-- Parallax-Hintergrund: setze hier optional ein eigenes Bild:
+       style="--k3bg:url('case_assets/DEIN_BACKGROUND.png')" -->
+  <div class="k3-shell" style="--k3bg:url('case_assets/telekom-d2d_outfit-lineup.png')">
+    <div class="k3-parallax" aria-hidden="true"></div>
+    <div class="k3-grain" aria-hidden="true"></div>
+
+    <div class="k3-track" id="k3Track" tabindex="0" aria-label="Kleidung Slider">
+      <figure class="k3-slide k3-w-wide k3-h-tall">
+        <div class="k3-media"><img src="../case_assets/telekom-d2d_outfit-lineup.png" alt="Full Lineup"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Strategic Lineup</p><p class="k3-cap-sub">Core Identity</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-mid k3-h-mid">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_01.png" alt="Sketch 1"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Initial Drafting</p><p class="k3-cap-sub">First Drafts</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-nar k3-h-low">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_02.png" alt="Pattern detail"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Pattern Design</p><p class="k3-cap-sub">Cut Logic</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-mid k3-h-tall">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_03.png" alt="Ergonomics"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Ergonomics</p><p class="k3-cap-sub">Fit Flow</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-nar k3-h-mid">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_04.png" alt="Visibility"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Visibility Logic</p><p class="k3-cap-sub">Safety System</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-nar k3-h-low">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_05.png" alt="Brand endorsement"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Brand Endorsement</p><p class="k3-cap-sub">Co-Brand</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-mid k3-h-mid">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_06.png" alt="Prototype development"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Prototype Development</p><p class="k3-cap-sub">Build Test</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-wide k3-h-tall">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_07.png" alt="Playbook"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Playbook Archive</p><p class="k3-cap-sub">The Rules</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-nar k3-h-mid">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_08.png" alt="Quality control"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Quality Control</p><p class="k3-cap-sub">QC Check</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-nar k3-h-low">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_09.png" alt="Color coding"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Color Coding</p><p class="k3-cap-sub">Color Map</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-mid k3-h-mid">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_10.png" alt="Final specs"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Final Specs</p><p class="k3-cap-sub">Final Spec</p></div></figcaption>
+      </figure>
+
+      <figure class="k3-slide k3-w-wide k3-h-tall">
+        <div class="k3-media"><img src="../case_assets/hendrik_bogner_design_11.png" alt="Ready for rollout"></div>
+        <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Rollout Readiness</p><p class="k3-cap-sub">Ready Now</p></div></figcaption>
+      </figure>
+    </div>
+
+    <div class="k3-dots" id="k3Dots" aria-label="Slider index"></div>
+  </div>
+</section>
+
+
+
+
+                    <!-- SECTION 3.2: Shooting / Photoshooting -->
+                    <section class="case-section" id="teilprojekt-lernplattform">
+                      <div>
+                        <div class="case-section-header">
+                          <div class="case-number-wrapper">3.2</div>
+                          <h2 class="case-section-title">Shooting Photoshooting</h2>
+                        </div>
+                        <div class="case-section-text">
+                          <p>
+                            Aufbau einer Plattform f&uuml;r Verhaltens- und Produktschulung. Marken- und Vertriebsanforderungen werden in konkrete Leitlinien &uuml;bersetzt.
+                          </p>
+                          <p>
+                            Bildwelten und Inhalte bereiten den Alltag an der Haust&uuml;r realistisch vor und machen Erwartungen an Rolle, Auftreten und Argumentation konkret besprechbar.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="case-section-image">
+                        <div class="case-section-image-main overflow-hidden group">
+                          <img src="../case_assets/shooting_01.png" alt="Hauptmotiv des Shootings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="case-section-image-caption">shooting_01.png &ndash; Hauptmotiv des Shootings, erg&auml;nzt um shooting_02&ndash;07 als Szenen aus der Kollektion im Einsatz.</div>
+                      </div>
+                      <div class="fashion-grid shooting-grid">
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/shooting_02.png" alt="Shooting Szene 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/shooting_03.png" alt="Shooting Szene 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/shooting_04.png" alt="Shooting Szene 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/shooting_05.png" alt="Shooting Szene 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/shooting_06.png" alt="Shooting Szene 5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/shooting_07.png" alt="Shooting Szene 6" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                      </div>
+                    </section>
+
+                    <!-- SECTION 3.3: Launch & Rollout -->
+                    <section class="case-section" id="teilprojekt-launch">
+                      <div>
+                        <div class="case-section-header">
+                          <div class="case-number-wrapper">3.3</div>
+                          <h2 class="case-section-title">Launch &amp; Rollout</h2>
+                        </div>
+                        <div class="case-section-text">
+                          <p>
+                            Einführung über Events, Summit und interne Kommunikation. Sinn und Zweck werden für Mitarbeitende nachvollziehbar gemacht, Identifikation gefördert.
+                          </p>
+                          <p>
+                            Die Umsetzung wird in Prozesse, Logistik und den täglichen Einsatz überführt – vom ersten Briefing bis zu Schulungen und Nachjustierungen im Feld.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="case-section-image">
+                        <div class="case-section-image-main overflow-hidden group">
+                          <img src="../case_assets/rollout_01.png" alt="Hauptmotiv für Launch &amp; Rollout" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="case-section-image-caption">rollout_01.png – Hauptmotiv für Launch &amp; Rollout, erg&auml;nzt um rollout_02&ndash;07 als Szenen aus Events und Alltag.</div>
+                      </div>
+                      <div class="fashion-grid rollout-grid">
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/rollout_02.png" alt="Rollout Szene 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/rollout_03.png" alt="Rollout Szene 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/rollout_04.png" alt="Rollout Szene 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/rollout_05.png" alt="Rollout Szene 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/rollout_06.png" alt="Rollout Szene 5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/rollout_07.png" alt="Rollout Szene 6" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                      </div>
+                    </section>
+
+                    <!-- SECTION 04: Vom Konzept auf die Straße -->
+                    <section class="case-section" id="arbeit-geht-los">
+                      <div>
+                        <div class="case-section-header">
+                          <div class="case-number-wrapper">04</div>
+                          <h2 class="case-section-title">Vom Konzept auf die Straße</h2>
+                        </div>
+                        <div class="case-section-text">
+                          <p>
+                            Damit das System trägt, musste jede Entscheidung durch die Praxisprobe. Skizzen, Musterteile und Prototypen sind in Tests mit Teams und Stakeholdern gegangen: Sitzt die Kleidung, halten die Materialien, funktioniert die Ausstattung im echten Einsatz.
+                          </p>
+                          <p>
+                            Parallel wurden Bildwelten, Schulungsinhalte, Guidelines und Prozesse so verknüpft, dass sie in Summe funktionieren – vom ersten Briefing über die Events bis zur letzten Retouren-Schleife.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="case-section-image">
+                        <div class="case-section-image-main overflow-hidden group">
+                          <img src="../case_assets/strasse_01.png" alt="Vom Prototyp auf der Werkbank" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="case-section-image-caption">strasse_01.png / strasse_02.png / strasse_03.png – vom Prototyp auf der Werkbank zum Auftritt auf der Straße.</div>
+                      </div>
+                      <div class="fashion-grid strasse-grid">
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/strasse_02.png" alt="Straße Szene 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/strasse_03.png" alt="Straße Szene 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                      </div>
+                    </section>
+
+                    <!-- SECTION 05: Wirkung im Alltag -->
+                    <section class="case-section" id="wirkung">
+                      <div>
+                        <div class="case-section-header">
+                          <div class="case-number-wrapper">05</div>
+                          <h2 class="case-section-title">Wirkung im Alltag</h2>
+                        </div>
+                        <div class="case-section-text">
+                          <p>
+                            Der Auftritt an der Haustür wirkt heute planbarer, ruhiger und vertrauenswürdiger. Haushalte bekommen vor Ort eine strukturierte, verständliche Beratung statt spontaner Verkaufsversuche.
+                          </p>
+                          <p>
+                            Mitarbeitende haben klare Leitplanken, spürbaren Rückhalt und Werkzeuge, mit denen sie ihren Job ernsthaft ausfüllen können.
+                          </p>
+                          <p>
+                            Für die Telekom und Ranger ist ein sensibler Kontaktpunkt entstanden, der dem eigenen Anspruch an Professionalität und Verlässlichkeit deutlich näherkommt – und als Blaupause für weitere Vertriebswege dienen kann.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="case-section-image">
+                        <div class="case-section-image-main overflow-hidden group">
+                          <img src="../case_assets/alltag_01.png" alt="Ruhige Alltagsszenen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="case-section-image-caption">alltag_01.png / alltag_02.png / alltag_03.png – ruhige Alltagsszenen mit klar erkennbarem Auftritt an der Haustür.</div>
+                      </div>
+                      <div class="fashion-grid alltag-grid">
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/alltag_02.png" alt="Alltag Szene 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="fashion-tile overflow-hidden group"><img src="../case_assets/alltag_03.png" alt="Alltag Szene 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+                      </div>
+                    </section>
+                  </section>
+
+                  <!-- SECTION: Abschluss-CTA – Gespräch vereinbaren -->
+                  <section class="cta-section" id="cta">
+                    <div class="cta-content">
+                      <div class="cta-text">
+                        <h2 class="cta-title">Lassen Sie uns über Ihren Auftritt sprechen</h2>
+                        <p class="cta-body">
+                          Wenn Sie sensible Kontaktpunkte – wie Haustür, Vertrieb oder Service – neu denken oder professionalisieren möchten, begleite ich Sie von der ersten Problemwolke bis zur Bühne: Strategie, Design und Tools aus einer Hand.
+                        </p>
+                      </div>
+                      <button class="cta-button" type="button">Gespräch vereinbaren</button>
+                    </div>
+                    <div class="cta-figure">
+                      <img src="../case_assets/HB_01.png" alt="Hendrik Bogner – Auftritt im Gespräch" class="cta-figure-img" />
+                    </div>
+                  </section>
+              </div>
+              <!-- END case-gradient-wrapper -->
+            </div>
+			
+			
+
+    
+
+            <!-- PROJECT CARD: Nature Series (K-Nature-Series-006) -->
+            <div class="lg:col-span-9 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <!-- Card: Image Carousel -->
+                <div class="relative aspect-[16/9] group">
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full relative z-0" id="carousel2">
+                        <div class="carousel-item min-w-full h-full">
+                            <img src="../img3/Telekom_Le_02.png" class="w-full h-full object-cover" alt="Telekom Scene 1">
+                        </div>
+                        <div class="carousel-item min-w-full h-full">
+                            <img src="../img3/Telekom_Le3_01.png" class="w-full h-full object-cover" alt="Telekom Scene 2">
+                        </div>
+                    </div>
+
+                    <!-- Carousel: Left Navigation Button -->
+                    <button
+                        class="absolute left-4 top-1/2 -translate-y-1/2 z-20
+                               w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full
+                               flex items-center justify-center hover:bg-white
+                               transition-all shadow-lg opacity-0 group-hover:opacity-100"
+                        onclick="scrollCarousel('carousel2', -1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="w-5 h-5 text-gray-900">
+                            <path d="m15 18-6-6 6-6"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Carousel: Right Navigation Button -->
+                    <button
+                        class="absolute right-4 top-1/2 -translate-y-1/2 z-20
+                               w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full
+                               flex items-center justify-center hover:bg-white
+                               transition-all shadow-lg opacity-0 group-hover:opacity-100"
+
+                        onclick="scrollCarousel('carousel2', 1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="w-5 h-5 text-gray-900">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Carousel: Dots Indicator -->
+                    <div class="absolute bottom-4 right-4 z-20 flex gap-2" id="carousel2-dots">
+                        <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow-lg cursor-pointer"
+                             onclick="goToSlide('carousel2', 0)"></div>
+                        <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow-lg cursor-pointer"
+                             onclick="goToSlide('carousel2', 1)"></div>
+                    </div>
+
+                </div>
+                <!-- Card: Text Content -->
+                <div class="p-7">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Nature Series</h3>
+                    <p class="text-sm text-gray-600">Zwei Welten, eine Vision</p>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Motion Story (K-Motion-Story-008) -->
+            <div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
+                <!-- Video (hidden initially, shown on click) -->
+                <video class="w-full h-full object-cover hidden" src="../video/001_3d_auto_01.mp4"></video>
+
+                <!-- Image (visible initially, hidden on video play) -->
+                <div class="h-full overflow-hidden">
+                    <img src="../img2/wireframe_car_1.png" alt="Motion Story Video Thumbnail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+
+                <!-- Play Overlay (currently disabled, kept for future use) -->
+                <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
+                    <!-- Play-Overlay aktuell deaktiviert -->
+                </div>
+
+                <!-- Copyright Label -->
+                <div class="absolute top-3 left-3 sm:top-6 sm:left-6">
+                    <span class="px-2.5 py-1 bg-black/80 backdrop-blur-sm text-white text-[10px] sm:text-xs font-semibold rounded-lg">
+                        © Hendrik Bogner – Urheber- und Designrechte.
+                    </span>
+                </div>
+
+                <!-- Text Overlay with Play Button -->
+                <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-8 pointer-events-none">
+                    <div class="max-w-xs sm:max-w-sm">
+                        <h4 class="text-white font-bold text-lg sm:text-2xl mb-1 sm:mb-2">Motion Story</h4>
+                        <p class="text-sky-50 text-xs sm:text-sm leading-relaxed">Strategien für eine sichere Zukunft</p>
+                        <p class="text-sky-50 text-xs sm:text-sm leading-relaxed">- Kundenauftrag</p>
+                        <button class="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-semibold text-gray-900 bg-white/70 hover:bg-white/90 rounded-lg pointer-events-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4">
+                                <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path>
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            <span>Abspielen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Pure Emotion (K-Pure-Emotion-010) -->
+            <div class="lg:col-span-4 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-xl">
+                <!-- Card Image -->
+                <div class="aspect-square overflow-hidden">
+                    <img src="../img3/01_telekom_shoot_sess_04.png" alt="Portrait Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <!-- Text Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg">Pure Emotion</h4>
+                        <p class="text-gray-200 text-sm mt-1">Authentische Momente</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Pipeline Status (K-Pipeline-Status-011) -->
+            <div class="lg:col-span-4 bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-gray-200">
+                <!-- Stats Headline -->
+                <div class="text-6xl font-extrabold text-[#3D4654] tracking-tight">
+                    17 Kreative Projekte
+                </div>
+                <!-- Subtitle -->
+                <h2 class="text-[28px] font-light italic text-[#3D4654] mt-2 mb-4">
+                    in der Pipeline
+                </h2>
+                <!-- Description -->
+                <p class="text-gray-500 text-sm leading-relaxed font-light">
+                    Jeden Montag eine einzigartige Geschichte von Vision und Ausführung.
+                </p>
+            </div>
+
+            <!-- PROJECT CARD: With Time (K-Mit-Zeit-012) -->
+            <div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
+                <div class="h-full overflow-hidden relative">
+                    <!-- Image (visible initially) -->
+                    <img src="../img2/002_falk_01.png" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <!-- Video (hidden initially) -->
+                    <video class="w-full h-full object-cover hidden" src="../video/002_falk_01.mp4" muted></video>
+                </div>
+
+                <!-- Play Overlay (visual, removed play icon for this card) -->
+                <div class="absolute inset-0 flex items-center justify-center video-play-overlay transition-opacity duration-300">
+                    <!-- Play-Overlay Icon placeholder (currently not rendered) -->
+                </div>
+
+                <!-- Copyright Label -->
+                <div class="absolute top-6 left-6">
+                    <span class="px-3 py-1.5 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">© Hendrik Bogner</span>
+                </div>
+
+                <!-- Text Overlay with Play Button -->
+                <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div>
+                        <h4 class="text-white font-bold text-2xl mb-2">Mit der Zeit gehen</h4>
+                        <p class="text-gray-200 text-sm leading-relaxed">Aus diesem Alltagsobjekt entwickelt das Unternehmen Hightech-Ikonen.<br>Kundenauftrag</p>
+                        <button class="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-100 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                            Abspielen
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Bold Moves (K-Bold-Moves-013) -->
+            <div class="lg:col-span-5 lg:row-span-2 rounded-2xl p-10 flex flex-col justify-center hover:scale-[1.02] transition-all duration-500 shadow-2xl overflow-hidden relative group h-full">
+                <!-- Background Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 opacity-100 transition-opacity duration-500"></div>
+                <!-- Text Content -->
+                <div class="relative z-10">
+                    <h3 class="text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4">BOLD<br>MOVES</h3>
+                    <p class="text-gray-400 text-base font-light max-w-xs">Mutige Schritte für außergewöhnliche Ergebnisse.</p>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Telekom Ranger Video Slider (K-Telekom-Ranger-015) -->
+            <div class="lg:col-span-5 lg:row-span-2 bg-gradient-to-br from-sky-50 via-white to-pink-50 text-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
+                <!-- Card: Video Carousel -->
+                <div class="relative aspect-[3/2] group">
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel3">
+                        <!-- Slide 1 (Outtake Video) -->
+                        <div class="carousel-item min-w-full h-full relative">
+                            <video class="w-full h-full object-cover" src="../video/002_3d_auto_outake.mp4" autoplay muted loop></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                            <!-- Outtake Label (commented out in original, kept for context) -->
+                            <!--
+                            <div class="pointer-events-none absolute top-4 left-4 z-30 flex flex-col shadow-lg rounded-md overflow-hidden">
+                                <div class="px-3 py-1 bg-gray-900">
+                                    <span class="text-[10px] font-semibold tracking-[0.2em] text-white uppercase">OUT</span>
+                                </div>
+                                <div class="px-3 py-1 bg-white">
+                                    <span class="text-[10px] font-semibold tracking-[0.15em] text-gray-900 uppercase">TAKE</span>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+
+                        <!-- Slide 2 (Close Up Video) -->
+                        <div class="carousel-item min-w-full h-full relative">
+                            <video class="w-full h-full object-cover" src="../video/002_close_up_01.mp4" autoplay muted loop></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-sky-900/70 via-sky-700/20 to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel: Dots Indicator -->
+                    <div class="absolute bottom-4 left-4 flex gap-2" id="carousel3-dots">
+                        <div class="carousel-dot w-8 h-1 bg-white rounded-full transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel3', 0)"></div>
+                        <div class="carousel-dot w-8 h-1 bg-white/50 rounded-full transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel3', 1)"></div>
+                    </div>
+                </div>
+
+                <!-- Card: Text Content -->
+                <div class="p-6 flex flex-col gap-2">
+                    <p class="text-xs font-medium text-[#e20074]">KI- produziert unerwartete Expression</p>
+                    <h3 class="text-2xl font-semibold leading-tight">Telekom Ranger – Sammel- und Rollout-Timeline</h3>
+                    <p class="text-sm text-gray-600">Zwei Perspektiven auf den Rollout – vom ersten Einsatz bis zur Fläche.</p>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Together What Belongs Together (K-Zusammen-Gehoert-016) -->
+            <div class="group lg:col-span-7 lg:row-span-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <!-- Card: Image Carousel -->
+                <div class="relative aspect-video">
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel1">
+                        <div class="carousel-item min-w-full h-full relative z-0">
+                            <img src="../img2/parship1.png" alt="Scene 1" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                                <span class="carousel-counter">1</span> / 3
+                            </div>
+                        </div>
+                        <div class="carousel-item min-w-full h-full relative z-0">
+                            <img src="../img2/parship2.png" alt="Scene 2" class="w-full h/full object-cover">
+                            <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                                <span class="carousel-counter">2</span> / 3
+                            </div>
+                        </div>
+                        <div class="carousel-item min-w-full h-full relative z-0">
+                            <img src="../img2/parship3.png" alt="Scene 3" class="w-full h/full object-cover">
+                            <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                                <span class="carousel-counter">3</span> / 3
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overlay for fade-out effect on hover -->
+                    <div class="pointer-events-none absolute inset-0 z-10 opacity-100 transition-opacity duration-500 group-hover:opacity-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.64)_35%,rgba(0,0,0,0.32)_60%,rgba(0,0,0,0)_100%)]"></div>
+                </div>
+
+                <!-- Card: Text Content -->
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Zusammen was zusammen gehört</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Drei Szenen, eine Vision.</p>
+                    <!-- Carousel: Dots Indicator -->
+                    <div class="flex gap-2 mt-4" id="carousel1-dots">
+                        <div class="carousel-dot w-12 h-1 bg-gray-900 rounded-full transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel1', 0)"></div>
+                        <div class="carousel-dot w-12 h-1 bg-gray-300 rounded-full transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel1', 1)"></div>
+                        <div class="carousel-dot w-12 h-1 bg-gray-300 rounded-full transition-all cursor-pointer" data-index="2" onclick="goToSlide('carousel1', 2)"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT CARD: Quote - Performance & Meaning (K-Leistung-Bedeutung-017) -->
+            <div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center hover:shadow-xl transition-all duration-500">
+                <!-- Quote Text -->
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">
+                    "Wo Leistung entsteht, muss Bedeutung folgen."
+                </p>
+                <!-- Quote Author -->
+                <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
+            </div>
+
+            <!-- PROJECT CARD: Quote - Products & Identity (K-Produkte-Was-018) -->
+            <div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center  border-purple-900 hover:shadow-xl transition-all duration-500">
+                <!-- Quote Text -->
+                <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Produkte sind das Was.<br> Marken das Wie. <br>Identität das Warum."</p>
+                <!-- Quote Author -->
+                <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="content-section gradient-background" id="Kontakt">
+        <div class="container contact-container">
+            <!-- Contact: Text Content -->
+            <div class="contact-text-wrapper">
+                <h4>Auf der Suche nach einem großen Gedanken der Unternehmen inspiriert und Kunden fasziniert?</h4>
+                <p>Kontaktieren Sie mich auf LinkedIn und lassen Sie uns gemeinsam Ihre nächsten Erfolge gestalten.</p>
+            </div>
+            <!-- Contact: Visual (Bulb Image) -->
+            <div class="contact-visual-wrapper">
+                <div class="bulb-hero">
+                    <img src="../img/bulb_web.png" alt="Leuchtende Glühbirne mit einem Gehirn darin">
+                    <div class="bulb-glow"></div>
+                </div>
+            </div>
+            <!-- Contact: Social Media Buttons -->
+            <div class="contact-buttons-v2">
+                <div class="btn-group" role="group" aria-label="Kontaktlinks">
+                    <!-- LinkedIn Button -->
+                    <a class="social-btn is-primary" href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener">
+                        <svg class="logo logo-in" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M4.8 9h3.3v9.4H4.8V9Zm1.7-6.2A2 2 0 1 1 4.7 5 2 2 0 0 1 6.5 2.8ZM10.4 9h3.1v1.3h.1c.4-.8 1.4-1.6 3.1-1.6 3.2 0 3.8 2.1 3.8 4.7v4.9h-3V14c0-1 .1-2.2-1.4-2.2s-1.6 1.1-1.6 2.2v4.4h-3.1V9Z"></path>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <!-- YouTube Button -->
+                    <a class="social-btn is-outline" href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener">
+                        <svg class="logo logo-yt" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="1.5" y="5" width="21" height="14" rx="4.2" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+                            <path d="M10 9l6 3-6 3z"></path>
+                        </svg>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<!-- ===== FOOTER SECTION ===== -->
+<footer class="main-footer gradient-background">
+    <div class="container footer-container">
+        <!-- Footer: Left Content (Logo & Copyright) -->
+        <div class="footer-left">
+            <img class="footer-logo" src="../img/main/braind_logo_und_claim.svg" alt="BRAiND Logo">
+            <span class="footer-copyright">© 2025 Hendrik Bogner</span>
+        </div>
+        <!-- Footer: Right Content (Social Media Icons) -->
+        <nav class="footer-right">
+            <a href="https://www.linkedin.com/in/hendrik-bogner/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/channel/UCsoqDeIj5ORMRD0Wq_PRk-Q" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </nav>
+    </div>
+</footer>
+
+<!-- ===== INLINE JAVASCRIPT ===== -->
+<script>
+    // Initialize Lucide icons on page load
+    lucide.createIcons();
+
+    /**
+     * Scrolls a carousel container by a specified direction.
+     * @param {string} carouselId - The ID of the carousel container.
+     * @param {number} direction - -1 for left, 1 for right.
+     */
+    function scrollCarousel(carouselId, direction) {
+        const carousel = document.getElementById(carouselId);
+        if (!carousel) return; // Ensure carousel exists
+        const scrollAmount = carousel.offsetWidth;
+        carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+    }
+
+    /**
+     * Navigates a carousel to a specific slide index.
+     * @param {string} carouselId - The ID of the carousel container.
+     * @param {number} index - The zero-based index of the slide to go to.
+     */
+    function goToSlide(carouselId, index) {
+        const carousel = document.getElementById(carouselId);
+        if (!carousel) return; // Ensure carousel exists
+        const scrollAmount = carousel.offsetWidth;
+        carousel.scrollTo({ left: scrollAmount * index, behavior: 'smooth' });
+    }
+
+    /**
+     * Updates the active state of carousel dots based on current scroll position.
+     * @param {string} carouselId - The ID of the carousel container.
+     */
+    function updateCarouselDots(carouselId) {
+        const carousel = document.getElementById(carouselId);
+        const dotsContainer = document.getElementById(carouselId + '-dots');
+
+        if (!carousel || !dotsContainer) return;
+
+        // Event listener for scroll to update dots
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const scrollWidth = carousel.offsetWidth;
+            // Calculate current index, rounding to handle partial scrolls
+            const currentIndex = Math.round(scrollLeft / scrollWidth);
+
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    // Apply active styles based on carousel type
+                    if (carouselId === 'carousel1') {
+
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-gray-900');
+                    } else {
+                        dot.classList.remove('bg-white/50');
+                        dot.classList.add('bg-white');
+                    }}
+                 else {
+                    // Apply inactive styles based on carousel type
+                    if (carouselId === 'carousel1') {
+                        dot.classList.remove('bg-gray-900');
+                        dot.classList.add('bg-gray-300');
+                    } else {
+                        dot.classList.remove('bg-white');
+                        dot.classList.add('bg-white/50');
+                    }
+                }
+            });
+        });
+
+        // Initialize dots state on page load
+        const initialIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+        const initialDots = dotsContainer.querySelectorAll('.carousel-dot');
+        initialDots.forEach((dot, index) => {
+            if (index === initialIndex) {
+                if (carouselId === 'carousel1') { dot.classList.add('bg-gray-900'); dot.classList.remove('bg-gray-300'); }
+                else { dot.classList.add('bg-white'); dot.classList.remove('bg-white/50'); }
+            } else {
+                if (carouselId === 'carousel1') { dot.classList.add('bg-gray-300'); dot.classList.remove('bg-gray-900'); }
+                else { dot.classList.add('bg-white/50'); dot.classList.remove('bg-white'); }
+            }
+        });
+    }
+
+    // Initialize carousel dots for all carousels
+    updateCarouselDots('carousel1');
+    updateCarouselDots('carousel2');
+    updateCarouselDots('carousel3');
+    updateCarouselDots('carousel4');
+
+    /**
+     * Plays a video within a given element, hiding its thumbnail image and showing controls.
+     * @param {HTMLElement} element - The parent element containing the video and image.
+     */
+    window.playVideo = function (element) {
+        const video = element.querySelector('video');
+        const img = element.querySelector('img');
+        const overlay = element.querySelector('.video-play-overlay');
+
+        if (!video) return;
+
+        // Hide image and overlay if they exist
+        if (img) img.classList.add('hidden');
+        if (overlay) overlay.classList.add('hidden');
+
+        // Show video and play it
+        video.classList.remove('hidden');
+        video.setAttribute('controls', 'true');
+        video.play();
+    };
+
+    /**
+     * Toggles the like state (icon color) on a button.
+     * Note: Original implementation seemed to toggle the heart icon itself, this is adjusted to just toggle color.
+     * @param {HTMLButtonElement} button - The like button element.
+     * @param {Event} event - The click event to prevent propagation.
+     */
+    function toggleLike(button, event) {
+        event.stopPropagation();
+        const icon = button.querySelector('.like-icon'); // Assumes an element with class 'like-icon'
+        // If the intention was to toggle between two different lucide icons, the data-lucide attribute would need to change.
+        // Current setup just toggles text-red-500 class assuming 'heart' is always the icon.
+        if (icon) {
+            icon.classList.toggle('text-red-500');
+            icon.classList.toggle('text-gray-900');
+            // Re-create icons if the lucide icon name itself was changing, though not needed for just color.
+            // lucide.createIcons();
+        }
+    }
+
+    /**
+     * Adds touch swipe support for carousel containers.
+     */
+    document.querySelectorAll('.carousel-container').forEach(carousel => {
+        let startX = 0;
+        let scrollLeft = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX;
+            scrollLeft = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = (startX - x) * 2; // Adjust multiplier for desired swipe sensitivity
+            carousel.scrollLeft = scrollLeft + walk;
+        });
+    });
+</script>
+<script>
+(() => {
+  const track = document.getElementById('k3Track');
+  const dotsWrap = document.getElementById('k3Dots');
+  const shell = track?.closest('.k3-shell');
+  const bg = shell?.querySelector('.k3-parallax');
+  if (!track || !shell) return;
+
+  const slides = Array.from(track.querySelectorAll('.k3-slide'));
+  if (!slides.length) return;
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+  const makeDots = () => {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'k3-dot';
+      b.setAttribute('aria-label', 'Slide ' + (i + 1));
+      b.addEventListener('click', () => {
+        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+      dotsWrap.appendChild(b);
+    });
+  };
+
+  const activeIndex = () => {
+    const r = track.getBoundingClientRect();
+    const center = r.left + r.width / 2;
+
+    let best = 0;
+    let bestDist = Infinity;
+
+    slides.forEach((el, i) => {
+      const er = el.getBoundingClientRect();
+      const c = er.left + er.width / 2;
+      const d = Math.abs(c - center);
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    return best;
+  };
+
+  const setActive = (idx) => {
+    slides.forEach((el, i) => el.classList.toggle('is-active', i === idx));
+    if (dotsWrap) {
+      const dots = Array.from(dotsWrap.querySelectorAll('.k3-dot'));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    }
+  };
+
+  const parallaxCaptions = () => {
+    const tr = track.getBoundingClientRect();
+    const center = tr.left + tr.width / 2;
+
+    slides.forEach((el) => {
+      const cap = el.querySelector('.k3-caption-inner');
+      if (!cap) return;
+
+      const er = el.getBoundingClientRect();
+      const elCenter = er.left + er.width / 2;
+      const delta = (elCenter - center) / tr.width;
+
+      const x = clamp(delta * -26, -26, 26);
+      const y = clamp(delta * 18, -18, 18);
+      cap.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    });
+  };
+
+  const parallaxBackground = () => {
+    if (!bg) return;
+    const max = track.scrollWidth - track.clientWidth;
+    const p = max > 0 ? (track.scrollLeft / max) : 0;
+    const x = (p - 0.5) * 120;
+    bg.style.transform = `translate3d(${x}px,0,0) scale(1.08)`;
+  };
+
+  /* Autoplay: sehr sanft, pausiert bei Interaktion, läuft dann wieder an */
+  let autoplay = true;
+  let last = performance.now();
+  let idleTimer = 0;
+
+  const pause = () => {
+    autoplay = false;
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => { autoplay = true; }, 2000);
+  };
+
+  track.addEventListener('wheel', pause, { passive:true });
+  track.addEventListener('pointerdown', pause);
+  track.addEventListener('touchstart', pause, { passive:true });
+  track.addEventListener('keydown', pause);
+
+  const tick = (ts) => {
+    const dt = Math.min(40, ts - last);
+    last = ts;
+
+    if (autoplay) {
+      track.scrollLeft += 0.18 * dt;
+      const end = track.scrollWidth - track.clientWidth - 2;
+      if (track.scrollLeft >= end) track.scrollLeft = 0;
+    }
+
+    requestAnimationFrame(tick);
+  };
+
+  let raf = 0;
+  const onScroll = () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const idx = activeIndex();
+      setActive(idx);
+      parallaxCaptions();
+      parallaxBackground();
+    });
+  };
+
+  makeDots();
+  onScroll();
+
+  track.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', () => { makeDots(); onScroll(); });
+
+  requestAnimationFrame(tick);
+})();
+</script>
+
+</body>
+</html>

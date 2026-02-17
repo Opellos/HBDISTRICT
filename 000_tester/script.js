@@ -231,25 +231,78 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCarouselDots('carousel3');
   updateCarouselDots('carousel4');
 
-  // Touch-Swipe Support
-  document.querySelectorAll('.carousel-container').forEach(carousel => {
+  // Drag/Swipe + Tastaturzugriff für Carousels
+  document.querySelectorAll('.carousel-container').forEach((carousel) => {
+    let isPointerDown = false;
     let startX = 0;
+    let startY = 0;
     let scrollLeft = 0;
+    let moved = false;
 
-    carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX;
+    const startDrag = (event) => {
+      isPointerDown = true;
+      moved = false;
+      startX = event.clientX;
+      startY = event.clientY;
       scrollLeft = carousel.scrollLeft;
-    }, { passive: true });
+      carousel.classList.add('is-dragging');
+      carousel.setPointerCapture?.(event.pointerId);
+    };
 
-    carousel.addEventListener('touchmove', (e) => {
-      const x = e.touches[0].pageX;
-      const walk = (startX - x) * 2;
-      carousel.scrollLeft = scrollLeft + walk;
-    }, { passive: true });
+    const moveDrag = (event) => {
+      if (!isPointerDown) return;
+
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+
+      if (Math.abs(deltaX) > 6) moved = true;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        event.preventDefault();
+        carousel.scrollLeft = scrollLeft - deltaX * 1.15;
+      }
+    };
+
+    const endDrag = (event) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      carousel.classList.remove('is-dragging');
+      if (event.pointerId != null) carousel.releasePointerCapture?.(event.pointerId);
+
+      if (moved) {
+        const suppressClick = (clickEvent) => {
+          clickEvent.preventDefault();
+          clickEvent.stopPropagation();
+          carousel.removeEventListener('click', suppressClick, true);
+        };
+        carousel.addEventListener('click', suppressClick, true);
+      }
+    };
+
+    carousel.addEventListener('pointerdown', startDrag);
+    carousel.addEventListener('pointermove', moveDrag, { passive: false });
+    carousel.addEventListener('pointerup', endDrag);
+    carousel.addEventListener('pointercancel', endDrag);
+    carousel.addEventListener('pointerleave', endDrag);
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        window.scrollCarousel(carousel.id, 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        window.scrollCarousel(carousel.id, -1);
+      }
+    });
   });
 
-  // 3.1 Slider initialisieren
-  initK3Slider();
+  // K3 Slider initialisieren
+  initK3Slider('k3Track');
+  initK3Slider('k3Track32');
+  initK3Slider('k3Track33');
+  initCarouselParallax('carousel1');
+  initRoadmapThemeSwitch();
 });
 
 /**
@@ -274,6 +327,7 @@ window.goToSlide = function (carouselId, index) {
   if (!carousel) return;
   const scrollAmount = carousel.offsetWidth;
   carousel.scrollTo({ left: scrollAmount * index, behavior: 'smooth' });
+  carousel.focus({ preventScroll: true });
 };
 
 /**
@@ -292,7 +346,11 @@ function updateCarouselDots(carouselId) {
 
     const dots = dotsContainer.querySelectorAll('.carousel-dot');
     dots.forEach((dot, index) => {
-      if (index === currentIndex) {
+      const isActive = index === currentIndex;
+      dot.setAttribute('aria-selected', String(isActive));
+      dot.setAttribute('tabindex', isActive ? '0' : '-1');
+
+      if (isActive) {
         if (carouselId === 'carousel1') {
           dot.classList.remove('bg-gray-300');
           dot.classList.add('bg-gray-900');
@@ -314,6 +372,36 @@ function updateCarouselDots(carouselId) {
 
   carousel.addEventListener('scroll', applyState, { passive: true });
   applyState();
+}
+
+function initCarouselParallax(carouselId) {
+  const carousel = document.getElementById(carouselId);
+  if (!carousel) return;
+
+  const mediaItems = Array.from(carousel.querySelectorAll('[data-parallax-media]'));
+  if (!mediaItems.length) return;
+
+  mediaItems.forEach((item) => {
+    item.setAttribute('draggable', 'false');
+  });
+
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+  const render = () => {
+    const width = carousel.offsetWidth || 1;
+    const progress = carousel.scrollLeft / width;
+
+    mediaItems.forEach((item, index) => {
+      const distance = index - progress;
+      const offset = clamp(distance * 24, -24, 24);
+      const scale = clamp(1.08 - Math.abs(distance) * 0.05, 1.01, 1.08);
+      item.style.transform = `translate3d(${offset}px, 0, 0) scale(${scale})`;
+    });
+  };
+
+  carousel.addEventListener('scroll', render, { passive: true });
+  window.addEventListener('resize', render);
+  render();
 }
 
 /**
@@ -338,9 +426,8 @@ window.playVideo = function (element) {
 /**
  * 3.1 Slider (k3) – exakt einmal initialisieren
  */
-function initK3Slider() {
-  const track = document.getElementById('k3Track');
-  const dotsWrap = document.getElementById('k3Dots');
+function initK3Slider(trackId) {
+  const track = document.getElementById(trackId);
   const shell = track?.closest('.k3-shell');
   const bg = shell?.querySelector('.k3-parallax');
   if (!track || !shell) return;
@@ -348,27 +435,16 @@ function initK3Slider() {
   const slides = Array.from(track.querySelectorAll('.k3-slide'));
   if (!slides.length) return;
 
-  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  track.setAttribute('role', 'region');
+  track.setAttribute('aria-roledescription', 'carousel');
+  if (!track.hasAttribute('tabindex')) track.setAttribute('tabindex', '0');
 
-  const makeDots = () => {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'k3-dot';
-      b.setAttribute('aria-label', 'Slide ' + (i + 1));
-      b.addEventListener('click', () => {
-        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      });
-      dotsWrap.appendChild(b);
-    });
-  };
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const mediaScaleBase = trackId === 'k3Track' ? 1 : 0.65;
 
   const activeIndex = () => {
     const r = track.getBoundingClientRect();
     const center = r.left + r.width / 2;
-
     let best = 0;
     let bestDist = Infinity;
 
@@ -378,18 +454,22 @@ function initK3Slider() {
       const d = Math.abs(c - center);
       if (d < bestDist) { bestDist = d; best = i; }
     });
+
     return best;
   };
 
   const setActive = (idx) => {
-    slides.forEach((el, i) => el.classList.toggle('is-active', i === idx));
-    if (dotsWrap) {
-      const dots = Array.from(dotsWrap.querySelectorAll('.k3-dot'));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
-    }
+    slides.forEach((el, i) => {
+      const active = i === idx;
+      el.classList.toggle('is-active', active);
+      el.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
   };
 
-  const parallaxCaptions = () => {
+  let smoothLeft = track.scrollLeft;
+  let smoothVelocity = 0;
+
+  const parallaxCaptions = (scrollLeftRef = track.scrollLeft) => {
     const tr = track.getBoundingClientRect();
     const center = tr.left + tr.width / 2;
 
@@ -398,67 +478,165 @@ function initK3Slider() {
       if (!cap) return;
 
       const er = el.getBoundingClientRect();
-      const elCenter = er.left + er.width / 2;
+      const visualShift = track.scrollLeft - scrollLeftRef;
+      const elCenter = er.left + er.width / 2 + visualShift;
       const delta = (elCenter - center) / tr.width;
 
-      const x = clamp(delta * -26, -26, 26);
+      const x = clamp(delta * -68, -68, 68);
       const y = clamp(delta * 18, -18, 18);
       cap.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
   };
 
-  const parallaxBackground = () => {
-    if (!bg) return;
-    const max = track.scrollWidth - track.clientWidth;
-    const p = max > 0 ? (track.scrollLeft / max) : 0;
-    const x = (p - 0.5) * 120;
-    bg.style.transform = `translate3d(${x}px,0,0) scale(1.08)`;
-  };
+  const parallaxMedia = (scrollLeftRef = track.scrollLeft) => {
+    const tr = track.getBoundingClientRect();
+    const center = tr.left + tr.width / 2;
 
-  let autoplay = true;
-  let last = performance.now();
-  let idleTimer = 0;
+    slides.forEach((el) => {
+      const media = el.querySelector('.k3-media img');
+      if (!media) return;
 
-  const pause = () => {
-    autoplay = false;
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => { autoplay = true; }, 2000);
-  };
+      const er = el.getBoundingClientRect();
+      const visualShift = track.scrollLeft - scrollLeftRef;
+      const elCenter = er.left + er.width / 2 + visualShift;
+      const delta = (elCenter - center) / tr.width;
 
-  track.addEventListener('wheel', pause, { passive:true });
-  track.addEventListener('pointerdown', pause);
-  track.addEventListener('touchstart', pause, { passive:true });
-  track.addEventListener('keydown', pause);
-
-  const tick = (ts) => {
-    const dt = Math.min(40, ts - last);
-    last = ts;
-
-    if (autoplay) {
-      track.scrollLeft += 0.18 * dt;
-      const end = track.scrollWidth - track.clientWidth - 2;
-      if (track.scrollLeft >= end) track.scrollLeft = 0;
-    }
-
-    requestAnimationFrame(tick);
-  };
-
-  let raf = 0;
-  const onScroll = () => {
-    cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const idx = activeIndex();
-      setActive(idx);
-      parallaxCaptions();
-      parallaxBackground();
+      const x = clamp(delta * -54, -54, 54);
+      const rawScale = clamp(1.14 - Math.abs(delta) * 0.16, 1.0, 1.14);
+      const scale = trackId === 'k3Track'
+        ? rawScale
+        : clamp(rawScale * mediaScaleBase, 0.62, 0.78);
+      media.style.transform = `translate3d(${x}px,0,0) scale(${scale})`;
     });
   };
 
-  makeDots();
+  const parallaxBackground = (scrollLeftRef = track.scrollLeft) => {
+    if (!bg) return;
+    const max = track.scrollWidth - track.clientWidth;
+    const p = max > 0 ? (scrollLeftRef / max) : 0;
+    const x = (p - 0.5) * 220;
+    bg.style.transform = `translate3d(${x}px,0,0) scale(1.12)`;
+  };
+
+  const scrollToIndex = (idx) => {
+    const target = slides[idx];
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  };
+
+  let isPointerDown = false;
+  let startX = 0;
+  let startY = 0;
+  let baseLeft = 0;
+  let moved = false;
+
+  const onPointerDown = (event) => {
+    isPointerDown = true;
+    moved = false;
+    startX = event.clientX;
+    startY = event.clientY;
+    baseLeft = track.scrollLeft;
+    track.classList.add('is-dragging');
+    track.setPointerCapture?.(event.pointerId);
+  };
+
+  const onPointerMove = (event) => {
+    if (!isPointerDown) return;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    if (Math.abs(dx) > 6) moved = true;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      event.preventDefault();
+      track.scrollLeft = baseLeft - dx * 1.08;
+    }
+  };
+
+  const onPointerEnd = (event) => {
+    if (!isPointerDown) return;
+    isPointerDown = false;
+    track.classList.remove('is-dragging');
+    if (event.pointerId != null) track.releasePointerCapture?.(event.pointerId);
+
+    if (moved) {
+      const suppressClick = (clickEvent) => {
+        clickEvent.preventDefault();
+        clickEvent.stopPropagation();
+        track.removeEventListener('click', suppressClick, true);
+      };
+      track.addEventListener('click', suppressClick, true);
+    }
+
+    scrollToIndex(activeIndex());
+  };
+
+  track.addEventListener('pointerdown', onPointerDown);
+  track.addEventListener('pointermove', onPointerMove, { passive: false });
+  track.addEventListener('pointerup', onPointerEnd);
+  track.addEventListener('pointercancel', onPointerEnd);
+  track.addEventListener('pointerleave', onPointerEnd);
+
+  track.addEventListener('wheel', (event) => {
+    const mostlyVertical = Math.abs(event.deltaY) > Math.abs(event.deltaX);
+    if (mostlyVertical) return;
+    event.preventDefault();
+    track.scrollLeft += event.deltaY + event.deltaX;
+  }, { passive: false });
+
+  track.addEventListener('keydown', (event) => {
+    const idx = activeIndex();
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      scrollToIndex(Math.min(slides.length - 1, idx + 1));
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      scrollToIndex(Math.max(0, idx - 1));
+    }
+  });
+
+  let raf = 0;
+  const renderParallax = () => {
+    const force = (track.scrollLeft - smoothLeft) * 0.16;
+    smoothVelocity = (smoothVelocity + force) * 0.78;
+    smoothLeft += smoothVelocity;
+
+    setActive(activeIndex());
+    parallaxCaptions(smoothLeft);
+    parallaxMedia(smoothLeft);
+    parallaxBackground(smoothLeft);
+
+    raf = requestAnimationFrame(renderParallax);
+  };
+
+  const onScroll = () => {
+    if (!raf) raf = requestAnimationFrame(renderParallax);
+  };
+
   onScroll();
+  track.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+}
 
-  track.addEventListener('scroll', onScroll, { passive:true });
-  window.addEventListener('resize', () => { makeDots(); onScroll(); });
 
-  requestAnimationFrame(tick);
+
+
+function initRoadmapThemeSwitch() {
+  const trigger = document.getElementById('brand-system-bridge');
+  if (!trigger) return;
+
+  const applyState = () => {
+    const triggerTop = trigger.getBoundingClientRect().top + window.scrollY;
+    const switchLine = window.scrollY + Math.max(80, window.innerHeight * 0.18);
+    document.body.classList.toggle('roadmap-theme-active', switchLine >= triggerTop);
+  };
+
+  applyState();
+  window.addEventListener('scroll', applyState, { passive: true });
+  window.addEventListener('resize', applyState);
+}
+
+function initScrollReveal() {
+  // Scrollytelling vorerst deaktiviert (auf Wunsch), bis ein klarer Motion-Flow neu aufgebaut wird.
 }
