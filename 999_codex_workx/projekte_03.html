@@ -146,22 +146,6 @@
         background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.70)) !important;
         box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05) !important;
     }
-    
-    /* Slider image container sizing and spacing for k3Track33 (Launch & Rollout) to match master slider */
-    #k3Track33 .k3-w-wide { width: min(84vw, 980px) !important; }
-    #k3Track33 .k3-w-mid  { width: min(66vw, 820px) !important; }
-    #k3Track33 .k3-w-nar  { width: min(50vw, 640px) !important; }
-    #k3Track33 .k3-h-tall { height: clamp(320px, 52vh, 560px) !important; }
-    #k3Track33 .k3-h-mid  { height: clamp(280px, 46vh, 500px) !important; }
-    #k3Track33 .k3-h-low  { height: clamp(240px, 40vh, 440px) !important; }
-    #k3Track33 {
-        gap: 22px !important;
-        scroll-padding: 12vw !important;
-    }
-
-    @media (max-width:880px){
-      #k3Track33 { scroll-padding: 10vw !important; }
-    }
     /* End CI 260215-01 */
 
     /* CI 260215-04 */
@@ -530,17 +514,6 @@
     }
     #dynamic-brand-work .quote-card .quote-wide-image {
         margin-bottom: 0.5rem;
-    }
-
-    /* Kleidung & Identität (#teilprojekt-kleidung) */
-    #teilprojekt-kleidung .k3-hero img {
-        border-radius: 6px !important;
-    }
-    #teilprojekt-kleidung .k3-media {
-        border-radius: 6px !important;
-    }
-    #teilprojekt-kleidung .k3-media img {
-        border-radius: 6px !important;
     }
 
     /* Arbeit geht los (K Kaufmann - #arbeit-geht-los) */
@@ -1074,72 +1047,6 @@
                   <img src="case_assets/telekom-d2d_outfit-lineup.png" alt="Telekom Ranger Lineup">
                 </div>
               </div>
-
-              <div class="k3-shell" style="--k3bg:url('case_assets/telekom-d2d_outfit-lineup.png')">
-                <div class="k3-parallax" aria-hidden="true"></div>
-                <div class="k3-grain" aria-hidden="true"></div>
-                <div class="k3-drag-hint" aria-hidden="true"><span>Swipe</span><i></i></div>
-
-                <div class="k3-track" id="k3Track" data-k3-track tabindex="0" aria-label="Kleidung Slider">
-                  
-
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_01.png" alt="Sketch 1"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Initial Drafting</p><p class="k3-cap-sub">First Drafts</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_02.png" alt="Pattern detail"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Pattern Design</p><p class="k3-cap-sub">Cut Logic</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-mid k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_03.png" alt="Ergonomics"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Ergonomics</p><p class="k3-cap-sub">Fit Flow</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_04.png" alt="Visibility"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Visibility Logic</p><p class="k3-cap-sub">Safety System</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_05.png" alt="Brand endorsement"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Brand Endorsement</p><p class="k3-cap-sub">Co-Brand</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_06.png" alt="Prototype development"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Prototype Development</p><p class="k3-cap-sub">Build Test</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_07.png" alt="Playbook"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Playbook Archive</p><p class="k3-cap-sub">The Rules</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_08.png" alt="Quality control"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Quality Control</p><p class="k3-cap-sub">QC Check</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_09.png" alt="Color coding"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Color Coding</p><p class="k3-cap-sub">Color Map</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_10.png" alt="Final specs"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Final Specs</p><p class="k3-cap-sub">Final Spec</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_11.png" alt="Ready for rollout"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Rollout Readiness</p><p class="k3-cap-sub">Ready Now</p></div></figcaption>
-                  </figure>
-                </div>
-
-              </div>
             </section>
 
             <!-- SECTION 3.2: Shooting / Photoshooting -->
@@ -1162,44 +1069,6 @@
                   <img src="case_assets/shooting_01.png" alt="Hauptmotiv des Shootings">
                 </div>
               </div>
-
-              <div class="k3-shell" style="--k3bg:url('case_assets/shooting_01.png')">
-                <div class="k3-parallax" aria-hidden="true"></div>
-                <div class="k3-grain" aria-hidden="true"></div>
-                <div class="k3-drag-hint" aria-hidden="true"><span>Swipe</span><i></i></div>
-
-                <div class="k3-track" id="k3Track32" data-k3-track tabindex="0" aria-label="Shooting Slider">
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/shooting_01.png" alt="Shooting Hauptmotiv"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Shooting Hero</p><p class="k3-cap-sub">Main Motif</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/shooting_02.png" alt="Shooting Szene 1"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">On Set</p><p class="k3-cap-sub">Sequence 01</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/shooting_03.png" alt="Shooting Szene 2"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Team Focus</p><p class="k3-cap-sub">Sequence 02</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/shooting_04.png" alt="Shooting Szene 3"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Visual Proof</p><p class="k3-cap-sub">Sequence 03</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/shooting_05.png" alt="Shooting Szene 4"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Brand Fit</p><p class="k3-cap-sub">Sequence 04</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/shooting_06.png" alt="Shooting Szene 5"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Field Story</p><p class="k3-cap-sub">Sequence 05</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/shooting_07.png" alt="Collection Ready"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Collection Ready</p><p class="k3-cap-sub">Sequence 06</p></div></figcaption>
-                  </figure>
-
-                </div>
-              </div>
             </section>
 
             <!-- SECTION 3.3: Launch & Rollout -->
@@ -1220,43 +1089,6 @@
 
                 <div class="k3-hero">
                   <img src="case_assets/rollout_01.png" alt="Hauptmotiv für Launch und Rollout">
-                </div>
-              </div>
-
-              <div class="k3-shell" style="--k3bg:url('case_assets/rollout_01.png')">
-                <div class="k3-parallax" aria-hidden="true"></div>
-                <div class="k3-grain" aria-hidden="true"></div>
-                <div class="k3-drag-hint" aria-hidden="true"><span>Swipe</span><i></i></div>
-
-                <div class="k3-track" id="k3Track33" data-k3-track tabindex="0" aria-label="Launch und Rollout Slider">
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/rollout_01.png" alt="Rollout Hauptmotiv"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Rollout Kickoff</p><p class="k3-cap-sub">Main Motif</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/rollout_02.png" alt="Rollout Szene 1"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Launch Event</p><p class="k3-cap-sub">Phase 01</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/rollout_03.png" alt="Rollout Szene 2"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Summit Sync</p><p class="k3-cap-sub">Phase 02</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/rollout_04.png" alt="Rollout Szene 3"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Team Enablement</p><p class="k3-cap-sub">Phase 03</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/rollout_05.png" alt="Rollout Szene 4"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Ops Transfer</p><p class="k3-cap-sub">Phase 04</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/rollout_06.png" alt="Rollout Szene 5"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Daily Use</p><p class="k3-cap-sub">Phase 05</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/rollout_07.png" alt="Rollout Szene 6"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Scale Ready</p><p class="k3-cap-sub">Phase 06</p></div></figcaption>
-                  </figure>
                 </div>
               </div>
             </section>
