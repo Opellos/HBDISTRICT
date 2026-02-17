@@ -227,8 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Carousel Dots initialisieren (falls existierend)
   updateCarouselDots('carousel1');
-  updateCarouselDots('carousel2');
-  updateCarouselDots('carousel3');
   updateCarouselDots('carousel4');
 
   // Drag/Swipe + Tastaturzugriff für Carousels
