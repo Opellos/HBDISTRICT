@@ -67,17 +67,17 @@
 
     /* Image alignment in case sections */
     .case-section-image {
-        margin-top: 0 !important;
-        align-self: flex-start !important;
+        margin-top: 0;
+        align-self: flex-start;
     }
 
     /* Constrain tall image in Anspruchsgruppen (second image) */
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-        max-width: min(78%, 360px) !important;
-        align-self: flex-start !important;
+        max-width: min(78%, 360px);
+        align-self: flex-start;
     }
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .aspect-"3/4" {
-        aspect-ratio: 3/4 !important;
+        aspect-ratio: 3/4;
     }
 
     /* Dynamic Brand Panel Typography and Button */
