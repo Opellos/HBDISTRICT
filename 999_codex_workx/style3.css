@@ -146,62 +146,62 @@
         /* CI 260215-06 */
         /* CORRECTED: Removed problematic 'object-fit: contain' and ensured proper height for central image crop. */
         #section-260215-05 .relative.w-full.aspect-video {
-            aspect-ratio: auto !important;
-            min-height: 300px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            padding-bottom: 0 !important; /* Override Tailwind's aspect-video padding */
+            aspect-ratio: auto;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 0; /* Override Tailwind's aspect-video padding */
         }
 
         #section-260215-04-image {
-            position: static !important;
-            margin-bottom: 1rem !important;
-            height: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            object-fit: cover !important; /* CORRECTED: Now covers the container and crops centrally */
-            object-position: center !important; /* Ensures the central part (face) is visible */
-            min-height: 250px !important; /* Ensures the image has sufficient height */
+            position: static;
+            margin-bottom: 1rem;
+            height: auto;
+            width: 100%;
+            max-width: 100%;
+            object-fit: cover; /* CORRECTED: Now covers the container and crops centrally */
+            object-position: center; /* Ensures the central part (face) is visible */
+            min-height: 250px; /* Ensures the image has sufficient height */
         }
         /* End CI 260215-06 */
 
         /* Parent container of image and quote box */
         #section-260215-04 { /* The section itself */
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important; /* Align content to the left */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
         }
         
         /* The image container div */
         #section-260215-04 .relative.w-full.aspect-video {
-            display: flex !important; /* Make it a flex container for its children */
-            flex-direction: column !important; /* Stack image and quote internally if needed */
-            height: auto !important;
-            aspect-ratio: auto !important; /* Remove fixed aspect ratio for mobile stacking */
-            padding-bottom: 0 !important; /* Remove padding-bottom from aspect-video */
-            width: 100% !important;
+            display: flex; /* Make it a flex container for its children */
+            flex-direction: column; /* Stack image and quote internally if needed */
+            height: auto;
+            aspect-ratio: auto; /* Remove fixed aspect ratio for mobile stacking */
+            padding-bottom: 0; /* Remove padding-bottom from aspect-video */
+            width: 100%;
         }
 
         /* The actual image */
         #section-260215-04-image {
-            position: static !important;
-            margin-bottom: 1rem !important;
-            height: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
+            position: static;
+            margin-bottom: 1rem;
+            height: auto;
+            width: 100%;
+            max-width: 100%;
         }
 
         /* The quote box container (div#section-260215-02) */
         .section-260215-04-quote-container {
-            position: static !important;
-            padding: 0 1rem !important;
-            width: 100% !important;
-            margin-top: 0 !important;
-            align-items: flex-start !important;
-            justify-content: flex-start !important;
-            box-sizing: border-box !important;
+            position: static;
+            padding: 0 1rem;
+            width: 100%;
+            margin-top: 0;
+            align-items: flex-start;
+            justify-content: flex-start;
+            box-sizing: border-box;
         }
 
         /* The quote text itself (p tag inside .section-260215-04-quote-container) */
@@ -213,14 +213,14 @@
         
         /* Specific override for the general quote container on mobile to reset original rules */
         #section-260215-02 {
-          position: static !important;
-          inset: auto !important;
-          width: 100% !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          flex-direction: column !important;
-          align-items: flex-start !important;
-          justify-content: flex-start !important;
+          position: static;
+          inset: auto;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
         }
 
         /* Mobile quote style for the main quote */
@@ -237,39 +237,39 @@
 
     /* CI 260215-05 */
     #section-260215-04-image {
-        object-fit: cover !important;
-        object-position: center !important;
+        object-fit: cover;
+        object-position: center;
     }
 
     .section-260215-04-quote-container {
-        right: clamp(1rem, 2vw, 3rem) !important;
-        bottom: clamp(1rem, 2vw, 3rem) !important;
-        left: auto !important;
-        width: auto !important;
+        right: clamp(1rem, 2vw, 3rem);
+        bottom: clamp(1rem, 2vw, 3rem);
+        left: auto;
+        width: auto;
         max-width: 450px;
-        justify-content: flex-end !important;
-        align-items: flex-end !important;
-        padding: 0 !important;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 0;
         z-index: 10;
     }
 
     @media (max-width: 768px) {
         .hide-on-mobile {
-            display: none !important;
+            display: none;
         }
-        /* Overridden by CI 260215-06: #section-260215-04-image { width: 100% !important; height: auto !important; object-fit: contain !important; } */
+        /* Overridden by CI 260215-06: #section-260215-04-image { width: 100%; height: auto; object-fit: contain; } */
 
         .section-260215-04-quote-container {
-            position: static !important;
-            width: 100% !important;
-            margin-top: 1.5rem !important;
-            right: auto !important;
-            bottom: auto !important;
-            left: auto !important;
-            max-width: none !important;
-            justify-content: flex-start !important;
-            align-items: flex-start !important;
-            padding: 0 1rem !important;
+            position: static;
+            width: 100%;
+            margin-top: 1.5rem;
+            right: auto;
+            bottom: auto;
+            left: auto;
+            max-width: none;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0 1rem;
         }
         .section-260215-02-quote-style {
             font-size: clamp(0.95rem, 4vw, 1.25rem);
@@ -279,26 +279,26 @@
             max-width: 100%;
         }
         #section-260215-05-bridge-stack {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            padding: 0 1rem !important;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1rem;
         }
         #section-260215-05-bridge-stack .bridge-image,
         #section-260215-05-bridge-stack .bridge-symbol {
-            width: 100% !important;
-            margin: 0 !important;
-            height: auto !important;
-            min-height: auto !important;
+            width: 100%;
+            margin: 0;
+            height: auto;
+            min-height: auto;
         }
         #section-260215-05-bridge-stack .bridge-symbol {
-            order: 2 !important;
+            order: 2;
         }
         #section-260215-05-bridge-stack .bridge-image:first-child {
-            order: 1 !important;
+            order: 1;
         }
         #section-260215-05-bridge-stack .bridge-image:last-child {
-            order: 3 !important;
+            order: 3;
         }
     }
 
