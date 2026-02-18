@@ -100,24 +100,24 @@
     }
 
     .panel-cta-button {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 12px 24px !important;
-      font-size: 0.875rem !important;
-      font-weight: 600 !important;
-      color: #0f172a !important;
-      background: linear-gradient(to top, rgba(255,255,255,0.85), rgba(255,255,255,0.50)) !important;
-      border-radius: 12px !important;
-      border: 1px solid rgba(255,255,255,0.70) !important;
-      backdrop-filter: blur(4px) !important;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06) !important;
-      transition: all 0.2s ease-in-out !important;
-      min-height: auto !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0f172a;
+      background: linear-gradient(to top, rgba(255,255,255,0.85), rgba(255,255,255,0.50));
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.70);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+      transition: all 0.2s ease-in-out;
+      min-height: auto;
     }
     .panel-cta-button:hover {
-        background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.70)) !important;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05) !important;
+        background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.70));
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
     }
     /* End CI 260215-01 */
 
