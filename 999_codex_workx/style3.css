@@ -123,22 +123,22 @@
 
     /* CI 260215-04 */
     .section-260215-02-quote-style {
-        max-width: 700px !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        padding: 1.8rem 3rem !important;
-        border-radius: 1.5rem !important;
-        background: rgba(255, 255, 255, 0.9) !important;
-        color: var(--color-text-primary) !important;
-        font-family: var(--font-primary) !important;
-        font-weight: 500 !important;
-        font-style: italic !important;
-        font-size: clamp(1.05rem, 2vw, 1.4rem) !important;
-        line-height: 1.6 !important;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
-        border: 1px solid rgba(0, 0, 0, 0.05) !important;
-        backdrop-filter: blur(6px) !important;
-        -webkit-backdrop-filter: blur(6px) !important;
+        max-width: 700px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 1.8rem 3rem;
+        border-radius: 1.5rem;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--color-text-primary);
+        font-family: var(--font-primary);
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(1.05rem, 2vw, 1.4rem);
+        line-height: 1.6;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
     }
 
     /* Mobile adjustments for image and quote box position */
@@ -206,9 +206,9 @@
 
         /* The quote text itself (p tag inside .section-260215-04-quote-container) */
         .section-260215-02-quote-style {
-            text-align: left !important;
-            padding-left: 0.5rem !important;
-            padding-right: 0.5rem !important;
+            text-align: left;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
         }
         
         /* Specific override for the general quote container on mobile to reset original rules */
@@ -225,11 +225,11 @@
 
         /* Mobile quote style for the main quote */
         .section-260215-02-quote-style {
-            max-width: 90% !important;
-            padding: 1.2rem 1.8rem !important;
-            border-radius: 1.25rem !important;
-            font-size: 1.05rem !important;
-            text-align: left !important;
+            max-width: 90%;
+            padding: 1.2rem 1.8rem;
+            border-radius: 1.25rem;
+            font-size: 1.05rem;
+            text-align: left;
         }
 
     }
@@ -272,11 +272,11 @@
             padding: 0 1rem !important;
         }
         .section-260215-02-quote-style {
-            font-size: clamp(0.95rem, 4vw, 1.25rem) !important;
-            padding: 1rem 1.2rem !important;
-            border-radius: 1rem !important;
-            text-align: left !important;
-            max-width: 100% !important;
+            font-size: clamp(0.95rem, 4vw, 1.25rem);
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
+            text-align: left;
+            max-width: 100%;
         }
         #section-260215-05-bridge-stack {
             display: flex !important;
@@ -534,13 +534,13 @@
 
         /* Adjust quote style for transparency and compactness */
         .section-260215-02-quote-style {
-            background: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
-            padding: 1.2rem 2.5rem !important;
-            max-width: 650px !important;
-            font-size: clamp(1rem, 1.8vw, 1.3rem) !important;
-            text-align: center !important;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.2rem 2.5rem;
+            max-width: 650px;
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            text-align: center;
         }
     }
     /* End CI 260215-09 */
@@ -555,17 +555,17 @@
             max-width: 450px !important;
         }
         .section-260215-02-quote-style {
-            background: rgba(255, 255, 255, 0.5) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            text-align: left !important;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: left;
         }
     }
     @media (max-width: 768px) { /* Mobile styles */
         .section-260215-02-quote-style {
-            background: rgba(255, 255, 255, 0.5) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
     }
     /* End CI 260215-10 */
