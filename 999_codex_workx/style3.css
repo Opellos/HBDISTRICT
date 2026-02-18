@@ -491,19 +491,19 @@
 
     /* Arbeit geht los (K Kaufmann - #arbeit-geht-los) */
     #arbeit-geht-los.case-section.k3-section-head {
-        padding-left: clamp(1rem, 2vw, 1.5rem) !important;
-        padding-right: clamp(1rem, 2vw, 1.5rem) !important;
+        padding-left: clamp(1rem, 2vw, 1.5rem);
+        padding-right: clamp(1rem, 2vw, 1.5rem);
     }
     #arbeit-geht-los .case-section-image-main,
     #arbeit-geht-los .fashion-grid.strasse-grid {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 
     /* Ensure named-spacer has appropriate top/bottom margin */
     .named-spacer-260215-01 {
-        margin-top: 50px !important;
-        margin-bottom: 50px !important;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
     /* End CI 260215-08 */
 
@@ -511,24 +511,24 @@
     @media (min-width: 769px) { /* Apply only to desktop and larger screens */
         /* Adjust image container height/aspect ratio */
         #section-260215-05 .relative.w-full.aspect-video {
-            aspect-ratio: 2.5 / 1 !important; /* Revert to original desired aspect ratio */
-            min-height: 350px !important;
-            max-height: 500px !important;
+            aspect-ratio: 2.5 / 1; /* Revert to original desired aspect ratio */
+            min-height: 350px;
+            max-height: 500px;
         }
 
         /* Reset quote container positioning for desktop */
         .section-260215-04-quote-container {
-            position: absolute !important;
-            inset: auto !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            max-width: none !important;
-            display: flex !important;
-            align-items: flex-end !important;
-            justify-content: center !important;
-            padding: 1.5rem 1rem !important;
+            position: absolute;
+            inset: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: none;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1.5rem 1rem;
             z-index: 10;
         }
 
@@ -548,11 +548,11 @@
     /* CI 260215-10 */
     @media (min-width: 769px) { /* Desktop styles */
         .section-260215-04-quote-container {
-            left: clamp(1rem, 2vw, 3rem) !important;
-            right: auto !important;
-            justify-content: flex-start !important;
-            width: auto !important;
-            max-width: 450px !important;
+            left: clamp(1rem, 2vw, 3rem);
+            right: auto;
+            justify-content: flex-start;
+            width: auto;
+            max-width: 450px;
         }
         .section-260215-02-quote-style {
             background: rgba(255, 255, 255, 0.5);
