@@ -384,82 +384,82 @@
     .k3-wrap .k3-hero,
     .cta-section,
     .quote-card {
-        border-radius: 6px !important;
+        border-radius: 6px;
     }
 
     /* Ausgangspunkt (B Berta - #section-260215-05) */
     #section-260215-05 #section-260215-04-image {
-        object-fit: cover !important;
-        object-position: center !important;
+        object-fit: cover;
+        object-position: center;
     }
     #section-260215-05 .section-260215-04-quote-container {
-        bottom: clamp(1rem, 2vw, 1.5rem) !important;
-        right: clamp(1rem, 2vw, 1.5rem) !important;
+        bottom: clamp(1rem, 2vw, 1.5rem);
+        right: clamp(1rem, 2vw, 1.5rem);
         max-width: 400px;
     }
     @media (max-width: 768px) {
         #section-260215-05 .section-260215-04-quote-container {
-            margin-top: 1rem !important;
-            bottom: auto !important;
-            right: auto !important;
-            left: auto !important;
-            padding: 0 1rem !important;
+            margin-top: 1rem;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            padding: 0 1rem;
         }
     }
 
     /* Anspruchsgruppen (G Gustav - #anspruchsgruppen) */
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
-        max-width: 100% !important;
+        max-width: 100%;
     }
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden.aspect-"3/4" {
-        object-fit: cover !important;
-        background-color: transparent !important;
+        object-fit: cover;
+        background-color: transparent;
     }
 
     /* KI-gestütztes Brand System (A - #brand-system-bridge & #brand-system) */
     /* Reduce margin-top for heading */
     #brand-system-bridge h3.text-5xl.lg\:text-6xl {
-        margin-top: 2rem !important;
-        margin-bottom: 1.5rem !important;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
     @media (min-width: 1024px) {
         #brand-system-bridge h3.text-5xl.lg\:text-6xl {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
     /* Images wider, larger, corners less round */
     #section-260215-05-bridge-stack .bridge-image > div {
-        aspect-ratio: 16/9 !important;
-        border-radius: 6px !important;
+        aspect-ratio: 16/9;
+        border-radius: 6px;
     }
     #section-260215-05-bridge-stack .bridge-image img {
-        object-fit: cover !important;
-        object-position: center !important;
-        height: 100% !important;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
     }
     /* Space between images (gap for bridge-row) */
     #section-260215-05-bridge-stack {
-        gap: 2rem !important;
+        gap: 2rem;
     }
     
     /* Dataflow animation */
     .bridge-symbol.dataflow-loop {
-        min-width: 160px !important;
-        min-height: 50px !important;
-        font-size: 1.1rem !important;
-        font-weight: 700 !important;
-        color: #fff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0.5rem 1rem !important;
-        border: 1px dashed rgba(255, 255, 255, 0.4) !important;
-        background: linear-gradient(90deg, #207cfa, #ff3cd0) !important;
-        box-shadow: 0 0 15px rgba(255, 60, 208, 0.6), 0 0 15px rgba(32, 124, 250, 0.6) !important;
+        min-width: 160px;
+        min-height: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        border: 1px dashed rgba(255, 255, 255, 0.4);
+        background: linear-gradient(90deg, #207cfa, #ff3cd0);
+        box-shadow: 0 0 15px rgba(255, 60, 208, 0.6), 0 0 15px rgba(32, 124, 250, 0.6);
         position: relative;
         z-index: 2;
     }
@@ -468,15 +468,15 @@
         display: none;
     }
     .bridge-symbol.dataflow-loop::after {
-        content: 'Data Flow' !important;
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        border-radius: 0 !important;
-        background: none !important;
-        filter: none !important;
-        animation: none !important;
-        color: inherit !important;
+        content: 'Data Flow';
+        position: static;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        background: none;
+        filter: none;
+        animation: none;
+        color: inherit;
     }
 
     /* Dynamische Umsetzung im Brand Panel (#dynamic-brand-work) */
