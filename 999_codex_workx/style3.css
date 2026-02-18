@@ -303,68 +303,68 @@
     }
 
     #section-260215-05-spacer {
-        margin-top: clamp(60px, 8vw, 100px) !important;
-        margin-bottom: clamp(60px, 8vw, 100px) !important;
+        margin-top: clamp(60px, 8vw, 100px);
+        margin-bottom: clamp(60px, 8vw, 100px);
     }
     /* End CI 260215-05 */
     
     /* CI 260215-07 */
     #section-260215-05 .relative.w-full.aspect-video {
-        aspect-ratio: 16/9 !important; /* Set to 16:9 aspect ratio */
-        min-height: 400px !important; /* Minimum height for desktop */
+        aspect-ratio: 16/9; /* Set to 16:9 aspect ratio */
+        min-height: 400px; /* Minimum height for desktop */
     }
 
     #section-260215-04-image {
-        object-fit: cover !important; /* Ensure cover for zoom effect */
-        object-position: center !important;
+        object-fit: cover; /* Ensure cover for zoom effect */
+        object-position: center;
     }
 
     @media (min-width: 769px) {
         #section-260215-05 .relative.w-full.aspect-video {
-            min-height: 450px !important; /* Increase height for larger screens */
+            min-height: 450px; /* Increase height for larger screens */
         }
     }
 
     #anspruchsgruppen .case-section-image-dual {
-        display: flex !important;
-        flex-direction: column !important; /* Always stack */
-        gap: 1.5rem !important;
-        width: 100% !important;
+        display: flex;
+        flex-direction: column; /* Always stack */
+        gap: 1.5rem;
+        width: 100%;
     }
 
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
-        max-width: 100% !important; /* Allow full width for both images */
-        flex: 1 1 auto !important;
-        width: 100% !important;
+        max-width: 100%; /* Allow full width for both images */
+        flex: 1 1 auto;
+        width: 100%;
     }
 
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child .overflow-hidden.aspect-"3/2" {
-        aspect-ratio: 16/9 !important;
+        aspect-ratio: 16/9;
     }
 
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden.aspect-"3/4" {
-        aspect-ratio: 3/4 !important;
+        aspect-ratio: 3/4;
         max-height: 500px;
         object-fit: contain;
         background-color: #f8f8f8;
     }
 
     .fashion-grid.strasse-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 0 1rem !important;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .fashion-grid.strasse-grid .fashion-tile {
-        aspect-ratio: 16/9 !important;
-        height: auto !important;
-        width: 100% !important;
+        aspect-ratio: 16/9;
+        height: auto;
+        width: 100%;
     }
 
     @media (min-width: 769px) {
         .fashion-grid.strasse-grid {
-            padding: 0 !important;
+            padding: 0;
         }
     }
     /* End CI 260215-07 */
