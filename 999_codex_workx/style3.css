@@ -674,6 +674,7 @@
 
 /* Überschriften auf Referenzstil „Kleidung und Identität“ angleichen */
 .case-section-title,
+.case-section.k3-section-head .case-section-title,
 #brand-system-bridge > h3,
 .k3-wrap .k3-title,
 .cta-title {
@@ -682,6 +683,7 @@
 }
 
 .case-section-title,
+.case-section.k3-section-head .case-section-title,
 #brand-system-bridge > h3,
 .cta-title {
   font-size: clamp(2.1rem, 5vw, 4.2rem);
