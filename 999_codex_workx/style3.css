@@ -658,3 +658,115 @@
     align-self: center;
   }
 }
+
+/* CI 260220-01: Batch layout/type refinements per visual review */
+.hero-text::before {
+  inset: auto -22% -24% -22%;
+  height: 66%;
+  opacity: 0.34;
+  filter: blur(22px);
+}
+
+.hero-meta span {
+  border: 0;
+  background: transparent;
+}
+
+/* Überschriften auf Referenzstil „Kleidung und Identität“ angleichen */
+.case-section-title,
+#brand-system-bridge > h3,
+.k3-wrap .k3-title,
+.cta-title {
+  color: #26313f;
+  letter-spacing: -0.05em;
+}
+
+.case-section-title,
+#brand-system-bridge > h3,
+.cta-title {
+  font-size: clamp(2.1rem, 5vw, 4.2rem);
+  line-height: 0.92;
+  font-weight: 900;
+}
+
+/* Fließtext +2 % (nur Content-Text) */
+.hero-subtitle,
+.case-section-text p,
+#dynamic-brand-work .quote-text,
+.k3-wrap .k3-lead,
+.cta-body {
+  font-size: calc(1em * 1.02);
+}
+
+@media (min-width: 1024px) {
+  /* Dynamische Umsetzung im Brandpanel: Text kompakter */
+  #dynamic-brand-work .quote-text {
+    max-width: 33%;
+  }
+
+  /* KI-gestütztes Brand System: stärkere Staffelung der Bildkacheln */
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translateY(-20%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translateY(20%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    top: 50%;
+  }
+}
+
+/* Einheitliche Corner-Radius-Referenz aus „Vertiefung & Umsetzung“ */
+.case-section-image-main,
+.case-section-image-tile,
+.case-section-image-dual .overflow-hidden,
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img,
+.quote-wide-image,
+.k3-wrap .k3-media,
+.k3-wrap .k3-hero,
+.fashion-tile,
+.hero-image-inner {
+  border-radius: 6px;
+}
+
+@media (max-width: 880px) {
+  /* Ausgangspunkt mobil: Bildausschnitt leicht nach links */
+  #section-260215-04-image {
+    object-position: 15% center;
+  }
+
+  /* Ausgangspunkt mobil: Zitatbox breiter, kein Abschneiden */
+  .section-260215-04-quote-container {
+    padding: 0.65rem 0.75rem;
+    inset-inline: 0;
+    width: 100%;
+  }
+
+  .section-260215-02-quote-style {
+    width: min(100%, 34rem);
+    max-width: none;
+    margin: 0 auto;
+    padding: 0.95rem 1.1rem;
+    box-sizing: border-box;
+    line-height: 1.45;
+  }
+
+  /* Perspektiven mobil: zweites Bild ohne rechte Lücke auf volle Breite */
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden,
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden img {
+    width: 100%;
+  }
+
+  #dynamic-brand-work .quote-text {
+    max-width: 100%;
+  }
+}
