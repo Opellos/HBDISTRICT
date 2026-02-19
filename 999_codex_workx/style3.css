@@ -569,3 +569,92 @@
         }
     }
     /* End CI 260215-10 */
+
+/* CI 260219-01: Section spacing and bridge overlap refinements */
+@media (min-width: 881px) {
+  /* Aufgabe 1: mehr Abstand zwischen Text und Bild + kompaktere Textbreite */
+  #status-quo.case-section {
+    gap: clamp(40px, 5vw, 84px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.15fr);
+  }
+  #status-quo .case-section-text {
+    max-width: 62ch;
+  }
+  #status-quo .case-section-image {
+    margin-top: 0;
+  }
+
+  /* Aufgabe 2: erstes Bild auf Überschriftenhöhe, Reihenfolge in HTML vertauscht */
+  #anspruchsgruppen.case-section {
+    gap: clamp(40px, 5vw, 84px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.15fr);
+  }
+  #anspruchsgruppen .case-section-image {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+
+  /* Aufgabe 4: Vertiefung & Umsetzung – Bild auf Überschriftenhöhe + mehr Luft */
+  #brand-system.case-section {
+    gap: clamp(42px, 5vw, 88px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+  }
+  #brand-system .case-section-text {
+    max-width: 62ch;
+  }
+  #brand-system .case-section-image {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+
+  /* Aufgabe 3: KI-gestütztes Brand System – größere, überlappende Bilder */
+  #section-260215-05-bridge-stack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: clamp(320px, 36vw, 520px);
+    gap: 0;
+    padding: clamp(10px, 1.2vw, 18px) 0;
+    overflow: visible;
+  }
+  #section-260215-05-bridge-stack .bridge-image {
+    width: min(52%, 760px);
+    position: relative;
+  }
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    margin-right: clamp(-110px, -8vw, -56px);
+    z-index: 1;
+  }
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    margin-left: clamp(-110px, -8vw, -56px);
+    z-index: 2;
+  }
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    min-width: clamp(130px, 12vw, 180px);
+  }
+}
+
+@media (max-width: 880px) {
+  #section-260215-05-bridge-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  #section-260215-05-bridge-stack .bridge-image,
+  #section-260215-05-bridge-stack .bridge-symbol {
+    width: 100%;
+    margin: 0;
+  }
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    position: static;
+    transform: none;
+    align-self: center;
+  }
+}
