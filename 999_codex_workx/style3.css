@@ -772,3 +772,246 @@
     max-width: 100%;
   }
 }
+
+/* CI 260220-02: Requested visual tuning pass */
+.featured-case-top {
+  margin: 0 0 14px;
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.hero-label,
+.hero-label-dot,
+.hero-cta-secondary {
+  display: none;
+}
+
+.hero-meta {
+  gap: 8px 10px;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-meta span:not(:last-child)::after {
+  content: "|";
+  margin-left: 10px;
+  color: #7a8393;
+  font-weight: 500;
+}
+
+/* Markentechnik right teaser should use free right space better */
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) {
+  min-height: 100%;
+}
+
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) .space-y-3,
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) .space-y-3 > div {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  /* Status quo image desktop shift left ~30px */
+  #status-quo .case-section-image-main {
+    transform: translateX(-30px);
+  }
+
+  /* Perspektiven: extra gap + overlap composition */
+  #anspruchsgruppen.case-section {
+    gap: clamp(52px, 6vw, 96px);
+    align-items: start;
+  }
+
+  #anspruchsgruppen .case-section-image-dual {
+    position: relative;
+    display: block;
+    min-height: clamp(440px, 42vw, 610px);
+    padding-top: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(360px, 31vw, 520px);
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(260px, 22vw, 360px);
+    max-width: none;
+    position: absolute;
+    left: clamp(0px, 2.1vw, 38px);
+    bottom: clamp(-44px, -3.4vw, -16px);
+    z-index: 2;
+  }
+
+  /* KI-Brand-System more dynamic offsets */
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translate(-2%, -28%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translate(2%, 28%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    min-width: clamp(170px, 15vw, 260px);
+    letter-spacing: 0.03em;
+    animation: dataFlowPulse 2.4s ease-in-out infinite;
+  }
+
+  /* Vom Konzept + Wirkung: more text/image gap */
+  #arbeit-geht-los.case-section,
+  #wirkung.case-section {
+    gap: clamp(52px, 6vw, 100px);
+  }
+
+  /* Vom Konzept lower two images smaller with spacing */
+  #arbeit-geht-los .fashion-grid.strasse-grid {
+    width: min(74%, 920px);
+    margin: 26px auto 0;
+    gap: clamp(14px, 1.6vw, 24px);
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid .fashion-tile {
+    max-width: min(43vw, 420px);
+    margin: 0 auto;
+  }
+
+  /* Dynamic brand panel layout */
+  #dynamic-brand-work .quote-card {
+    display: grid;
+    gap: 12px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-label {
+    order: 1;
+    margin-bottom: 4px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    order: 2;
+    position: relative;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    position: absolute;
+    left: clamp(18px, 2vw, 32px);
+    bottom: clamp(16px, 2vw, 28px);
+    max-width: min(42ch, 43%);
+    margin: 0;
+    padding: clamp(12px, 1.4vw, 18px);
+    border: 1px solid rgba(236, 72, 153, 0.25);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.78));
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    z-index: 2;
+  }
+
+  #dynamic-brand-work .quote-card .panel-cta-row {
+    order: 3;
+    margin-top: 2px;
+    justify-content: center;
+  }
+
+  .panel-cta-button {
+    border-color: rgba(236, 72, 153, 0.24);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.94));
+  }
+
+  /* CTA figure position: bottom aligned, head above card */
+  .cta-section {
+    overflow: visible;
+  }
+
+  .cta-figure {
+    align-self: end;
+    margin-top: 0;
+    transform: translateY(68px);
+    pointer-events: none;
+  }
+
+  .cta-figure-img {
+    object-position: center bottom;
+    max-height: clamp(320px, 28vw, 460px);
+  }
+}
+
+@media (max-width: 1023px) {
+  #status-quo .case-section-image-main {
+    transform: none;
+  }
+
+  #anspruchsgruppen .case-section-image-dual {
+    display: grid;
+    gap: 12px;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    min-width: 160px;
+    animation: dataFlowPulse 2.4s ease-in-out infinite;
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid {
+    width: 100%;
+    gap: 12px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    position: relative;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    position: static;
+    max-width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .cta-figure {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 880px) {
+  /* Ausgangspunkt mobile quote: wider + visible lower edge */
+  .section-260215-04-quote-container {
+    padding: 0.4rem 0.15rem 0.8rem;
+  }
+
+  .section-260215-02-quote-style {
+    width: min(96vw, 36rem);
+    border: 1px solid rgba(148, 163, 184, 0.34);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    animation: none;
+    transform: none;
+  }
+}
+
+@keyframes dataFlowPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 rgba(236, 72, 153, 0.35), 0 0 0 rgba(59, 130, 246, 0.25);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 18px rgba(236, 72, 153, 0.48), 0 0 30px rgba(59, 130, 246, 0.32);
+  }
+}
