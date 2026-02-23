@@ -1015,3 +1015,206 @@
     box-shadow: 0 0 18px rgba(236, 72, 153, 0.48), 0 0 30px rgba(59, 130, 246, 0.32);
   }
 }
+
+/* CI 260220-03: Mobile density + final visual corrections */
+.feature-pill-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 0.8vw, 12px) clamp(16px, 1.6vw, 28px);
+  border: 1px solid rgba(59, 130, 246, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.hero-meta span:not(:last-child)::after {
+  margin-left: 8px;
+  margin-right: 2px;
+}
+
+/* Dezentere, responsive Bildrundungen */
+.case-section-image-main,
+.case-section-image-tile,
+.case-section-image-dual .overflow-hidden,
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img,
+.quote-wide-image,
+.k3-wrap .k3-media,
+.k3-wrap .k3-hero,
+.fashion-tile,
+.hero-image-inner,
+.cta-section,
+.quote-card {
+  border-radius: 4px;
+}
+
+/* Verlauf intensiver und früher */
+.case-gradient-wrapper,
+#dynamic-brand-work,
+#brand-system,
+#arbeit-geht-los,
+#wirkung {
+  background-image: radial-gradient(120% 82% at 7% 4%, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0) 48%),
+    radial-gradient(112% 78% at 93% 4%, rgba(236, 72, 153, 0.22), rgba(236, 72, 153, 0) 52%);
+}
+
+/* Fließtext auf 18px */
+.hero-subtitle,
+.case-section-text p,
+.k3-wrap .k3-lead,
+#dynamic-brand-work .quote-text,
+.cta-body {
+  font-size: 18px;
+  line-height: 1.58;
+}
+
+@media (min-width: 1024px) {
+  /* KI-Headline muss frei bleiben */
+  #brand-system-bridge > h3,
+  #brand-system-bridge h3.text-5xl.lg\:text-6xl {
+    position: relative;
+    z-index: 4;
+    margin-bottom: clamp(20px, 2.4vw, 34px);
+  }
+
+  #section-260215-05-bridge-stack {
+    margin-top: clamp(18px, 2vw, 30px);
+    z-index: 2;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translate(-1%, -18%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translate(1%, 24%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img {
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    border-radius: 4px;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.2);
+  }
+
+  /* Perspektiven: erstes Bild etwas kleiner, zweites größer/höher/mehr links */
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(320px, 27vw, 450px);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(300px, 24vw, 390px);
+    left: clamp(-14px, 1.2vw, 16px);
+    bottom: clamp(6px, 1.6vw, 26px);
+  }
+}
+
+@media (max-width: 1023px) {
+  /* Bilder nebeneinander mobil untereinander */
+  .fashion-grid,
+  .fashion-grid.strasse-grid,
+  .fashion-grid.alltag-grid,
+  #anspruchsgruppen .case-section-image-dual {
+    grid-template-columns: 1fr;
+  }
+
+  .fashion-grid .fashion-tile,
+  .fashion-grid.strasse-grid .fashion-tile,
+  .fashion-grid.alltag-grid .fashion-tile,
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile,
+  #dynamic-brand-work .quote-wide-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #dynamic-brand-work .quote-card {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    min-height: clamp(220px, 52vw, 320px);
+    overflow: hidden;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 44% center;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    margin-top: 10px;
+    padding: 4px 2px;
+  }
+}
+
+@media (max-width: 880px) {
+  /* maximal 5px Seitenrand */
+  .projects-grid-section {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .projects-grid-section .case-section-image-main,
+  .projects-grid-section .case-section-image-dual,
+  .projects-grid-section .quote-wide-image,
+  .projects-grid-section .k3-hero,
+  .projects-grid-section .fashion-grid,
+  .projects-grid-section .fashion-grid .fashion-tile {
+    width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-260215-04-quote-container {
+    inset-inline: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .section-260215-02-quote-style {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0.8rem 0.85rem;
+  }
+
+  .feature-pill-title {
+    font-size: clamp(1.4rem, 8.2vw, 2rem);
+    line-height: 1;
+    width: auto;
+  }
+
+  .hero-meta {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-meta span:not(:last-child)::after {
+    margin-left: 6px;
+  }
+
+  /* mobile corner radius even subtler */
+  .case-section-image-main,
+  .case-section-image-tile,
+  .case-section-image-dual .overflow-hidden,
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img,
+  .quote-wide-image,
+  .k3-wrap .k3-media,
+  .k3-wrap .k3-hero,
+  .fashion-tile,
+  .hero-image-inner,
+  .cta-section,
+  .quote-card,
+  .section-260215-02-quote-style {
+    border-radius: 3px;
+  }
+}
