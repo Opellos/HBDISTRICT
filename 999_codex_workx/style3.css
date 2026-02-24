@@ -1302,3 +1302,27 @@
     border-radius: 2px !important;
   }
 }
+
+/* CI 260221-04: Brandpanel Entkapselung (Text aus Bild-Container) */
+#dynamic-brand-work .quote-text-overlay {
+  position: static !important;
+  max-width: 62ch;
+  margin: 10px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  #dynamic-brand-work .quote-text-overlay {
+    max-width: min(42ch, 68%);
+  }
+}
+
+@media (max-width: 880px) {
+  #dynamic-brand-work .quote-text-overlay {
+    max-width: 100% !important;
+    margin-top: 8px;
+    padding: 0 2px;
+  }
+}
