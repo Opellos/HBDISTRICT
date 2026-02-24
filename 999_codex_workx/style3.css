@@ -1218,3 +1218,24 @@
     border-radius: 3px;
   }
 }
+
+/* CI 260221-02: leichte Schlagschatten für KI-Bridge-Elemente */
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+  box-shadow: 0 6px 16px rgba(32, 124, 250, 0.18), 0 2px 8px rgba(226, 0, 116, 0.14);
+}
+
+@media (max-width: 880px) {
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img {
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12), 0 2px 5px rgba(15, 23, 42, 0.07);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    box-shadow: 0 5px 12px rgba(32, 124, 250, 0.14), 0 2px 6px rgba(226, 0, 116, 0.1);
+  }
+}
