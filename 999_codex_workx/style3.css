@@ -1326,3 +1326,33 @@
     padding: 0 2px;
   }
 }
+
+/* CI 260221-05: mobile DataFlow centering + Ecken vollständig entfernen */
+@media (max-width: 880px) {
+  /* Data Flow zentriert (gegen style2 width:100% !important) */
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    width: auto !important;
+    max-width: calc(100% - 10px);
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  /* Rundungen komplett entfernen */
+  .projects-grid-section .case-section-image-main,
+  .projects-grid-section .case-section-image-tile,
+  .projects-grid-section .case-section-image-dual .overflow-hidden,
+  .projects-grid-section .quote-wide-image,
+  .projects-grid-section .quote-card,
+  .projects-grid-section .fashion-tile,
+  .projects-grid-section .k3-hero,
+  .projects-grid-section .k3-media,
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img,
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    border-radius: 0 !important;
+  }
+}
