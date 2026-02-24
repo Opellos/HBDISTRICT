@@ -302,7 +302,7 @@ header.case-hero {
 }
 
 .hero-image {
-  border-radius: 10px !important;
+  border-radius: 0 !important;
   background: #ffffff;
   border: none;
   box-shadow: var(--shadow-soft);
@@ -734,7 +734,7 @@ header.case-hero img,
 .k3-wrap .k3-hero,
 .cta-section,
 .quote-card {
-  border-radius: 6px !important;
+  border-radius: 0 !important;
 }
 
 .case-grid img,
@@ -1507,8 +1507,7 @@ body.roadmap-theme-active .reveal-on-scroll.is-visible,
     padding: 0 1rem !important;
   }
 
-  #section-260215-05-bridge-stack .bridge-image,
-  #section-260215-05-bridge-stack .bridge-symbol {
+  #section-260215-05-bridge-stack .bridge-image {
     width: 100% !important;
     margin: 0 !important;
     height: auto !important;
@@ -1516,7 +1515,15 @@ body.roadmap-theme-active .reveal-on-scroll.is-visible,
   }
 
   #section-260215-05-bridge-stack .bridge-symbol {
+    width: auto !important;
+    max-width: calc(100% - 10px);
+    margin: 0 auto !important;
+    align-self: center !important;
+    display: inline-flex !important;
+    justify-content: center !important;
     order: 2 !important;
+    height: auto !important;
+    min-height: auto !important;
   }
 
   #section-260215-05-bridge-stack .bridge-image:first-child {
@@ -1579,7 +1586,7 @@ header.case-hero img,
 .k3-wrap .k3-hero,
 .cta-section,
 .quote-card {
-  border-radius: 10px !important;
+  border-radius: 0 !important;
 }
 
 #status-quo .hero-image-overlay-label {
