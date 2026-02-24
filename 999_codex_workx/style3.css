@@ -1303,3 +1303,96 @@
     padding: 0 2px;
   }
 }
+
+/* CI 260221-07: Glass overlays (Brandpanel text + Data Flow + Feature pill tuning) */
+.feature-pill-title {
+  font-size: clamp(1.2rem, 2.9vw, 2.35rem);
+  color: #334155;
+  border: 1px solid rgba(241, 245, 255, 0.84);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.16));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 8px 18px rgba(100, 116, 139, 0.14);
+}
+
+#dynamic-brand-work .quote-card .quote-wide-image {
+  position: relative;
+}
+
+#dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
+  position: absolute !important;
+  left: clamp(14px, 1.9vw, 30px);
+  bottom: clamp(12px, 1.9vw, 26px);
+  max-width: min(46ch, 56%);
+  margin: 0;
+  padding: clamp(12px, 1.35vw, 20px);
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.18));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+  color: #1f2937;
+  z-index: 3;
+}
+
+#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background: linear-gradient(115deg, rgba(56, 189, 248, 0.2), rgba(167, 139, 250, 0.2), rgba(244, 114, 182, 0.2));
+  color: #eef2ff;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 26px rgba(30, 64, 175, 0.24);
+  overflow: hidden;
+}
+
+#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop::before {
+  content: "";
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.42) 45%, transparent 78%);
+  transform: translateX(-130%);
+  animation: dataFlowGlassSweep 2.4s ease-in-out infinite;
+}
+
+#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop::after {
+  content: "";
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(125, 211, 252, 0.15), rgba(255, 255, 255, 0.72), rgba(244, 114, 182, 0.22));
+  transform: translateY(-50%);
+}
+
+@keyframes dataFlowGlassSweep {
+  0% { transform: translateX(-130%); }
+  55% { transform: translateX(130%); }
+  100% { transform: translateX(130%); }
+}
+
+@media (max-width: 880px) {
+  .feature-pill-title {
+    font-size: clamp(0.88rem, 4.8vw, 1.2rem);
+    padding: clamp(6px, 1.4vw, 9px) clamp(12px, 2.8vw, 16px);
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    max-width: none;
+    padding: 10px 12px;
+    font-size: clamp(0.96rem, 3.8vw, 1.08rem);
+    line-height: 1.5;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    font-size: 1rem;
+    min-width: clamp(150px, 50vw, 220px);
+  }
+}
