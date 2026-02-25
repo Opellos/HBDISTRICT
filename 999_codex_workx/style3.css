@@ -1335,46 +1335,6 @@
   z-index: 3;
 }
 
-#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
-  border: 1px solid rgba(255, 255, 255, 0.62);
-  background: linear-gradient(115deg, rgba(56, 189, 248, 0.2), rgba(167, 139, 250, 0.2), rgba(244, 114, 182, 0.2));
-  color: #eef2ff;
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 26px rgba(30, 64, 175, 0.24);
-  overflow: hidden;
-}
-
-#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop::before {
-  content: "";
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.42) 45%, transparent 78%);
-  transform: translateX(-130%);
-  animation: dataFlowGlassSweep 2.4s ease-in-out infinite;
-}
-
-#section-260215-05-bridge-stack .bridge-symbol.dataflow-loop::after {
-  content: "";
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 50%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(125, 211, 252, 0.15), rgba(255, 255, 255, 0.72), rgba(244, 114, 182, 0.22));
-  transform: translateY(-50%);
-}
-
-@keyframes dataFlowGlassSweep {
-  0% { transform: translateX(-130%); }
-  55% { transform: translateX(130%); }
-  100% { transform: translateX(130%); }
-}
-
 @media (max-width: 880px) {
   .feature-pill-title {
     font-size: clamp(0.88rem, 4.8vw, 1.2rem);
@@ -1391,10 +1351,6 @@
     line-height: 1.5;
   }
 
-  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
-    font-size: 1rem;
-    min-width: clamp(150px, 50vw, 220px);
-  }
 }
 
 /* CI 260221-08: Perspektiven Overlay skalieren + versetzen (Desktop) */
@@ -1408,9 +1364,9 @@
   }
 
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-    width: clamp(360px, 29vw, 520px);
-    left: clamp(-120px, -8.5vw, -46px);
-    bottom: clamp(34px, 4.2vw, 84px);
+    width: clamp(430px, 32vw, 620px);
+    left: clamp(-210px, -14vw, -100px);
+    bottom: clamp(-8px, 0.6vw, 18px);
     z-index: 3;
   }
 }
