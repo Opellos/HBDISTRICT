@@ -1396,3 +1396,21 @@
     min-width: clamp(150px, 50vw, 220px);
   }
 }
+
+/* CI 260221-08: Perspektiven Overlay skalieren + versetzen (Desktop) */
+@media (min-width: 1024px) {
+  #anspruchsgruppen .case-section-image-dual {
+    min-height: clamp(470px, 42vw, 620px);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(300px, 24vw, 410px);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(360px, 29vw, 520px);
+    left: clamp(-120px, -8.5vw, -46px);
+    bottom: clamp(34px, 4.2vw, 84px);
+    z-index: 3;
+  }
+}
