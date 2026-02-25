@@ -1311,7 +1311,7 @@ header.case-hero img {
 }
 
 #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-  max-width: min(78%, 360px) !important;
+  max-width: min(96%, 620px) !important;
   align-self: flex-start !important;
 }
 
@@ -1556,7 +1556,7 @@ body.roadmap-theme-active .reveal-on-scroll.is-visible,
 }
 
 .case-section-image.case-section-image-dual .case-section-image-tile:nth-child(2) {
-  max-width: min(78%, 360px) !important;
+  max-width: min(96%, 620px) !important;
   align-self: flex-start !important;
 }
 
@@ -1611,7 +1611,7 @@ header.case-hero img,
 }
 
 #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-  max-width: min(78%, 360px) !important;
+  max-width: min(96%, 620px) !important;
   align-self: flex-start !important;
 }
 

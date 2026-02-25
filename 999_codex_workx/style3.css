@@ -73,7 +73,7 @@
 
     /* Constrain tall image in Anspruchsgruppen (second image) */
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-        max-width: min(78%, 360px);
+        max-width: min(96%, 620px);
         align-self: flex-start;
     }
     #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .aspect-"3/4" {
@@ -1364,9 +1364,9 @@
   }
 
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-    width: clamp(520px, 38vw, 740px);
+    width: clamp(660px, 47vw, 920px);
     left: clamp(-280px, -19vw, -150px);
-    bottom: clamp(-22px, -1.4vw, 6px);
+    bottom: clamp(42px, 5.5vw, 110px);
     z-index: 3;
   }
 }
