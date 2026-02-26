@@ -632,8 +632,8 @@
   }
   #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 54%;
+    top: 62%;
     transform: translate(-50%, -50%);
     z-index: 3;
     min-width: clamp(130px, 12vw, 180px);
@@ -1322,7 +1322,7 @@
 #dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
   position: absolute !important;
   left: clamp(14px, 1.9vw, 30px);
-  bottom: clamp(12px, 1.9vw, 26px);
+  bottom: clamp(-112px, -8.5vw, -64px);
   max-width: min(46ch, 56%);
   margin: 0;
   padding: clamp(12px, 1.35vw, 20px);
@@ -1364,9 +1364,9 @@
   }
 
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-    width: clamp(660px, 47vw, 920px);
-    left: clamp(-280px, -19vw, -150px);
-    bottom: clamp(42px, 5.5vw, 110px);
+    width: clamp(760px, 54vw, 1040px);
+    left: clamp(-355px, -24vw, -225px);
+    bottom: clamp(102px, 9.5vw, 170px);
     z-index: 3;
   }
 }
