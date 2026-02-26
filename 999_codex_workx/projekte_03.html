@@ -24,676 +24,7 @@
   <link rel="stylesheet" href="style2.css">
 
   <!-- CI 260215-01 -->
-  <style id="section-260215-09">
-    /* W-C-I 2026-02-15 */
-    /* CI 260215-10 */
-    /* CI 260215-09 */
-    /* CI 260215-08 */
-    /* CI 260215-07 */
-    /* CI 260215-06 */
-    /* CI 260215-05 */
-    /* CI 260215-04 */
-    /* CI 260215-01 */
-    .named-spacer-260215-01 {
-      height: clamp(30px, 4vw, 50px);
-      width: 100%;
-      border: 1px dashed rgba(226, 0, 116, 0.4);
-      margin-top: 40px;
-      margin-bottom: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 0.9rem;
-      color: rgba(226, 0, 116, 0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      position: relative;
-      padding: 0 24px;
-      box-sizing: border-box;
-    }
-
-    .named-spacer-260215-01::before {
-      content: attr(data-name);
-    }
-
-    @media (max-width: 768px) {
-      .named-spacer-260215-01 {
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
-    }
-
-    @media (max-width: 768px) {
-        .projects-grid-section .relative.w-full.aspect-video > .absolute.inset-0.flex.items-end {
-            position: static !important;
-            padding: 0 !important;
-            margin-top: 1rem !important;
-            justify-content: flex-start !important;
-            align-items: flex-start !important;
-        }
-    }
-
-    /* Revert specific overlay label style to general one for #status-quo */
-    #status-quo .hero-image-overlay-label {
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        border-radius: 0 !important;
-        padding: clamp(10px, 1.2vw, 14px) clamp(14px, 2vw, 22px) !important;
-        background: rgba(14,23,37,0.68) !important;
-        border: 0 !important;
-        color: rgba(241,245,249,0.96) !important;
-        backdrop-filter: blur(0) !important;
-        -webkit-backdrop-filter: blur(0) !important;
-        font-size: clamp(0.84rem, 1.05vw, 1.08rem) !important;
-        line-height: 1.35 !important;
-        letter-spacing: 0.01em !important;
-        font-weight: 400 !important;
-    }
-
-    /* Image alignment in case sections */
-    .case-section-image {
-        margin-top: 0 !important;
-        align-self: flex-start !important;
-    }
-
-    /* Constrain tall image in Anspruchsgruppen (second image) */
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-        max-width: min(78%, 360px) !important;
-        align-self: flex-start !important;
-    }
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .aspect-"3/4" {
-        aspect-ratio: 3/4 !important;
-    }
-
-    /* Dynamic Brand Panel Typography and Button */
-    #dynamic-brand-work .quote-label {
-        font-size: clamp(2rem, 4vw, 3.5rem) !important;
-        font-weight: 800 !important;
-        line-height: 1.2 !important;
-        letter-spacing: -0.02em !important;
-        color: var(--color-text-primary) !important;
-        text-transform: none !important;
-    }
-    #dynamic-brand-work .quote-text {
-        font-size: 1.125rem !important;
-        line-height: 1.6 !important;
-        color: var(--color-text-primary) !important;
-    }
-    #dynamic-brand-work .quote-em {
-        color: var(--color-text-primary) !important;
-        font-weight: 800 !important;
-    }
-
-    .panel-cta-button {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 12px 24px !important;
-      font-size: 0.875rem !important;
-      font-weight: 600 !important;
-      color: #0f172a !important;
-      background: linear-gradient(to top, rgba(255,255,255,0.85), rgba(255,255,255,0.50)) !important;
-      border-radius: 12px !important;
-      border: 1px solid rgba(255,255,255,0.70) !important;
-      backdrop-filter: blur(4px) !important;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06) !important;
-      transition: all 0.2s ease-in-out !important;
-      min-height: auto !important;
-    }
-    .panel-cta-button:hover {
-        background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.70)) !important;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05) !important;
-    }
-    
-    /* Slider image container sizing and spacing for k3Track33 (Launch & Rollout) to match master slider */
-    #k3Track33 .k3-w-wide { width: min(84vw, 980px) !important; }
-    #k3Track33 .k3-w-mid  { width: min(66vw, 820px) !important; }
-    #k3Track33 .k3-w-nar  { width: min(50vw, 640px) !important; }
-    #k3Track33 .k3-h-tall { height: clamp(320px, 52vh, 560px) !important; }
-    #k3Track33 .k3-h-mid  { height: clamp(280px, 46vh, 500px) !important; }
-    #k3Track33 .k3-h-low  { height: clamp(240px, 40vh, 440px) !important; }
-    #k3Track33 {
-        gap: 22px !important;
-        scroll-padding: 12vw !important;
-    }
-
-    @media (max-width:880px){
-      #k3Track33 { scroll-padding: 10vw !important; }
-    }
-    /* End CI 260215-01 */
-
-    /* CI 260215-04 */
-    .section-260215-02-quote-style {
-        max-width: 700px !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        padding: 1.8rem 3rem !important;
-        border-radius: 1.5rem !important;
-        background: rgba(255, 255, 255, 0.9) !important;
-        color: var(--color-text-primary) !important;
-        font-family: var(--font-primary) !important;
-        font-weight: 500 !important;
-        font-style: italic !important;
-        font-size: clamp(1.05rem, 2vw, 1.4rem) !important;
-        line-height: 1.6 !important;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
-        border: 1px solid rgba(0, 0, 0, 0.05) !important;
-        backdrop-filter: blur(6px) !important;
-        -webkit-backdrop-filter: blur(6px) !important;
-    }
-
-    /* Mobile adjustments for image and quote box position */
-    @media (max-width: 768px) {
-        /* CI 260215-06 */
-        /* CORRECTED: Removed problematic 'object-fit: contain' and ensured proper height for central image crop. */
-        #section-260215-05 .relative.w-full.aspect-video {
-            aspect-ratio: auto !important;
-            min-height: 300px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            padding-bottom: 0 !important; /* Override Tailwind's aspect-video padding */
-        }
-
-        #section-260215-04-image {
-            position: static !important;
-            margin-bottom: 1rem !important;
-            height: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            object-fit: cover !important; /* CORRECTED: Now covers the container and crops centrally */
-            object-position: center !important; /* Ensures the central part (face) is visible */
-            min-height: 250px !important; /* Ensures the image has sufficient height */
-        }
-        /* End CI 260215-06 */
-
-        /* Parent container of image and quote box */
-        #section-260215-04 { /* The section itself */
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important; /* Align content to the left */
-        }
-        
-        /* The image container div */
-        #section-260215-04 .relative.w-full.aspect-video {
-            display: flex !important; /* Make it a flex container for its children */
-            flex-direction: column !important; /* Stack image and quote internally if needed */
-            height: auto !important;
-            aspect-ratio: auto !important; /* Remove fixed aspect ratio for mobile stacking */
-            padding-bottom: 0 !important; /* Remove padding-bottom from aspect-video */
-            width: 100% !important;
-        }
-
-        /* The actual image */
-        #section-260215-04-image {
-            position: static !important;
-            margin-bottom: 1rem !important;
-            height: auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-
-        /* The quote box container (div#section-260215-02) */
-        .section-260215-04-quote-container {
-            position: static !important;
-            padding: 0 1rem !important;
-            width: 100% !important;
-            margin-top: 0 !important;
-            align-items: flex-start !important;
-            justify-content: flex-start !important;
-            box-sizing: border-box !important;
-        }
-
-        /* The quote text itself (p tag inside .section-260215-04-quote-container) */
-        .section-260215-02-quote-style {
-            text-align: left !important;
-            padding-left: 0.5rem !important;
-            padding-right: 0.5rem !important;
-        }
-        
-        /* Specific override for the general quote container on mobile to reset original rules */
-        #section-260215-02 {
-          position: static !important;
-          inset: auto !important;
-          width: 100% !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          flex-direction: column !important;
-          align-items: flex-start !important;
-          justify-content: flex-start !important;
-        }
-
-        /* Mobile quote style for the main quote */
-        .section-260215-02-quote-style {
-            max-width: 90% !important;
-            padding: 1.2rem 1.8rem !important;
-            border-radius: 1.25rem !important;
-            font-size: 1.05rem !important;
-            text-align: left !important;
-        }
-
-    }
-    /* End CI 260215-04 */
-
-    /* CI 260215-05 */
-    #section-260215-04-image {
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-
-    .section-260215-04-quote-container {
-        right: clamp(1rem, 2vw, 3rem) !important;
-        bottom: clamp(1rem, 2vw, 3rem) !important;
-        left: auto !important;
-        width: auto !important;
-        max-width: 450px;
-        justify-content: flex-end !important;
-        align-items: flex-end !important;
-        padding: 0 !important;
-        z-index: 10;
-    }
-
-    @media (max-width: 768px) {
-        .hide-on-mobile {
-            display: none !important;
-        }
-        /* Overridden by CI 260215-06: #section-260215-04-image { width: 100% !important; height: auto !important; object-fit: contain !important; } */
-
-        .section-260215-04-quote-container {
-            position: static !important;
-            width: 100% !important;
-            margin-top: 1.5rem !important;
-            right: auto !important;
-            bottom: auto !important;
-            left: auto !important;
-            max-width: none !important;
-            justify-content: flex-start !important;
-            align-items: flex-start !important;
-            padding: 0 1rem !important;
-        }
-        .section-260215-02-quote-style {
-            font-size: clamp(0.95rem, 4vw, 1.25rem) !important;
-            padding: 1rem 1.2rem !important;
-            border-radius: 1rem !important;
-            text-align: left !important;
-            max-width: 100% !important;
-        }
-        #section-260215-05-bridge-stack {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            padding: 0 1rem !important;
-        }
-        #section-260215-05-bridge-stack .bridge-image,
-        #section-260215-05-bridge-stack .bridge-symbol {
-            width: 100% !important;
-            margin: 0 !important;
-            height: auto !important;
-            min-height: auto !important;
-        }
-        #section-260215-05-bridge-stack .bridge-symbol {
-            order: 2 !important;
-        }
-        #section-260215-05-bridge-stack .bridge-image:first-child {
-            order: 1 !important;
-        }
-        #section-260215-05-bridge-stack .bridge-image:last-child {
-            order: 3 !important;
-        }
-    }
-
-    #section-260215-05-spacer {
-        margin-top: clamp(60px, 8vw, 100px) !important;
-        margin-bottom: clamp(60px, 8vw, 100px) !important;
-    }
-    /* End CI 260215-05 */
-    
-    /* CI 260215-07 */
-    #section-260215-05 .relative.w-full.aspect-video {
-        aspect-ratio: 16/9 !important; /* Set to 16:9 aspect ratio */
-        min-height: 400px !important; /* Minimum height for desktop */
-    }
-
-    #section-260215-04-image {
-        object-fit: cover !important; /* Ensure cover for zoom effect */
-        object-position: center !important;
-    }
-
-    @media (min-width: 769px) {
-        #section-260215-05 .relative.w-full.aspect-video {
-            min-height: 450px !important; /* Increase height for larger screens */
-        }
-    }
-
-    #anspruchsgruppen .case-section-image-dual {
-        display: flex !important;
-        flex-direction: column !important; /* Always stack */
-        gap: 1.5rem !important;
-        width: 100% !important;
-    }
-
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
-        max-width: 100% !important; /* Allow full width for both images */
-        flex: 1 1 auto !important;
-        width: 100% !important;
-    }
-
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child .overflow-hidden.aspect-"3/2" {
-        aspect-ratio: 16/9 !important;
-    }
-
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden.aspect-"3/4" {
-        aspect-ratio: 3/4 !important;
-        max-height: 500px;
-        object-fit: contain;
-        background-color: #f8f8f8;
-    }
-
-    .fashion-grid.strasse-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 0 1rem !important;
-    }
-
-    .fashion-grid.strasse-grid .fashion-tile {
-        aspect-ratio: 16/9 !important;
-        height: auto !important;
-        width: 100% !important;
-    }
-
-    @media (min-width: 769px) {
-        .fashion-grid.strasse-grid {
-            padding: 0 !important;
-        }
-    }
-    /* End CI 260215-07 */
-
-    /* CI 260215-08 */
-    /* General border-radius reduction for image containers (corners less round) */
-    .projects-grid-section img,
-    .case-grid img,
-    .k3-wrap img,
-    .quote-section img,
-    header.case-hero img,
-    .case-section-image-main,
-    .case-section-image-tile,
-    .hero-image,
-    .k3-wrap .k3-media,
-    .quote-wide-image,
-    .k3-wrap .k3-hero,
-    .cta-section,
-    .quote-card {
-        border-radius: 6px !important;
-    }
-
-    /* Ausgangspunkt (B Berta - #section-260215-05) */
-    #section-260215-05 #section-260215-04-image {
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-    #section-260215-05 .section-260215-04-quote-container {
-        bottom: clamp(1rem, 2vw, 1.5rem) !important;
-        right: clamp(1rem, 2vw, 1.5rem) !important;
-        max-width: 400px;
-    }
-    @media (max-width: 768px) {
-        #section-260215-05 .section-260215-04-quote-container {
-            margin-top: 1rem !important;
-            bottom: auto !important;
-            right: auto !important;
-            left: auto !important;
-            padding: 0 1rem !important;
-        }
-    }
-
-    /* Anspruchsgruppen (G Gustav - #anspruchsgruppen) */
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
-        max-width: 100% !important;
-    }
-    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden.aspect-"3/4" {
-        object-fit: cover !important;
-        background-color: transparent !important;
-    }
-
-    /* KI-gestütztes Brand System (A - #brand-system-bridge & #brand-system) */
-    /* Reduce margin-top for heading */
-    #brand-system-bridge h3.text-5xl.lg\:text-6xl {
-        margin-top: 2rem !important;
-        margin-bottom: 1.5rem !important;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-    }
-    @media (min-width: 1024px) {
-        #brand-system-bridge h3.text-5xl.lg\:text-6xl {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
-    }
-
-    /* Images wider, larger, corners less round */
-    #section-260215-05-bridge-stack .bridge-image > div {
-        aspect-ratio: 16/9 !important;
-        border-radius: 6px !important;
-    }
-    #section-260215-05-bridge-stack .bridge-image img {
-        object-fit: cover !important;
-        object-position: center !important;
-        height: 100% !important;
-    }
-    /* Space between images (gap for bridge-row) */
-    #section-260215-05-bridge-stack {
-        gap: 2rem !important;
-    }
-    
-    /* Dataflow animation */
-    .bridge-symbol.dataflow-loop {
-        min-width: 160px !important;
-        min-height: 50px !important;
-        font-size: 1.1rem !important;
-        font-weight: 700 !important;
-        color: #fff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0.5rem 1rem !important;
-        border: 1px dashed rgba(255, 255, 255, 0.4) !important;
-        background: linear-gradient(90deg, #207cfa, #ff3cd0) !important;
-        box-shadow: 0 0 15px rgba(255, 60, 208, 0.6), 0 0 15px rgba(32, 124, 250, 0.6) !important;
-        position: relative;
-        z-index: 2;
-    }
-    .bridge-symbol.dataflow-loop::before,
-    .bridge-symbol.dataflow-loop::after {
-        display: none;
-    }
-    .bridge-symbol.dataflow-loop::after {
-        content: 'Data Flow' !important;
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        border-radius: 0 !important;
-        background: none !important;
-        filter: none !important;
-        animation: none !important;
-        color: inherit !important;
-    }
-
-    /* Dynamische Umsetzung im Brand Panel (#dynamic-brand-work) */
-    /* Remove button from image */
-    #dynamic-brand-work .quote-card .panel-cta-row {
-        margin-top: 1rem;
-        justify-content: center;
-    }
-    #dynamic-brand-work .quote-card .quote-wide-image {
-        margin-bottom: 0.5rem;
-    }
-
-    /* Kleidung & Identität (#teilprojekt-kleidung) */
-    #teilprojekt-kleidung .k3-hero img {
-        border-radius: 6px !important;
-    }
-    #teilprojekt-kleidung .k3-media {
-        border-radius: 6px !important;
-    }
-    #teilprojekt-kleidung .k3-media img {
-        border-radius: 6px !important;
-    }
-
-    /* Arbeit geht los (K Kaufmann - #arbeit-geht-los) */
-    #arbeit-geht-los.case-section.k3-section-head {
-        padding-left: clamp(1rem, 2vw, 1.5rem) !important;
-        padding-right: clamp(1rem, 2vw, 1.5rem) !important;
-    }
-    #arbeit-geht-los .case-section-image-main,
-    #arbeit-geht-los .fashion-grid.strasse-grid {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-    }
-
-    /* Ensure named-spacer has appropriate top/bottom margin */
-    .named-spacer-260215-01 {
-        margin-top: 50px !important;
-        margin-bottom: 50px !important;
-    }
-    /* End CI 260215-08 */
-
-    /* CI 260215-09 */
-    @media (min-width: 769px) { /* Apply only to desktop and larger screens */
-        /* Adjust image container height/aspect ratio */
-        #section-260215-05 .relative.w-full.aspect-video {
-            aspect-ratio: 2.5 / 1 !important; /* Revert to original desired aspect ratio */
-            min-height: 350px !important;
-            max-height: 500px !important;
-        }
-
-        /* Reset quote container positioning for desktop */
-        .section-260215-04-quote-container {
-            position: absolute !important;
-            inset: auto !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            max-width: none !important;
-            display: flex !important;
-            align-items: flex-end !important;
-            justify-content: center !important;
-            padding: 1.5rem 1rem !important;
-            z-index: 10;
-        }
-
-        /* Adjust quote style for transparency and compactness */
-        .section-260215-02-quote-style {
-            background: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
-            padding: 1.2rem 2.5rem !important;
-            max-width: 650px !important;
-            font-size: clamp(1rem, 1.8vw, 1.3rem) !important;
-            text-align: center !important;
-        }
-    }
-    /* End CI 260215-09 */
-
-    /* CI 260215-10 */
-    @media (min-width: 769px) { /* Desktop styles */
-        .section-260215-04-quote-container {
-            left: clamp(1rem, 2vw, 3rem) !important;
-            right: auto !important;
-            justify-content: flex-start !important;
-            width: auto !important;
-            max-width: 450px !important;
-        }
-        .section-260215-02-quote-style {
-            background: rgba(255, 255, 255, 0.5) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            text-align: left !important;
-        }
-    }
-    @media (max-width: 768px) { /* Mobile styles */
-        .section-260215-02-quote-style {
-            background: rgba(255, 255, 255, 0.5) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-        }
-    }
-    /* End CI 260215-10 */
-
-
-
-  <style>
-   
-	  
-	  
-	  
-    .hero-section_3{
-      position: relative;
-      overflow: hidden;    
-    }
-
-    .hero-canvas{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .hero-section_3 .container{
-      position: relative;
-      z-index: 1;
-    } 
-	  
-}
-
-</style>	  
-	  
-<style>
-/* AURORA HERO (CLEAN) START */
-#projekte-hero-section{
-  position: relative;
-  overflow: hidden;
-  min-height: 40vh; /* passt zu deiner style.css hero-section_3 */
-}
-
-/* Canvas liegt hinter dem Text */
-#projekte-hero-section .hero-canvas{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  display: block;
-}
-
-/* Content immer oben */
-#projekte-hero-section .container{
-  position: relative;
-  z-index: 2;
-}
-
-/* Noise optional */
-#projekte-hero-section::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity:0.05;
-  mix-blend-mode:overlay;
-}
-/* AURORA HERO (CLEAN) END */
-</style>
-
-
-
+  <link rel="stylesheet" href="style3.css">
 
   <!-- Dein globales JS (defer für nicht-blockierende Ausführung) -->
   <script src="script.js" defer></script>
@@ -753,7 +84,6 @@
 <main>
 <!-- ===== sparkle ===== -->
   <section class="hero-section_3" id="projekte-hero-section">
-	  <canvas class="hero-canvas" aria-hidden="true"></canvas>
 
     <div class="container hero-container_3">
       <div class="hero-content-visual">
@@ -775,7 +105,7 @@
     <!-- End CI 260215-01 -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
 
-      <div class="lg:col-span-6 lg:row-span-2 bg-white border border-[#e6ecff] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col relative group">
+      <div class="lg:col-span-8 lg:row-span-2 bg-white border border-[#e6ecff] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col relative group">
         <div class="pointer-events-none absolute inset-x-[-15%] bottom-[-10%] h-1/2
                     bg-[radial-gradient(ellipse_at_center,_#ff3cd0_0%,_#ff3cd0_30%,_#207cfa_60%,_#7b5cff_80%,_transparent_100%)]
                     opacity-70 blur-2xl rotate-[-4deg]"></div>
@@ -831,7 +161,7 @@
         </div>
       </div>
 
-      <div class="lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-sky-100 via-sky-200 to-pink-200/30 rounded-2xl p-3 sm:p-4 lg:p-6 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full border border-white/70">
+      <div class="lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-sky-100 via-sky-200 to-pink-200/30 rounded-2xl p-3 sm:p-4 lg:p-6 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] h-full border border-white/70">
         <div class="space-y-3 lg:space-y-4">
           <div class="relative w-full overflow-hidden aspect-[16/9] rounded-t-2xl">
             <img src="img3/01_Analyse.png" alt="Telekom Visual – Top" class="w-full h-full object-cover">
@@ -856,16 +186,12 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
       <div class="lg:col-span-12">
-        <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-6 tracking-tight leading-[1.1] whitespace-normal break-words">
-          [FEATURED]
+        <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-2 tracking-tight leading-[1.1] whitespace-normal break-words feature-pill-title">
+          FEATURE CASE
         </h2>
 
         <header class="case-hero">
           <div class="hero-text">
-            <div class="hero-label">
-              <div class="hero-label-dot"></div>
-              <span>Featured Case</span>
-            </div>
             <div class="hero-kicker">Markensynergien von Partnerschaften</div>
             <h1 class="hero-title">
               Telekom &amp; <span class="accent">Ranger</span> – ein neuer Auftritt an der Haustür
@@ -875,13 +201,13 @@
             </p>
             <div class="hero-meta">
               <span>Telekom &amp; Ranger</span>
-              <span>Brand Management</span>
-              <span>Design &amp; Workwear</span>
-              <span>AI Workflow &amp; Tools</span>
+              <span>Brandmanagement</span>
+              <span>Design</span>
+              <span>Workwear</span>
+              <span>Workflow und Tools</span>
             </div>
             <div class="hero-cta-row">
               <button class="hero-cta-primary" type="button">Gespräch vereinbaren</button>
-              <div class="hero-cta-secondary">Case: Door-to-Door &amp; Glasfaser in sensiblen Alltagssituationen.</div>
             </div>
           </div>
           <div class="hero-image group">
@@ -909,7 +235,7 @@
             </div>
             <!-- End CI 260215-02 -->
           </div>
-          <p class="text-sm text-gray-500 font-medium text-right mt-4 px-6 lg:px-12 hide-on-mobile">Telekom &amp; Ranger – Einstieg in das gemeinsame Projekt.</p>
+          <!-- <p class="text-sm text-gray-500 font-medium text-right mt-4 px-6 lg:px-12 hide-on-mobile">Telekom &amp; Ranger – Einstieg in das gemeinsame Projekt.</p> -->
         </section>
 
         <div class="case-gradient-wrapper">
@@ -956,19 +282,19 @@
             <div class="case-section-image">
               <div class="case-section-image-dual">
                 <div class="case-section-image-tile group">
-                  <div class="overflow-hidden aspect-[3/2] relative">
-                    <img src="case_assets/telekom-d2d_status-quo-strip.png" alt="Verdichtung der Ausgangslage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                  <div class="overflow-hidden aspect-[3/4] relative">
+                    <img src="case_assets/telekom-d2d_stakeholder-meeting.png" alt="Stakeholder-Gespräche" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="hero-image-overlay-label absolute left-3 bottom-3">
-                      telekom-d2d_status-quo-strip.png – Verdichtung der Ausgangslage
+                      telekom-d2d_stakeholder-meeting.png – Stakeholder-Gespräche
                     </div>
                   </div>
                 </div>
 
                 <div class="case-section-image-tile group">
-                  <div class="overflow-hidden aspect-[3/4] relative">
-                    <img src="case_assets/telekom-d2d_stakeholder-meeting.png" alt="Stakeholder-Gespräche" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                  <div class="overflow-hidden aspect-[3/2] relative">
+                    <img src="case_assets/telekom-d2d_status-quo-strip.png" alt="Verdichtung der Ausgangslage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="hero-image-overlay-label absolute left-3 bottom-3">
-                      telekom-d2d_stakeholder-meeting.png – Stakeholder-Gespräche
+                      telekom-d2d_status-quo-strip.png – Verdichtung der Ausgangslage
                     </div>
                   </div>
                 </div>
@@ -1041,13 +367,13 @@
           <!-- End CI 260215-01 -->
           <section class="quote-section" id="dynamic-brand-work">
               <div class="quote-card quote-card-wide">
+                <h2 class="quote-label">Dynamische Umsetzung im <span class="quote-em">Brand Panel</span></h2>
                 <div class="quote-wide-image overflow-hidden group">
                   <img src="case_assets/dynamic_brand_work.png" alt="Dynamische Umsetzung im Brand Panel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <p class="quote-text quote-text-overlay">
+                    In diesem Schritt werden die Informationen aus dem Brand System und die recherchierten Erkenntnisse in konkrete Umsetzung überführt. Das Panel bündelt <strong class="quote-em">Entscheidungen</strong>, <strong class="quote-em">Übersichten</strong> und <strong class="quote-em">To-dos</strong> so, dass die Umsetzung klar strukturiert und im Alltag deutlich erleichtert wird. Schnittstellen und Rollen sind definiert, Beteiligte können ergänzt werden und das System kann organisch mitwachsen – ohne dass der Gesamtaufbau jedes Mal neu gedacht werden muss.
+                  </p>
                 </div>
-                <h2 class="quote-label">Dynamische Umsetzung im <span class="quote-em">Brand Panel</span></h2>
-                <p class="quote-text">
-                  In diesem Schritt werden die Informationen aus dem Brand System und die recherchierten Erkenntnisse in konkrete Umsetzung überführt. Das Panel bündelt <strong class="quote-em">Entscheidungen</strong>, <strong class="quote-em">Übersichten</strong> und <strong class="quote-em">To-dos</strong> so, dass die Umsetzung klar strukturiert und im Alltag deutlich erleichtert wird. Schnittstellen und Rollen sind definiert, Beteiligte können ergänzt werden und das System kann organisch mitwachsen – ohne dass der Gesamtaufbau jedes Mal neu gedacht werden muss.
-                </p>
                 <div class="panel-cta-row">
                   <button class="panel-cta-button" type="button">Brand Project Mapper prototypisch erkunden</button>
                 </div>
@@ -1074,72 +400,6 @@
                   <img src="case_assets/telekom-d2d_outfit-lineup.png" alt="Telekom Ranger Lineup">
                 </div>
               </div>
-
-              <div class="k3-shell" style="--k3bg:url('case_assets/telekom-d2d_outfit-lineup.png')">
-                <div class="k3-parallax" aria-hidden="true"></div>
-                <div class="k3-grain" aria-hidden="true"></div>
-                <div class="k3-drag-hint" aria-hidden="true"><span>Swipe</span><i></i></div>
-
-                <div class="k3-track" id="k3Track" data-k3-track tabindex="0" aria-label="Kleidung Slider">
-                  
-
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_01.png" alt="Sketch 1"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Initial Drafting</p><p class="k3-cap-sub">First Drafts</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_02.png" alt="Pattern detail"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Pattern Design</p><p class="k3-cap-sub">Cut Logic</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-mid k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_03.png" alt="Ergonomics"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Ergonomics</p><p class="k3-cap-sub">Fit Flow</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_04.png" alt="Visibility"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Visibility Logic</p><p class="k3-cap-sub">Safety System</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_05.png" alt="Brand endorsement"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Brand Endorsement</p><p class="k3-cap-sub">Co-Brand</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_06.png" alt="Prototype development"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Prototype Development</p><p class="k3-cap-sub">Build Test</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_07.png" alt="Playbook"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Playbook Archive</p><p class="k3-cap-sub">The Rules</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_08.png" alt="Quality control"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Quality Control</p><p class="k3-cap-sub">QC Check</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_09.png" alt="Color coding"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Color Coding</p><p class="k3-cap-sub">Color Map</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_10.png" alt="Final specs"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Final Specs</p><p class="k3-cap-sub">Final Spec</p></div></figcaption>
-                  </figure>
-
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/hendrik_bogner_design_11.png" alt="Ready for rollout"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Rollout Readiness</p><p class="k3-cap-sub">Ready Now</p></div></figcaption>
-                  </figure>
-                </div>
-
-              </div>
             </section>
 
             <!-- SECTION 3.2: Shooting / Photoshooting -->
@@ -1162,44 +422,6 @@
                   <img src="case_assets/shooting_01.png" alt="Hauptmotiv des Shootings">
                 </div>
               </div>
-
-              <div class="k3-shell" style="--k3bg:url('case_assets/shooting_01.png')">
-                <div class="k3-parallax" aria-hidden="true"></div>
-                <div class="k3-grain" aria-hidden="true"></div>
-                <div class="k3-drag-hint" aria-hidden="true"><span>Swipe</span><i></i></div>
-
-                <div class="k3-track" id="k3Track32" data-k3-track tabindex="0" aria-label="Shooting Slider">
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/shooting_01.png" alt="Shooting Hauptmotiv"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Shooting Hero</p><p class="k3-cap-sub">Main Motif</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/shooting_02.png" alt="Shooting Szene 1"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">On Set</p><p class="k3-cap-sub">Sequence 01</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/shooting_03.png" alt="Shooting Szene 2"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Team Focus</p><p class="k3-cap-sub">Sequence 02</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/shooting_04.png" alt="Shooting Szene 3"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Visual Proof</p><p class="k3-cap-sub">Sequence 03</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/shooting_05.png" alt="Shooting Szene 4"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Brand Fit</p><p class="k3-cap-sub">Sequence 04</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/shooting_06.png" alt="Shooting Szene 5"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Field Story</p><p class="k3-cap-sub">Sequence 05</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/shooting_07.png" alt="Collection Ready"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Collection Ready</p><p class="k3-cap-sub">Sequence 06</p></div></figcaption>
-                  </figure>
-
-                </div>
-              </div>
             </section>
 
             <!-- SECTION 3.3: Launch & Rollout -->
@@ -1220,43 +442,6 @@
 
                 <div class="k3-hero">
                   <img src="case_assets/rollout_01.png" alt="Hauptmotiv für Launch und Rollout">
-                </div>
-              </div>
-
-              <div class="k3-shell" style="--k3bg:url('case_assets/rollout_01.png')">
-                <div class="k3-parallax" aria-hidden="true"></div>
-                <div class="k3-grain" aria-hidden="true"></div>
-                <div class="k3-drag-hint" aria-hidden="true"><span>Swipe</span><i></i></div>
-
-                <div class="k3-track" id="k3Track33" data-k3-track tabindex="0" aria-label="Launch und Rollout Slider">
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/rollout_01.png" alt="Rollout Hauptmotiv"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Rollout Kickoff</p><p class="k3-cap-sub">Main Motif</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/rollout_02.png" alt="Rollout Szene 1"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Launch Event</p><p class="k3-cap-sub">Phase 01</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-low">
-                    <div class="k3-media"><img src="case_assets/rollout_03.png" alt="Rollout Szene 2"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Summit Sync</p><p class="k3-cap-sub">Phase 02</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/rollout_04.png" alt="Rollout Szene 3"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Team Enablement</p><p class="k3-cap-sub">Phase 03</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-nar k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/rollout_05.png" alt="Rollout Szene 4"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Ops Transfer</p><p class="k3-cap-sub">Phase 04</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-mid k3-h-mid">
-                    <div class="k3-media"><img src="case_assets/rollout_06.png" alt="Rollout Szene 5"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Daily Use</p><p class="k3-cap-sub">Phase 05</p></div></figcaption>
-                  </figure>
-                  <figure class="k3-slide k3-w-wide k3-h-tall">
-                    <div class="k3-media"><img src="case_assets/rollout_07.png" alt="Rollout Szene 6"></div>
-                    <figcaption class="k3-caption"><div class="k3-caption-inner"><p class="k3-cap-title">Scale Ready</p><p class="k3-cap-sub">Phase 06</p></div></figcaption>
-                  </figure>
                 </div>
               </div>
             </section>
@@ -1329,211 +514,10 @@
               <img src="case_assets/HB_01.png" alt="Hendrik Bogner – Auftritt im Gespräch" class="cta-figure-img" />
             </div>
           </section>
-          <!-- CI 260215-05 -->
-          <div class="named-spacer-260215-01" data-name="Spacer 260215-07" id="section-260215-07-spacer"></div>
-          <!-- End CI 260215-05 -->
-        </div>
 
-      <div class="lg:col-span-9 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-        <div class="relative aspect-[16/9] group">
-          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full relative z-0" id="carousel2">
-            <div class="carousel-item min-w-full h-full">
-              <img src="img3/Telekom_Le_02.png" class="w-full h-full object-cover" alt="Telekom Scene 1">
-            </div>
-            <div class="carousel-item min-w-full h-full">
-              <img src="img3/Telekom_Le3_01.png" class="w-full h-full object-cover" alt="Telekom Scene 2">
-            </div>
-          </div>
-
-          <button class="absolute left-4 top-1/2 -translate-y-1/2 z-20
-                         w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full
-                         flex items-center justify-center hover:bg-white
-                         transition-all shadow-lg opacity-0 group-hover:opacity-100"
-                  onclick="scrollCarousel('carousel2', -1)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                 stroke-linejoin="round" class="w-5 h-5 text-gray-900">
-              <path d="m15 18-6-6 6-6"></path>
-            </svg>
-          </button>
-
-          <button class="absolute right-4 top-1/2 -translate-y-1/2 z-20
-                         w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full
-                         flex items-center justify-center hover:bg-white
-                         transition-all shadow-lg opacity-0 group-hover:opacity-100"
-                  onclick="scrollCarousel('carousel2', 1)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                 stroke-linejoin="round" class="w-5 h-5 text-gray-900">
-              <path d="m9 18 6-6-6-6"></path>
-            </svg>
-          </button>
-
-          <div class="absolute bottom-4 right-4 z-20 flex gap-2" id="carousel2-dots">
-            <div class="carousel-dot w-2 h-2 bg-white rounded-full shadow-lg cursor-pointer" onclick="goToSlide('carousel2', 0)"></div>
-            <div class="carousel-dot w-2 h-2 bg-white/50 rounded-full shadow-lg cursor-pointer" onclick="goToSlide('carousel2', 1)"></div>
-          </div>
-        </div>
-
-        <div class="p-7">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Nature Series</h3>
-          <p class="text-sm text-gray-600">Zwei Welten, eine Vision</p>
-        </div>
-      </div>
-
-      <div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
-        <video class="w-full h-full object-cover hidden" src="video/001_3d_auto_01.mp4"></video>
-        <div class="h-full overflow-hidden">
-          <img src="img2/wireframe_car_1.png" alt="Motion Story Video Thumbnail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-
-        <div class="absolute top-3 left-3 sm:top-6 sm:left-6">
-          <span class="px-2.5 py-1 bg-black/80 backdrop-blur-sm text-white text-[10px] sm:text-xs font-semibold rounded-lg">
-            © Hendrik Bogner – Urheber- und Designrechte.
-          </span>
-        </div>
-
-        <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-8 pointer-events-none">
-          <div class="max-w-xs sm:max-w-sm">
-            <h4 class="text-white font-bold text-lg sm:text-2xl mb-1 sm:mb-2">Motion Story</h4>
-            <p class="text-sky-50 text-xs sm:text-sm leading-relaxed">Strategien für eine sichere Zukunft</p>
-            <p class="text-sky-50 text-xs sm:text-sm leading-relaxed">- Kundenauftrag</p>
-            <button class="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-semibold text-gray-900 bg-white/70 hover:bg-white/90 rounded-lg pointer-events-auto">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4">
-                <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path>
-                <circle cx="12" cy="12" r="10"></circle>
-              </svg>
-              <span>Abspielen</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-4 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-xl">
-        <div class="aspect-square overflow-hidden">
-          <img src="img3/01_telekom_shoot_sess_04.png" alt="Portrait Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-          <div>
-            <h4 class="text-white font-semibold text-lg">Pure Emotion</h4>
-            <p class="text-gray-200 text-sm mt-1">Authentische Momente</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-4 bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-gray-200">
-        <div class="text-6xl font-extrabold text-[#3D4654] tracking-tight">17 Kreative Projekte</div>
-        <h2 class="text-[28px] font-light italic text-[#3D4654] mt-2 mb-4">in der Pipeline</h2>
-        <p class="text-gray-500 text-sm leading-relaxed font-light">Jeden Montag eine einzigartige Geschichte von Vision und Ausführung.</p>
-      </div>
-
-      <div class="lg:col-span-4 lg:row-span-2 group relative bg-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-2xl" onclick="playVideo(this)">
-        <div class="h-full overflow-hidden relative">
-          <img src="img2/002_falk_01.png" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <video class="w-full h-full object-cover hidden" src="video/002_falk_01.mp4" muted></video>
-        </div>
-
-        <div class="absolute top-6 left-6">
-          <span class="px-3 py-1.5 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold rounded-lg">© Hendrik Bogner</span>
-        </div>
-
-        <div class="absolute inset-0 bg-gradient-to-t from-sky-500/70 via-sky-300/40 to-pink-200/20 opacity-100 transition-opacity duration-500 flex items-end p-8">
-          <div>
-            <h4 class="text-white font-bold text-2xl mb-2">Mit der Zeit gehen</h4>
-            <p class="text-gray-200 text-sm leading-relaxed">Aus diesem Alltagsobjekt entwickelt das Unternehmen Hightech-Ikonen.<br>Kundenauftrag</p>
-            <button class="mt-4 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-100 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4">
-                <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path>
-                <circle cx="12" cy="12" r="10"></circle>
-              </svg>
-              Abspielen
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-5 lg:row-span-2 rounded-2xl p-10 flex flex-col justify-center hover:scale-[1.02] transition-all duration-500 shadow-2xl overflow-hidden relative group h-full">
-        <div class="absolute inset-0 bg-gradient-to-br from-sky-200 via-sky-300 to-pink-300/40 opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10">
-          <h3 class="text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4">BOLD<br>MOVES</h3>
-          <p class="text-gray-400 text-base font-light max-w-xs">Mutige Schritte für außergewöhnliche Ergebnisse.</p>
-        </div>
-      </div>
-
-      <div class="lg:col-span-5 lg:row-span-2 bg-gradient-to-br from-sky-50 via-white to-pink-50 text-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
-        <div class="relative aspect-[3/2] group">
-          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel3">
-            <div class="carousel-item min-w-full h-full relative">
-              <video class="w-full h-full object-cover" src="video/002_3d_auto_outake.mp4" autoplay muted loop playsinline></video>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            </div>
-            <div class="carousel-item min-w-full h-full relative">
-              <video class="w-full h-full object-cover" src="video/002_close_up_01.mp4" autoplay muted loop playsinline></video>
-              <div class="absolute inset-0 bg-gradient-to-t from-sky-900/70 via-sky-700/20 to-transparent"></div>
-            </div>
-          </div>
-
-          <div class="absolute bottom-4 left-4 flex gap-2" id="carousel3-dots">
-            <div class="carousel-dot w-8 h-1 bg-white rounded-full transition-all cursor-pointer" data-index="0" onclick="goToSlide('carousel3', 0)"></div>
-            <div class="carousel-dot w-8 h-1 bg-white/50 rounded-full transition-all cursor-pointer" data-index="1" onclick="goToSlide('carousel3', 1)"></div>
-          </div>
-        </div>
-
-        <div class="p-6 flex flex-col gap-2">
-          <p class="text-xs font-medium text-[#e20074]">KI- produziert unerwartete Expression</p>
-          <h3 class="text-2xl font-semibold leading-tight">Telekom Ranger – Sammel- und Rollout-Timeline</h3>
-          <p class="text-sm text-gray-600">Zwei Perspektiven auf den Rollout – vom ersten Einsatz bis zur Fläche.</p>
-        </div>
-      </div>
-
-      <div class="group lg:col-span-7 lg:row-span-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-        <div class="relative aspect-video">
-          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory h-full" id="carousel1" role="region" aria-label="Projektcarousel mit drei Szenen" tabindex="0">
-            <div class="carousel-item min-w-full h-full relative z-0">
-              <img src="img2/parship1.png" class="w-full h-full object-cover" alt="Scene 1" data-parallax-media>
-              <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
-                <span class="carousel-counter">1</span> / 3
-              </div>
-            </div>
-            <div class="carousel-item min-w-full h-full relative z-0">
-              <img src="img2/parship2.png" class="w-full h-full object-cover" alt="Scene 2" data-parallax-media>
-              <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
-                <span class="carousel-counter">2</span> / 3
-              </div>
-            </div>
-            <div class="carousel-item min-w-full h-full relative z-0">
-              <img src="img2/parship3.png" class="w-full h-full object-cover" alt="Scene 3" data-parallax-media>
-              <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
-                <span class="carousel-counter">3</span> / 3
-              </div>
-            </div>
-          </div>
-
-          <div class="pointer-events-none absolute inset-0 z-10 opacity-100 transition-opacity duration-500 group-hover:opacity-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.64)_35%,rgba(0,0,0,0.32)_60%,rgba(0,0,0,0)_100%)]"></div>
-        </div>
-
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Zusammen was zusammen gehört</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">Drei Szenen, eine Vision.</p>
-          <div class="flex gap-2 mt-4" id="carousel1-dots" role="tablist" aria-label="Slides auswählen">
-            <button class="carousel-dot w-12 h-3 bg-gray-900 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3D4654]" data-index="0" onclick="goToSlide('carousel1', 0)" type="button" role="tab" aria-label="Slide 1 anzeigen" aria-controls="carousel1" aria-selected="true"></button>
-            <button class="carousel-dot w-12 h-3 bg-gray-300 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3D4654]" data-index="1" onclick="goToSlide('carousel1', 1)" type="button" role="tab" aria-label="Slide 2 anzeigen" aria-controls="carousel1" aria-selected="false"></button>
-            <button class="carousel-dot w-12 h-3 bg-gray-300 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3D4654]" data-index="2" onclick="goToSlide('carousel1', 2)" type="button" role="tab" aria-label="Slide 3 anzeigen" aria-controls="carousel1" aria-selected="false"></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center hover:shadow-xl transition-all duration-500">
-        <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Wo Leistung entsteht, muss Bedeutung folgen."</p>
-        <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
-      </div>
-
-      <div class="lg:col-span-6 bg-white rounded-2xl p-10 flex flex-col justify-center border-purple-900 hover:shadow-xl transition-all duration-500">
-        <p class="text-2xl font-light text-gray-900 italic leading-relaxed mb-4">"Produkte sind das Was.<br> Marken das Wie. <br>Identität das Warum."</p>
-        <div class="text-sm text-gray-500 font-medium text-right">— Hendrik Bogner</div>
-      </div>
 
     </div>
+  </div>
   </section>
 
   <section class="content-section gradient-background" id="Kontakt">
