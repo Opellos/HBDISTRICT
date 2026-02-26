@@ -1366,7 +1366,7 @@
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
     width: clamp(760px, 54vw, 1040px);
     left: clamp(-355px, -24vw, -225px);
-    bottom: clamp(102px, 9.5vw, 170px);
+    bottom: clamp(12px, 1.2vw, 26px);
     z-index: 3;
   }
 }
