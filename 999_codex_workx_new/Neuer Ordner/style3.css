@@ -1,0 +1,1382 @@
+    /* W-C-I 2026-02-15 */
+    /* CI 260215-10 */
+    /* CI 260215-09 */
+    /* CI 260215-08 */
+    /* CI 260215-07 */
+    /* CI 260215-06 */
+    /* CI 260215-05 */
+    /* CI 260215-04 */
+    /* CI 260215-01 */
+    .named-spacer-260215-01 {
+      height: clamp(30px, 4vw, 50px);
+      width: 100%;
+      border: 1px dashed rgba(226, 0, 116, 0.4);
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(226, 0, 116, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    .named-spacer-260215-01::before {
+      content: attr(data-name);
+    }
+
+    @media (max-width: 768px) {
+      .named-spacer-260215-01 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+        .projects-grid-section .relative.w-full.aspect-video > .absolute.inset-0.flex.items-end {
+            position: static;
+            padding: 0;
+            margin-top: 1rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+
+    /* Revert specific overlay label style to general one for #status-quo */
+/*    #status-quo .hero-image-overlay-label {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        padding: clamp(10px, 1.2vw, 14px) clamp(14px, 2vw, 22px);
+        background: rgba(14,23,37,0.68);
+        border: 0;
+        color: rgba(241,245,249,0.96);
+        backdrop-filter: blur(0);
+        -webkit-backdrop-filter: blur(0);
+        font-size: clamp(0.84rem, 1.05vw, 1.08rem);
+        line-height: 1.35;
+        letter-spacing: 0.01em;
+        font-weight: 400;
+    }*/
+
+    /* Image alignment in case sections */
+    .case-section-image {
+        margin-top: 0;
+        align-self: flex-start;
+    }
+
+    /* Constrain tall image in Anspruchsgruppen (second image) */
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+        max-width: min(96%, 620px);
+        align-self: flex-start;
+    }
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .aspect-"3/4" {
+        aspect-ratio: 3/4;
+    }
+
+    /* Dynamic Brand Panel Typography and Button */
+    #dynamic-brand-work .quote-label {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--color-text-primary);
+        text-transform: none;
+    }
+    #dynamic-brand-work .quote-text {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: var(--color-text-primary);
+    }
+    #dynamic-brand-work .quote-em {
+        color: var(--color-text-primary);
+        font-weight: 800;
+    }
+
+    .panel-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0f172a;
+      background: linear-gradient(to top, rgba(255,255,255,0.85), rgba(255,255,255,0.50));
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.70);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+      transition: all 0.2s ease-in-out;
+      min-height: auto;
+    }
+    .panel-cta-button:hover {
+        background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.70));
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+    }
+    /* End CI 260215-01 */
+
+    /* CI 260215-04 */
+    .section-260215-02-quote-style {
+        max-width: 700px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 1.8rem 3rem;
+        border-radius: 1.5rem;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--color-text-primary);
+        font-family: var(--font-primary);
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(1.05rem, 2vw, 1.4rem);
+        line-height: 1.6;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* Mobile adjustments for image and quote box position */
+    @media (max-width: 768px) {
+        /* CI 260215-06 */
+        /* CORRECTED: Removed problematic 'object-fit: contain' and ensured proper height for central image crop. */
+        #section-260215-05 .relative.w-full.aspect-video {
+            aspect-ratio: auto;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 0; /* Override Tailwind's aspect-video padding */
+        }
+
+        #section-260215-04-image {
+            position: static;
+            margin-bottom: 1rem;
+            height: auto;
+            width: 100%;
+            max-width: 100%;
+            object-fit: cover; /* CORRECTED: Now covers the container and crops centrally */
+            object-position: center; /* Ensures the central part (face) is visible */
+            min-height: 250px; /* Ensures the image has sufficient height */
+        }
+        /* End CI 260215-06 */
+
+        /* Parent container of image and quote box */
+        #section-260215-04 { /* The section itself */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
+        }
+        
+        /* The image container div */
+        #section-260215-04 .relative.w-full.aspect-video {
+            display: flex; /* Make it a flex container for its children */
+            flex-direction: column; /* Stack image and quote internally if needed */
+            height: auto;
+            aspect-ratio: auto; /* Remove fixed aspect ratio for mobile stacking */
+            padding-bottom: 0; /* Remove padding-bottom from aspect-video */
+            width: 100%;
+        }
+
+        /* The actual image */
+        #section-260215-04-image {
+            position: static;
+            margin-bottom: 1rem;
+            height: auto;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* The quote box container (div#section-260215-02) */
+        .section-260215-04-quote-container {
+            position: static;
+            padding: 0 1rem;
+            width: 100%;
+            margin-top: 0;
+            align-items: flex-start;
+            justify-content: flex-start;
+            box-sizing: border-box;
+        }
+
+        /* The quote text itself (p tag inside .section-260215-04-quote-container) */
+        .section-260215-02-quote-style {
+            text-align: left;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        /* Specific override for the general quote container on mobile to reset original rules */
+        #section-260215-02 {
+          position: static;
+          inset: auto;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
+        /* Mobile quote style for the main quote */
+        .section-260215-02-quote-style {
+            max-width: 90%;
+            padding: 1.2rem 1.8rem;
+            border-radius: 1.25rem;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+    }
+    /* End CI 260215-04 */
+
+    /* CI 260215-05 */
+    #section-260215-04-image {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .section-260215-04-quote-container {
+        right: clamp(1rem, 2vw, 3rem);
+        bottom: clamp(1rem, 2vw, 3rem);
+        left: auto;
+        width: auto;
+        max-width: 450px;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 0;
+        z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+        .hide-on-mobile {
+            display: none;
+        }
+        /* Overridden by CI 260215-06: #section-260215-04-image { width: 100%; height: auto; object-fit: contain; } */
+
+        .section-260215-04-quote-container {
+            position: static;
+            width: 100%;
+            margin-top: 1.5rem;
+            right: auto;
+            bottom: auto;
+            left: auto;
+            max-width: none;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0 1rem;
+        }
+        .section-260215-02-quote-style {
+            font-size: clamp(0.95rem, 4vw, 1.25rem);
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
+            text-align: left;
+            max-width: 100%;
+        }
+        #section-260215-05-bridge-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+        #section-260215-05-bridge-stack .bridge-image,
+        #section-260215-05-bridge-stack .bridge-symbol {
+            width: 100%;
+            margin: 0;
+            height: auto;
+            min-height: auto;
+        }
+        #section-260215-05-bridge-stack .bridge-symbol {
+            order: 2;
+        }
+        #section-260215-05-bridge-stack .bridge-image:first-child {
+            order: 1;
+        }
+        #section-260215-05-bridge-stack .bridge-image:last-child {
+            order: 3;
+        }
+    }
+
+    #section-260215-05-spacer {
+        margin-top: clamp(60px, 8vw, 100px);
+        margin-bottom: clamp(60px, 8vw, 100px);
+    }
+    /* End CI 260215-05 */
+    
+    /* CI 260215-07 */
+    #section-260215-05 .relative.w-full.aspect-video {
+        aspect-ratio: 16/9; /* Set to 16:9 aspect ratio */
+        min-height: 400px; /* Minimum height for desktop */
+    }
+
+    #section-260215-04-image {
+        object-fit: cover; /* Ensure cover for zoom effect */
+        object-position: center;
+    }
+
+    @media (min-width: 769px) {
+        #section-260215-05 .relative.w-full.aspect-video {
+            min-height: 450px; /* Increase height for larger screens */
+        }
+    }
+
+    #anspruchsgruppen .case-section-image-dual {
+        display: flex;
+        flex-direction: column; /* Always stack */
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
+        max-width: 100%; /* Allow full width for both images */
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child .overflow-hidden.aspect-"3/2" {
+        aspect-ratio: 16/9;
+    }
+
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden.aspect-"3/4" {
+        aspect-ratio: 3/4;
+        max-height: 500px;
+        object-fit: contain;
+        background-color: #f8f8f8;
+    }
+
+    .fashion-grid.strasse-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .fashion-grid.strasse-grid .fashion-tile {
+        aspect-ratio: 16/9;
+        height: auto;
+        width: 100%;
+    }
+
+    @media (min-width: 769px) {
+        .fashion-grid.strasse-grid {
+            padding: 0;
+        }
+    }
+    /* End CI 260215-07 */
+
+    /* CI 260215-08 */
+    /* General border-radius reduction for image containers (corners less round) */
+    .projects-grid-section img,
+    .case-grid img,
+    .k3-wrap img,
+    .quote-section img,
+    header.case-hero img,
+    .case-section-image-main,
+    .case-section-image-tile,
+    .hero-image,
+    .k3-wrap .k3-media,
+    .quote-wide-image,
+    .k3-wrap .k3-hero,
+    .cta-section,
+    .quote-card {
+        border-radius: 6px;
+    }
+
+    /* Ausgangspunkt (B Berta - #section-260215-05) */
+    #section-260215-05 #section-260215-04-image {
+        object-fit: cover;
+        object-position: center;
+    }
+    #section-260215-05 .section-260215-04-quote-container {
+        bottom: clamp(1rem, 2vw, 1.5rem);
+        right: clamp(1rem, 2vw, 1.5rem);
+        max-width: 400px;
+    }
+    @media (max-width: 768px) {
+        #section-260215-05 .section-260215-04-quote-container {
+            margin-top: 1rem;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            padding: 0 1rem;
+        }
+    }
+
+    /* Anspruchsgruppen (G Gustav - #anspruchsgruppen) */
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
+        max-width: 100%;
+    }
+    #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden.aspect-"3/4" {
+        object-fit: cover;
+        background-color: transparent;
+    }
+
+    /* KI-gestütztes Brand System (A - #brand-system-bridge & #brand-system) */
+    /* Reduce margin-top for heading */
+    #brand-system-bridge h3.text-5xl.lg\:text-6xl {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+        #brand-system-bridge h3.text-5xl.lg\:text-6xl {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    /* Images wider, larger, corners less round */
+    #section-260215-05-bridge-stack .bridge-image > div {
+        aspect-ratio: 16/9;
+        border-radius: 6px;
+    }
+    #section-260215-05-bridge-stack .bridge-image img {
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+    }
+    /* Space between images (gap for bridge-row) */
+    #section-260215-05-bridge-stack {
+        gap: 2rem;
+    }
+    
+    /* Dataflow animation */
+    .bridge-symbol.dataflow-loop {
+        min-width: 160px;
+        min-height: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        border: 1px dashed rgba(255, 255, 255, 0.4);
+        background: linear-gradient(90deg, #207cfa, #ff3cd0);
+        box-shadow: 0 0 15px rgba(255, 60, 208, 0.6), 0 0 15px rgba(32, 124, 250, 0.6);
+        position: relative;
+        z-index: 2;
+    }
+    .bridge-symbol.dataflow-loop::before,
+    .bridge-symbol.dataflow-loop::after {
+        display: none;
+    }
+    .bridge-symbol.dataflow-loop::after {
+        content: 'Data Flow';
+        position: static;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        background: none;
+        filter: none;
+        animation: none;
+        color: inherit;
+    }
+
+    /* Dynamische Umsetzung im Brand Panel (#dynamic-brand-work) */
+    /* Remove button from image */
+    #dynamic-brand-work .quote-card .panel-cta-row {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    #dynamic-brand-work .quote-card .quote-wide-image {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Arbeit geht los (K Kaufmann - #arbeit-geht-los) */
+    #arbeit-geht-los.case-section.k3-section-head {
+        padding-left: clamp(1rem, 2vw, 1.5rem);
+        padding-right: clamp(1rem, 2vw, 1.5rem);
+    }
+    #arbeit-geht-los .case-section-image-main,
+    #arbeit-geht-los .fashion-grid.strasse-grid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    /* Ensure named-spacer has appropriate top/bottom margin */
+    .named-spacer-260215-01 {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    /* End CI 260215-08 */
+
+    /* CI 260215-09 */
+    @media (min-width: 769px) { /* Apply only to desktop and larger screens */
+        /* Adjust image container height/aspect ratio */
+        #section-260215-05 .relative.w-full.aspect-video {
+            aspect-ratio: 2.5 / 1; /* Revert to original desired aspect ratio */
+            min-height: 350px;
+            max-height: 500px;
+        }
+
+        /* Reset quote container positioning for desktop */
+        .section-260215-04-quote-container {
+            position: absolute;
+            inset: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: none;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1.5rem 1rem;
+            z-index: 10;
+        }
+
+        /* Adjust quote style for transparency and compactness */
+        .section-260215-02-quote-style {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.2rem 2.5rem;
+            max-width: 650px;
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            text-align: center;
+        }
+    }
+    /* End CI 260215-09 */
+
+    /* CI 260215-10 */
+    @media (min-width: 769px) { /* Desktop styles */
+        .section-260215-04-quote-container {
+            left: clamp(1rem, 2vw, 3rem);
+            right: auto;
+            justify-content: flex-start;
+            width: auto;
+            max-width: 450px;
+        }
+        .section-260215-02-quote-style {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: left;
+        }
+    }
+    @media (max-width: 768px) { /* Mobile styles */
+        .section-260215-02-quote-style {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    }
+    /* End CI 260215-10 */
+
+/* CI 260219-01: Section spacing and bridge overlap refinements */
+@media (min-width: 881px) {
+  /* Aufgabe 1: mehr Abstand zwischen Text und Bild + kompaktere Textbreite */
+  #status-quo.case-section {
+    gap: clamp(40px, 5vw, 84px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.15fr);
+  }
+  #status-quo .case-section-text {
+    max-width: 62ch;
+  }
+  #status-quo .case-section-image {
+    margin-top: 0;
+  }
+
+  /* Aufgabe 2: erstes Bild auf Überschriftenhöhe, Reihenfolge in HTML vertauscht */
+  #anspruchsgruppen.case-section {
+    gap: clamp(40px, 5vw, 84px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.15fr);
+  }
+  #anspruchsgruppen .case-section-image {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+
+  /* Aufgabe 4: Vertiefung & Umsetzung – Bild auf Überschriftenhöhe + mehr Luft */
+  #brand-system.case-section {
+    gap: clamp(42px, 5vw, 88px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+  }
+  #brand-system .case-section-text {
+    max-width: 62ch;
+  }
+  #brand-system .case-section-image {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+
+  /* Aufgabe 3: KI-gestütztes Brand System – größere, überlappende Bilder */
+  #section-260215-05-bridge-stack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: clamp(320px, 36vw, 520px);
+    gap: 0;
+    padding: clamp(10px, 1.2vw, 18px) 0;
+    overflow: visible;
+  }
+  #section-260215-05-bridge-stack .bridge-image {
+    width: min(52%, 760px);
+    position: relative;
+  }
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    margin-right: clamp(-110px, -8vw, -56px);
+    z-index: 1;
+  }
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    margin-left: clamp(-110px, -8vw, -56px);
+    z-index: 2;
+  }
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% + 150px);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    min-width: clamp(130px, 12vw, 180px);
+  }
+}
+
+@media (max-width: 880px) {
+  #section-260215-05-bridge-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  #section-260215-05-bridge-stack .bridge-image,
+  #section-260215-05-bridge-stack .bridge-symbol {
+    width: 100%;
+    margin: 0;
+  }
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    position: static;
+    transform: none;
+    align-self: center;
+  }
+}
+
+/* CI 260220-01: Batch layout/type refinements per visual review */
+.hero-text::before {
+  inset: auto -22% -24% -22%;
+  height: 66%;
+  opacity: 0.34;
+  filter: blur(22px);
+}
+
+.hero-meta span {
+  border: 0;
+  background: transparent;
+}
+
+/* Überschriften auf Referenzstil „Kleidung und Identität“ angleichen */
+.case-section-title,
+.case-section.k3-section-head .case-section-title,
+#brand-system-bridge > h3,
+.k3-wrap .k3-title,
+.cta-title {
+  color: #26313f;
+  letter-spacing: -0.05em;
+}
+
+.case-section-title,
+.case-section.k3-section-head .case-section-title,
+#brand-system-bridge > h3,
+.cta-title {
+  font-size: clamp(2.1rem, 5vw, 4.2rem);
+  line-height: 0.92;
+  font-weight: 900;
+}
+
+/* Fließtext +2 % (nur Content-Text) */
+.hero-subtitle,
+.case-section-text p,
+#dynamic-brand-work .quote-text,
+.k3-wrap .k3-lead,
+.cta-body {
+  font-size: calc(1em * 1.02);
+}
+
+@media (min-width: 1024px) {
+  /* Dynamische Umsetzung im Brandpanel: Text kompakter */
+  #dynamic-brand-work .quote-text {
+    max-width: 33%;
+  }
+
+  /* KI-gestütztes Brand System: stärkere Staffelung der Bildkacheln */
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translateY(-20%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translateY(20%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    top: calc(50% + 150px);
+  }
+}
+
+/* Einheitliche Corner-Radius-Referenz aus „Vertiefung & Umsetzung“ */
+.case-section-image-main,
+.case-section-image-tile,
+.case-section-image-dual .overflow-hidden,
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img,
+.quote-wide-image,
+.k3-wrap .k3-media,
+.k3-wrap .k3-hero,
+.fashion-tile,
+.hero-image-inner {
+  border-radius: 6px;
+}
+
+@media (max-width: 880px) {
+  /* Ausgangspunkt mobil: Bildausschnitt leicht nach links */
+  #section-260215-04-image {
+    object-position: 15% center;
+  }
+
+  /* Ausgangspunkt mobil: Zitatbox breiter, kein Abschneiden */
+  .section-260215-04-quote-container {
+    padding: 0.65rem 0.75rem;
+    inset-inline: 0;
+    width: 100%;
+  }
+
+  .section-260215-02-quote-style {
+    width: min(100%, 34rem);
+    max-width: none;
+    margin: 0 auto;
+    padding: 0.95rem 1.1rem;
+    box-sizing: border-box;
+    line-height: 1.45;
+  }
+
+  /* Perspektiven mobil: zweites Bild ohne rechte Lücke auf volle Breite */
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden,
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden img {
+    width: 100%;
+  }
+
+  #dynamic-brand-work .quote-text {
+    max-width: 100%;
+  }
+}
+
+/* CI 260220-02: Requested visual tuning pass */
+.featured-case-top {
+  margin: 0 0 14px;
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.hero-label,
+.hero-label-dot,
+.hero-cta-secondary {
+  display: none;
+}
+
+.hero-meta {
+  gap: 8px 10px;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-meta span:not(:last-child)::after {
+  content: "|";
+  margin-left: 10px;
+  color: #7a8393;
+  font-weight: 500;
+}
+
+/* Markentechnik right teaser should use free right space better */
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) {
+  min-height: 100%;
+}
+
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) .space-y-3,
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) .space-y-3 > div {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  /* Status quo image desktop shift left ~30px */
+  #status-quo .case-section-image-main {
+    transform: translateX(-30px);
+  }
+
+  /* Perspektiven: extra gap + overlap composition */
+  #anspruchsgruppen.case-section {
+    gap: clamp(52px, 6vw, 96px);
+    align-items: start;
+  }
+
+  #anspruchsgruppen .case-section-image-dual {
+    position: relative;
+    display: block;
+    min-height: clamp(440px, 42vw, 610px);
+    padding-top: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(360px, 31vw, 520px);
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(260px, 22vw, 360px);
+    max-width: none;
+    position: absolute;
+    left: clamp(0px, 2.1vw, 38px);
+    bottom: clamp(-44px, -3.4vw, -16px);
+    z-index: 2;
+  }
+
+  /* KI-Brand-System more dynamic offsets */
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translate(-2%, -28%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translate(2%, 28%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    min-width: clamp(170px, 15vw, 260px);
+    letter-spacing: 0.03em;
+    animation: dataFlowPulse 2.4s ease-in-out infinite;
+  }
+
+  /* Vom Konzept + Wirkung: more text/image gap */
+  #arbeit-geht-los.case-section,
+  #wirkung.case-section {
+    gap: clamp(52px, 6vw, 100px);
+  }
+
+  /* Vom Konzept lower two images smaller with spacing */
+  #arbeit-geht-los .fashion-grid.strasse-grid {
+    width: min(74%, 920px);
+    margin: 26px auto 0;
+    gap: clamp(14px, 1.6vw, 24px);
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid .fashion-tile {
+    max-width: min(43vw, 420px);
+    margin: 0 auto;
+  }
+
+  /* Dynamic brand panel layout */
+  #dynamic-brand-work .quote-card {
+    display: grid;
+    gap: 12px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-label {
+    order: 1;
+    margin-bottom: 4px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    order: 2;
+    position: relative;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    order: 3;
+    position: static;
+    max-width: min(56ch, 100%);
+    margin: 12px 0 0;
+    padding: clamp(12px, 1.4vw, 18px);
+    border: 1px solid rgba(236, 72, 153, 0.25);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.78));
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    z-index: 2;
+  }
+
+  #dynamic-brand-work .quote-card .panel-cta-row {
+    order: 4;
+    margin-top: 2px;
+    justify-content: center;
+  }
+
+  .panel-cta-button {
+    border-color: rgba(236, 72, 153, 0.24);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.94));
+  }
+
+  /* CTA figure position: bottom aligned, head above card */
+  .cta-section {
+    overflow: visible;
+  }
+
+  .cta-figure {
+    align-self: end;
+    margin-top: 0;
+    transform: translateY(-78px);
+    pointer-events: none;
+  }
+
+  .cta-figure-img {
+    object-position: center bottom;
+    max-height: clamp(320px, 28vw, 460px);
+  }
+}
+
+@media (max-width: 1023px) {
+  #status-quo .case-section-image-main {
+    transform: none;
+  }
+
+  #anspruchsgruppen .case-section-image-dual {
+    display: grid;
+    gap: 12px;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    min-width: 160px;
+    animation: dataFlowPulse 2.4s ease-in-out infinite;
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid {
+    width: 100%;
+    gap: 12px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    position: relative;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    position: static;
+    max-width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .cta-figure {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 880px) {
+  /* Ausgangspunkt mobile quote: wider + visible lower edge */
+  .section-260215-04-quote-container {
+    padding: 0.4rem 0.15rem 0.8rem;
+  }
+
+  .section-260215-02-quote-style {
+    width: min(96vw, 36rem);
+    border: 1px solid rgba(148, 163, 184, 0.34);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    animation: none;
+    transform: none;
+  }
+}
+
+@keyframes dataFlowPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 rgba(236, 72, 153, 0.35), 0 0 0 rgba(59, 130, 246, 0.25);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 18px rgba(236, 72, 153, 0.48), 0 0 30px rgba(59, 130, 246, 0.32);
+  }
+}
+
+/* CI 260220-03: Mobile density + final visual corrections */
+.feature-pill-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 0.8vw, 12px) clamp(16px, 1.6vw, 28px);
+  border: 1px solid rgba(59, 130, 246, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.hero-meta span:not(:last-child)::after {
+  margin-left: 8px;
+  margin-right: 2px;
+}
+
+/* Dezentere, responsive Bildrundungen */
+.case-section-image-main,
+.case-section-image-tile,
+.case-section-image-dual .overflow-hidden,
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img,
+.quote-wide-image,
+.k3-wrap .k3-media,
+.k3-wrap .k3-hero,
+.fashion-tile,
+.hero-image-inner,
+.cta-section,
+.quote-card {
+  border-radius: 4px;
+}
+
+/* Fließtext auf 18px */
+.hero-subtitle,
+.case-section-text p,
+.k3-wrap .k3-lead,
+#dynamic-brand-work .quote-text,
+.cta-body {
+  font-size: 18px;
+  line-height: 1.58;
+}
+
+@media (min-width: 1024px) {
+  /* KI-Headline muss frei bleiben */
+  #brand-system-bridge > h3,
+  #brand-system-bridge h3.text-5xl.lg\:text-6xl {
+    position: relative;
+    z-index: 4;
+    margin-bottom: clamp(20px, 2.4vw, 34px);
+  }
+
+  #section-260215-05-bridge-stack {
+    margin-top: clamp(18px, 2vw, 30px);
+    z-index: 2;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translate(-1%, -18%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translate(1%, 24%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img {
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    border-radius: 4px;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.2);
+  }
+
+  /* Perspektiven: erstes Bild etwas kleiner, zweites größer/höher/mehr links */
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(320px, 27vw, 450px);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(300px, 24vw, 390px);
+    left: clamp(-14px, 1.2vw, 16px);
+    bottom: clamp(6px, 1.6vw, 26px);
+  }
+}
+
+@media (max-width: 1023px) {
+  /* Bilder nebeneinander mobil untereinander */
+  .fashion-grid,
+  .fashion-grid.strasse-grid,
+  .fashion-grid.alltag-grid,
+  #anspruchsgruppen .case-section-image-dual {
+    grid-template-columns: 1fr;
+  }
+
+  .fashion-grid .fashion-tile,
+  .fashion-grid.strasse-grid .fashion-tile,
+  .fashion-grid.alltag-grid .fashion-tile,
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile,
+  #dynamic-brand-work .quote-wide-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #dynamic-brand-work .quote-card {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    min-height: clamp(220px, 52vw, 320px);
+    overflow: hidden;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 44% center;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    margin-top: 10px;
+    padding: 4px 2px;
+  }
+}
+
+@media (max-width: 880px) {
+  /* maximal 5px Seitenrand */
+  .projects-grid-section {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .projects-grid-section .case-section-image-main,
+  .projects-grid-section .case-section-image-dual,
+  .projects-grid-section .quote-wide-image,
+  .projects-grid-section .k3-hero,
+  .projects-grid-section .fashion-grid,
+  .projects-grid-section .fashion-grid .fashion-tile {
+    width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-260215-04-quote-container {
+    inset-inline: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .section-260215-02-quote-style {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0.8rem 0.85rem;
+  }
+
+  .feature-pill-title {
+    font-size: clamp(0.96rem, 5.6vw, 1.44rem);
+    line-height: 1;
+    width: auto;
+  }
+
+  .hero-meta {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-meta span:not(:last-child)::after {
+    margin-left: 6px;
+  }
+
+  /* mobile corner radius even subtler */
+  .case-section-image-main,
+  .case-section-image-tile,
+  .case-section-image-dual .overflow-hidden,
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img,
+  .quote-wide-image,
+  .k3-wrap .k3-media,
+  .k3-wrap .k3-hero,
+  .fashion-tile,
+  .hero-image-inner,
+  .cta-section,
+  .quote-card,
+  .section-260215-02-quote-style {
+    border-radius: 3px;
+  }
+}
+
+/* CI 260221-02: leichte Schlagschatten für KI-Bridge-Elemente */
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 880px) {
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img {
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12), 0 2px 5px rgba(15, 23, 42, 0.07);
+  }
+
+}
+
+/* CI 260221-03: mobile recovery for Brandpanel + DataFlow parity + tighter corners */
+@media (max-width: 880px) {
+  /* Dynamische Umsetzung im Brandpanel: Layout entkoppeln und sauber stapeln */
+  #dynamic-brand-work {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: clip;
+  }
+
+  #dynamic-brand-work .quote-card {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible;
+    gap: 10px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  #dynamic-brand-work .quote-card .quote-label {
+    margin-bottom: 0;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    order: 2;
+    position: relative;
+    display: block;
+    overflow: visible;
+    min-height: 0;
+    margin-bottom: 0;
+    width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 46% center;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    order: 3;
+    position: static !important;
+    max-width: 100% !important;
+    margin: 6px 0 0;
+    padding: 0 2px;
+    border: 0;
+    background: transparent;
+  }
+
+  #dynamic-brand-work .quote-card .panel-cta-row {
+    order: 4;
+    margin-top: 4px;
+  }
+
+}
+
+/* CI 260221-04: Brandpanel Entkapselung (Text aus Bild-Container) */
+#dynamic-brand-work .quote-text-overlay {
+  position: static !important;
+  max-width: 62ch;
+  margin: 10px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  #dynamic-brand-work .quote-text-overlay {
+    max-width: min(42ch, 68%);
+  }
+}
+
+@media (max-width: 880px) {
+  #dynamic-brand-work .quote-text-overlay {
+    max-width: 100% !important;
+    margin-top: 8px;
+    padding: 0 2px;
+  }
+}
+
+/* CI 260221-07: Glass overlays (Brandpanel text + Data Flow + Feature pill tuning) */
+.feature-pill-title {
+  font-size: clamp(1.2rem, 2.9vw, 2.35rem);
+  color: #334155;
+  border: 1px solid rgba(241, 245, 255, 0.84);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.16));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 8px 18px rgba(100, 116, 139, 0.14);
+}
+
+#dynamic-brand-work .quote-card .quote-wide-image {
+  position: relative;
+  display: block;
+  overflow: visible;
+}
+
+#dynamic-brand-work .quote-card {
+  overflow: visible;
+}
+
+#dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
+  position: static;
+  max-width: min(56ch, 100%);
+  margin: 12px 0 0;
+  padding: clamp(12px, 1.35vw, 20px);
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.18));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+  color: #1f2937;
+  z-index: 3;
+}
+
+@media (max-width: 880px) {
+  .feature-pill-title {
+    font-size: clamp(0.88rem, 4.8vw, 1.2rem);
+    padding: clamp(6px, 1.4vw, 9px) clamp(12px, 2.8vw, 16px);
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
+    position: static;
+    max-width: none;
+    margin-top: 10px;
+    padding: 10px 10px;
+    font-size: clamp(0.96rem, 3.8vw, 1.08rem);
+    line-height: 1.5;
+  }
+
+  #dynamic-brand-work .panel-cta-button {
+    width: 100%;
+    white-space: normal;
+  }
+
+}
+
+/* CI 260221-08: Perspektiven Overlay skalieren + versetzen (Desktop) */
+@media (min-width: 1024px) {
+  #anspruchsgruppen .case-section-image-dual {
+    min-height: clamp(470px, 42vw, 620px);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(300px, 24vw, 410px);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(760px, 54vw, 1040px);
+    left: clamp(-355px, -24vw, -225px);
+    bottom: clamp(12px, 1.2vw, 26px);
+    z-index: 3;
+  }
+}

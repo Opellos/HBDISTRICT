@@ -1,0 +1,657 @@
+/* W-C-I 2026-02-15 */
+/* style3.css – bereinigte Ergänzungen/Overrides zu style2.css */
+
+/* CI 260219-01: Section spacing and bridge overlap refinements */
+@media (min-width: 881px) {
+  #status-quo.case-section {
+    gap: clamp(40px, 5vw, 84px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.15fr);
+  }
+
+  #status-quo .case-section-text {
+    max-width: 62ch;
+  }
+
+  #status-quo .case-section-image,
+  #anspruchsgruppen .case-section-image,
+  #brand-system .case-section-image {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+
+  #anspruchsgruppen.case-section {
+    gap: clamp(40px, 5vw, 84px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.15fr);
+  }
+
+  #brand-system.case-section {
+    gap: clamp(42px, 5vw, 88px);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+  }
+
+  #brand-system .case-section-text {
+    max-width: 62ch;
+  }
+
+  #section-260215-05-bridge-stack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: clamp(320px, 36vw, 520px);
+    gap: 0;
+    padding: clamp(10px, 1.2vw, 18px) 0;
+    overflow: visible;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image {
+    width: min(52%, 760px);
+    position: relative;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    margin-right: clamp(-110px, -8vw, -56px);
+    z-index: 1;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    margin-left: clamp(-110px, -8vw, -56px);
+    z-index: 2;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% + 150px);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    min-width: clamp(130px, 12vw, 180px);
+  }
+}
+
+@media (max-width: 880px) {
+  #section-260215-05-bridge-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image,
+  #section-260215-05-bridge-stack .bridge-symbol {
+    width: 100%;
+    margin: 0;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    position: static;
+    transform: none;
+    align-self: center;
+  }
+}
+
+/* CI 260220-01/02: visual tuning */
+.hero-text::before {
+  inset: auto -22% -24% -22%;
+  height: 66%;
+  opacity: 0.34;
+  filter: blur(22px);
+}
+
+.case-section-title,
+.case-section.k3-section-head .case-section-title,
+#brand-system-bridge > h3,
+.k3-wrap .k3-title,
+.cta-title {
+  color: #26313f;
+  letter-spacing: -0.05em;
+}
+
+.case-section-title,
+.case-section.k3-section-head .case-section-title,
+#brand-system-bridge > h3,
+.cta-title {
+  font-size: clamp(2.1rem, 5vw, 4.2rem);
+  line-height: 0.92;
+  font-weight: 900;
+}
+
+.featured-case-top {
+  margin: 0 0 14px;
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.feature-pill-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: clamp(8px, 0.8vw, 12px) clamp(16px, 1.6vw, 28px);
+  border-radius: 999px;
+  font-size: clamp(1.2rem, 2.9vw, 2.35rem);
+  color: #334155;
+  border: 1px solid rgba(241, 245, 255, 0.84);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.16));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 8px 18px rgba(100, 116, 139, 0.14);
+}
+
+.hero-label,
+.hero-label-dot,
+.hero-cta-secondary {
+  display: none;
+}
+
+.hero-meta {
+  gap: 8px 10px;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  background: transparent;
+}
+
+.hero-meta span:not(:last-child)::after {
+  content: "|";
+  margin-left: 8px;
+  margin-right: 2px;
+  color: #7a8393;
+  font-weight: 500;
+}
+
+.hero-subtitle,
+.case-section-text p,
+.k3-wrap .k3-lead,
+#dynamic-brand-work .quote-text,
+.cta-body {
+  font-size: 18px;
+  line-height: 1.58;
+}
+
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) {
+  min-height: 100%;
+}
+
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) .space-y-3,
+.projects-grid-section > .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-12 > div:nth-child(2) .space-y-3 > div {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  #status-quo .case-section-image-main {
+    transform: translateX(-30px);
+  }
+
+  #anspruchsgruppen.case-section {
+    gap: clamp(52px, 6vw, 96px);
+    align-items: start;
+  }
+
+  #anspruchsgruppen .case-section-image-dual {
+    position: relative;
+    display: block;
+    min-height: clamp(470px, 42vw, 620px);
+    padding-top: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
+    width: clamp(300px, 24vw, 410px);
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: clamp(760px, 54vw, 1040px);
+    max-width: none;
+    position: absolute;
+    left: clamp(-355px, -24vw, -225px);
+    bottom: clamp(12px, 1.2vw, 26px);
+    z-index: 3;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:first-child {
+    transform: translate(-1%, -18%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-image:last-child {
+    transform: translate(1%, 24%);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    min-width: clamp(170px, 15vw, 260px);
+    letter-spacing: 0.03em;
+    animation: dataFlowPulse 2.4s ease-in-out infinite;
+  }
+
+  #arbeit-geht-los.case-section,
+  #wirkung.case-section {
+    gap: clamp(52px, 6vw, 100px);
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid {
+    width: min(74%, 920px);
+    margin: 26px auto 0;
+    gap: clamp(14px, 1.6vw, 24px);
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid .fashion-tile {
+    max-width: min(43vw, 420px);
+    margin: 0 auto;
+  }
+
+  #dynamic-brand-work .quote-card {
+    display: grid;
+    gap: 12px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-label {
+    order: 1;
+    margin-bottom: 4px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    order: 2;
+    position: relative;
+    display: block;
+    overflow: visible;
+  }
+
+  #dynamic-brand-work .quote-card .panel-cta-row {
+    order: 4;
+    margin-top: 2px;
+    justify-content: center;
+  }
+
+  .panel-cta-button {
+    border-color: rgba(236, 72, 153, 0.24);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.94));
+  }
+
+  .cta-section {
+    overflow: visible;
+  }
+
+  .cta-figure {
+    align-self: end;
+    margin-top: 0;
+    transform: translateY(-78px);
+    pointer-events: none;
+  }
+
+  .cta-figure-img {
+    object-position: center bottom;
+    max-height: clamp(320px, 28vw, 460px);
+  }
+}
+
+@media (max-width: 1023px) {
+  #status-quo .case-section-image-main {
+    transform: none;
+  }
+
+  .fashion-grid,
+  .fashion-grid.strasse-grid,
+  .fashion-grid.alltag-grid,
+  #anspruchsgruppen .case-section-image-dual {
+    grid-template-columns: 1fr;
+  }
+
+  #anspruchsgruppen .case-section-image-dual {
+    display: grid;
+    gap: 12px;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile,
+  .fashion-grid .fashion-tile,
+  .fashion-grid.strasse-grid .fashion-tile,
+  .fashion-grid.alltag-grid .fashion-tile,
+  #dynamic-brand-work .quote-wide-image {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    min-width: 160px;
+    animation: dataFlowPulse 2.4s ease-in-out infinite;
+  }
+
+  #arbeit-geht-los .fashion-grid.strasse-grid {
+    width: 100%;
+    gap: 12px;
+  }
+
+  #dynamic-brand-work .quote-card {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    position: relative;
+    min-height: clamp(220px, 52vw, 320px);
+    overflow: hidden;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 44% center;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    position: static !important;
+    max-width: 100% !important;
+    margin-top: 10px;
+    padding: 4px 2px;
+    border: 0;
+    background: transparent;
+  }
+
+  .cta-figure {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 880px) {
+  #section-260215-04-image {
+    object-position: 15% center;
+  }
+
+  #section-260215-05 .section-260215-04-quote-container {
+    inset-inline: 0;
+    width: 100%;
+    padding: 0.4rem 5px 0.8rem;
+  }
+
+  #section-260215-05 .section-260215-02-quote-style {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0.95rem 1rem;
+    box-sizing: border-box;
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.26));
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden,
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) .overflow-hidden img {
+    width: 100%;
+  }
+
+  #dynamic-brand-work {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: clip;
+  }
+
+  #dynamic-brand-work .quote-card {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible;
+    gap: 10px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  #dynamic-brand-work .quote-card .quote-label {
+    margin-bottom: 0;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image {
+    order: 2;
+    position: relative;
+    display: block;
+    overflow: visible;
+    min-height: 0;
+    margin-bottom: 0;
+    width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #dynamic-brand-work .quote-card .quote-wide-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 46% center;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    max-width: 100% !important;
+    margin-top: 8px;
+    padding: 0 2px;
+  }
+
+  #dynamic-brand-work .panel-cta-button {
+    width: 100%;
+    white-space: normal;
+  }
+
+  #dynamic-brand-work .quote-card .panel-cta-row {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #dynamic-brand-work .quote-text {
+    max-width: 100%;
+  }
+
+  .projects-grid-section {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .projects-grid-section .case-section-image-main,
+  .projects-grid-section .case-section-image-dual,
+  .projects-grid-section .quote-wide-image,
+  .projects-grid-section .k3-hero,
+  .projects-grid-section .fashion-grid,
+  .projects-grid-section .fashion-grid .fashion-tile {
+    width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-pill-title {
+    font-size: clamp(0.88rem, 4.8vw, 1.2rem);
+    padding: clamp(6px, 1.4vw, 9px) clamp(12px, 2.8vw, 16px);
+  }
+
+  .hero-meta {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-meta span:not(:last-child)::after {
+    margin-left: 6px;
+  }
+
+  .case-section-image-main,
+  .case-section-image-tile,
+  .case-section-image-dual .overflow-hidden,
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img,
+  .quote-wide-image,
+  .k3-wrap .k3-media,
+  .k3-wrap .k3-hero,
+  .fashion-tile,
+  .hero-image-inner,
+  .cta-section,
+  .quote-card {
+    border-radius: 3px;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img {
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12), 0 2px 5px rgba(15, 23, 42, 0.07);
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* CI 260220-03 / 260221-xx: finishing passes */
+.case-section-image-main,
+.case-section-image-tile,
+.case-section-image-dual .overflow-hidden,
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img,
+.quote-wide-image,
+.k3-wrap .k3-media,
+.k3-wrap .k3-hero,
+.fashion-tile,
+.hero-image-inner,
+.cta-section,
+.quote-card {
+  border-radius: 4px;
+}
+
+#section-260215-05-bridge-stack .bridge-image > div,
+#section-260215-05-bridge-stack .bridge-image img {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+#dynamic-brand-work .quote-text-overlay {
+  position: static !important;
+  max-width: 62ch;
+  margin: 10px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#dynamic-brand-work .quote-card {
+  position: relative;
+  overflow: visible;
+  gap: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
+  position: static;
+  max-width: min(56ch, 100%);
+  margin: 12px 0 0;
+  padding: clamp(12px, 1.35vw, 20px);
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.18));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+  color: #1f2937;
+  z-index: 3;
+}
+
+.bridge-symbol.dataflow-loop {
+  min-width: 160px;
+  min-height: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  background: linear-gradient(90deg, #207cfa, #ff3cd0);
+  box-shadow: 0 0 15px rgba(255, 60, 208, 0.6), 0 0 15px rgba(32, 124, 250, 0.6);
+  position: relative;
+  z-index: 2;
+  border-radius: 8px;
+}
+
+.bridge-symbol.dataflow-loop::before,
+.bridge-symbol.dataflow-loop::after {
+  display: none;
+}
+
+.bridge-symbol.dataflow-loop::after {
+  content: 'Data Flow';
+  position: static;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  filter: none;
+  animation: none;
+  color: inherit;
+}
+
+@media (min-width: 1024px) {
+  #brand-system-bridge > h3,
+  #brand-system-bridge h3.text-5xl.lg\:text-6xl {
+    position: relative;
+    z-index: 4;
+    margin-bottom: clamp(20px, 2.4vw, 34px);
+  }
+
+  #section-260215-05-bridge-stack {
+    margin-top: clamp(18px, 2vw, 30px);
+    z-index: 2;
+  }
+
+  #section-260215-05-bridge-stack .bridge-image > div,
+  #section-260215-05-bridge-stack .bridge-image img {
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    border-radius: 4px;
+  }
+
+  #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
+    top: calc(50% + 150px);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.2);
+  }
+
+  #dynamic-brand-work .quote-text {
+    max-width: 33%;
+  }
+
+  #dynamic-brand-work .quote-text-overlay {
+    max-width: min(42ch, 68%);
+  }
+}
+
+@media (max-width: 880px) {
+  #dynamic-brand-work .quote-card .quote-wide-image .quote-text-overlay {
+    position: static;
+    max-width: none;
+    margin-top: 10px;
+    padding: 10px 10px;
+    font-size: clamp(0.96rem, 3.8vw, 1.08rem);
+    line-height: 1.5;
+  }
+}
+
+@keyframes dataFlowPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 rgba(236, 72, 153, 0.35), 0 0 0 rgba(59, 130, 246, 0.25);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 18px rgba(236, 72, 153, 0.48), 0 0 30px rgba(59, 130, 246, 0.32);
+  }
+}
