@@ -347,8 +347,8 @@
   }
 
   #dynamic-brand-work .quote-text-overlay {
-    position: static !important;
-    max-width: 100% !important;
+    position: static;
+    max-width: 100%;
     margin-top: 10px;
     padding: 4px 2px;
     border: 0;
@@ -394,20 +394,20 @@
   }
 
   #dynamic-brand-work {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     overflow-x: clip;
   }
 
   #dynamic-brand-work .quote-card {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     overflow: visible;
     gap: 10px;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   #dynamic-brand-work .quote-card .quote-label {
@@ -434,7 +434,7 @@
   }
 
   #dynamic-brand-work .quote-text-overlay {
-    max-width: 100% !important;
+    max-width: 100%;
     margin-top: 8px;
     padding: 0 2px;
   }
@@ -449,8 +449,8 @@
   }
 
   .projects-grid-section {
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   .projects-grid-section .case-section-image-main,
@@ -557,7 +557,7 @@
   margin: 0;
   object-fit: contain;
   object-position: center center;
-  transform: none !important;
+  transform: none;
 }
 
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel {
@@ -626,129 +626,5 @@
   #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel > .panel-cta-row > .panel-cta-button {
     width: 100%;
     max-width: none;
-  }
-}
-
-/* dynamic-brand-work breakout image band v2 */
-#dynamic-brand-work {
-  overflow-x: visible;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide {
-  width: min(100%, 1280px);
-  margin-inline: auto;
-  overflow: visible;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image {
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  background: #fff;
-  padding-block: clamp(0.75rem, 1.6vw, 1.5rem);
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image img {
-  display: block;
-  width: min(100%, 1280px);
-  max-width: min(100%, 1280px);
-  margin-inline: auto;
-  height: auto;
-  object-fit: contain;
-  object-position: center center;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel {
-  width: min(100%, 1280px);
-  margin-inline: auto;
-}
-
-@media (max-width: 767px) {
-  #dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    aspect-ratio: auto;
-    padding-block: 0.5rem;
-  }
-
-  #dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image img {
-    width: 100%;
-    max-width: none;
-    height: auto;
-    object-fit: contain;
-    object-position: center center;
-  }
-}
-
-/* dynamic-brand-work full-bleed image override v3 */
-#dynamic-brand-work {
-  width: 100%;
-  max-width: none;
-  overflow: visible !important;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  gap: clamp(1rem, 2vw, 1.75rem);
-  overflow: visible !important;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-label,
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel {
-  width: min(1280px, calc(100vw - 2rem)) !important;
-  max-width: min(1280px, calc(100vw - 2rem)) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image {
-  position: relative;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-}
-
-#dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image img {
-  display: block;
-  width: 100vw !important;
-  max-width: none !important;
-  min-width: 100vw;
-  height: auto !important;
-  margin: 0 !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-}
-
-@media (max-width: 767px) {
-  #dynamic-brand-work > .quote-card.quote-card-wide > .quote-label,
-  #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel {
-    width: calc(100vw - 1.5rem) !important;
-    max-width: calc(100vw - 1.5rem) !important;
-  }
-
-  #dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image,
-  #dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image img {
-    width: 100vw !important;
-    min-width: 100vw;
-    max-width: none !important;
   }
 }
