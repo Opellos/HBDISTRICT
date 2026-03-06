@@ -13,9 +13,14 @@
   }
 
   #status-quo .case-section-image,
-  #anspruchsgruppen .case-section-image,
-  #brand-system .case-section-image {
+  #anspruchsgruppen .case-section-image {
     margin-top: 0;
+    align-self: flex-start;
+  }
+
+  /* vertiefung _hb: Bild in "Vertiefung & Umsetzung" etwas tiefer setzen */
+  #brand-system .case-section-image {
+    margin-top: clamp(22px, 2.2vw, 40px);
     align-self: flex-start;
   }
 
@@ -33,6 +38,12 @@
     max-width: 62ch;
   }
 
+  /* brandspace _hb: mehr Raum um die Brand-System-Sektion, damit unten nichts überlappt */
+  #brand-system-bridge {
+    padding-top: clamp(8px, 1.1vw, 16px);
+    padding-bottom: clamp(28px, 3.4vw, 56px);
+  }
+
   #section-260215-05-bridge-stack {
     display: flex;
     align-items: center;
@@ -42,6 +53,7 @@
     gap: 0;
     padding: clamp(10px, 1.2vw, 18px) 0;
     overflow: visible;
+    margin-bottom: clamp(26px, 3vw, 48px);
   }
 
   #section-260215-05-bridge-stack .bridge-image {
@@ -70,6 +82,12 @@
 }
 
 @media (max-width: 880px) {
+  /* brandspace _hb: auf kleineren Viewports ebenfalls sauberen Abstand sichern */
+  #brand-system-bridge {
+    padding-top: clamp(6px, 1.6vw, 12px);
+    padding-bottom: clamp(18px, 4.6vw, 32px);
+  }
+
   #section-260215-05-bridge-stack {
     display: flex;
     flex-direction: column;
@@ -87,6 +105,11 @@
     position: static;
     transform: none;
     align-self: center;
+  }
+
+  /* vertiefung _hb: mobil ebenfalls etwas Luft oberhalb des Bildes */
+  #brand-system .case-section-image {
+    margin-top: 14px;
   }
 }
 
@@ -542,6 +565,13 @@
   margin: 0;
   text-align: left;
   align-self: flex-start;
+  /* dynamisch_hb: gleiche Typo-Logik wie die anderen Sektionsüberschriften */
+  color: #26313f;
+  letter-spacing: -0.05em;
+  font-size: clamp(2.1rem, 5vw, 4.2rem);
+  line-height: 0.92;
+  font-weight: 900;
+  text-transform: none;
 }
 
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-wide-image {
