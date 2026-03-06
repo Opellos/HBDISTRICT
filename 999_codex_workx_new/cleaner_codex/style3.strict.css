@@ -189,31 +189,34 @@
     transform: translateX(-30px);
   }
 
+  /* haustue _hb: Bild in "Status quo vor der Haustür" etwas nach unten setzen */
+  #status-quo .case-section-image {
+    margin-top: clamp(10px, 1.4vw, 20px);
+  }
+
   #anspruchsgruppen.case-section {
     gap: clamp(52px, 6vw, 96px);
     align-items: start;
   }
 
+  /* pic_control _hb: Bildbereich Anspruchsgruppen stabilisieren, ohne Ausbrechen */
   #anspruchsgruppen .case-section-image-dual {
-    position: relative;
-    display: block;
-    min-height: clamp(470px, 42vw, 620px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(12px, 1.6vw, 20px);
+    min-height: 0;
     padding-top: 0;
   }
 
-  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child {
-    width: clamp(300px, 24vw, 410px);
-    margin-left: auto;
-    margin-right: 0;
-  }
-
+  /* pic_control _hb: Kacheln bleiben im Container und werden nicht absolut herausgezogen */
+  #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child,
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-    width: clamp(760px, 54vw, 1040px);
-    max-width: none;
-    position: absolute;
-    left: clamp(-355px, -24vw, -225px);
-    bottom: clamp(12px, 1.2vw, 26px);
-    z-index: 3;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    position: static;
+    left: auto;
+    bottom: auto;
   }
 
   #section-260215-05-bridge-stack .bridge-image:first-child {
@@ -294,6 +297,11 @@
 @media (max-width: 1023px) {
   #status-quo .case-section-image-main {
     transform: none;
+  }
+
+  /* haustue _hb: auch mobil etwas Luft oberhalb des Haustür-Bildes */
+  #status-quo .case-section-image {
+    margin-top: 10px;
   }
 
   .fashion-grid,

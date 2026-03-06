@@ -1309,15 +1309,6 @@ body.roadmap-theme-active .reveal-on-scroll.is-visible,
   gap: 2rem;
 }
 
-.case-section-image.case-section-image-dual .case-section-image-tile:nth-child(2) {
-  max-width: min(96%, 620px);
-  align-self: flex-start;
-}
-
-.case-section-image.case-section-image-dual .case-section-image-tile:nth-child(2) .aspect-\[3\/4\] {
-  aspect-ratio: 3/4;
-}
-
 /* Footer styles (assuming shared with main CSS if not explicitly defined here) */
 footer {
   padding-top: 32px;
