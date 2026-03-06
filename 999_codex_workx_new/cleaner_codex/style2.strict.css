@@ -47,6 +47,20 @@ body.roadmap-theme-active::before {
   opacity: 1;
 }
 
+/* Projekte-Hero sizing guard (prevents global oversized title from style.css) */
+.hero-section_3 .hero-brand-title {
+  font-size: clamp(3rem, 4.8vw, 8.4rem);
+  line-height: 0.95;
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-section_3 .hero-brand-title {
+    font-size: clamp(2.4rem, 10vw, 4.2rem);
+    margin-left: 0;
+  }
+}
+
 /* Animations */
 @keyframes gradient {
   0% {
@@ -1003,8 +1017,11 @@ header.case-hero img {
 }
 
 .named-spacer-260215-01 {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  display: block;
+  width: 100%;
+  height: clamp(24px, 4vw, 56px);
+  margin: 0;
+  pointer-events: none;
 }
 
 /* Specific image container adjustments */
