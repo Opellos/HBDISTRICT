@@ -14,13 +14,14 @@
 
   #status-quo .case-section-image,
   #anspruchsgruppen .case-section-image {
-    margin-top: 0;
+    /* Bildabstand _hb: oberen Bildabstand in beiden Sektionen deutlich erhöht */
+    margin-top: clamp(30px, 3.6vw, 60px);
     align-self: flex-start;
   }
 
-  /* vertiefung _hb: Bild in "Vertiefung & Umsetzung" etwas tiefer setzen */
+  /* Bildabstand _hb: vorhandenen Abstand in "Vertiefung & Umsetzung" auf das Dreifache angehoben */
   #brand-system .case-section-image {
-    margin-top: clamp(22px, 2.2vw, 40px);
+    margin-top: clamp(66px, 6.6vw, 120px);
     align-self: flex-start;
   }
 
@@ -107,9 +108,9 @@
     align-self: center;
   }
 
-  /* vertiefung _hb: mobil ebenfalls etwas Luft oberhalb des Bildes */
+  /* Bildabstand _hb: mobil den oberen Abstand für Vertiefung & Umsetzung ebenfalls klar erhöht */
   #brand-system .case-section-image {
-    margin-top: 14px;
+    margin-top: 42px;
   }
 }
 
@@ -148,20 +149,21 @@
   color: #6b7280;
 }
 
+/* Glass Case _hb: Label "Feature Case" gestalterisch zurücknehmen und als Glassmorphism-Pill führen */
 .feature-pill-title {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
-  padding: clamp(8px, 0.8vw, 12px) clamp(16px, 1.6vw, 28px);
+  padding: clamp(7px, 0.75vw, 10px) clamp(14px, 1.3vw, 20px);
   border-radius: 999px;
-  font-size: clamp(1.2rem, 2.9vw, 2.35rem);
-  color: #334155;
-  border: 1px solid rgba(241, 245, 255, 0.84);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.16));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 8px 18px rgba(100, 116, 139, 0.14);
+  font-size: clamp(1rem, 2.1vw, 1.6rem);
+  color: rgba(51, 65, 85, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.14));
+  backdrop-filter: blur(12px) saturate(135%);
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 18px rgba(100, 116, 139, 0.14);
 }
 
 .hero-label,
@@ -212,10 +214,6 @@
     transform: translateX(-30px);
   }
 
-  /* haustue _hb: Bild in "Status quo vor der Haustür" etwas nach unten setzen */
-  #status-quo .case-section-image {
-    margin-top: clamp(10px, 1.4vw, 20px);
-  }
 
   #anspruchsgruppen.case-section {
     gap: clamp(52px, 6vw, 96px);
@@ -246,8 +244,9 @@
     transform: translate(-1%, -18%);
   }
 
+  /* Bildüberlagerung _hb: unteres Bild gezielt weiter nach unten versetzen, Überlagerung bleibt erhalten */
   #section-260215-05-bridge-stack .bridge-image:last-child {
-    transform: translate(1%, 24%);
+    transform: translate(1%, 36%);
   }
 
   #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
@@ -322,9 +321,11 @@
     transform: none;
   }
 
-  /* haustue _hb: auch mobil etwas Luft oberhalb des Haustür-Bildes */
-  #status-quo .case-section-image {
-    margin-top: 10px;
+  /* Bildabstand _hb: mobil oberen Bildabstand in den betroffenen Sektionen deutlich erhöhen */
+  #status-quo .case-section-image,
+  #anspruchsgruppen .case-section-image,
+  #brand-system .case-section-image {
+    margin-top: 30px;
   }
 
   .fashion-grid,
@@ -495,9 +496,10 @@
     margin-right: auto;
   }
 
+  /* Glass Case _hb: auf mobil ebenfalls kompaktere Typo und zurückgenommene Pill-Geometrie */
   .feature-pill-title {
-    font-size: clamp(0.88rem, 4.8vw, 1.2rem);
-    padding: clamp(6px, 1.4vw, 9px) clamp(12px, 2.8vw, 16px);
+    font-size: clamp(0.82rem, 3.8vw, 1rem);
+    padding: clamp(5px, 1.2vw, 8px) clamp(10px, 2.4vw, 14px);
   }
 
   .hero-meta {
@@ -610,12 +612,20 @@
   position: static;
 }
 
+/* Glass Panel _hb: Textfeld als kompaktes Glassmorphism-Panel mit responsiver Breite */
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel > .quote-text-overlay {
   display: block;
   width: 100%;
-  max-width: 58rem;
+  max-width: clamp(33rem, 50vw, 52rem);
   margin: 0;
   position: static;
+  padding: clamp(0.95rem, 1.4vw, 1.35rem) clamp(1rem, 1.6vw, 1.6rem);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  background: linear-gradient(132deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.16));
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 18px 34px rgba(15, 23, 42, 0.14);
 }
 
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel > .panel-cta-row {
@@ -626,9 +636,14 @@
   width: auto;
 }
 
+/* Glass Panel _hb: CTA-Button im CI-Farbverlauf neu ausarbeiten */
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel > .panel-cta-row > .panel-cta-button {
   margin: 0;
   white-space: normal;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  background: linear-gradient(105deg, #e10074 0%, #c0178c 38%, #7f4dff 68%, #207cfa 100%);
+  box-shadow: 0 14px 30px rgba(32, 124, 250, 0.28), 0 8px 18px rgba(225, 0, 116, 0.22);
 }
 
 @media (max-width: 767px) {

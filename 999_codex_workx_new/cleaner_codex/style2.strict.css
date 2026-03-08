@@ -18,6 +18,9 @@
   --radius-xl: 24px;
   --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.18);
   --shadow-subtle: 0 18px 40px rgba(15, 23, 42, 0.14);
+  /* Namespacer _hb: zentrale Sichtbarkeitssteuerung (für Livegang auf hidden/0 setzen) */
+  --namespacer-visibility: visible;
+  --namespacer-opacity: 1;
 }
 
 /* Global Reset & Base Styles */
@@ -1016,7 +1019,7 @@ header.case-hero img {
   display: none;
 }
 
-/* _hb: debug-visible spacers so active section gaps can be validated quickly */
+/* Namespacer _hb: Spacer sichtbar halten, aber zentral über CSS-Variablen steuerbar */
 .named-spacer-260215-01 {
   position: relative;
   display: block;
@@ -1026,9 +1029,11 @@ header.case-hero img {
   border: 1px dashed rgba(32, 124, 250, 0.35);
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(32, 124, 250, 0.06), rgba(32, 124, 250, 0.02));
+  visibility: var(--namespacer-visibility);
+  opacity: var(--namespacer-opacity);
 }
 
-/* _hb: show spacer name centered for easy visual tracing */
+/* Namespacer _hb: Name mittig anzeigen, solange Sichtbarkeit aktiv ist */
 .named-spacer-260215-01::before {
   content: attr(data-name);
   position: absolute;
