@@ -149,21 +149,21 @@
   color: #6b7280;
 }
 
-/* Glass Case _hb: Label "Feature Case" gestalterisch zurücknehmen und als Glassmorphism-Pill führen */
-.feature-pill-title {
+/* Glass Case _hb: Label "Feature Case" klarer als Glas-Pill ausprägen und Typo sichtbar verkleinern */
+h2.feature-pill-title {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
-  padding: clamp(7px, 0.75vw, 10px) clamp(14px, 1.3vw, 20px);
+  padding: clamp(6px, 0.65vw, 9px) clamp(12px, 1.15vw, 18px);
   border-radius: 999px;
-  font-size: clamp(1rem, 2.1vw, 1.6rem);
-  color: rgba(51, 65, 85, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.56);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.14));
-  backdrop-filter: blur(12px) saturate(135%);
-  -webkit-backdrop-filter: blur(12px) saturate(135%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 18px rgba(100, 116, 139, 0.14);
+  font-size: clamp(0.78rem, 1.35vw, 1rem);
+  color: rgba(44, 58, 78, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68), 0 10px 22px rgba(100, 116, 139, 0.14);
 }
 
 .hero-label,
@@ -229,11 +229,11 @@
     padding-top: 0;
   }
 
-  /* pic_control _hb: Kacheln bleiben im Container und werden nicht absolut herausgezogen */
+  /* Bildabstand _hb: Bildkacheln in "Perspektiven der Anspruchsgruppen" proportional verkleinern (~30%) */
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:first-child,
   #anspruchsgruppen .case-section-image-dual .case-section-image-tile:nth-child(2) {
-    width: 100%;
-    max-width: 100%;
+    width: auto;
+    max-width: 70%;
     margin: 0;
     position: static;
     left: auto;
@@ -244,9 +244,9 @@
     transform: translate(-1%, -18%);
   }
 
-  /* Bildüberlagerung _hb: unteres Bild gezielt weiter nach unten versetzen, Überlagerung bleibt erhalten */
+  /* Bildüberlagerung _hb: unteres Bild deutlich weiter nach unten, Schnittmenge sichtbar reduziert */
   #section-260215-05-bridge-stack .bridge-image:last-child {
-    transform: translate(1%, 36%);
+    transform: translate(1%, 48%);
   }
 
   #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
@@ -496,10 +496,10 @@
     margin-right: auto;
   }
 
-  /* Glass Case _hb: auf mobil ebenfalls kompaktere Typo und zurückgenommene Pill-Geometrie */
-  .feature-pill-title {
-    font-size: clamp(0.82rem, 3.8vw, 1rem);
-    padding: clamp(5px, 1.2vw, 8px) clamp(10px, 2.4vw, 14px);
+  /* Glass Case _hb: mobil ebenfalls kleineres Label mit klarer Glaswirkung */
+  h2.feature-pill-title {
+    font-size: clamp(0.72rem, 3.1vw, 0.88rem);
+    padding: clamp(4px, 1.1vw, 7px) clamp(9px, 2.1vw, 12px);
   }
 
   .hero-meta {
@@ -551,13 +551,14 @@
   overflow-x: clip;
 }
 
+/* Glass Panel _hb: Überschrift, Bild und Textpanel bündig links zur Section ausrichten */
 #dynamic-brand-work > .quote-card.quote-card-wide {
   display: flex;
   flex-direction: column;
   gap: clamp(1.1rem, 2vw, 1.75rem);
   width: min(100%, 1280px);
-  margin: 0 auto;
-  padding-inline: clamp(1rem, 2.2vw, 2rem);
+  margin: 0;
+  padding-inline: 0;
 }
 
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-label {
@@ -600,12 +601,14 @@
   transform: none;
 }
 
+/* Glass Panel _hb: Panel-Inhalte linksbündig als vertikale Gruppe führen */
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel {
   order: 3;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(1rem, 2vw, 1.75rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(0.8rem, 1.4vw, 1.1rem);
+  align-items: start;
+  justify-items: start;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -636,20 +639,21 @@
   width: auto;
 }
 
-/* Glass Panel _hb: CTA-Button im CI-Farbverlauf neu ausarbeiten */
+/* Glass Panel _hb: CI-Farbverlauf bewusst entschärfen, damit der Button ruhiger integriert wirkt */
 #dynamic-brand-work > .quote-card.quote-card-wide > .quote-feature-panel > .panel-cta-row > .panel-cta-button {
   margin: 0;
   white-space: normal;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.44);
-  background: linear-gradient(105deg, #e10074 0%, #c0178c 38%, #7f4dff 68%, #207cfa 100%);
-  box-shadow: 0 14px 30px rgba(32, 124, 250, 0.28), 0 8px 18px rgba(225, 0, 116, 0.22);
+  color: #1f2937;
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  background: linear-gradient(105deg, rgba(244, 114, 182, 0.28) 0%, rgba(216, 180, 254, 0.26) 38%, rgba(147, 197, 253, 0.3) 100%);
+  box-shadow: 0 10px 20px rgba(100, 116, 139, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 }
 
 @media (max-width: 767px) {
+  /* Glass Panel _hb: mobil ebenfalls linksbündig ohne zusätzliche Einrückung */
   #dynamic-brand-work > .quote-card.quote-card-wide {
     gap: clamp(0.85rem, 3vw, 1.2rem);
-    padding-inline: clamp(0.75rem, 4vw, 1rem);
+    padding-inline: 0;
   }
 
   #dynamic-brand-work > .quote-card.quote-card-wide > .quote-label {
