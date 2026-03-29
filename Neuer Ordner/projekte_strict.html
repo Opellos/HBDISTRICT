@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+x<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hendrik Bogner | Projekte</title>
-  <!-- strict the truth -->
+  <!-- strict slider -->
   <!-- W-C-I 2026-02-15 (260215-02) -->
   <!-- W-C-I 2026-02-15 -->
 
@@ -24,10 +24,13 @@
   <link rel="stylesheet" href="style2.strict.css">
 
   <!-- CI 260215-01 -->
-  <link rel="stylesheet" href="style3.strict.css">
+ <link rel="stylesheet" href="style3.strict.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="slider.css">
 
-  <!-- Dein globales JS (defer für nicht-blockierende Ausführung) -->
-  <script src="script.js" defer></script>
+<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="slider.js" defer></script>
 </head>
 
 <body>
@@ -99,6 +102,8 @@
 
 
   <div class="named-spacer-260215-01" data-name="Featured Projects"></div>
+	
+	
   <section class="projects-grid-section max-w-[1600px] mx-auto px-6 lg:px-12 py-12">
     <!-- CI 260215-01 -->
     
@@ -186,7 +191,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-auto grid-flow-row-dense">
       <div class="lg:col-span-12">
-        <h2 class="text-5xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-2 tracking-tight leading-[1.1] whitespace-normal break-words feature-pill-title">
+        <h2 class="text-xl lg:text-6xl font-extrabold text-[#3D4654] mt-4 mb-2 tracking-tight leading-[1.1] whitespace-normal break-words feature-pill-title">
           FEATURE CASE
         </h2>
 
@@ -212,7 +217,7 @@
           </div>
           <div class="hero-image group">
             <div class="hero-image-inner overflow-hidden aspect-[3/2]">
-              <img src="img3/01_telekom_shoot_sess_04.png" alt="Brand-Architektur im Raum" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <img src="img3/team_tele_modell_00.png" alt="Brand-Architektur im Raum" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             </div>
             <div class="hero-image-overlay-label">Willkommene Berater</div>
           </div>
@@ -277,6 +282,7 @@
                 <p>Der Ausbau von Glasfaser ist an konkrete Zeitfenster gekoppelt und steht politisch wie gesellschaftlich im Fokus. Gleichzeitig treffen hier unterschiedliche Interessen aufeinander: Kund:innen, Vertrieb, Telekom, Ranger sowie lokale Politik und Regulatoren.</p>
                 <p>Es gab bislang keinen klar definierten, positiv belegten Auftritt an der Haustür – teilweise war das Format negativ konnotiert. Für das Projekt haben wir umfangreiche Markt- und Bedarfsanalysen, Daten, Gespräche und Beobachtungen zusammengeführt, um diese Lage belastbar zu verstehen.</p>
               </div>
+				
             </div>
 
             <div class="case-section-image">
@@ -398,6 +404,333 @@
                 </div>
               </div>
             </section>
+			
+			
+			<!-- ========================================================= -->
+<!-- START: Slider-Section zwischen 3.1 "Kleidung" und 3.2 "Shooting" -->
+<!--
+  Hinweise zur Anpassung:
+  1) Diese komplette Section direkt unterhalb von <section id="teilprojekt-kleidung" ...> einsetzen.
+  2) Bildpfade, Überschriften, Texte und Pills kannst du pro Slide direkt hier ändern.
+  3) Die Optik liegt in slider.css, das Verhalten in slider.js.
+-->
+<section class="hb-fashion-slider-section" aria-label="Fashion Slider">
+  <div class="swiper hb-fashion-slider">
+    <div class="swiper-wrapper">
+
+      <!-- SLIDE 01 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 5%;
+             --copy-bottom: 8%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 34px;
+             --line2-y: 10px;
+             --line1-delay: 0ms;
+             --line2-delay: 180ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_01.png" alt="Fashion Slide 01">
+
+          <!--
+            OPTIONALE ZUSATZLAYER PRO SLIDE
+            Bei Bedarf einkommentieren und Datei ergänzen.
+            Die Layer bewegen sich mit eigener Tiefe mit.
+
+            <img class="hb-slide-layer hb-slide-layer--1" src="case_assets_slider/hb_slide_fashion_01_layer_01.png" alt="">
+            <img class="hb-slide-layer hb-slide-layer--2" src="case_assets_slider/hb_slide_fashion_01_layer_02.png" alt="">
+            <img class="hb-slide-layer hb-slide-layer--3" src="case_assets_slider/hb_slide_fashion_01_layer_03.png" alt="">
+          -->
+        </div>
+
+        <!--
+          Text pro Slide:
+          Diesen Block kannst du verschieben, ändern oder komplett weglassen.
+          Wenn eine Folie ohne Text laufen soll, hb-copy einfach entfernen.
+        -->
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 01</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 02 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-right: 6%;
+             --copy-top: 10%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: -18px;
+             --line2-y: 14px;
+             --line1-delay: 120ms;
+             --line2-delay: 0ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_04.png" alt="Fashion Slide 02">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 02</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 03 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 7%;
+             --copy-top: 16%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 42px;
+             --line2-y: 18px;
+             --line1-delay: 40ms;
+             --line2-delay: 410ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_03.png" alt="Fashion Slide 03">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 03</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 04 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-right: 5%;
+             --copy-bottom: 7%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 22px;
+             --line2-y: 8px;
+             --line1-delay: 0ms;
+             --line2-delay: 160ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_11.png" alt="Fashion Slide 04">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 04</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 05 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 18%;
+             --copy-bottom: 10%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 46px;
+             --line2-y: 12px;
+             --line1-delay: 70ms;
+             --line2-delay: 250ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_05.png" alt="Fashion Slide 05">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 05</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 06 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-right: 10%;
+             --copy-top: 24%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: -10px;
+             --line2-y: 20px;
+             --line1-delay: 150ms;
+             --line2-delay: 20ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_06.png" alt="Fashion Slide 06">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 06</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 07 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 6%;
+             --copy-top: 8%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 28px;
+             --line2-y: 16px;
+             --line1-delay: 0ms;
+             --line2-delay: 220ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_07.png" alt="Fashion Slide 07">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 07</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 08 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-right: 7%;
+             --copy-bottom: 12%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 12px;
+             --line2-y: 10px;
+             --line1-delay: 90ms;
+             --line2-delay: 210ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_08.png" alt="Fashion Slide 08">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 08</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 09 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 9%;
+             --copy-bottom: 6%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 54px;
+             --line2-y: 18px;
+             --line1-delay: 0ms;
+             --line2-delay: 260ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_09.png" alt="Fashion Slide 09">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 09</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 10 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-right: 5%;
+             --copy-top: 12%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: -24px;
+             --line2-y: 14px;
+             --line1-delay: 130ms;
+             --line2-delay: 10ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_10.png" alt="Fashion Slide 10">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 10</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 11 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 14%;
+             --copy-top: 22%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 36px;
+             --line2-y: 12px;
+             --line1-delay: 50ms;
+             --line2-delay: 200ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_11.png" alt="Fashion Slide 11">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 11</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- SLIDE 12 -->
+      <div class="swiper-slide hb-slide"
+           style="
+             --copy-left: 6%;
+             --copy-bottom: 9%;
+             --line1-x: 0px;
+             --line1-y: 0px;
+             --line2-x: 18px;
+             --line2-y: 8px;
+             --line1-delay: 0ms;
+             --line2-delay: 180ms;
+           ">
+        <div class="hb-media">
+          <img class="hb-slide-img" src="case_assets_slider/hb_slide_fashion_12.png" alt="Fashion Slide 12">
+          <!-- optionale Zusatzlayer hier -->
+        </div>
+        <div class="hb-copy">
+          <h3 class="hb-headline">
+            <span class="hb-line hb-line--1">Fashion</span>
+            <span class="hb-line hb-line--2">Story 12</span>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination hb-slider-progress"></div>
+    <button class="swiper-button-prev hb-slider-nav" type="button" aria-label="Vorheriger Slide"></button>
+    <button class="swiper-button-next hb-slider-nav" type="button" aria-label="Nächster Slide"></button>
+  </div>
+</section>
+<!-- END: Slider-Section zwischen 3.1 "Kleidung" und 3.2 "Shooting" -->
+<!-- ========================================================= -->
+
 
             <!-- SECTION 3.2: Shooting / Photoshooting -->
           <!-- CI 260215-01 -->

@@ -15,7 +15,7 @@
   #status-quo .case-section-image,
   #anspruchsgruppen .case-section-image {
     /* Bildabstand _hb: oberen Bildabstand in beiden Sektionen deutlich erhöht */
-    margin-top: clamp(30px, 3.6vw, 60px);
+    margin-top: clamp(30px, 3.6vw, 2px);
     align-self: flex-start;
   }
 
@@ -246,7 +246,7 @@ h2.feature-pill-title {
 
   /* Bildüberlagerung _hb: unteres Bild deutlich weiter nach unten, Schnittmenge sichtbar reduziert */
   #section-260215-05-bridge-stack .bridge-image:last-child {
-    transform: translate(1%, 48%);
+    transform: translate(1%, 8%);
   }
 
   #section-260215-05-bridge-stack .bridge-symbol.dataflow-loop {
